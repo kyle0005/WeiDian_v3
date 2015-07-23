@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>确认订单</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Public/css/jqui_mobile/jquery-ui.css" media="all">
+
+</head>
+<body>
+<header class="wei-header">
+    <div class="wei-header-nav clearfix">
+        <div class="pull-left color-999">
+            <a href="http://shop.golddiy.com/10001">
+                <img src="/Uploads/images/2014-11-19/546c608f3695f.jpg" width="20">
+                &ensp;<span class="omit">黄金历史</span>
+            </a>
+        </div>
+        <div class="pull-right color-999">
+            <a href="http://my.golddiy.com/" class="overText userInfo"><i class="icon-user"></i>&ensp;18321114835</a>
+        </div>
+    </div>
+</header>
+
+<form id="order-form" action="http://shop.golddiy.com/10001/order/docheckout" method="post">
+
+    <section class="buy-top">
+        <a class="buy-address-change" href="http://my.golddiy.com/address?return_url=http://shop.golddiy.com/10001/order/checkout">
+            <img src="/Public/img/map.png">
+            <p>
+                <span class="buy-address-change-left">收货人：<span>袁志凯</span></span>
+                <span class="buy-address-change-right">18321114835</span>
+            </p>
+            <p>
+                收货地址：<span>上海 上海 普陀区 上海市静安区万航渡路676弄58号</span>
+            </p>
+        </a>
+    </section>
+
+
+    <div class="buy-list">
+        <section class="buy-title mt15 mb15">
+            <div>购买的宝贝</div>
+            <div class="js-arr-con buy-title-arr-con-down">
+                <span class="js-buy-click buy-title-arr-down"></span>
+            </div>
+        </section>
+
+        <section class="buy-pros mt15">
+            <div class="buy-pro-img mr5"><img src="/Uploads/images/2015-03-25/5512592685438_s.jpg"></div>
+            <div class="buy-pro-dscp">
+                <div>中国青铜器金银纪念币（第一组）5盎司银币</div>
+                <div>5oz银币</div>
+                <div>
+                    <span>¥7500</span>                    </div>
+
+                <div class="buy-pro-num">
+                        <span>
+                            数量:
+                            <span class="js-buy-num" data-num="1">1</span>
+                        </span>
+                        <span class="buy-pro-rmb">
+                        <span class="js-buy-price"
+                              data-price="7500.00">
+                              ¥7500</span>
+                        </span>
+                </div>
+            </div>
+        </section><section class="buy-pros mt15">
+        <div class="buy-pro-img mr5"><img src="/Uploads/images/2014-11-18/546aebd37508a_s.png"></div>
+        <div class="buy-pro-dscp">
+            <div>2014APEC国礼系列《和美》纯银丝巾果盘典藏版</div>
+            <div></div>
+            <div>
+                <span>¥99800</span>                    </div>
+
+            <div class="buy-pro-num">
+                        <span>
+                            数量:
+                            <span class="js-buy-num" data-num="1">1</span>
+                        </span>
+                        <span class="buy-pro-rmb">
+                        <span class="js-buy-price"
+                              data-price="99800.00">
+                              ¥99800</span>
+                        </span>
+            </div>
+        </div>
+    </section>
+        <section class="buy-msg">
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    优惠内容
+                </div>
+                <div class="span9">
+                    <div class="js-couponInfo span7 hide">
+                        <div class="lh30">
+                            <input id="coupon_code" name="coupon_code" type="hidden" value="">
+                            优惠<span class="js-coupon-price text-error">暂无售价</span>元
+                        </div>
+                    </div>
+                    <div class="js-couponOk hide clearfix">
+                        <input id="input-coupon-code" type="text" placeholder="请输入优惠券码" class="pull-left coupon-val" value=""
+                               style="margin-bottom: 0;border-radius:0;border-right:0;padding:0;text-indent:5px;width:65%;height:25px;">
+                        <a class="js-couponOk-btn btn wei-bg-red lh25 pull-left" href="javascript:;"
+                           style="height: 25px;padding: 0;margin: 0;border-radius:0;background-image:none;text-shadow: none;">&nbsp;确认&nbsp;</a>
+                    </div>
+                    <div class="js-chk span5">
+                        <label class="fs12 lh30" style="margin-bottom: 0;">
+                            <input type="checkbox" class="js-useCoupon"
+                                   style="-webkit-appearance:checkbox;margin-top: 0;">&nbsp;使用优惠券
+                        </label>
+                    </div>                </div>
+            </div>
+
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    配送方式
+                </div>
+                <div class="span9">
+                    <select name="express_id" class="chooseExpress fs12 lh30">
+                        <option data-value="3" value="3">顺丰快递</option>                    </select>
+                </div>
+            </div>
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    卖家留言
+                </div>
+                <div class="span9">
+                    <input type="text" maxlength="200" name="remark" value=""
+                           placeholder="可告诉卖家您的特殊要求" class="buy-note">
+                </div>
+            </div>
+        </section>
+        <div class="text-right mg5">
+            合计:
+            <span class="buy-listRmb">
+                ￥<span class="js-buy-listRmb"></span>
+            </span>
+        </div>
+        <section class="buy-sub pb10">
+            <div class="submit-self sub-btn">
+                <input id="order-btn" type="button" class="wei-btn wei-bg-red" value="提交订单">
+            </div>
+        </section>
+    </div>
+
+</form>
+
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/weixin.api.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
+
+<script type="text/javascript" src="Public/js/BigDecimal-all-last.min.js"></script>
+<script>
+    //初始化计算参数
+    var prices = 107300;
+    var couponNum = 0;
+    var expreeVal = 0;
+    $(function () {
+        //初始化显示
+        $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal));
+
+        //优惠券处理
+        $('.js-useCoupon').click(function () {
+            $('.js-couponInfo').hide();
+            $('.js-couponOk').show();
+            $('.js-chk').hide();
+            $('.js-couponCon').removeClass('span7').addClass('.span12');
+        });
+
+        $('.js-couponOk-btn').click(function () {
+            JQAjax.post(this,{
+                url : "http://shop.golddiy.com/10001/ajax/validcoupon",
+                form : {
+                    "products" : [],
+                    "code" : $('#input-coupon-code').val()
+                },
+                wait : true
+
+            })
+        });
+
+        $('#order-btn').click(function () {
+            JQAjax.post(this, {
+                url: $('#order-form').attr('action'),
+                form : 'order-form',
+                wait : true
+            });
+        });
+    });
+    function success_coupon(coupon_price) {
+        couponNum = coupon_price;
+        $('.js-couponOk').hide();
+        $('.js-coupon-price').html(couponNum);
+        $('.js-couponInfo').show();
+        $('#coupon_code').val($('#input-coupon-code').val());
+        $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal));
+    }
+
+    WeixinApi.ready(function(Api) {
+        Api.hideOptionMenu();
+    });
+</script>
+
+<script>
+    /** 百度统计 */
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?77529677be75e1709b97d175055722ab";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+    $(function() {
+        $.getScript("http://api.net.golddiy.com/quantal/create?userip=180.169.33.214&userid=3&shopid=10001&rawurl=http%253A%252F%252Fshop.golddiy.com%252F10001%252Forder%252Fcheckout&urlreferrer=http%253A%252F%252Fshop.golddiy.com%252F10001%252Fcart&body=%257B%2522HTTP_HOST%2522%253A%2522shop.golddiy.com%2522%252C%2522HTTP_CONNECTION%2522%253A%2522keep-alive%2522%252C%2522HTTP_CACHE_CONTROL%2522%253A%2522max-age%253D0%2522%252C%2522HTTP_ACCEPT%2522%253A%2522text%255C%252Fhtml%252Capplication%255C%252Fxhtml%252Bxml%252Capplication%255C%252Fxml%253Bq%253D0.9%252Cimage%255C%252Fwebp%252C%252A%255C%252F%252A%253Bq%253D0.8%2522%252C%2522HTTP_USER_AGENT%2522%253A%2522Mozilla%255C%252F5.0%2B%2528iPhone%253B%2BU%253B%2BCPU%2BiPhone%2BOS%2B4_2_1%2Blike%2BMac%2BOS%2BX%253B%2Ben-us%2529%2BAppleWebKit%255C%252F533.17.9%2B%2528KHTML%252C%2Blike%2BGecko%2529%2BVersion%255C%252F5.0.2%2BMobile%255C%252F8C148%2BSafari%255C%252F6533.18.5%2522%252C%2522HTTP_ACCEPT_ENCODING%2522%253A%2522gzip%252C%2Bdeflate%252C%2Bsdch%2522%252C%2522HTTP_ACCEPT_LANGUAGE%2522%253A%2522zh-CN%252Czh%253Bq%253D0.8%252Cen%253Bq%253D0.6%2522%257D");
+    });
+</script>
+</body>
+</html>

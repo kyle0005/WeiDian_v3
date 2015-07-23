@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>查看交易记录</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            查看交易记录
+        </div>
+    </div>
+</header>
+<section>
+    <ul>
+        <li class="p10 tra-con bb clearfix">
+            <span class="tra-detail"><span class="pb5 bb">成交号:1233423413323</span></span>
+            <span class="tra-detail text-right color-theme2">￥213123</span>
+            <span class="tra-detail mt5">商品代码:1231333423<br>2015.01.01</span>
+            <span class="tra-detail mt5 text-right">x2</span>
+        </li>
+        <li class="p10 tra-con bb clearfix">
+            <span class="tra-detail"><span class="pb5 bb">成交号:1233423413323</span></span>
+            <span class="tra-detail text-right color-theme2">￥213123</span>
+            <span class="tra-detail mt5">商品代码:1231333423<br>2015.01.01</span>
+            <span class="tra-detail mt5 text-right">x2</span>
+        </li>
+        <li class="p10 tra-con bb clearfix">
+            <span class="tra-detail"><span class="pb5 bb">成交号:1233423413323</span></span>
+            <span class="tra-detail text-right color-theme2">￥213123</span>
+            <span class="tra-detail mt5">商品代码:1231333423<br>2015.01.01</span>
+            <span class="tra-detail mt5 text-right">x2</span>
+        </li>
+    </ul>
+</section>
+<div style="height: 41px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;返回店铺
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;用户中心
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script>
+    $(function () {
+        $('.js-more').click(function () {
+            var tra_opt = $(this).parents().siblings('.js-tra-opt');
+            if($(tra_opt).hasClass('hide')){
+                $(tra_opt).removeClass('hide');
+                $(this).removeClass('tra-more').addClass('tra-more-cli');
+
+            }else{
+                $(tra_opt).addClass('hide');
+                $(this).removeClass('tra-more-cli').addClass('tra-more');
+            }
+        });
+    });
+</script>
+</body>
+</html>

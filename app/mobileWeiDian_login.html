@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>登录</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            登录
+        </div>
+    </div>
+</header>
+<section class="reg-content">
+    <form method="post" id="log-form">
+        <fieldset>
+            <div class="reg-module">
+                <div class="reg-user-wrap reg-form-wrap relative">
+                    <input type="text" class="js-name" name="username" placeholder="账户名">
+                </div>
+                <div class="js-name-text reg-agree"></div>
+            </div>
+            <div class="reg-module">
+                <div class="reg-pwd-wrap reg-form-wrap relative">
+                    <input type="password"  class="js-pwd" name="pwd" placeholder="密码">
+                </div>
+                <div class="js-pwd-text reg-agree"></div>
+            </div>
+
+            <div class="reg-bottom">
+                <input type="submit" class="reg-btn" value="登录">
+                <a href="register.html">免费注册</a>
+                <a href="findPwd.html">找回密码</a>
+            </div>
+
+        </fieldset>
+    </form>
+</section>
+
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/jquery.validate.js"></script>
+<script src="Public/js/formValidatorClass.js"></script>
+<script>
+    $(function() {
+        //开始验证
+        $('#log-form').validate({
+            /* 设置验证规则 */
+            rules: {
+                username: {
+                    required: true,
+                    stringCheck: true,
+                    byteRangeLength: [3, 15]
+                },
+                pwd: {
+                    required: true
+                }
+            },
+
+            /* 设置错误信息 */
+            messages: {
+                username: {
+                    required: "请填写用户名",
+                    stringCheck: "用户名只能包括中文字、英文字母、数字和下划线",
+                    byteRangeLength: "用户名必须在3-15个字符之间(一个中文字算2个字符)"
+                },
+                pwd: {
+                    required: "请输入密码"
+                }
+            },
+
+            /* 设置验证触发事件 */
+            focusInvalid: false,
+            onkeyup: false,
+
+            /* 设置错误信息提示DOM */
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent());
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

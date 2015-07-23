@@ -1,0 +1,98 @@
+.nav-wrap{
+  position:relative;
+  padding:9px 0;
+  width:100%;
+  background:#fbfbfb;
+  border-bottom:1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-wrap .nav{
+  position:relative;
+  color:#5f646e;
+  width:100%;
+  min-width:300px;
+  height:25px;
+  line-height:25px;
+}
+
+.nav{
+  margin-bottom:0;
+}
+
+.nav-wrap .nav > div{
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.nav-back{
+  position:absolute;
+  left:15px;
+  height:25px;
+  line-height:25px;
+}
+
+.nav-back-icon{
+  display:inline-block;
+}
+
+.nav-title{
+  color:#000000;
+  font-weight:bold;
+  text-align:center;
+  width:100%;
+}
+
+.reg-listRow{
+  padding:5px 0 0 0;
+}
+
+.inputBlock{
+  width:100%;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+.inputText:nth-last-child(1){
+  margin-right:0;
+}
+
+.reg-listRow .inputText:hover{
+  border:1px solid #c5c5c5;
+}
+
+.reg-listRow .inputText{
+  border:1px solid #E5E5E5;
+  line-height:normal;
+  height:40px;
+  padding:0 2px;
+  color:#666;
+  vertical-align:middle;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  border-radius:0;
+  -moz-border-radius:0;
+  -webkit-border-radius:0;
+  box-shadow:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+}
+
+.valcode-btn{
+  line-height:38px;
+}
+
+.loginRw{
+  position:fixed;
+  right:10px;
+  display:block;
+  width:40px;
+  height:40px;
+  top:350px;
+}
+
+.sub-btn{
+  line-height:30px;
+  text-align:center;
+}

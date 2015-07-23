@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <title>注册</title>
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back color-black">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">注册</div>
+    </div>
+</header>
+<div class="wei-container10 color-666 ">
+    <form method="post" id="reg-form">
+        <div class="text-center">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="rel mb10">
+            <div class="reg-listRow">
+                <input id="mobile" type="text" class="inputText inputBlock" name="mobile" placeholder="手机">
+                <div><b class="color-theme">*</b> 11位数字</div>
+            </div>
+            <div class="reg-listRow">
+                <input id="certificate_no" type="text" class="inputText inputBlock" name="certificate_no" placeholder="身份证号">
+                <div><b class="color-theme">*</b> 6-21位数字或字母</div>
+            </div>
+            <div class="reg-listRow">
+                <input id="contactman" type="text" class="inputText inputBlock" name="contactman" placeholder="联系人">
+            </div>
+            <div class="reg-listRow">
+                <select id="bank" class="select" name="bank">
+                    <option>工商银行</option>
+                    <option>招商银行</option>
+                    <option>农业银行</option>
+                </select>
+            </div>
+            <div class="reg-listRow">
+                <input id="bank_account" type="text" class="inputText inputBlock" name="bank_account" placeholder="银行账户">
+                <div><b class="color-theme">*</b> 15-19位数字或字母</div>
+            </div>
+            <div class="reg-listRow">
+                <textarea id="address" type="text" class="inputTextarea inputBlock" name="address" placeholder="地址"
+                          maxlength="500"></textarea>
+            </div>
+            <div class="reg-listRow">
+                <h3>请上传身份证照</h3>
+                <div class="upload-container clearfix">
+                    <span class="img_ul clearfix">
+                        <span class="img_up">
+                            <img src="" width="100">
+                            <input type="hidden" name="logo_img" id="IDCard">
+                        </span>
+                    </span>
+                    <span id="back_pic_add" class="img_add">
+                        <em class="img_add_a">&nbsp;</em>
+                        <em class="img_add_b">&nbsp;</em>
+                    </span>
+                </div>
+                <span>最多上传3张，每张不超过2m，支持jpg，png，bmp</span>
+            </div>
+            <div class="sub-btn pt10">
+                <a id="signup-btn" href="javascript:;" class="wei-btn wei-bg-red">立即注册</a>
+            </div>
+            <a href="mobileWeiDian_registerBind_demo.html" class="loginRw"><img
+                    src="Public/img/login7.png"></a>
+        </div>
+    </form>
+</div>
+<div class="wei-container10 color-666 hide">
+        <div class="text-center">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="reg-main text-center">
+            <div class="lh20 mt25 mb25 fs14">
+                <img src="Public/img/x.png" width="14px">&ensp;您的手机号码已注册过!
+            </div>
+            <div class="sub-btn mb10">
+                <a href="javascript:;" class="wei-btn wei-bg-red">使用其他号码注册</a>
+            </div>
+            或者&emsp;<a href="#" class="color-theme fs12">直接登录</a>
+        </div>
+</div>
+<!--蒙层-->
+<div class="pop-mask">
+    <div class="sel-container text-center">
+        <a href="javascript:;" class="pop-fork">
+            <img src="Public/img/x3.png" width="18px"/>
+        </a>
+        <ul class="pop-ul">
+            <li class="color-white lh30">点击选择交易平台</li>
+            <li>
+                <a href="javascript:;" class="js-pop-a pop-list">aaaa</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="js-pop-a pop-list">bbbb</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="js-pop-a pop-list">cccc</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="js-pop-a pop-list">dddd</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    $(function() {
+        $(".pop-mask").height($("html").height());
+        var top = ($(window).height() - $(".pop-ul").height())/2;
+        $(".pop-ul").css("margin-top",top);
+        $(".pop-fork").css("top",top+8);
+        $(".pop-fork").click(function(){
+            setTimeout(function(){
+                $('.pop-mask').hide();
+            },500);
+
+        });
+        $(".js-pop-a").click(function(){
+            setTimeout(function(){
+                $('.pop-mask').hide();
+            },500);
+
+        });
+        $('#signup-btn').click(function() {
+            if ($('#mobile').val() == '') {
+                JQbox.alert('请填写手机号码');
+                return false;
+            }
+            if ($('#certificate_no').val() == '') {
+                JQbox.alert('请填写身份证号码');
+                return false;
+            }
+            if ($('#contactman').val() == '') {
+                JQbox.alert('请填写联系人');
+                return false;
+            }
+            if ($('#bank').val() == '') {
+                JQbox.alert('请填写银行');
+                return false;
+            }
+            if ($('#bank_account').val() == '') {
+                JQbox.alert('请填写银行账户');
+                return false;
+            }
+            if ($('#address').val() == '') {
+                JQbox.alert('请填写地址');
+                return false;
+            }
+            if ($('#IDCard').val() == '') {
+                JQbox.alert('请上传身份证照');
+                return false;
+            }
+            JQAjax.post(this, {
+                url: location.href,
+                form: 'reg-form',
+                wait: true
+            });
+        });
+
+        var url = "upload.php";
+        $('#back_pic_add').uploads({
+            'c_id':'back_pic_add',
+            'input_id':'hidden_logo_img',
+            'c_url':url,
+            'extensions':'',
+            'number': 0,
+            'singleRepeat':true
+        });
+    });
+</script>
+</body>
+</html>

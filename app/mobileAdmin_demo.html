@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+</head>
+<style>
+    body{
+        background: #FFFFFF;
+    }
+    .head{
+        position: relative;
+    }
+    .head-container{
+        width: 100%;
+    }
+    .head-container img{
+        width: 100%;
+    }
+    .logo img{
+        position: absolute;
+        top: 53px;
+        left: 50%;
+        margin-left: -45px;
+        width: 90px;
+    }
+
+    .logo-text-title{
+        position: absolute;
+        font-size: 12px;
+        color: #FFFFFF;
+        text-align: center;
+        top: 120px;
+        left: 50%;
+        margin-left: -45px;
+        width: 90px;
+    }
+    .logo-text{
+        position: absolute;
+        font-size: 18px;
+        color: #FFFFFF;
+        font-weight: bold;
+        text-align: center;
+        top: 160px;
+        left: 50%;
+        margin-left: -80px;
+        width: 160px;
+    }
+    .logo-btn{
+        position: absolute;
+        display: block;
+        text-align: center;
+        background-color: #FFFFFF;
+        top: 210px;
+        left: 50%;
+        margin-left: -70px;
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        font-weight: bold;
+        color: #f7a631;
+        font-size: 18px;
+        border-radius: 4px;
+    }
+    .o-text{
+        position: absolute;
+        text-align: center;
+        top: 255px;
+        left: 50%;
+        margin-left: -70px;
+        width: 140px;
+        height: 40px;
+        line-height: 40px;
+        color: #FFFFFF;
+        font-size: 12px;
+    }
+    .o-text a{
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+    .o-text a:link, .o-text a:visited, .o-text a:hover, .o-text a:active{
+        color: #FFFFFF;
+        text-decoration: underline;
+    }
+    .content{
+        border-top: 1px solid #f7a631;
+        padding: 33px 0 33px 49px;
+        margin: 0 auto;
+    }
+    .con-right{
+        display: inline-block;
+        padding-left: 20px;
+        vertical-align: middle;
+    }
+    .con-right span{
+        display: block;
+    }
+    .con-title{
+        font-size: 16px;
+        font-weight: bold;
+        color: #333333;
+        line-height: 24px;
+    }
+    .con-text{
+        font-size: 12px;
+        color: #999999;
+    }
+    .btnIcon {
+        background: url("Public/img/r_arrow_o.png") no-repeat center;
+        background-size: 20px;
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        position: relative;
+        vertical-align: text-top;
+    }
+    @media screen and (max-width:450px) and (min-width:400px){
+        .logo img{
+            top: 78px;
+        }
+        .logo-text-title{
+            top: 160px;
+        }
+        .logo-text{
+            font-size: 18px;
+            top: 220px;
+        }
+        .logo-btn{
+            top: 260px;
+            font-size: 18px;
+        }
+        .o-text{
+            top: 305px;
+            font-size: 12px;
+        }
+    }
+    @media screen and (max-width:400px) and (min-width:360px){
+        .logo img{
+            top: 68px;
+        }
+        .logo-text-title{
+            top: 140px;
+        }
+        .logo-text{
+            font-size: 18px;
+            top: 200px;
+        }
+        .logo-btn{
+            top: 240px;
+            font-size: 18px;
+        }
+        .o-text{
+            top: 285px;
+            font-size: 12px;
+        }
+    }
+ </style>
+<body>
+    <header class="head">
+        <div class="head-container">
+            <img src="Public/img/user_bg_t2.png">
+        </div>
+        <div class="logo">
+            <img src="Public/img/logo_r.png">
+        </div>
+        <div class="logo-text-title">
+            微店长
+        </div>
+        <div class="logo-text">
+            有微店，更赚钱
+        </div>
+        <a href="#" class="logo-btn">
+            现在开始<span class="btnIcon"></span>
+        </a>
+        <div class="o-text">
+            <a href="mobileAdmin_wiki.html"><img src="Public/img/tap_w.png" width="12px">&nbsp;开店攻略</a>
+        </div>
+    </header>
+    <section>
+        <div class="content clearfix">
+            <img src="Public/img/fenxiao5.png" width="40" height="40">
+            <div class="con-right">
+                <span class="con-title">
+                    零费用
+                </span>
+                <span class="con-text">
+                    零成本搭建完整、强大的微商城
+                </span>
+            </div>
+        </div>
+        <div class="content clearfix">
+            <img src="Public/img/fenxiao1.png" width="40" height="40">
+            <div class="con-right">
+                <span class="con-title">
+                    快速铺货
+                </span>
+                <span class="con-text">
+                    无需库存，海量商品供您选择
+                </span>
+            </div>
+        </div>
+        <div class="content clearfix">
+            <img src="Public/img/fenxiao3.png" width="40" height="40">
+            <div class="con-right">
+                <span class="con-title">
+                    实时数据
+                </span>
+                <span class="con-text">
+                    佣金高达10%，交易订单实时查看
+                </span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

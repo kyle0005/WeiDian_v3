@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>退换货</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            申请售后
+        </div>
+    </div>
+</header>
+<section class="return-container">
+    <div class="row-fluid">
+        <div class="span3">
+            <img class="" src="Public/img/a1.png" style="visibility: visible;">
+        </div>
+        <div class="span9">
+            <span class="d-title">谷歌/Google Nexus 5 LG N5 nexus中文网</span>
+            <p class="list-cons-list-info">
+                价格:<em class="d-price-h">￥2330.00</em>&emsp;<em>数量:1</em>
+            </p>
+        </div>
+    </div>
+</section>
+<div class="tabbable">
+    <section class="return-container">
+        <h4 class="d-title">服务类型</h4>
+        <ul class="row-fluid nav nav-tabs clearfix">
+            <li class="span4 active">
+                <a href="#tab1" data-toggle="tab" class="span4 choose-item">退货退款</a>
+            </li>
+            <li class="span4">
+                <a href="#tab2" data-toggle="tab" class="span4 choose-item">仅退款</a>
+            </li>
+            <li class="span4">
+                <a href="#tab3" data-toggle="tab" class="span4 choose-item">换货</a>
+            </li>
+        </ul>
+    </section>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+            <section class="return-container">
+                <h4 class="d-title">退货退款原因</h4>
+                <select class="productList-select">
+                    <option>请选择退货退款原因</option>
+                    <option>规格不符</option>
+                    <option>做工问题</option>
+                    <option>商品功能缺失或故障</option>
+                    <option>商品破损、变形、生锈、掉漆</option>
+                    <option>发货问题</option>
+                    <option>材质成分含量、面料、皮质不符</option>
+                    <option>其他</option>
+                </select>
+            </section>
+        </div>
+        <div class="tab-pane" id="tab2">
+            <section class="return-container">
+                <h4 class="d-title">仅退款原因</h4>
+                <select class="productList-select">
+                    <option>请选择仅退款原因</option>
+                    <option>规格不符</option>
+                    <option>做工问题</option>
+                    <option>商品功能缺失或故障</option>
+                    <option>商品破损、变形、生锈、掉漆</option>
+                    <option>发货问题</option>
+                    <option>材质成分含量、面料、皮质不符</option>
+                    <option>其他</option>
+                </select>
+            </section>
+        </div>
+        <div class="tab-pane" id="tab3">
+            <section class="return-container">
+                <h4 class="d-title">换货原因</h4>
+                <select class="productList-select">
+                    <option>请选择换货原因</option>
+                    <option>规格不符</option>
+                    <option>做工问题</option>
+                    <option>商品功能缺失或故障</option>
+                    <option>商品破损、变形、生锈、掉漆</option>
+                    <option>发货问题</option>
+                    <option>材质成分含量、面料、皮质不符</option>
+                    <option>其他</option>
+                </select>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!--<section class="return-container">-->
+    <!--<h4 class="d-title">退款方式</h4>-->
+    <!--<div class="row-fluid">-->
+        <!--<div class="span4 choose-item chosen">返回银行卡</div>-->
+        <!--<div class="span4 choose-item">返回支付宝</div>-->
+    <!--</div>-->
+<!--</section>-->
+<section class="return-container">
+    <h4 class="d-title">问题描述</h4>
+    <textarea class="" placeholder="请你在此描述详情问题" maxlength="500"></textarea>
+</section>
+<section class="return-container">
+    <h4 class="d-title">上传凭证</h4>
+    <div class="upload-container clearfix">
+        <span class="img_ul clearfix">
+        </span>
+        <span id="back_pic_add" class="img_add">
+            <em class="img_add_a">&nbsp;</em>
+            <em class="img_add_b">&nbsp;</em>
+        </span>
+    </div>
+    <span>最多上传3张，每张不超过2m，支持jpg，png，bmp</span>
+</section>
+<section class="return-container dt-btn orderD-btn">
+    <a href="#" class="wei-btn wei-bg-red">提交申请</a>
+</section>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    var url = "upload.php";
+    $('#back_pic_add').uploads({
+        'c_id':'back_pic_add',
+        'input_id':'',
+        'c_url':url,
+        'extensions':'',
+        'number':3
+    });
+</script>
+</body>
+</html>

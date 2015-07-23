@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>组织架构</title>
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css" media="all">
+    <style>
+        body {
+            font: 12px/1.8 "宋体";
+            position: relative;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-y: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .strt-wrap {
+            width: 100000px;
+            margin: 10px;
+            cursor: move;
+        }
+
+        .strt-part {
+            text-align: center;
+            float: left;
+            position: relative;
+        }
+
+        .strt-part .line-v {
+            position: relative;
+            height: 40px;
+            width: 100%;
+        }
+
+        .strt-part .line-v span {
+            display: block;
+            background: #ccc;
+            position: absolute;
+            top: 0;
+            font-size: 0;
+            line-height: 1px;
+            width: 1px;
+            height: 40px;
+            left: 50%;
+        }
+
+        .strt-name {
+            display: inline-block;
+            padding: 0 5px;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+            border-radius: 3px;
+            background: #f8f8f8;
+        }
+
+        .strt-part .line-h {
+            height: 1px;
+            display: block;
+            background: #ccc;
+            position: absolute;
+            top: 0;
+            font-size: 0;
+        }
+
+        .strt-part .line-h-l {
+            width: 50%;
+            left: 0;
+        }
+
+        .strt-part .line-h-c {
+            width: 100%;
+            left: 0;
+        }
+
+        .strt-part .line-h-r {
+            width: 50%;
+            right: 0;
+        }
+
+        .strt-block {
+            float: left;
+        }
+    </style>
+</head>
+<body style="overflow:hidden;">
+<div class="strt-wrap" id="strtWrap">
+    <div class="strt-block">
+        <div class="strt-part">
+
+            <span class="strt-name">组织架构图</span>
+
+            <div class="line-v"><span></span></div>
+            <div class="strt-block">
+                <div class="strt-part">
+
+                    <span class="line-h line-h-r"></span>
+
+                    <div class="line-v"><span></span></div>
+                    <span class="strt-name">软件开发</span>
+
+                    <div class="line-v"><span></span></div>
+                    <div class="strt-block">
+
+                        <div class="strt-part">
+                            <span class="line-h line-h-r"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">WEB开发</span>
+
+                            <div class="line-v"><span></span></div>
+                            <div class="strt-block">
+
+                                <div class="strt-part">
+                                    <span class="line-h line-h-r"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">网页设计</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-c"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">页面重构</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-c"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">WEB前端开发</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-l"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">程序设计</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-l"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">客户端用户交互</span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="strt-part">
+                    <span class="line-h line-h-c"></span>
+
+                    <div class="line-v"><span></span></div>
+                    <span class="strt-name">手机品牌</span>
+
+                    <div class="line-v"><span></span></div>
+                    <div class="strt-block">
+                        <div class="strt-part">
+                            <span class="line-h line-h-r"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">HTC</span>
+
+                            <div class="line-v"><span></span></div>
+                            <div class="strt-block">
+                                <div class="strt-part">
+                                    <span class="line-h line-h-r"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">One X</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-c"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">G8</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-l"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">Butterfly</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-c"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">联想</span>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-c"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">魅族</span>
+
+                            <div class="line-v"><span></span></div>
+                            <div class="strt-block">
+                                <div class="strt-part">
+                                    <span class="line-h line-h-r"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">M8</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-c"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">M9</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-c"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">MX</span>
+                                </div>
+                                <div class="strt-part">
+                                    <span class="line-h line-h-l"></span>
+
+                                    <div class="line-v"><span></span></div>
+                                    <span class="strt-name">MX2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-l"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">华为</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="strt-part">
+                    <span class="line-h line-h-l"></span>
+
+                    <div class="line-v"><span></span></div>
+                    <span class="strt-name">电脑品牌</span>
+
+                    <div class="line-v"><span></span></div>
+                    <div class="strt-block">
+                        <div class="strt-part">
+                            <span class="line-h line-h-r"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">华硕</span>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-c"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">宏碁</span>
+
+                            <div class="line-v"><span></span></div>
+                            <div class="strt-part">
+                                <span class="strt-name">4742G</span>
+                            </div>
+                        </div>
+                        <div class="strt-part">
+                            <span class="line-h line-h-l"></span>
+
+                            <div class="line-v"><span></span></div>
+                            <span class="strt-name">联想</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="Public/js/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="Public/js/jquery.ui.draggable.min.js" type="text/javascript"></script>
+<script src="Public/js/jinniu.js"></script>
+<script>
+    $(function () {
+        var strtBlocks = $("div.strt-block");
+        strtBlocks.each(function (n) {
+            var childs = $(this).children();
+            var w = (childs.last().width() - childs.first().width()) / 4;
+            if (w > 0) {
+                $(this).css("margin-left", w)
+            } else {
+                $(this).css("padding-right", -w * 2);
+            }
+        });
+
+        var strtWrap = $("#strtWrap");
+        strtWrap.width(strtWrap.children().width());
+        strtWrap.draggable({
+            cursor: "move",
+            opacity: 0.5
+        });
+
+
+        var url = 'pcAdmin_pop.html';
+        $('.strt-name').click(function () {
+            JQbox.open({
+                title: '节点操作',
+                url: url,
+                width: '300',
+                height: '150'
+            });
+            $('.operation > a').button()
+        });
+
+        $(document).on('click','.js-operation-add',function( event ) {
+            event.preventDefault();
+            var txt = $('.js-operation-add').html();
+            JQbox.confirm({
+                title: "确认添加",
+                content: txt
+            });
+        });
+        $(document).on('click','.js-operation-update',function( event ) {
+            event.preventDefault();
+            var txt = $('.js-operation-update').html();
+            JQbox.confirm({
+                title: "确认修改",
+                content: txt
+            });
+        });
+        $(document).on('click','.js-operation-del',function( event ) {
+            event.preventDefault();
+            var txt = $('.js-operation-del').html();
+            JQbox.confirm({
+                title: "确认删除",
+                content: txt
+            });
+        });
+    });
+</script>
+</body>
+</html>

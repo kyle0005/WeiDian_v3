@@ -1,0 +1,162 @@
+/* 通用按钮 */
+.wei-btn {
+  width: 98%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #ffffff;
+  height: auto;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+/* 按钮容器 */
+.wei-btn-container-2 {
+  float: left;
+  width: 47%;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.wei-btn-container-3 {
+  float: left;
+  width: 31%;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.wei-btn-container-4 {
+  float: left;
+  width: 22%;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.wei-btn-container-5 {
+  float: left;
+  width: 17%;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+/* backgroundColor */
+
+/* 背景颜色 */
+.wei-bg-white {
+  color: #5f646e;
+  border: 1px solid #bfbfbf;
+  background-color: #ffffff;
+}
+
+.wei-bg-white:link, .wei-bg-white:visited, .wei-bg-white:hover, .wei-bg-white:active {
+  color: #5f646e;
+  border: 1px solid #bfbfbf;
+  background-color: #ffffff;
+}
+
+.wei-bg-gray {
+  color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+  background-color: #ffffff;
+}
+
+.wei-bg-gray:link, .wei-bg-gray:visited, .wei-bg-gray:hover, .wei-bg-gray:active {
+  color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+  background-color: #ffffff;
+}
+
+.wei-bg-blue {
+  color: #ffffff;
+  background-color: #0298ff;
+  border: 1px solid #0298ff;
+}
+
+.wei-bg-blue:link, .wei-bg-blue:visited, .wei-bg-blue:hover, .wei-bg-blue:active {
+  color: #ffffff;
+  background-color: #0298ff;
+  border: 1px solid #0298ff;
+}
+
+.wei-bg-org {
+  color: #ff8000;
+  background-color: #ffffff;
+  border: 1px solid #ff8000;
+}
+
+.wei-bg-org:hover, .wei-bg-org:active {
+  color: #ffffff;
+  background-color: #ff8000;
+}
+
+.wei-bg-green {
+  color: #ffffff;
+  background-color: #5fc057;
+  border: 1px solid #5fc057;
+}
+
+.wei-bg-green:link, .wei-bg-green:visited, .wei-bg-green:hover, .wei-bg-green:active {
+  color: #ffffff;
+  background-color: #5fc057;
+  border: 1px solid #5fc057;
+}
+
+.wei-bg-red {
+  color: #ffffff;
+  background-color: #ff5000;
+  border: 1px solid #ff5000;
+}
+
+.wei-bg-red:link, .wei-bg-red:visited, .wei-bg-red:hover, .wei-bg-red:active {
+  color: #ffffff;
+  background-color: #ff5000;
+  border: 1px solid #ff5000;
+}
+
+.wei-bg-sRed {
+  color: #ffffff;
+  background-color: #ff8000;
+  border: 1px solid #ff8000;
+}
+
+.wei-bg-sRed:link, .wei-bg-sRed:visited, .wei-bg-sRed:hover, .wei-bg-sRed:active {
+  color: #ffffff;
+  background-color: #ff8000;
+  border: 1px solid #ff8000;
+}
+
+.wei-bg-light-green {
+  color: #ffffff;
+  background-color: #83BA21;
+  border: 1px solid #83BA21;
+}
+
+.wei-bg-light-green:link, .wei-bg-light-green:visited, .wei-bg-light-green:hover, .wei-bg-light-green:active {
+  color: #ffffff;
+  background-color: #83BA21;
+  border: 1px solid #83BA21;
+}
+
+.wei-bg-dOrg {
+  color: #000000;
+  background-color: #f4cc66;
+  border: 1px solid #f4cc66;
+}
+
+.wei-bg-dOrg:link, .wei-bg-dOrg:visited, .wei-bg-dOrg:hover, .wei-bg-dOrg:active {
+  color: #000000;
+  background-color: #f4cc66;
+  border: 1px solid #f4cc66;
+}
+
+.wei-bg-logo {
+  color: #ffffff;
+  background-color: #dab866;
+  border: 1px solid #dab866;
+}
+
+.wei-bg-logo:link, .wei-bg-logo:visited, .wei-bg-logo:hover, .wei-bg-logo:active {
+  color: #ffffff;
+  background-color: #dab866;
+  border: 1px solid #dab866;
+}
+

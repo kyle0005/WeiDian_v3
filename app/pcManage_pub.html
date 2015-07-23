@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>微店</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css" media="all">
+    <style type="text/css">
+        .theme-orange #navigation {
+            background: darkgoldenrod;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" id="brand"></a>
+            <a href="javascript:;" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li class="active">
+                <a href="http://www.test.jinniu.com/admin/goods">宝贝</a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/order">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/finance">
+                    <span>财务</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/member">
+                    <span>用户</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/system/user">
+                    <span>系统</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a>欢迎您，店长</a>
+                </li>
+                <li>
+                    <a href="http://www.test.jinniu.com/admin/logout" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" id="content">
+
+<div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+    <div class="subnav">
+        <div class="subnav-title ">
+            <a href="javascript:;" class="toggle-subnav">
+                <i class="icon-angle-right"></i><span>
+                宝贝管理
+                                </span></a>
+        </div>
+
+        <ul class="subnav-menu" style="display: block;">
+            <li class="active">
+                <a href="http://www.test.jinniu.com/admin/goods">所有宝贝</a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/goods?status=1">出售中的宝贝</a>
+            </li>
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/goods?status=0">停售中的宝贝</a>
+            </li>
+
+            <li class="">
+                <a href="http://www.test.jinniu.com/admin/goods/goodscategory">宝贝分类</a>
+            </li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div class="right">
+<div class="a-main">
+
+
+<div class="a-container">
+<div class="js-list-filter-region clearfix ui-box" style="position: relative; min-height: 28px; margin-top: 20px;">
+    <a href="http://www.test.jinniu.com/admin/goods/created" class="btn orange-btn" id="addClick">添加宝贝</a>
+</div>
+
+<div class="orderSel">
+    <form id="order_form" action="" class="form-horizontal ui-box list-filter-form" method="get">
+
+        <div class="clearfix">
+            <div class="filter-groups">
+                <div class="control-group">
+                    <label class="control-label">宝贝名称：</label>
+
+                    <div class="controls">
+                        <div class="input-prepend m-pub">
+                            <input type="text" name="like_name" value="" placeholder="请输入要查询的宝贝名称">
+                            <button class="btn orange-btn" type="submit">筛&emsp;选</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+<div class="goods-list">
+
+<div class="ui-box">
+<table class="ui-table ui-table-list" style="padding: 0px;">
+<thead class="js-list-header-region tableFloatingHeaderOriginal">
+<tr>
+    <th class="checkbox cell-30" colspan="3">
+        <label class="checkbox inline">
+            <input type="checkbox" class="js-check-all">宝贝
+        </label>
+    </th>
+    <th class="cell-35">规格 / 售价 / 佣金</th>
+    <th class="cell-8">状态</th>
+    <th class="cell-15 text-right">操作</th>
+</tr>
+</thead>
+
+<tbody class="js-list-body-region">
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="_s">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="测试产品">
+                测试产品 </a>
+        </p>
+
+        <p class="goods-title">测试产品，请勿添加与销售。谢谢</p>
+    </td>
+    <td class="">
+        111 （
+        库存:3&nbsp;&nbsp;
+        售价:¥0.01&nbsp;&nbsp;
+        <span class="red">佣金:0&nbsp;元</span>）<br/>2222 （
+        库存:2&nbsp;&nbsp;
+        售价:¥0.02&nbsp;&nbsp;
+        <span class="red">佣金:0&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/87" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/87" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/87" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ef6c16316f_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史和田白玉 一叶菩提金镶玉弥勒吊坠 观音吊坠带证书">
+                黄金历史和田白玉 一叶菩提金镶玉弥勒吊坠 观音吊坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        一叶菩提金镶玉弥勒吊坠 （
+        库存:1&nbsp;&nbsp;
+        售价:¥1050&nbsp;&nbsp;
+        <span class="red">佣金:84&nbsp;元</span>）<br/>一叶菩提金镶玉观音吊坠 （
+        库存:1&nbsp;&nbsp;
+        售价:¥1260&nbsp;&nbsp;
+        <span class="red">佣金:100&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/86" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/86" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/86" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ee2c1adfee_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史碧玉墨翠金玉佛缘吉祥挂坠 观音送福 弥勒吉祥带证书">
+                黄金历史碧玉墨翠金玉佛缘吉祥挂坠 观音送福 弥勒吉祥带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        金玉佛缘观音送福挂坠 （
+        库存:1&nbsp;&nbsp;
+        售价:¥22932&nbsp;&nbsp;
+        <span class="red">佣金:1834&nbsp;元</span>）<br/>金玉佛缘弥勒吉祥挂坠 （
+        库存:1&nbsp;&nbsp;
+        售价:¥18732&nbsp;&nbsp;
+        <span class="red">佣金:1498&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/85" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/85" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/85" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ea72d7ea0c_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史枝叶长青金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史枝叶长青金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1420&nbsp;&nbsp;
+        <span class="red">佣金:114&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/84" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/84" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/84" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ea5f81754d_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史心心相印金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史心心相印金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1050&nbsp;&nbsp;
+        <span class="red">佣金:84&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/83" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/83" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/83" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ea3b2e4961_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史金玉缘金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史金玉缘金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥706&nbsp;&nbsp;
+        <span class="red">佣金:56&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/82" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/82" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/82" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546ea042ce3ea_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史金玉荣华金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史金玉荣华金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1050&nbsp;&nbsp;
+        <span class="red">佣金:84&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/81" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/81" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/81" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546e9ec7525d3_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史枝花开富贵金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史枝花开富贵金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1420&nbsp;&nbsp;
+        <span class="red">佣金:114&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/80" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/80" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/80" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546e9d7ce8ffb_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史国色天香金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史国色天香金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1420&nbsp;&nbsp;
+        <span class="red">佣金:114&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/79" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/79" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/79" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-21/546e9a78b4108_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史福在眼前金镶玉吊坠项链玉佩和田玉玉坠带证书">
+                黄金历史福在眼前金镶玉吊坠项链玉佩和田玉玉坠带证书 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥1050&nbsp;&nbsp;
+        <span class="red">佣金:84&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/78" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/78" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/78" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-20/546d9cf794080_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史和田碧玉手链搭配南红琥珀千足金佛缘好运珠">
+                黄金历史和田碧玉手链搭配南红琥珀千足金佛缘好运珠 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        佛缘好运珠短款（金重5克） （
+        库存:1&nbsp;&nbsp;
+        售价:¥2674.56&nbsp;&nbsp;
+        <span class="red">佣金:213.96&nbsp;元</span>）<br/>佛缘好运珠中款（金重13克） （
+        库存:1&nbsp;&nbsp;
+        售价:¥9996&nbsp;&nbsp;
+        <span class="red">佣金:799.68&nbsp;元</span>）<br/>佛缘好运珠长款（金重13克） （
+        库存:1&nbsp;&nbsp;
+        售价:¥15078&nbsp;&nbsp;
+        <span class="red">佣金:1206.24&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/77" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/77" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/77" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-19/546c64cc2c96e_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史白玉观音花丝烧蓝金镶玉吊坠">
+                黄金历史白玉观音花丝烧蓝金镶玉吊坠 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        库存:1&nbsp;&nbsp;
+        售价:¥48636&nbsp;&nbsp;
+        <span class="red">佣金:3890.88&nbsp;元</span></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/76" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/76" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/76" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-19/546c4a5898386_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="沈阳造币厂出品 吉羊含穗生肖大银章">
+                沈阳造币厂出品 吉羊含穗生肖大银章 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        5000克银章 （
+        库存:50&nbsp;&nbsp;
+        售价:¥55000&nbsp;&nbsp;
+        <span class="red">佣金:5000&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/75" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/75" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/75" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-19/546c450f5e347_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="沈阳造币厂出品千手观音铜章">
+                沈阳造币厂出品千手观音铜章 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        直径60mm（圆形） （
+        库存:0&nbsp;&nbsp;
+        售价:¥220&nbsp;&nbsp;
+        <span class="red">佣金:6&nbsp;元</span>）<br/></td>
+    <td class="">停售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/74" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/74" class="is-shelves">上架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/74" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469bbcf5bff7_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="黄金历史印度小叶紫檀 佛珠手串 同料顺纹 3D硬金千足黄金转运珠">
+                黄金历史印度小叶紫檀 佛珠手串 同料顺纹 3D硬金千足黄金转运珠 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        12mm小叶紫檀(不含硬金) （
+        库存:100&nbsp;&nbsp;
+        售价:¥218&nbsp;&nbsp;
+        <span class="red">佣金:10&nbsp;元</span>）<br/>12mm小叶紫檀+六字真言硬金 （
+        库存:100&nbsp;&nbsp;
+        售价:¥598&nbsp;&nbsp;
+        <span class="red">佣金:18&nbsp;元</span>）<br/>15MM小叶紫檀( 不含硬金) （
+        库存:100&nbsp;&nbsp;
+        售价:¥398&nbsp;&nbsp;
+        <span class="red">佣金:10&nbsp;元</span>）<br/>15MM小叶紫檀+2克硬金 （
+        库存:100&nbsp;&nbsp;
+        售价:¥1280&nbsp;&nbsp;
+        <span class="red">佣金:80&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/73" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/73" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/73" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469b6d0885f3_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="2015中国乙未（羊）年方形纪念金银币">
+                2015中国乙未（羊）年方形纪念金银币 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        5盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥3600&nbsp;&nbsp;
+        <span class="red">佣金:18&nbsp;元</span>）<br/>5盎司金币 （
+        库存:3&nbsp;&nbsp;
+        售价:¥92000&nbsp;&nbsp;
+        <span class="red">佣金:455&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/72" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/72" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/72" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469b6391d140_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="2015中国乙未（羊）年本色纪念金银币">
+                2015中国乙未（羊）年本色纪念金银币 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        1盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥980&nbsp;&nbsp;
+        <span class="red">佣金:5&nbsp;元</span>）<br/>1/10盎司金币+1盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥3780&nbsp;&nbsp;
+        <span class="red">佣金:19&nbsp;元</span>）<br/>1公斤银币 （
+        库存:3&nbsp;&nbsp;
+        售价:¥14000&nbsp;&nbsp;
+        <span class="red">佣金:70&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/71" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/71" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/71" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469b1d0a7b5d_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="2015中国乙未（羊）年彩色纪念金银币">
+                2015中国乙未（羊）年彩色纪念金银币 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        1盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥1080&nbsp;&nbsp;
+        <span class="red">佣金:5&nbsp;元</span>）<br/>5盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥3850&nbsp;&nbsp;
+        <span class="red">佣金:19&nbsp;元</span>）<br/>1/10盎司金币+1盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥4200&nbsp;&nbsp;
+        <span class="red">佣金:21&nbsp;元</span>）<br/>5盎司金币 （
+        库存:3&nbsp;&nbsp;
+        售价:¥80800&nbsp;&nbsp;
+        <span class="red">佣金:400&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/70" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/70" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/70" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469adacbadd5_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="2015中国乙未（羊）年梅花形纪念金银币">
+                2015中国乙未（羊）年梅花形纪念金银币 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        1盎司纪念银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥980&nbsp;&nbsp;
+        <span class="red">佣金:5&nbsp;元</span>）<br/>1/2盎司金币+1盎司银币 （
+        库存:2&nbsp;&nbsp;
+        售价:¥15300&nbsp;&nbsp;
+        <span class="red">佣金:76&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/69" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/69" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/69" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+<tr>
+    <td class="checkbox">
+        <input type="checkbox" class="js-check-toggle">
+    </td>
+    <td class="goods-image-td">
+        <div class="goods-image js-goods-image">
+            <img src="/Uploads/images/2014-11-17/5469ab98ea330_s.jpg">
+        </div>
+    </td>
+    <td class="goods-meta">
+        <p class="goods-title">
+            <a href="javascript:;" title="2015中国乙未（羊）年扇形纪念金银币">
+                2015中国乙未（羊）年扇形纪念金银币 </a>
+        </p>
+
+        <p class="goods-title"></p>
+    </td>
+    <td class="">
+        扇形纪念银币1盎司 （
+        库存:5&nbsp;&nbsp;
+        售价:¥800&nbsp;&nbsp;
+        <span class="red">佣金:4&nbsp;元</span>）<br/>1/3盎司金币+1盎司银币 （
+        库存:5&nbsp;&nbsp;
+        售价:¥5660&nbsp;&nbsp;
+        <span class="red">佣金:28&nbsp;元</span>）<br/></td>
+    <td class="">销售中</td>
+    <td class="text-right">
+        <p>
+            <a href="http://www.test.jinniu.com/admin/goods/settings/68" class="editClick">修改</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/setstatus/68" class="is-shelves">下架</a>
+            <span>-</span>
+            <a href="javascript:;" data-url="http://www.test.jinniu.com/admin/goods/delete/68" class="is-delete">删除</a>
+        </p>
+    </td>
+</tr>
+</tbody>
+</table>
+<div class="js-list-empty-region"></div>
+</div>
+<div class="js-list-footer-region ui-box">
+    <div>
+        <div class="pagenavi">
+            <ul class="pagination">
+                <li class="prev disabled"><a href="javascript:;">上一页</a></li>
+                <li class="active"><a href="javascript:;">1</a></li>
+                <li><a href="http://www.test.jinniu.com/admin/goods/p/2?like_name=">2</a></li>
+                <li><a href="http://www.test.jinniu.com/admin/goods/p/3?like_name=">3</a></li>
+                <li><a href="http://www.test.jinniu.com/admin/goods/p/4?like_name=">4</a></li>
+                <li><a href="http://www.test.jinniu.com/admin/goods/p/5?like_name=">5</a></li>
+                <li class="next"><a href="http://www.test.jinniu.com/admin/goods/p/2?like_name=">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script>
+    $(function () {
+        $(".is-shelves").click(function () {
+            var url = $(this).data('url');
+            var obj = this;
+            JQbox.confirm('您确认要对此商品进行' + $(this).text() + '操作？', function () {
+                JQAjax.post(obj, {
+                    url: url
+                })
+            })
+        });
+
+        $(".is-delete").click(function () {
+            var url = $(this).data('url');
+            var obj = this;
+            JQbox.confirm('您确认要对此商品进行删除操作？', function () {
+                JQAjax.post(obj, {
+                    url: url
+                })
+            })
+        });
+    });
+</script>
+</body>
+</html>

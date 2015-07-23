@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>首页</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    .div {
+      width: 30px;
+      height: 30px;
+      background-color: green;
+      animation: myfirst 10s infinite;
+    }
+    .div1{
+      width: 30px;
+      height: 30px;
+      background-color: green;
+    }
+    .div2{
+      width: 30px;
+      height: 30px;
+      background-color: yellow;
+    }
+    .div3{
+      width: 30px;
+      height: 30px;
+      background-color: orange;
+    }
+
+    @keyframes myfirst {
+      0%
+      {
+        background: green;
+        -webkit-transform:translate(0, 0);
+        -webkit-transition:-webkit-transform 0.5s ease-out 1s;
+      }
+      25%
+      {
+        background: green ;
+        -webkit-transform:translate(180px, 0);
+        -webkit-transition:-webkit-transform 0.5s ease-out 1s;
+      }
+      50%
+      {
+        background: green ;
+        -webkit-transform:translate(180px, 180px);
+        -webkit-transition:-webkit-transform 0.5s ease-out 1s;
+      }
+      75%
+      {
+        background: green ;
+        -webkit-transform:translate(0, 180px);
+        -webkit-transition:-webkit-transform 0.5s ease-out 1s;
+      }
+      100%
+      {
+        background: green ;
+        -webkit-transform:translate(0, 0);
+        -webkit-transition:-webkit-transform 0.5s ease-out 1s;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<div class="div"></div>
+<!--<div class="div1"></div>-->
+<!--<div class="div2"></div>-->
+<!--<div class="div3"></div>-->
+<script>
+//  var a = new String("aaaa");
+  //alert(a.length);
+  //    a.t = "bbbb";
+  //alert(a.t);
+  //alert(Object.prototype.toString());
+  //alert(typeof (null)==="object")
+  //alert(+false);      //0
+  //alert(+true);       //1
+  //alert(+null);       //0
+  //alert(+undefined);  //NaN
+  //alert('a'-'b'=='b'-'a'); //false
+  //alert("2"-"1");          //1
+  //console.log(+!{}[true]);
+  //    var n = a(1,2);
+  //    console.log(n);
+  //    var a = function(x,y){
+  //        return x+y;
+  //    };
+
+//  var heightLis = Math.round(parseFloat(7 / 3));
+//  console.log(heightLis)
+</script>
+</body>
+</html>

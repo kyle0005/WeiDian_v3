@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>确认下单</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            确认下单
+        </div>
+    </div>
+</header>
+<form method="post" action="">
+    <section class="buy-top">
+        <a class="buy-address-change" href="addressList.html">
+            <img src="Public/img/map.png">
+            <p>
+                <span class="buy-address-change-left">收货人：<span>周杰伦</span></span>
+                <span class="buy-address-change-right">13245687458</span>
+            </p>
+            <p>
+                收货地址：<span>山西省阳泉市城区阿达大大大</span>
+            </p>
+        </a>
+    </section>
+    <div class="buy-list">
+        <section class="buy-title mt15 mb15">
+            <div>购买的产品</div>
+            <div class="js-arr-con buy-title-arr-con-down"><span class="js-buy-click buy-title-arr-down"></span></div>
+        </section>
+        <section class="buy-pros mt15">
+            <div class="buy-pro-img mr5">
+                <img src="Public/img/a1.jpg">
+            </div>
+            <div class="buy-pro-dscp">
+                <div>谷歌/Google Nexus 5 LG N5 Nexus中文网</div>
+                <div>机身内存:32GB,版本类型:美国,机身颜色:黑色,套餐类型:官方标配</div>
+                <div><span>单价:0.0001</span></div>
+                <div class="buy-pro-num">
+                    <span>数量: <span class="js-buy-num" data-num="1">1</span></span>
+                    <span class="buy-pro-rmb">￥
+                        <span class="js-buy-price" data-price="10000000.001">10000000.001</span></span>
+                </div>
+            </div>
+        </section>
+        <section class="buy-pros mt15">
+            <div class="buy-pro-img mr5">
+                <img src="Public/img/a1.jpg">
+            </div>
+            <div class="buy-pro-dscp">
+                <div>谷歌/Google Nexus 5 LG N5 Nexus中文网</div>
+                <div>机身内存:32GB,版本类型:美国,机身颜色:黑色,套餐类型:官方标配</div>
+                <div><span>单价:0.0001</span></div>
+                <div class="buy-pro-num">
+                    <span>数量: <span class="js-buy-num" data-num="1">1</span></span>
+                    <span class="buy-pro-rmb">￥<span class="js-buy-price" data-price="0.001">0.001</span></span>
+                </div>
+            </div>
+        </section>
+        <section class="buy-msg">
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    订单优惠
+                </div>
+                <div class="span9">
+                    <div class="js-couponCon span7">
+                        <div class="js-couponInfo lh30">
+                            优惠卷:<span class="js-couponInfo-price" data-couponPri="50.00">50.00</span>元
+                        </div>
+                        <div class="js-couponOk hide clearfix">
+                                <input type="text" placeholder="0.00" class="pull-left coupon-val" value="0.00"
+                                       style="margin-bottom: 0;border-radius:0;border-right:0;padding:0;text-indent:5px;width:65%;height:25px;">
+                                <a class="js-couponOk-btn btn wei-bg-red lh25 pull-left" href="javascript:;"
+                                   style="height: 25px;padding: 0;margin: 0;border-radius:0;background-image: none;text-shadow:none;">&ensp;确认&ensp;</a>
+                        </div>
+                    </div>
+                    <div class="js-chk span5">
+                        <label class="fs12 lh30" style="margin-bottom: 0;">
+                            <input type="checkbox" class="js-useCoupon"
+                                   style="-webkit-appearance:checkbox;margin-top: 0;">&nbsp;使用优惠券
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    配送方式
+                </div>
+                <div class="span9">
+                    <select class="chooseExpress fs12 lh30">
+                        <option selected="selected" data-value="22.00">顺丰快递</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row-fluid bb pt15 pb15">
+                <div class="span3 lh30">
+                    卖家留言
+                </div>
+                <div class="span9">
+                    <input type="text" maxlength="200" placeholder="给卖家留言" class="lh30 leaveMsg">
+                </div>
+            </div>
+        </section>
+        <div class="text-right mg5">合计:<span class="buy-listRmb">￥<span class="js-buy-listRmb"></span></span></div>
+        <section class="buy-sub pb10">
+            <div class="submit-self sub-btn">
+                <input id="submit" type="submit" class="wei-btn wei-bg-red" value="提交订单">
+            </div>
+        </section>
+    </div>
+</form>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/BigDecimal-all-last.min.js"></script>
+<script src="Public/js/tools.js"></script>
+<script>
+    $(function () {
+        $('.js-useCoupon').click(function () {
+            $('.js-couponInfo').addClass('hide');
+            $('.js-couponOk').removeClass('hide');
+            $('.js-chk').hide();
+            $('.js-couponCon').removeClass('span7').addClass('.span12');
+        });
+
+        var arrChk = $(".buy-pro-num");
+        var prices = '0.00';
+        var couponNum = '0.00';
+        var expreeVal = '0.00';
+        $(arrChk).each(function(){
+            var num = $(this).find('.js-buy-num').data('num');
+            var price = $(this).find('.js-buy-price').data('price');
+            prices = new BigDecimal(num.toString()).multiply(new BigDecimal(price.toString())).add(new
+                    BigDecimal(prices.toString()));
+        });
+        expreeVal = $(".chooseExpress").find("option:selected").data('value');
+
+        couponNum = $('.js-couponInfo-price').text();
+        $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+
+        $('.js-couponOk-btn').click(function () {
+            $('.js-couponOk').addClass('hide');
+            $('.js-couponInfo-price').html($('.coupon-val').val());
+            $('.js-couponInfo').removeClass('hide');
+            couponNum = $('.js-couponInfo-price').text();
+
+            $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+        });
+
+    })
+</script>
+</body>
+</html>

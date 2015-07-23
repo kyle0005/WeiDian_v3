@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <title>创建托管</title>
+</head>
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+    <div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+        <div class="subnav">
+            <div class="subnav-title ">
+                <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>商品管理</span></a>
+            </div>
+            <ul class="subnav-menu" style="display: block;">
+                <li class="">
+                    <a href="#" target="_self">出售中的产品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">已售罄的商品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">仓库中的商品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">商品分类</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">促销管理</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">卡卷管理</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+      <div class="a-main">
+        <form id="discount-form" class="form-horizontal" action="http://sh.jinniuhuangjin.com/admin/discount"
+              method="post">
+          <div class="goods-list">
+            <div class="js-list-filter-region clearfix ui-box" style="position: relative; min-height: 28px;">
+              <a class="btn orange-btn fc12" href="http://sh.jinniuhuangjin.com/admin/discount">放弃</a>
+            </div>
+            <div class="ui-box">
+              <div class="accordion" id="accordion2">
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="js-step-title1 accordion-toggle" href="javascript:;">
+                      第一步&nbsp;设置托管信息
+                    </a>
+                  </div>
+                  <div id="collapseOne" class="accordion-body collapse in">
+                    <div class="accordion-inner">
+                      <div class="control-group">
+                        <label class="control-label" for="name"
+                               style="line-height: 28px">设置托管：</label>
+
+                        <div class="controls">
+                          <input type="text" id="name" name="name" value="">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="selectName" style="line-height: 28px;">
+                          交易平台：</label>
+                        <div class="controls">
+                          <select id="selectName" style="border-radius: 0;">
+                            <option>纪念章平台</option>
+                            <option>金属艺术品江西文化交易平台</option>
+                            <option>贵金属交易平台</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="begin_time" style="line-height: 28px">
+                          托管开始时间：</label>
+
+                        <div class="controls">
+                          <input type="text" id="begin_time" name="begin_time"
+                                 value="2015-02-04 09:48"
+                                 onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate"
+                                 readonly>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="end_time" style="line-height: 28px">
+                          托管结束时间：</label>
+
+                        <div class="controls">
+                          <input type="text" id="end_time" name="end_time" value="2015-02-04 09:48"
+                                 onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate"
+                                 readonly>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls">
+                          <a class="js-step1 btn orange-btn fc12"
+                             href="javascript:;">&emsp;确定&emsp;</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="js-step-title2 accordion-toggle" href="javascript:;">
+                      第二步&nbsp;选择宝贝
+                    </a>
+                  </div>
+                  <div id="collapseTwo" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <div class="row-fluid">
+                        <div class="span2">
+                          <input type="text" id="like_name" value="" class="" placeholder="宝贝名称"
+                                 style="width: 100%;">
+                        </div>
+                        <div class="span2">
+                          <a id="filter-btn" class="btn orange-btn fc12" href="javascript:;">&emsp;搜索&emsp;</a>
+                        </div>
+                        <div class="span5">
+                        </div>
+                      </div>
+                      <div class="ui-box">
+                        <table class="ui-table ui-table-list" style="padding: 0px;">
+                          <thead class="js-list-header-region tableFloatingHeaderOriginal">
+                          <tr>
+                            <th class="text-center">商品名称</th>
+                            <th class="text-center">商品编码</th>
+                            <th class="text-center">商品价格</th>
+                            <th class="text-center">操作</th>
+                          </tr>
+                          </thead>
+                          <tbody id="goods-list">
+
+                          </tbody>
+                        </table>
+                        <div class="pagination text-right">
+                        </div>
+                      </div>
+                      <a class="js-step2 btn orange-btn fc12" href="javascript:;">完成选择</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
+                    <a class="js-step-title3 accordion-toggle" href="javascript:;">
+                      第三步&nbsp;设置宝贝属性
+                    </a>
+                  </div>
+                  <div id="collapseThree" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <div class="ui-box">
+                        <table class="ui-table ui-table-list" style="padding: 0px;">
+                          <thead class="js-list-header-region tableFloatingHeaderOriginal">
+                          <tr>
+                            <th class="text-center">宝贝</th>
+                            <th class="text-center">交易所代码</th>
+                            <th class="text-center">鉴定费</th>
+                            <th class="text-center">托管费</th>
+                            <th class="text-center">支持多账户</th>
+                            <th class="text-center">操作</th>
+                          </tr>
+                          </thead>
+                          <tbody id="accept-list">
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <a id="submit-btn" class="btn orange-btn fc12" href="javascript:;">完成创建</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script src="Public/js/chooseAll.js"></script>
+<script src="Public/js/WdatePicker/WdatePicker.js"></script>
+<script>
+  $(function () {
+    $('.collapse').collapse({toggle: false}); //初始化手风琴效果关闭
+    $('#submit-btn').click(function () {
+      JQAjax.post(this, {
+        url: $('#discount-form').attr('action'),
+        form: 'discount-form',
+        wait: true
+      });
+    });
+
+    var goodslist = {
+      /* */
+      /* */
+      "156" :{
+        id : "156",
+        name : "黄金历史 一代天骄转运珠 沉香手串 千足金手链",
+        img : "/Uploads/images/2015-01-07/54acd1061824d.jpg",
+        stock_count : "241",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "155" :{
+        id : "155",
+        name : "黄金历史 幸运之星转运珠 沉香手串 千足金手链",
+        img : "/Uploads/images/2015-01-06/54ab588d2711b.jpg",
+        stock_count : "153",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "154" :{
+        id : "154",
+        name : "黄金历史 流金岁月转运珠 千足金手链 石榴石手串",
+        img : "/Uploads/images/2015-01-05/54aa548177ef6.jpg",
+        stock_count : "109",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "153" :{
+        id : "153",
+        name : "黄金历史 蔷薇之恋转运珠 粉晶手串 千足金手链",
+        img : "/Uploads/images/2015-01-05/54aa4cda74c15.jpg",
+        stock_count : "351",
+        price : "1088.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "152" :{
+        id : "152",
+        name : "黄金历史 虎虎生威转运珠 沉香手串 虎睛石手链",
+        img : "/Uploads/images/2015-01-05/54aa0484de937.jpg",
+        stock_count : "116",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "151" :{
+        id : "151",
+        name : "黄金历史 一生一石转运珠 沉香手串 青金石手链",
+        img : "/Uploads/images/2015-01-05/54aa0152d777d.jpg",
+        stock_count : "265",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "150" :{
+        id : "150",
+        name : "黄金历史 开泰好运系列之星座好运星50克银章",
+        img : "/Uploads/images/2015-01-04/54a903f80ea1a.jpg",
+        stock_count : "1737",
+        price : "780.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "149" :{
+        id : "149",
+        name : "黄金历史 快乐晶灵转运珠 千足金茶晶手串",
+        img : "/Uploads/images/2015-01-04/54a8ef8697d1e.jpg",
+        stock_count : "194",
+        price : "1088.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "148" :{
+        id : "148",
+        name : "黄金历史 红妆素裹转运珠 白砗磲佛珠手串",
+        img : "/Uploads/images/2015-01-04/54a8ec664e1ac.jpg",
+        stock_count : "187",
+        price : "918.00"
+      }
+
+      /**/
+      /* */
+      ,
+      /**/
+      "147" :{
+        id : "147",
+        name : "黄金历史 众星捧月转运珠 星月菩提手串",
+        img : "/Uploads/images/2015-01-04/54a8e5e85479b.jpg",
+        stock_count : "291",
+        price : "918.00"
+      }
+
+      /* */
+    };
+    var acceptlist = {};
+    add_goods_list(goodslist, acceptlist);
+    if (Object.keys(goodslist).length < 1) {
+      JQAjax.get(null, {
+        url: "http://sh.jinniuhuangjin.com/admin/discount/goodslist",
+        callback: function (data) {
+          result = eval('(' + data + ')');
+//          goodslist = result.list;
+          add_goods_list(goodslist, acceptlist);
+          $('.pagination').html(result.pager);
+          return false;
+        }
+      });
+    }
+
+    $('#filter-btn').click(function () {
+      var _param = '';
+      if ($('#like_name').val()) {
+        _param = _param + (_param != '' ? '&' : '?') + 'like_name=' + $('#like_name').val();
+      }
+      var url = "http://sh.jinniuhuangjin.com/admin/discount/goodslist" + _param;
+
+      JQAjax.get(null, {
+        url: url,
+        callback: function (data) {
+          result = eval('(' + data + ')');
+//          goodslist = result.list;
+          add_goods_list(goodslist, acceptlist);
+          $('.pagination').html(result.pager);
+          return false;
+        }
+      });
+    });
+
+    $(document).on('click', '.pagination a', function () {
+      var obj = $(this);
+      JQAjax.get(obj, {
+        url: obj.attr('href'),
+        callback: function (data) {
+          result = eval('(' + data + ')');
+//          goodslist = result.list;
+          add_goods_list(goodslist, acceptlist);
+          $('.pagination').html(result.pager);
+          return false;
+        }
+      });
+      return false;
+    });
+    $(document).on('click', '.joinClick', function () {
+      var ele = $(this).data('goodsid');
+      acceptlist[ele] = goodslist[ele];
+      $(this).hide();
+      $(this).siblings('.quitClick').show();
+    });
+    $(document).on('click', '.quitClick', function () {
+      var ele = $(this).data('goodsid');
+      temp = {};
+      for (x in acceptlist) {
+        if (x != ele) {
+          temp[x] = acceptlist[x];
+        }
+      }
+      acceptlist = temp;
+      temp = {};
+      $(this).siblings('.joinClick').show();
+      $(this).hide();
+    });
+    $(document).on('click', '.delClick', function () {
+      var ele = $(this).data('goodsid');
+      temp = {};
+      for (x in acceptlist) {
+        if (x != ele) {
+          temp[x] = acceptlist[x];
+        }
+      }
+      acceptlist = temp;
+      temp = {};
+      $(this).parent().parent().remove();
+    });
+
+    $('#betchfill').click(function () {
+      var _gift = $('#all_gift').val();
+      var _limit = $('#all_limitcount').val();
+
+//      if (5 > _gift || $(this).val() >= 10) {
+//        JQbox.alert("请输入正确的折扣");
+//        return false;
+//      }
+      change_discound_price(_gift);
+      $('.limitClick').val(_limit);
+    });
+//    $(document).on('blur', '.giftClick', function () {
+//      if (5 > $(this).val() || $(this).val() >= 10) {
+//        JQbox.alert("请输入正确的折扣");
+//      }
+//      $(this).parent().next('td').html($(this).val() * $(this).parent().data('price') / 10);
+//    });
+
+
+    $('#js-check-all').SelectA();
+    $('.js-step1').click(function () {
+      if ($('#name').val() == '') {
+        JQbox.alert('请输入活动名称');
+        return false;
+      }
+      if ($('#begin_time').val() == '') {
+        JQbox.alert('请输入活动开始时间');
+        return false;
+      }
+      if ($('#end_time').val() == '') {
+        JQbox.alert('请输入活动结束时间');
+        return false;
+      }
+      $("#collapseOne").collapse('hide');
+      $('#collapseTwo').collapse('show');
+    });
+    $('.js-step-title1').click(function () {
+      $('.collapse').collapse('hide');
+      $("#collapseOne").collapse('show');
+    });
+
+    $('.js-step2').click(function () {
+
+      if (Object.keys(acceptlist).length < 1) {
+        JQbox.alert('请先选择促销的宝贝');
+        return false;
+      }
+
+      if (Object.keys(acceptlist).length > 0) {
+        add_accept_list(acceptlist);
+      }
+      $("#collapseTwo").collapse('hide');
+      $('#collapseThree').collapse('show');
+    });
+    $('.js-step-title2').click(function () {
+      $('.collapse').collapse('hide');
+      $("#collapseTwo").collapse('show');
+    });
+
+    $('.js-step-title3').click(function () {
+      $('.collapse').collapse('hide');
+      $("#collapseThree").collapse('show');
+    });
+  });
+
+  function add_goods_list(goods_list, accept_list) {
+    var str = '';
+    for (p in goods_list) {
+      var joined = '';
+      var outed = '';
+      if (accept_list[p] == undefined) {
+        outed = ' style="display:none;"';
+      } else {
+        joined = ' style="display:none;"';
+
+      }
+      str += '<tr>';
+      str += '<td class="text-left"><img src="' + goods_list[p]['simg'] + '" width="50px">' + goods_list[p]['name'] + '</td>';
+      str += '<td class="text-center">' + goods_list[p]['stock_count'] + '</td>';
+      str += '<td class="text-center">' + goods_list[p]['price'] + '</td>';
+      str += '<td class="text-center">';
+      str += '<a class="joinClick fc12" data-goodsid="' + goods_list[p]['id'] + '" ' + joined + ' href="javascript:;">托管</a>';
+      str += '<a class="quitClick fc12" data-goodsid="' + goods_list[p]['id'] + '" ' + outed + ' href="javascript:;">不托管</a>';
+      str += '</td>';
+      str += '</tr>';
+    }
+    $('#goods-list').html(str);
+  }
+
+  function add_accept_list(goods_list) {
+    var str = '';
+    for (p in goods_list) {
+      _gift = goods_list[p]['discount_rate'] || '';
+      _gift_price = (goods_list[p]['discount_rate'] ? goods_list[p]['discount_rate'] * goods_list[p]['price'] / 10 : goods_list[p]['price']);
+
+      str += '<tr>';
+      str += '<td class="text-left"><input name="goods_ids[]" type="hidden" value="' + goods_list[p]['id'] + '">';
+      str += '<img src="' + goods_list[p]['simg'] + '" width="50px">' + goods_list[p]['name'] + '</td>';
+      str += '<td class="text-center"><input type="text" class="giftClick" style="width: 50%"></td>';
+      str += '<td class="text-center"><input type="text" class="giftClick" style="width: 50%"></td>';
+      str += '<td class="text-center"><input type="text" class="giftClick" style="width: 50%"></td>';
+      str += '<td class="text-center">';
+      str += '<input name="mult" class="mult" type="checkbox" style="width: 50%;border-radius: 0">';
+      str += '</td>';
+      str += '<td class="text-center"><input name="rate_id" type="hidden" value="' + goods_list[p]['rate_id'] + '"> ' +
+        '<a class="delClick fc12" data-goodsid="' + goods_list[p]['id'] + '" href="javascript:;">删除</a></td>';
+      str += '</tr>';
+    }
+    $('#accept-list').html(str);
+  }
+
+  function change_discound_price(discount) {
+    $('.giftClick').each(function () {
+      $(this).val(discount);
+      $(this).parent().next('td').html(discount * $(this).parent().data('price') / 10);
+
+    });
+
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>admin</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+    <div class="head">
+        <div class="head-bg" style="background-image: url('Public/img/lun.jpg');"></div>
+        <div class="head-logo">
+            <a href="javascript:;">
+                <img src="Public/img/lun.jpg" id="head-logo">
+            </a>
+        </div>
+        <div class="head-content">
+            <a href="javascript:;" class="btn orange-btn">发布商品</a>
+        </div>
+    </div>
+    <section class="content">
+        <ul class="clearfix">
+            <li class="a_rightLine a_underLine">
+                <a href="#">
+                    <span class="con-num">0</span>
+                    <span class="con-link">在售商品</span>
+                </a>
+            </li>
+            <li class="a_underLine">
+                <a href="#">
+                    <span class="con-num">0.00</span>
+                    <span class="con-link">可提现金额</span>
+                </a>
+            </li>
+            <li class="a_rightLine">
+                <a href="#">
+                    <span class="con-num">0</span>
+                    <span class="con-link">七日订单</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="con-num">0</span>
+                    <span class="con-link">今日访客</span>
+                </a>
+            </li>
+        </ul>
+        <div class="con-cover"></div>
+    </section>
+    <footer class="foot">
+        <ul>
+            <li>
+                <a href="javascript:;" class="foot-a">
+                    <img src="Public/img/i_home_o.png">
+                    <span class="foot-menu fo">概况</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="foot-a">
+                    <img src="Public/img/i_product.png">
+                    <span class="foot-menu">商品</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="foot-a">
+                    <img src="Public/img/i_order.png">
+                    <span class="foot-menu">订单</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="foot-a">
+                    <img src="Public/img/i_set.png">
+                    <span class="foot-menu">设置</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script>
+    $(function () {
+        $con = $('.content');
+        $con_li = $('.content ul li');
+        $con_cover = $('.con-cover');
+
+        var _width = $con.width();
+        $con_li.css('width', _width/2 - 1);
+
+        var _height = $con.height();
+
+        var _objHeight = $con_cover.height();
+        var _objWidth = $con_cover.width();
+
+        var left = (_width - _objWidth)/2;
+        var top = (_height - _objHeight)/2;
+        $con_cover.css('left',left);
+        $con_cover.css('top',top);
+    })
+</script>
+</body>
+</html>

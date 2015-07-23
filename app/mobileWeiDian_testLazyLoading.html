@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>幸运叶子运动名品网</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+</head>
+<body>
+<!--<div>-->
+    <!--<img src="img/a1.jpg" class="jsLazyImage"-->
+         <!--data-url="http://upload1.95171.cn/pic/C55A18N06423/small/b34b541f-359c-4516-97fb-77867ae2a895.jpg">-->
+<!--</div>-->
+<img class="lazy" data-original="" width="320" height="240">
+<img class="lazy" data-original="img/a2.jpg" width="320" height="240">
+<img class="lazy" data-original="img/a3.jpg" width="320" height="240">
+<img class="lazy" data-original="img/a4.jpg" width="320" height="240">
+<img class="lazy" data-original="img/add_2.png" width="320" height="240">
+<img class="lazy" data-original="img/add_3.png" width="320" height="240">
+<img class="lazy" data-original="img/add_4.png" width="320" height="240">
+<img class="lazy" data-original="img/addr.png" src="img/addr.png" width="320" height="240">
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery.lazyload.js"></script>
+<script>
+//  $lazyLoading($(".jsLazyImage"));
+$("img.lazy").lazyload({
+    appear: function () {
+        //图片加载时
+        //alert($(this).attr('src'))
+        $(this).addClass('lazy-container');
+    },
+    load: function () {
+        //图片加载后
+        //alert($(this).attr('src'))
+        $(this).removeClass('lazy-container');
+    },
+    event:'scroll',
+    placeholder: "img/loading_bg.png"
+});
+</script>
+</body>
+</html>

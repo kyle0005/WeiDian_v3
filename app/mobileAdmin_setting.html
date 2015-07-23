@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>店铺信息设置</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+           <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            店铺信息设置
+        </div>
+    </div>
+</header>
+<section class="setting-container shop-setting">
+    <form class="form-horizontal underline-con">
+        <fieldset>
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">店铺地址</span>
+                <input type="text" placeholder="店铺地址" value="http://shop.golddiy.com/11785yasgdjasghsgdhasdhajdhahdashdkwajsd">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">店铺名称</span>
+                <input type="text" placeholder="店铺名称"
+                       value="洒了可恢复到垃圾的垃圾的拉斯加倒垃圾的垃圾死定了按实际的拉斯加达拉斯惊呆了">
+                <!--<div class="hide js-team-name-input">-->
+                    <!--<input type="text" name="name" maxlength="30">-->
+                    <!--<p class="help-block error-message">店铺名称只能修改一次，请您谨慎操作</p>-->
+                <!--</div>-->
+                <!--<div class="js-team-name-text">-->
+                    <!--<span class="sink">洒了可恢复到垃圾的垃圾的拉斯加倒垃圾的垃圾死定了按实际的拉斯加达拉斯惊呆了</span>-->
+                    <!--<a href="javascript:;" class="sink sink-minor js-team-name-edit">修改</a>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">创建日期</span>
+                <input class="create-date" type="date" name="create-date">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <span class="left-label">店铺Logo</span>
+            <div id="form_logo_img" class="js-fix controls">
+                <div class="upload-container">
+                    <span class="img_ul">
+                        <span class="clickText">点击上传<br>建议尺寸50x50</span>
+                        <span class="lazy-container uploadProgress hide"></span>
+                    </span>
+                    <span id="logo-add" class="img_add">
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="control-group">
+            <span class="left-label">店铺背景</span>
+            <div id="form_banner_img" class="js-fix controls">
+                <div class="upload-container">
+                    <span class="img_ul">
+                        <span class="clickText">点击上传<br>建议尺寸50x50</span>
+                    </span>
+                    <span id="banner-add" class="img_add">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">店铺简介</span>
+                <textarea name="description" class="input-intro" cols="30" rows="3" maxlength="100"></textarea>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">联系人姓名</span>
+                <input class="contact-name" type="text" name="member_name" placeholder="请填写完整的真实姓名" value="">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">联系电话</span>
+                <input class="contact-name" type="text" name="phone" placeholder="请填写联系电话" value="18321114835">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">联系人微信号</span>
+                <input class="weixin" type="text" placeholder="填写能联系到您的微信号" name="weixin" value="" maxlength="15/">
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">联系人QQ号</span>
+                <input class="qq" type="text" placeholder="填写能联系到您的QQ号" name="qq" value="" maxlength="15/">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="left-label">联系人手机号</span>
+                <input class="mobile" type="text" name="mobile" placeholder="填写准确的手机号码，便于及时联系" value="18321114835" maxlength="11/">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="sub-btn">
+                <a class="wei-btn wei-bg-red" href="javascript:;">保存修改</a>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+</section>
+<div style="height: 49px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="product_class.html">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="setting.html">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/select.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    $(function () {
+        $('.js-team-name-edit').click(function () {
+            $('.js-team-name-text').addClass('hide');
+            $('.js-team-name-input').removeClass('hide');
+        });
+
+        var url = "upload.php";
+        $('#logo-add').uploads({
+            'c_id':'logo-add',
+            'input_id':'hidden_logo_img',
+            'c_url':url,
+            'extensions':'',
+            'number': 0,
+            'singleRepeat':true
+        });
+        $('#banner-add').uploads({
+            'c_id': 'banner-add',
+            'input_id': 'hidden_banner_img',
+            'c_url': url,
+            'number': 0,
+            'singleRepeat':true
+        });
+    })
+
+    if($.browser.safari){
+        $('.img_add').css('z-index','-1');
+    }
+</script>
+</body>
+</html>

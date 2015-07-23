@@ -1,0 +1,59 @@
+<div class="pay-container">
+    <div class="pay-m-choose">
+        <ul class="banks-menu">
+            <li class="js-banks chosen">
+                <a href="javascript:;">
+                    <span class="ccb"></span>&nbsp;建设银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="icbc"></span>&nbsp;工商银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="cmbc"></span>&nbsp;招商银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="spdb"></span>&nbsp;浦发银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="cgb"></span>&nbsp;广发银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="cmsb"></span>&nbsp;民生银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="cib"></span>&nbsp;兴业银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="fsbc"></span>&nbsp;邮储银行信用卡
+                </a>
+            </li>
+            <li class="js-banks">
+                <a href="javascript:;">
+                    <span class="ccb_cx"></span>&nbsp;建设银行储蓄卡
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.js-banks').click(function () {
+            $('.js-banks').removeClass('chosen');
+            $(this).addClass('chosen');
+        });
+    });
+</script>

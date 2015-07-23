@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/datepicker.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/tab.js"></script>
+    <script src="Public/js/height.js"></script>
+    <script src="Public/js/select.js"></script>
+    <script src="Public/js/bootstrap-datepicker.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li>
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="active">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+    <div id="left">
+        <div class="subnav">
+            <div class="subnav-title ">
+                <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>订单管理</span></a>
+            </div>
+            <ul class="subnav-menu" style="display: block;">
+                <li class="">
+                    <a href="javascript:;" target="_self">所有订单</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">维权订单</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">货到付款订单</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">代付订单</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <div class="a-main">
+            <div class="a-container">
+                <div class="orderInfo">
+                    <div class="orderInfo-title">
+                        <h5>订单详情</h5>
+                    </div>
+                    <div class="orderInfo-container">
+                        <dl>
+                            <dt><span>订单概况</span></dt>
+                            <dd>
+                                <div class="orderInfo-top">
+                                    <span>订单号：1248172638135</span>
+                                    <span>订单状态：<b class="red">已支付</b></span>
+                                </div>
+                                <ul>
+                                    <li>收&ensp;货&ensp;人：卡洛斯卡</li>
+                                    <li>收货地址：是的减哈卡收费卡洛斯的合法看来是减lkdjgld23</li>
+                                    <li>手机号码：329339288</li>
+                                    <li>支付方式：货到付款</li>
+                                    <li>运&emsp;&emsp;费：￥0.00</li>
+                                    <li>送货日期：2014-10-17</li>
+                                    <li>配送时间：19:00-22:00</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="orderInfo-container">
+                        <dl>
+                            <dt><span>商品清单</span></dt>
+                            <dd>
+                                <table cellpadding="0" cellspacing="0" width="100%">
+                                    <tbody>
+                                    <tr>
+                                        <th width="10%"> 商品编号</th>
+                                        <th width="12%"> 商品图片</th>
+                                        <th width="42%"> 商品名称</th>
+                                        <th width="10%"> 京东价</th>
+                                        <th width="8%"> 京豆数量</th>
+                                        <th width="7%"> 商品数量</th>
+                                        <th width="11%">
+                                            操作
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>1205598</td>
+                                        <td>
+                                            <div class="img-list">
+                                                <a class="img-box" target="_blank" href="javascrip:;">
+                                                    <img width="50" height="50"
+                                                         src="Public/img/uuu.png">
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="al fl">
+                                                <a class="flk13" target="_blank" href="javascrip:;"> QCY QY7 尖叫 运动式 音乐蓝牙耳机
+                                                    黑色</a>
+                                            </div>
+                                        </td>
+                                        <td><span class="ftx04"> ￥99.90</span></td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>
+                                            <a class="btn-again" href="javascript:;" target="_blank">还要买</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1205598</td>
+                                        <td>
+                                            <div class="img-list">
+                                                <a class="img-box" target="_blank" href="javascrip:;">
+                                                    <img width="50" height="50"
+                                                         src="Public/img/uuu.png">
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="al fl">
+                                                <a class="flk13" target="_blank" href="javascrip:;"> QCY QY7 尖叫 运动式 音乐蓝牙耳机
+                                                    黑色</a>
+                                            </div>
+                                        </td>
+                                        <td><span class="ftx04"> ￥99.90</span></td>
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>
+                                            <a class="btn-again" href="javascript:;" target="_blank">还要买</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </dd>
+                        </dl>
+                        <div class="orderTotal clearfix">
+                            <ul class="m-total-pay">
+                                <li>
+                                    <span class="category">共 <span class="num"
+                                                                   data-bind="text:pieceTotal">1</span> 件商品 金额：</span>
+                                    <span class="txt">¥118.00</span>
+                                </li>
+                                <li>
+                                    <span class="category">运费：</span>
+                                    <span class="txt">¥10.00</span>
+                                </li>
+                                <li>
+                                    <span class="category"><b class="total">订单金额：</b></span>
+                                    <span class="txt">
+                                        <b class="u-money-color" data-hover="u-money-color-hover">¥
+                                            128.00</b>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

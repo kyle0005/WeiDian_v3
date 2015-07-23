@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>创建H码</title>
+</head>
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+    <div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+        <div class="subnav">
+            <div class="subnav-title ">
+                <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>商品管理</span></a>
+            </div>
+            <ul class="subnav-menu" style="display: block;">
+                <li class="">
+                    <a href="#" target="_self">出售中的产品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">已售罄的商品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">仓库中的商品</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">商品分类</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">促销管理</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">卡卷管理</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <div class="a-main">
+            <form class="form-horizontal">
+                <div class="a-container">
+                    <h5>
+                        基本信息
+                    </h5>
+                    <hr>
+                    <div class="control-group">
+                        <label class="control-label" style="line-height: 28px;text-align: right;">
+                            有效时间：</label>
+                        <div class="controls">
+                            <input type="text" id="begin_time" name="begin_time"
+                                   value="2015-02-04 09:48"
+                                   onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate"
+                                   readonly>&nbsp;-&nbsp;
+                            <input type="text" id="end_time" name="begin_time"
+                                                                value="2015-02-04 09:48"
+                                                                onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate"
+                                                                readonly>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputNum" style="line-height: 28px;text-align: right;">
+                            发行量：</label>
+                        <div class="controls">
+                            <select style="border-radius:0;width:70px;">
+                                <option>10</option>
+                                <option>20</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="selectNum" style="text-align: right;">
+                            宝贝范围：</label>
+                        <div class="controls">
+                            <input id="goods_ids" name="goods_ids" type="hidden" value="">
+                            <a href="javascript:;" class="js-choose-pro">选择商品</a>（已选择<span class="chosen-pro-num">0</span>个）
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <a class="btn orange-btn fc12" href="javascript:;">批量生成</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script src="Public/js/WdatePicker/WdatePicker.js"></script>
+<script>
+    var goods_list = {
+        /* */
+        /* */
+        "156" :{
+            id : "156",
+            name : "黄金历史 一代天骄转运珠 沉香手串 千足金手链",
+            img : "/Uploads/images/2015-01-07/54acd1061824d.jpg",
+            stock_count : "241",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "155" :{
+            id : "155",
+            name : "黄金历史 幸运之星转运珠 沉香手串 千足金手链",
+            img : "/Uploads/images/2015-01-06/54ab588d2711b.jpg",
+            stock_count : "153",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "154" :{
+            id : "154",
+            name : "黄金历史 流金岁月转运珠 千足金手链 石榴石手串",
+            img : "/Uploads/images/2015-01-05/54aa548177ef6.jpg",
+            stock_count : "109",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "153" :{
+            id : "153",
+            name : "黄金历史 蔷薇之恋转运珠 粉晶手串 千足金手链",
+            img : "/Uploads/images/2015-01-05/54aa4cda74c15.jpg",
+            stock_count : "351",
+            price : "1088.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "152" :{
+            id : "152",
+            name : "黄金历史 虎虎生威转运珠 沉香手串 虎睛石手链",
+            img : "/Uploads/images/2015-01-05/54aa0484de937.jpg",
+            stock_count : "116",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "151" :{
+            id : "151",
+            name : "黄金历史 一生一石转运珠 沉香手串 青金石手链",
+            img : "/Uploads/images/2015-01-05/54aa0152d777d.jpg",
+            stock_count : "265",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "150" :{
+            id : "150",
+            name : "黄金历史 开泰好运系列之星座好运星50克银章",
+            img : "/Uploads/images/2015-01-04/54a903f80ea1a.jpg",
+            stock_count : "1737",
+            price : "780.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "149" :{
+            id : "149",
+            name : "黄金历史 快乐晶灵转运珠 千足金茶晶手串",
+            img : "/Uploads/images/2015-01-04/54a8ef8697d1e.jpg",
+            stock_count : "194",
+            price : "1088.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "148" :{
+            id : "148",
+            name : "黄金历史 红妆素裹转运珠 白砗磲佛珠手串",
+            img : "/Uploads/images/2015-01-04/54a8ec664e1ac.jpg",
+            stock_count : "187",
+            price : "918.00"
+        }
+
+        /**/
+        /* */
+        ,
+        /**/
+        "147" :{
+            id : "147",
+            name : "黄金历史 众星捧月转运珠 星月菩提手串",
+            img : "/Uploads/images/2015-01-04/54a8e5e85479b.jpg",
+            stock_count : "291",
+            price : "918.00"
+        }
+
+        /* */
+    };
+    var accept_list = {};
+    $(function () {
+       $('.js-choose-item').click(function () {
+           $(this).parents('.js-choose-container').children('.js-choose-item').removeClass('chosen-item');
+           $(this).addClass('chosen-item');
+       }) ;
+        $('.js-choose-pro').click(function () {
+               JQbox.open({
+                   type: "open",
+                   title: "选择商品",
+                   url: 'pcAdmin_product_choosePro.html',
+                   width: 800,
+                   height:500,
+                   modal:true
+               }) ;
+        });
+        $(document).on('click', '.js-check-toggle', function () {
+            //$("input:checkbox[name='goods_ids[]']:checked").each(function(i){
+                var id = $(this).val();
+                alert(id);
+                accept_list[id] = goods_list[id];
+            //});
+        });
+
+        $(document).on('click', '.js-chosePro', function () {
+            if ($('#dialog')) {
+                $("#dialog").dialog("destroy").remove();
+            }
+        });
+
+
+    });
+    function add_goods_list(goods_list) {
+        var str = '';
+        for (p in goods_list) {
+            str += '<tr>';
+            str += '<td class="text-center"><input name="goods_ids[]" type="checkbox" class="js-check-toggle" value="'
+                    + goods_list[p]['id']
+                    + '"></td>';
+            str += '<td class="text-center clearfix"><span class="p-img"><img src="';
+            str +=  goods_list[p]['img'] + '">';
+            str += '</span><span class="p-title">';
+            str +=  goods_list[p]['name'];
+            str += '</span></td>';
+            str += '<td class="text-center">';
+            str +=  goods_list[p]['stock_count'];
+            str += '</td>';
+            str += '<td class="text-center">';
+            str +=  goods_list[p]['price'];
+            str += '</td>';
+            str += '<td class="text-center">';
+            str += '</td>';
+            str += '</tr>';
+        }
+        $('.js-list-body-region').html(str);
+    }
+</script>
+</body>
+</html>

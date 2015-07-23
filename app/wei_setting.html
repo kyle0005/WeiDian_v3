@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>个人信息设置</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            个人信息设置
+        </div>
+    </div>
+</header>
+<section class="setting-container">
+    <form class="form-horizontal underline-con">
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+              <span class="left-label">用户名称：</span>
+              <input type="text" name="name" value="aaaaaa" maxlength="30" placeholder="请填写用户名">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="left-label">用户头像：</span>
+            <div id="form_logo_img" class="js-fix controls">
+              <div class="upload-container">
+                            <span class="img_ul">
+                                <span class="img_up">
+                                    <img src="http://img.golddiy.com/Uploads/images/2015-02-02/54cedc566ab6a.jpg@1e_200w_200h_1c_0i_1o_90Q_1x.jpg" width="100">
+                                    <input type="hidden" name="logo_img" value="/Uploads/images/2015-02-02/54cedc566ab6a.jpg">
+                                </span>                                <span class="clickText">点击上传<br>建议长宽比为1:1</span>
+                            </span>
+                <span id="logo-add" class="img_add"></span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+            <div class="control-group">
+                <div class="sub-btn">
+                    <a class="wei-btn wei-bg-red" href="javascript:;">保存修改</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
+<div style="height: 49px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+$(function () {
+  var url = "upload.php";
+  $('#logo-add').uploads({
+    'c_id':'logo-add',
+    'input_id':'hidden_logo_img',
+    'c_url':url,
+    'extensions':'',
+    'number': 0,
+    'singleRepeat':true
+  });
+})
+</script>
+</body>
+</html>

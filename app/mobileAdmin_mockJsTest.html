@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>模拟生成数据</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+<body>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/mock.js"></script>
+<script>
+    // 使用 Mock
+    var data = Mock.mock({
+        'aaaaaaaa|1': [{
+            'ssssssss|+1': 1
+        },{
+            'zzzzzzzz|+1': 1
+        },{
+            'eeeeeeee|+1': 1
+        }]
+    });
+    $('<pre>').text(JSON.stringify(data, null, 4))
+            .appendTo('body')
+</script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <!--<base href="." target="mainFrame">-->
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/tab.js"></script>
+    <script src="Public/js/height.js"></script>
+    <script src="Public/js/wd.pc.tab.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu{
+            display:none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+<div id="left">
+    <div class="subnav">
+        <div class="subnav-title ">
+            <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>商品管理</span></a>
+        </div>
+        <ul class="subnav-menu" style="display: block;">
+            <li class="">
+                <a href="product.html" target="_self">出售中的产品</a>
+            </li>
+            <li class="">
+                <a href="product_soldout.html" target="_self">已售罄的商品</a>
+            </li>
+            <li class="">
+                <a href="product_warehouse.html" target="_self">仓库中的商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">商品分类</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="right">
+<div class="a-main">
+<div class="a-container">
+<div class="goods-edit-area">
+<div class="js-proTab">
+    <ul class="ui-nav-tab">
+        <li class="js-switch-step js-step-1 active"><a href="javascript:;">1.选择商品品类</a></li>
+        <li class="js-switch-step js-step-2"><a href="javascript:;">2.编辑商品信息</a></li>
+    </ul>
+</div>
+<div class="js-proTabs">
+    <form class="">
+        <div class="clearfix">
+            <div class="control-group">
+                <label class="control-label">请选择商品类目：</label>
+
+                <div class="controls">
+                    <select>
+                        <option>商品类目</option>
+                        <option>商品a</option>
+                        <option>商品b</option>
+                        <option>商品c</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="goods-list">
+            <div class="ui-box">
+                <table class="ui-table ui-table-list" style="padding: 0px;">
+                    <thead class="js-list-header-region tableFloatingHeaderOriginal">
+                    <tr>
+                        <th class="checkbox cell-35" colspan="2">
+                            <a href="javascript:;" data-orderby="price">商品价格</a></th>
+                        <th class="cell-10">访问量</th>
+                        <th class="cell-8 text-right"><a href="javascript:;" data-orderby="stock_num">库存</a></th>
+                        <th class="cell-8 text-right"><a href="javascript:;" data-orderby="sold_num">总销量</a></th>
+                        <th class="cell-12"><a href="javascript:;" data-orderby="created_time">创建时间<span
+                                class="orderby-arrow desc"></span></a></th>
+
+                        <th class="cell-8 text-right"><a href="javascript:;" data-orderby="num">序号</a></th>
+                        <th class="cell-15 text-right">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="js-list-body-region">
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:void(0);" class="pro-edit-choose">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="goods-image-td">
+                            <div class="goods-image js-goods-image">
+                                <img src="Public/img/uuu.png">
+                            </div>
+                        </td>
+                        <td class="goods-meta">
+                            <p class="goods-title">
+                                <a href="javascript:;" target="_blank"
+                                   class="new-window" title="的双方各">
+                                    的双方各
+                                </a>
+                            </p>
+
+                            <p class="goods-price">￥100.00</p>
+                        </td>
+                        <td>
+                            <div>UV: 0</div>
+                            <div>PV: 0</div>
+                        </td>
+                        <td class="text-right">
+                            100
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                        <td class="">
+                            2014-10-20 09:20:22
+                        </td>
+                        <td class="text-right">
+                            <a class="js-change-num" href="javascript:void(0);">0</a>
+                            <input class="input-mini js-input-num" type="number" min="0" maxlength="8" style="display: none;"
+                                   value="0">
+                        </td>
+                        <td class="text-right">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="js-list-empty-region"></div>
+            </div>
+            <div class="js-list-footer-region ui-box">
+                <div class="pagination text-right">
+                    <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>
+                <div class="pagenavi">
+                    <span class="total">共 2 条，每页 xx 条</span>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="hide js-proTabs">
+    <form class="">
+        <div class="good-info clearfix">
+            <div class="control-group">
+                <label class="control-label">商品名：</label>
+
+                <div class="controls">
+                    <div class="js-pro-name-text">
+                        <a href="javascript:;" class="js-back-pro"><span class="pro-name">草莓奶茶V刹V刹</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">价格：</label>
+
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on">￥</span>
+                        <input type="text" name="price" value="0.00" class="input-small">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">商品图：</label>
+                <div class="controls">
+                    <div class="upload-container">
+                        <span class="img_ul clearfix"></span>
+                        <span id="up_pic_add" class="img_add">
+                            <em class="img_add_a">&nbsp;</em>
+                            <em class="img_add_b">&nbsp;</em>
+                        </span>
+                    </div>
+                    <p class="help-desc">建议尺寸：800 x 800 像素，第一张将会作为默认显示图片</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">商品规格：</label>
+
+                <div class="controls">
+                    <input class="input-xxlarge" type="text" name="title" value="" maxlength="40" style="width: 90px">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">商品上下架：</label>
+
+                <div class="controls">
+                    <span class="pro-up pro-up-down">
+                        <input type="radio" name="up"><span>上架</span>
+                    </span>
+                    <span class="pro-down pro-up-down">
+                        <input type="radio" name="up"><span>下架</span>
+                    </span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"></label>
+
+                <div class="controls">
+                    <a class="btn orange-btn fc12" href="#">发&emsp;布</a>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--<div id="select2-drop-mask" class="select2-drop-mask hide"></div>-->
+<!--<div class="select2-drop select2-with-searchbox select2-drop-active hide"-->
+     <!--style="top: 148px; left: 340px; width: 150px;" id="select2-drop">-->
+    <!--<ul class="select2-results">-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">服装鞋包</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">美妆饰品</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">百货食品</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">手机数码</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">家用电器</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">运动户外</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">手机数码</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">家用电器</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">运动户外</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">手机数码</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">家用电器</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">运动户外</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">手机数码</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">家用电器</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">运动户外</div>-->
+        <!--</li>-->
+        <!--<li class="select2-results-dept-0 select2-result select2-result-selectable">-->
+            <!--<div class="select2-result-label">其他</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    $(function () {
+        var url = "upload.php";
+        $('#up_pic_add').uploads({
+            'c_id': 'up_pic_add',
+            'input_id': 'hidden_logo_img',
+            'c_url': url,
+            'extensions': '',
+            'number': 0,
+            'singleRepeat': false
+        });
+    });
+</script>
+</body>
+</html>

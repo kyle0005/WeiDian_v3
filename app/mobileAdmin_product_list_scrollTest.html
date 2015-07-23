@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>产品列表</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+           <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            宝贝列表
+        </div>
+    </div>
+</header>
+<a href="#" class="listRw"><img src="Public/img/pub.png"></a>
+<div class="productList-container">
+    <section class="list-container clearfix">
+        <div class="prolist-search">
+            <div class="input-append" style="width: 79%;">
+                <input type="text" id="appendedInputButton" class="span2 search-pros">
+                <button type="button" class="btn">搜索</button>
+            </div>
+        </div>
+    </section>
+</div>
+<section id="" class="productList-container">
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown" style="visibility: hidden">
+                <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+            </div>
+            <ul id="thelist" class="list-cons-list"></ul>
+            <div id="pullUp" style="visibility: hidden">
+                <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div id="footer" style="height: 50px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="product_class.html">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="setting.html">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script src="Public/js/iscroll.js"></script>
+<script src="Public/js/scrollInit.js"></script>
+</body>
+</html>

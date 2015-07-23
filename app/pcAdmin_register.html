@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/height.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div class="reg-container">
+    <form>
+        <div class="reg-logo">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="reg-main">
+            <div class="reg-title">注册微门店账户</div>
+            <div class="reg-topLine"><span>手机快速注册</span></div>
+            <div class="reg-list">
+                <div class="reg-listRow">
+                    <input type="text" placeholder="手机号码" name="account" class="inputText inputBlock">
+
+                    <div class="pt10"><b class="ct_5">*</b>填写您常用的手机号码，用于接收验证码</div>
+                </div>
+                <div class="reg-listRow">
+                    <div class="reg-fromBtn">
+                        <a href="javascript:void(0);" role="msgcode_p" id="picCode"><img src=""></a>
+                    </div>
+                    <div class="reg-fromBox">
+                        <input type="text" placeholder="请输入图片验证码" name="code" class="inputText inputBlock">
+                    </div>
+                </div>
+                <div class="reg-listRow">
+                    <div class="reg-fromBtn">
+                        <a href="javascript:void(0);" role="msgcode" id="reSendCode">获取短信验证码</a>
+                    </div>
+                    <div class="reg-fromBox">
+                        <input type="text" placeholder="请输入短信验证码" name="code" class="inputText inputBlock">
+                    </div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="password" placeholder="密码" name="password" class="inputText inputBlock">
+
+                    <div class="pt10"><b class="ct_5">*</b> 6-21位数字或字母</div>
+                </div>
+                <div class="pt20">
+                    <a href="javascript:void(0);" class="btn orange-btn fc12" style="display: block;">立即注册</a>
+                </div>
+                <div
+                        class="clearfix pt10">
+                    <label class="checkbox"><input type="checkbox" name="usage" value="1" checked=""><a
+                            href="javascript:;" class="ct_3" target="_blank">我已阅读并同意使用条款</a></label>
+                </div>
+            </div>
+            <div class="p30"><a href="login.html" class="ct_6 underline">已有账号?立即登陆</a></div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

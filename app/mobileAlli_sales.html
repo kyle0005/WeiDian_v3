@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>联盟销售情况</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            联盟销售情况
+        </div>
+    </div>
+</header>
+<div class="wei-container10">
+    <div id='canvasDiv'></div>
+</div>
+<div style="height: 55px;"></div>
+<footer class="wei-foot text-center">
+    <ul class="clearfix">
+        <li class="wei-foot-li">
+            <a href="javascript:void(0);" class="">
+                <span class="wei-foot-bg wei-foot-index"></span>
+                首页
+            </a>
+        </li>
+        <li class="wei-foot-li">
+            <a href="javascript:void(0);" class="">
+                <span class="wei-foot-bg wei-foot-work"></span>
+                工作台
+            </a>
+        </li>
+        <li class="wei-foot-li">
+            <a href="javascript:void(0);" class="curFoot">
+                <span class="wei-foot-bg wei-foot-person"></span>
+                我
+            </a>
+        </li>
+    </ul>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/ichart.1.2.js"></script>
+<script>
+$(function () {
+    var pv=[],ip=[],t;
+    for(var i=0;i<12;i++){
+        t = Math.floor(Math.random()*(30+((i%12)*5)))+10;
+        pv.push(t);
+        t = Math.floor(t*0.5);
+        t = t-Math.floor((Math.random()*t)/2);
+        ip.push(t);
+    }
+
+    var data = [
+        {
+            name : '指标',
+            value:pv,
+            color:'#0d8ecf',
+            line_width:1
+        },
+        {
+            name : '完成',
+            value:ip,
+            color:'#ef7707',
+            line_width:1
+        }
+    ];
+
+    var labels = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+
+    var w_width = $(window).width() - 20;
+    var chart = new iChart.LineBasic2D({
+        render : 'canvasDiv',
+        data: data,
+        align:'center',
+        footnote : {
+            text:'',
+            font : '微软雅黑',
+            fontsize:12
+        },
+        width : w_width,
+        background_color:'#ffffff',
+        border:{
+            enable:false
+        },
+        legend:{
+            enable:true,
+            background_color : null,
+            border : {
+                enable : false
+            },
+            padding: -5,
+            sign: 'round',
+            sign_size: 6,
+            text_with_sign_color: true,
+            column: 2,
+            legend_space :10,
+             valign: 'top'
+        },
+        animation : true,
+        animation_duration:600,
+        tip:{
+            enable:true,
+            shadow:true,
+            listeners:{
+                //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+                parseText:function(tip,name,value,text,i){
+//                    return name+"销售额:"+value+"万";
+                    return "<span style='color:#005268;'>"+labels[i]+"月"+ name +"销售额:"+
+                            "</span><span style='color:#005268;'>"+value+"万</span>";
+                }
+            }
+        },
+        crosshair:{
+            enable:true
+        },
+        sub_option : {
+            smooth : true,
+            label:false,
+            hollow:false,
+            hollow_inside:false
+        },
+        coordinate:{
+            axis:{
+                color:'#252525',
+                width:[0,0,1,1]
+            },
+            border:{
+
+            },
+            scale:[{
+                position:'left',
+                start_scale:0,
+                end_scale:100,
+                scale_space:10,
+                scale_enable : false,
+                label : {font : '微软雅黑',fontsize:12}
+            },{
+                position:'bottom',
+                label : {font : '微软雅黑',fontsize:12},
+                scale_enable : false,
+                labels:labels
+            }]
+        }
+    });
+    //利用自定义组件构造左侧说明文本
+    chart.plugin(new iChart.Custom({
+        drawFn:function(){
+            //计算位置
+            var coo = chart.getCoordinate(),
+                    x = coo.get('originx'),
+                    y = coo.get('originy'),
+                    w = coo.width,
+                    h = coo.height;
+            //在左上侧的位置，渲染一个单位的文字
+            chart.target.textAlign('start')
+                    .textBaseline('bottom')
+                    .textFont('12px 微软雅黑')
+                    .fillText('销售量(万)',x-20,y-12,false)
+                    .textBaseline('top')
+                    .fillText('月份',x+w+8,y+h-7,false);
+
+        }
+    }));
+    //开始画图
+    chart.draw();
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>帮助文档详情</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="http://test.shop.golddiy.com/Public/css/bootstrap.css" rel="stylesheet">
+    <link href="http://test.shop.golddiy.com/Public/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://test.shop.golddiy.com/Public/css/main.css"/>
+    <link href="http://test.shop.golddiy.com/Public/css/font-awesome.css" rel="stylesheet">
+    <link href="http://test.shop.golddiy.com/Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="pl10 pr10 lh40" style="color: blue; border-bottom: 1px dashed #999;">
+  &laquo;使用帮助
+</header>
+<section class="wei-container10">
+    <h3>如何管理宝贝？</h3>
+    <p>在“微店首页”页面点击“商品管理”，出现“出售中”页面→即可显示出所有微店内正在销售的宝贝，点击“...”可选择“下架”、“分类”、“排序”或“删除”</p>
+    <p class="mt10 pb10 bb"><img  data-original="help/goods_1.jpg" width="240" class="lazy" /></p>
+    <p class="mt10 pb10 bb"><img  data-original="help/goods_2.jpg" width="240" class="lazy" /></p>
+    <p class="mt10 pb10 bb"><img  data-original="help/goods_3.jpg" width="240" class="lazy" /></p>
+    <h3>如何分享宝贝？</h3>
+    <p class="mt10 pb10 bb"><img  data-original="help/app_goods.jpg" width="240" class="lazy" /></p>
+    <h3>如何创建宝贝分类？</h3>
+    <p>发布宝贝之前，也可先在在“微店首页”页面点击“商品管理”，在新出现的页面中点击“+”，在出现的“宝贝分类管理”页面点击“+”可添加微店宝贝的分类，可设置分类的名称、排序等信息</p>
+    <p class="mt10 pb10 bb"><img  data-original="help/goods_4.jpg" width="240" class="lazy" /></p>
+    <p class="mt10 pb10 bb"><img  data-original="help/goods_5.jpg" width="240" class="lazy" /></p>
+</section>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
+<script>
+  $(function () {
+    $("img.lazy").lazyload({
+      appear: function () {
+        //图片加载时
+        $(this).addClass('lazy-container');
+      },
+      load: function () {
+        //图片加载后
+        $(this).removeClass('lazy-container');
+      },
+      event:'scroll',
+      placeholder: "Public/img/loading_bg.png"
+    });
+
+    $(window).bind("load", function() {
+      var timeout = setTimeout(function() {
+        $("img.lazy").trigger("scroll");         //触发scroll事件
+      }, 0);
+    });
+  })
+</script>
+</body>
+</html>

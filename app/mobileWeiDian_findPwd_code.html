@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>找回密码</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            找回密码
+        </div>
+    </div>
+</header>
+<section class="reg-content">
+    <form method="post" id="find-code-form" action="fixPwd.html">
+        <fieldset>
+            <div class="reg-module">
+                验证码已发送到您的手机:<br>
+                <span>1222222222</span><br>
+                输入短信中的验证码
+            </div>
+            <div class="reg-module">
+                <div class="clearfix">
+                    <div class="reg-code-wrap reg-form-wrap relative">
+                        <input type="text" class="js-code" name="code"  placeholder="输入验证码">
+                    </div>
+                </div>
+                <div class="js-code-text"></div>
+            </div>
+            <div class="reg-module">
+               <span class="f-reTxt">未获取到验证码？</span><a href="javascript:;" class="f-reGet">点击重新获取验证码</a>
+            </div>
+
+            <div class="reg-bottom">
+                <input type="submit" class="reg-btn" value="下一步">
+            </div>
+
+        </fieldset>
+    </form>
+</section>
+
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<!--<script src="js/register.js"></script>-->
+<script src="Public/js/jquery.validate.js"></script>
+<script src="Public/js/formValidatorClass.js"></script>
+<script>
+$(function() {
+    //开始验证
+    $('#find-code-form').validate({
+        /* 设置验证规则 */
+        rules: {
+            code: {
+                required: true
+            }
+        },
+
+        /* 设置错误信息 */
+        messages: {
+            code: {
+                required: "请输入验证码"
+            }
+        },
+
+        /* 设置验证触发事件 */
+        focusInvalid: false,
+        onkeyup: false,
+
+        /* 设置错误信息提示DOM */
+        errorPlacement: function (error, element) {
+            error.appendTo(element.parent());
+        }
+
+    });
+});
+</script>
+</body>
+</html>

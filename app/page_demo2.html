@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+.p{
+    width: 1px;
+    -webkit-transition: prop time;
+    -moz-transition: prop time;
+    -ms-transition: prop time;
+    -o-transition: prop time;
+    transition: prop time;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+@font-face {
+    font-family: '微软雅黑';
+    src: url('');
+}
+
+@font-face {
+    font-family: 'FontName';
+    src: url('FileName.eot');
+    src: url('FileName.eot?#iefix') format('embedded-opentype'), url('FileName.woff') format('woff'), url('FileName.ttf') format('truetype'), url('FileName.svg#FontName') format('svg');
+    font-style: normal;
+    font-weight: normal;
+}
+</style>
+<body>
+<script src="Public/js/BigDecimal-all-last.min.js"></script>
+<script>
+    var a = function(x,y){
+        var n1 = new BigDecimal(x);
+        var n2 = new BigDecimal(y);
+        alert('+' + n1.add(n2));
+        alert('*' + n1.multiply(n2));
+        alert('/' + n1.divide(n2));
+        alert('-' + n1.subtract(n2));
+
+    }
+    a('0.001','0.0000002');
+</script>
+</body>
+</html>

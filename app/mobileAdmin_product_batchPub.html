@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>产品批量发布</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+           <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            批量添加
+        </div>
+    </div>
+</header>
+<form>
+    <div class="container15">
+        <ul class="checkList">
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-all"
+                           id="js-check-all"><strong>全选分类</strong>
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">工艺礼品
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">转运珠
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">玉翠珠宝
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">纪念钞及邮币卡
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">纪念章
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">国礼
+                </label>
+            </li>
+            <li class="bt">
+                <label class="checkbox">
+                    <input type="checkbox" name="class" class="js-check-toggle checkbox">纪念币
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="container15 bt">
+        <span style="display:inline-block;line-height: 30px;">发布到本地</span>
+        <select
+                style="width: 75%;-webkit-appearance: menulist;margin-left:
+                5px;border: 1px solid #e3e3e3;margin-bottom: 0;outline: none;">
+            <option>全部</option>
+            <option>全部</option>
+            <option>全部</option>
+        </select>
+    </div>
+    <div class="container15 bt">
+        <label class="checkbox">
+            <input type="checkbox" name="copy">同步创建分类名
+        </label>
+        <div class="sub-btn">
+            <a href="#" class="wei-btn wei-bg-red">确认发布</a>
+        </div>
+    </div>
+</form>
+<div style="height: 49px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="product_class.html">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="setting.html">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/chooseAll.js"></script>
+<script>
+    $('#js-check-all').SelectA();
+</script>
+</body>
+</html>

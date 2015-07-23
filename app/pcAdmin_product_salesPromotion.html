@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店促销活动</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+<div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+    <div class="subnav">
+        <div class="subnav-title ">
+            <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>商品管理</span></a>
+        </div>
+        <ul class="subnav-menu" style="display: block;">
+            <li class="">
+                <a href="#" target="_self">出售中的产品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">已售罄的商品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">仓库中的商品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">商品分类</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">促销管理</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">卡卷管理</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="right">
+    <div class="a-main">
+        <div class="a-container">
+            <div class="goods-list">
+            <div class="js-list-filter-region clearfix ui-box" style="position: relative; min-height: 28px;">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <a class="btn orange-btn fc12" href="pcAdmin_product_createPromotion.html">创建活动</a>
+                    </div>
+                    <div class="span10">
+                        <div class="span2">
+                        </div>
+                        <div class="span1" style="line-height: 30px">
+                            活动状态:
+                        </div>
+                        <div class="span2">
+                            <select style="width: 100%; margin-bottom: 0;border-radius: 0">
+                                <option value="0">全部</option>
+                                <option value="5078454">全部</option>
+                                <option value="5078455">进行中</option>
+                                <option value="5078456">已结束</option>
+                                <option value="5078457">未开始</option>
+                            </select>
+                        </div>
+                        <div class="span1" style="line-height: 30px">
+                            开始时间:
+                        </div>
+                        <div class="span2">
+                            <input type="date" style="width: 100%;">
+                        </div>
+                        <div class="span1" style="line-height: 30px">
+                            结束时间:
+                        </div>
+                        <div class="span2">
+                            <input type="date" style="width: 100%;">
+                        </div>
+                        <div class="span1 text-right">
+                            <a class="btn orange-btn fc12" href="#">搜索</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-box">
+                <table class="ui-table ui-table-list" style="padding: 0px;">
+                    <thead class="js-list-header-region tableFloatingHeaderOriginal">
+                    <tr>
+                        <th class="cell-12 text-center">活动名称</th>
+                        <th class="cell-15 text-center">活动时间</th>
+                        <th class="cell-8 text-center">时长（小时）</th>
+                        <th class="cell-8 text-center">宝贝数量</th>
+                        <th class="cell-8 text-center">状态</th>
+                        <th class="cell-10 text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="js-list-body-region">
+                    <tr>
+                        <td class="text-center">
+                            上岛咖啡流口水将对方了开始的来看
+                        </td>
+                        <td class="text-center">
+                            2014.11.11 00:00--2014.11.12 23:00
+                        </td>
+                        <td class="text-center">
+                            100
+                        </td>
+                        <td class="text-center">
+                            23
+                        </td>
+                        <td class="text-center">
+                            未开始
+                        </td>
+                        <td class="text-center">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-copy-link">链接</a>
+                            </p>
+                            <p>
+                                <a href="javascript:;" class="js-copy hover-show">复制</a>
+                                <span class="hover-show">-</span>
+
+                                <a href="javascript:void(0);" class="js-qrcode-btn">二维码</a>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            上岛咖啡流口水将对方了开始的来看
+                        </td>
+                        <td class="text-center">
+                            2014.11.11 00:00--2014.11.12 23:00
+                        </td>
+                        <td class="text-center">
+                            100
+                        </td>
+                        <td class="text-center">
+                            23
+                        </td>
+                        <td class="text-center">
+                            未开始
+                        </td>
+                        <td class="text-center">
+                            <p>
+                                <a href="javascript:;">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-delete">删除</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-copy-link">链接</a>
+                            </p>
+                            <p>
+                                <a href="javascript:;" class="js-copy hover-show">复制</a>
+                                <span class="hover-show">-</span>
+
+                                <a href="javascript:void(0);" class="js-qrcode-btn">二维码</a>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="js-list-empty-region"></div>
+            </div>
+            <div class="js-list-footer-region ui-box">
+                <div class="pagenavi">
+                    <ul class="pagination">
+                        <li class="prev disabled">
+                            <a href="#">
+                                <i class="fa icon-double-angle-left"></i>&nbsp; Previous
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li class="next">
+                            <a href="#">Next&nbsp;<i class="fa icon-double-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="total">共 2 条，每页 20 条</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/chooseAll.js"></script>
+<script>
+    $('#js-check-all').SelectA();
+</script>
+</body>
+</html>

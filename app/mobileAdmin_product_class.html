@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>分类</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+           <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            宝贝分类
+        </div>
+    </div>
+</header>
+<section class="pc-container">
+    <div class="sub-btn">
+        <a class="js-addClass wei-btn wei-bg-red" href="javascript:;">+添加宝贝分类</a>
+    </div>
+</section>
+<section class="pc-container">
+    <div class="pc-classList">
+        <table class="ui-table ui-table-list" style="padding: 0px;">
+            <thead class="js-list-header-region tableFloatingHeaderOriginal">
+            <tr>
+                <th>分类名称</th>
+                <th>状态</th>
+                <th>排序</th>
+                <th class="cell-15 text-right">操作</th>
+            </tr>
+            </thead>
+
+            <tbody class="js-list-body-region">
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="">bbb</td>
+                <td class="">显示</td>
+                <td class="">50</td>
+                <td class="text-right">
+                    <a href="javascript:;" class="js-editClick">修改</a>
+                    <span>-</span>
+                    <a href="javascript:;" class="js-delete">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div style="height: 49px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="product_class.html">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="setting.html">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<div id="popLayerWrap" class="pop-layer-wrap none" style="min-height: 400px; position: fixed; bottom: 0px;">
+    <div class="pop-layer open3d stopflick"
+         style="min-height: 400px;position: fixed; bottom: 0px; overflow: auto; -webkit-transition: -webkit-transform 0.4s;
+         transition: -webkit-transform 0.4s; -webkit-transform-origin: 0px 0px; -webkit-backface-visibility: hidden;
+         -webkit-transform-style: preserve-3d; -webkit-transform: translate(0px, 0px);">
+        <!--发布宝贝-->
+        <div class="js-addProClass shop-pub-flag none">
+            <div class="shop-pub-layer">
+                <div class="shop-pub-head">
+                    添加宝贝分类
+                </div>
+                <div class="shop-pub-content">
+                    <form class="">
+                        <ul class="shop-pub-content-ul">
+                            <li>
+                                <span>分&ensp;类&ensp;名：</span>
+                                <span><input type="text" name="price" class="shop-pub-priInp"></span>
+                            </li>
+                            <li>
+                                <span>是否显示：</span>
+                                <span>
+                                    <span class="pro-up pro-up-down">
+                                        <input type="radio" name="up"><span>列表隐藏</span>
+                                    </span>
+                                    <span class="pro-down pro-up-down">
+                                        <input type="radio" name="up"><span>列表显示</span>
+                                    </span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>分&ensp;&emsp;&ensp;类：</span>
+                                <span>
+                                    <select class="shop-pub-sel">
+                                        <option>aaa</option>
+                                        <option>bbb</option>
+                                    </select>
+                                </span>
+                            </li>
+                            <li>
+                                <span>简&ensp;&emsp;&ensp;介：</span>
+                                <span><textarea class="des"></textarea></span>
+                            </li>
+                            <li>
+                                <div class="sub-btn">
+                                    <a class="js-pub wei-btn wei-bg-red" href="#">保&emsp;存</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--蒙层-->
+    <div class="js-popWrap popLayerWrap-mask pop-layer-mask" style="display: block;"></div>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/select.js"></script>
+<script src="Public/js/tools.js"></script>
+</body>
+</html>

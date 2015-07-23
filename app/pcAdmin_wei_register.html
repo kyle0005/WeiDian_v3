@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/height.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div class="reg-container">
+    <form>
+        <div class="reg-logo">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="reg-main">
+            <div class="reg-title">注册微店长</div>
+            <div class="reg-topLine"></div>
+            <div class="reg-list">
+                <div class="reg-listRow">
+                    <input type="text" placeholder="微店名称" name="wei_name" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>任意数字或字母</div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="text" placeholder="推荐人" name="wei_recommend" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>任意汉字</div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="text" placeholder="身份证号码" name="wei_idCard" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>输入正确的身份证号码</div>
+                </div>
+                <!--<div class="reg-listRow">-->
+                    <!--<span>上传您的证件照正面：</span>-->
+                    <!--<div class="upload-container">-->
+                        <!--<span class="img_ul clearfix">-->
+                            <!--<span class="img_up">-->
+                                <!--<img src="" width="100">-->
+                                <!--<a class="del_img" href="javascript:;">删除</a>-->
+                            <!--</span>-->
+                        <!--</span>-->
+                        <!--<span id="cardno_pic_add" class="img_add">-->
+                            <!--<em class="img_add_a">&nbsp;</em>-->
+                            <!--<em class="img_add_b">&nbsp;</em>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="reg-listRow">-->
+                    <!--<span>上传您的证件照反面：</span>-->
+                    <!--<div class="upload-container">-->
+                        <!--<span class="img_ul clearfix">-->
+                            <!--&lt;!&ndash;<span class="clearfix"></span>&ndash;&gt;-->
+                        <!--</span>-->
+                        <!--<span id="cardno_pic_add2" class="img_add">-->
+                            <!--<em class="img_add_a">&nbsp;</em>-->
+                            <!--<em class="img_add_b">&nbsp;</em>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="reg-listRow">
+                    <span><b class="ct_5">*</b>上传个人手持身份证照</span>
+                    <div class="upload-container clearfix wei-upload">
+                        <span class="img_ul clearfix">
+                        </span>
+                        <span id="cardno_pic_add" class="img_add">
+                            <em class="img_add_a">&nbsp;</em>
+                            <em class="img_add_b">&nbsp;</em>
+                        </span>
+                        <span class="id-hand-s-epl clearfix">
+                            <span class="id-hand-s-text">示例：</span>
+                            <span class="id-hand-s-img">
+                                <img src="Public/img/aaa_400x400.png">
+                            </span>
+                        </span>
+                        <span class="id-hand-s">
+                            必须上传手持身份证，个人与身份证要展示在同一张照片上
+                        </span>
+                    </div>
+                </div>
+
+                <div class="reg-listRow">
+                    <input type="password" placeholder="密码" name="password" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b> 6-21位数字或字母</div>
+                </div>
+                <div class="pt20">
+                    <a href="javascript:void(0);" class="btn orange-btn fc12" style="display: block;">立即注册</a>
+                </div>
+                <div
+                        class="clearfix pt10">
+                    <label class="checkbox"><input type="checkbox" name="usage" value="1" checked=""><a
+                            href="javascript:;" class="ct_3" target="_blank">我已阅读并同意使用条款</a></label>
+                </div>
+            </div>
+            <div class="p30"><a href="login.html" class="ct_6 underline">已有账号?立即登陆</a></div>
+        </div>
+    </form>
+
+</div>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    var url = "upload.php";
+    $('#cardno_pic_add').uploads({
+        'c_id':'cardno_pic_add',
+        'input_id':'id',
+        'c_url':url,
+        'extensions':'',
+        'number':0
+    });
+
+    $('#cardno_pic_add2').uploads({
+        'c_id':'cardno_pic_add2',
+        'input_id':'id',
+        'c_url':url,
+        'extensions':'',
+        'number':0
+    });
+</script>
+</body>
+</html>

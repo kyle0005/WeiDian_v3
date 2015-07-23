@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script src="Public/js/jquery.easing.compatibility.js"></script>
+    <script src="Public/js/jquery.json-2.2.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/height.js"></script>
+    <script src="Public/js/common.js"></script>
+    <script>
+        var click = 'click',
+        supportTouch = false;
+    </script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="i_index.html" target="_self" id="brand"></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="javascript:;" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li>
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <!--<ul class="icon-nav">-->
+                <!--<li>-->
+                    <!--<a href="javascript:;" target="_self" title="登录"><i class="icon-signin"></i>-->
+                        <!--登录</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="javascript:;" target="_self" title="注册"><i class="icon-pencil"></i>-->
+                        <!--注册</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <ul class="icon-nav">
+                <li>
+                    <a class="manageShop">欢迎您，18616311580店长</a>
+                </li>
+                <li>
+                    <a href="http://shop.admin.golddiy.com/"><i class="icon-gears"></i>
+                        管理微店</a>
+                </li>
+                <li>
+                    <a href="#"><i class="icon-credit-card"></i>
+                        我要开店</a>
+                </li>
+                <li>
+                    <a href="http://passport.golddiy.com/logout" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="i-container">
+    <h1 class="i-title">有微店，更赚钱</h1>
+    <h4 class="i-vTitle">
+        在黄金历史自己开店当店长
+    </h4>
+
+    <p class="i-vImg">
+        <span class="i-vImg-text">
+            “一店打通电脑、手机、平板、百度、微博、微信<br>
+            省钱、省人、省时间”
+        </span>
+    </p>
+</div>
+<div class="i-container">
+<div class="bannerBox">
+    <a href="javascript:;" class="bannerPrev disabled" id="bannerPrev"></a>
+    <a href="javascript:;" class="bannerNext" id="bannerNext"></a>
+
+    <div class="bannerPic clearfix" id="bannerPicWrapper">
+        <ul id="bannerPicList" style="position: relative; width: 2070px;">
+            <li data-src="javascript:;" data-title="明星" data-content="演员毛林林" class="">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068003406770.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="摄影公司" data-content="米诺摄影" class="">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068003264478.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="舞团" data-content="ck舞团">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068004554636.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="水果商城" data-content="悟空鲜果" class="">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img
+                        src="Public/img/14068006931504.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="明星" data-content="演员吴樾" class="">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img
+                        src="Public/img/14068004263400.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="律师" data-content="尚公律师事务所" class="">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068006675793.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="传媒公司" data-content="大唐辉煌">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068006536389.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="电视剧" data-content="我和我的传奇奶奶">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068006382810.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="设计公司" data-content="贵州上行设计">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img
+                        src="Public/img/14068006255641.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="茶叶商城" data-content="蒙顿熹园">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068006139442.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="投资公司" data-content="华实创新">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068006016271.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="电视剧" data-content="妻子不设防">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005886517.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="明星" data-content="演员杨明娜">
+                <a href="javascript:;n" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005765871.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="明星" data-content="演员陈国坤">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005642030.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="设计公司" data-content="互禾文化创意">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005521777.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="代驾公司" data-content="昆鹏代驾">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005411837.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="明星" data-content="歌手杨梓">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005308016.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="安全座椅" data-content="比尔乐">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068005015306.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="设计公司" data-content="蓝图">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14067869146623.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="餐饮" data-content="玖御兴上海生煎">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068003639654.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="活动" data-content="世界杯竞猜">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068003755282.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="家纺商城" data-content="老李轩家纺">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068004003358.png" width="90" height="90"></a>
+            </li>
+            <li data-src="javascript:;" data-title="数码产品" data-content="欧比乐时尚影音">
+                <a href="javascript:;" class="bannerImg"
+                   target="_blank"><img src="Public/img/14068007267208.png" width="90" height="90"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    ;
+    (function ($) {
+        var qrcodeApi = '',
+                bannerPicList = $('#bannerPicList'),
+                bannerPicWrapper = $('#bannerPicWrapper'),
+                bannerPrev = $('#bannerPrev'),
+                bannerNext = $('#bannerNext'),
+                showBox,
+                uw = $('li', bannerPicList).length * 90;
+        bannerPicList.width(uw);
+
+        var auto,
+                sl = 0,
+                offset = 15,
+                pw,
+                prevP = function () {
+                    if (sl >= 0)
+                        return;
+                    pw = bannerPicWrapper.width();
+                    sl += pw;
+
+                    if (sl > 0) {
+                        sl = 0;
+                    }
+                    ;
+
+                    move();
+                },
+                nextP = function () {
+                    pw = bannerPicWrapper.width();
+                    if (sl <= pw - uw)
+                        return;
+                    sl -= pw;
+                    if (sl < pw - uw) {
+                        sl = pw - uw;
+                    }
+                    ;
+                    move();
+                },
+                move = function () {
+                    if (auto) {
+                        clearTimeout(auto);
+                        auto = null;
+                    }
+                    ;
+                    bannerPicList.animate({left: sl}, 'normal', 'easeOut');
+                    if (sl >= 0) {
+                        bannerPrev.addClass('disabled');
+                    } else {
+                        bannerPrev.removeClass('disabled');
+                    }
+                    ;
+
+                    if (sl <= pw - uw) {
+                        bannerNext.addClass('disabled');
+                    } else {
+                        bannerNext.removeClass('disabled');
+                    }
+                    ;
+                },
+                delayHide,
+                hideShowBox = function () {
+                    if (showBox) {
+                        showBox.remove();
+                    }
+                    ;
+                    $('li.active', bannerPicList).removeClass('active');
+                    clearTimeout(delayHide);
+                },
+                readyHide = function () {
+                    delayHide = setTimeout(hideShowBox, 100);
+                };
+
+
+        if (!supportTouch) {
+            bannerPicList.delegate('li', {
+                mouseenter: function () {
+                    clearTimeout(delayHide);
+                    if (!$(this).hasClass('active')) {
+                        hideShowBox();
+                    } else {
+                        return;
+                    }
+                    ;
+                    showBox = $('<div class="tipsInfo" style="opacity:0">' +
+                            '<i class="tipsInfoAngleBottom" style="left:50%; margin-left:-8px;"></i>' +
+                            '<div class="clearfix p20">' +
+                            '<div class="fl p20 c_t" role="loading">' + getContentLoading() + '</div>' +
+                            '<img src="' + (qrcodeApi + $(this).data('src')) + '" width="90" height="90" class="fl" style="display:none;" />' +
+                            '<div class="bannerWebInfo">' +
+                            '<h3 class="ct_3">' + $(this).data('title') + '</h3>' +
+                            '<p>' +
+                            '<span class="ct_1">' + $(this).data('content') + '</span><br /><a href="/?c=home&a=responsive&url=' + $(this).data('src') + '" class="ct_6" target="_blank">' + $(this).data('src').replace('http://', '') + '</a>' +
+                            '</p>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>').appendTo('body');
+                    $('img', showBox).load(function () {
+                        $('img', showBox).show();
+                        $('div[role="loading"]', showBox).hide();
+                    });
+                    var top = $(this).offset().top - showBox.height() - 65,
+                            left = $(this).offset().left + 45 - showBox.width() / 2;
+                    showBox.css({
+                        left: left,
+                        top: top
+                    }).animate({
+                        opacity: 1,
+                        top: top + 30
+                    }).on({
+                        mouseenter: function () {
+                            clearTimeout(delayHide);
+                        },
+                        mouseleave: readyHide
+                    }).delegate('a', click, readyHide);
+                    $(this).addClass('active');
+                    if (auto) {
+                        clearTimeout(auto);
+                        auto = null;
+                    }
+                    ;
+                },
+                mouseleave: readyHide
+            });
+
+            bannerPrev.on(click, prevP);
+            bannerNext.on(click, nextP);
+        } else {
+            var startX, newX;
+            pw = bannerPicWrapper.width();
+            //绑定触摸滑动事件
+            bannerPicWrapper.on('touchstart', function (e) {
+                startX = e.touches[0].pageX;
+                if (auto) {
+                    clearTimeout(auto);
+                    auto = null;
+                }
+                ;
+            }).on('touchmove', function (e) {
+                newX = e.touches[0].pageX - startX;
+
+            }).on('touchend', function (e) {
+                if (newX < -offset) {
+
+                    nextP();
+                } else if (newX > offset) {
+                    prevP();
+                }
+                ;
+            });
+        }
+        ;
+        auto = setTimeout(nextP, 2000);
+    })(jQuery);
+</script>
+</div>
+<div class="i-container">
+    <div class="rmtL">
+        <span class="ct_2 vm">瞬息万变，时不我待</span>&nbsp;
+        <a href="javascript:;" class="btn btn-orange i-btn">现在开始<i class="btnIcon"></i></a>
+    </div>
+</div>
+<div class="i-container">
+    <div class="ad_1">
+        <p>黄金历史微店，全球领先BAC电子商务平台<br>专业从事黄金饰品、玉翠珠宝、工艺礼品、投资收藏十余年载。</p>
+        <div class="h3 rpS tc">
+            <img src="Public/img/t_2.png" class="img-responsive">
+        </div>
+    </div>
+</div>
+<div class="i-container">
+    <div class="homeIconAd">
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <b class="homeIconAd_1" style="background:#F09216;"></b>
+                    <h4 class="ct_3">注册</h4>
+                    <p class="ct_2">只需您的手机号码<br>就可以成为我们黄金历史会员</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <b class="homeIconAd_2" style="background:#83BA1F;"></b>
+                    <h4 class="ct_3">开店</h4>
+                    <p class="ct_2">补充身份及店铺信息<br>审核通过即可开店</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <b class="homeIconAd_3" style="background:#1FAEFF;"></b>
+                    <h4 class="ct_3">选择产品</h4>
+                    <p class="ct_2">拥有强大的产品体系<br>上万件高端产品供你选择销售</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <b class="homeIconAd_4" style="background:#FF6699;"></b>
+                    <h4 class="ct_3">交易</h4>
+                    <p class="ct_2">分享店铺地址<br>无需库存，发货，赚钱就是这简单！</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="i-container">
+    <div class="adver">
+        <div class="ad_2Text">
+            <h3 class="ct_4">
+                强大的微店铺<br>完整的微电商解决方案
+            </h3>
+            <ul class="overview-focus-list">
+                <li class="overview-focus-line overview-focus-line1">
+                    <div class="overview-focus-line-icon"></div>
+                    <span class="overview-focus-line-head">零费用</span>零成本搭建完整、强大的微商城
+                </li>
+                <li class="overview-focus-line overview-focus-line2">
+                    <div class="overview-focus-line-icon"></div>
+                    <span class="overview-focus-line-head">更好玩</span>丰富有趣的营销应用，精准的数据分析
+                </li>
+                <li class="overview-focus-line overview-focus-line3">
+                    <div class="overview-focus-line-icon"></div>
+                    <span class="overview-focus-line-head">大流量</span>定期专场活动，百万免费流量支持
+                </li>
+            </ul>
+            <a href="javascript:;" class="js-startNow btn btn-orange i-btn">现在开始<i class="btnIcon"></i></a>
+            <script>
+                $('.js-startNow').click(function () {
+                    alert('a');
+                });
+            </script>
+        </div>
+        <div class="slide-container">
+            <div class="main-slide-wrapper">
+                <div class="swiper-container main-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide pic1">
+                        </div>
+                        <div class="swiper-slide pic2">
+                        </div>
+                        <div class="swiper-slide pic3">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-slide-pagination"></div>
+            </div>
+            <div class="minor-slide-wrapper">
+                <div class="swiper-container minor-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide pic1">
+                        </div>
+                        <div class="swiper-slide pic2">
+                        </div>
+                        <div class="swiper-slide pic3">
+                        </div>
+                        <div class="swiper-slide pic4">
+                        </div>
+                    </div>
+                </div>
+                <div class="minor-slide-pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="i-container">
+    <div class="homeLink">
+        <div class="snsLink visible-desktop">
+            <ul class="clearfix">
+                <li>
+                    <div class="snsLinkBox">
+                        <a href="http://qm.qq.com/cgi-bin/qm/qr?k=_JSMQPwJahaaqmwGu2icy__aSVcwrvwk" target="_blank" class="ct_2">
+                            <p><i class="snsQQ"></i></p>
+                            <p>QQ群：9798598 </p>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="snsLinkBox">
+                        <a role="qrcode" href="javascript:;" class="ct_2"><p><i class="snsWx"></i></p>
+                            <p>微信客服：85989188 </p></a>
+                    </div>
+                    <script>
+                        ;(function($) {
+                            $('a[role="qrcode"]').on(click, function() {
+                                var imgSrc = 'http://localhost:63342/weiDianPcTest/Public/img/weixin.jpg';
+                                var str = '<div style="text-align:center; height:230px;">扫描二维码或搜索微信订阅号：黄金历史<br /><br /><img src="' + imgSrc + '"  width="180" /></div>';
+                                Alert(str);
+                            });
+                        })(jQuery);
+
+                    </script>
+                </li>
+                <li>
+                    <div class="snsLinkBox">
+                        <a role="qrcode" href="javascript:;" class="ct_2"><p><i class="snsSina"></i></p>
+                            <p>新浪微博：黄金历史</p>
+                        </a>
+                    </div>
+                    <script>
+                        ;(function($) {
+                            $('a[role="qrcode"]').on(click, function() {
+                                var imgSrc = 'http://localhost:63342/weiDianPcTest/Public/img/downqrcode.png';
+                                var str = '<div style="text-align:center; height:230px;">扫描二维码或搜索新浪微博：黄金历史<br /><br /><img src="' + imgSrc + '"  width="180" /></div>';
+                                Alert(str);
+                            });
+                        })(jQuery);
+
+                    </script>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="i-footer">
+        <div class="foontNav">
+            <a href="www.jnztz.com">纪念章投资</a>
+            <a href="javascript:;">联系我们</a>
+            <a href="javascript:;">免责声明</a>
+            <a href="javascript:;">隐私政策</a>
+            <a href="http://m.kuaidi100.com">快递查询</a>
+        </div>
+        <div class="copyright">
+            <div class="h6 ct_2 tc">© 2014 golddiy.com 沪ICP备10212657号</div>
+        </div>
+        <div style="text-align:center; padding-bottom:10px;">
+            <a href="javascript:;">
+                <img border="0" src=""style="height: 25px;">
+            </a>
+        </div>
+    </div>
+</div>
+<script src="Public/js/idangerous.swiper.js"></script>
+<script>
+    $(function(){
+        var ua = navigator.userAgent.toLowerCase()
+                , hasDemotion = (ua.indexOf('msie 6') != -1)
+                        || (ua.indexOf('msie 7') != -1)
+                , hasPartial = (ua.indexOf('msie 8') != -1)
+                        || (ua.indexOf('msie 9') != -1);
+
+        // ie 8以下退化为静态
+        if(hasDemotion){
+            $('.slide-container').html($('<div class="banner">'));
+            return;
+        }
+
+        var mainSlideOption = {
+            speed: 1300,
+            loop: true,
+            autoplay: 5000,
+            autoplayDisableOnInteraction: false,
+            queueStartCallbacks: true,
+            paginationClickable: true,
+            pagination: '.main-slide-pagination',
+            onSlideChangeEnd: function(swiper){
+                minorSlide && minorSlide.swipeNext();
+            }
+        }, minorSlideOption = {
+            speed: 1300,
+            loop: true,
+            autoplayDisableOnInteraction: false,
+            queueStartCallbacks: true,
+            paginationClickable: true
+            // pagination: '.minor-slide-pagination'
+        };
+
+        var mainSlide, minorSlide, delay = 0;
+        // ie 8, 9修正部分
+        if(hasPartial){
+            mainSlideOption.onSlideChangeEnd = null;
+            minorSlideOption.autoplay = 5000;
+            delay = 1300;
+        }
+
+        mainSlide = $('.main-slide').swiper(mainSlideOption);
+        minorSlide = $('.minor-slide').swiper(minorSlideOption);
+        minorSlide.stopAutoplay();
+        setTimeout(function(){
+            minorSlide.startAutoplay();
+        }, delay);
+
+    });
+</script>
+</body>
+</html>

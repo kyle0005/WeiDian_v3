@@ -1,0 +1,62 @@
+<div style="position: relative">
+    <form class="form-inline">
+        <div class="row-fluid">
+            <div class="span3">
+                <select style="width: 100%; margin-bottom: 0;border-radius: 0;line-height: 32px;height: 32px;">
+                    <option value="0">全部宝贝</option>
+                    <option value="5078454">xxxx</option>
+                    <option value="5078455">xxxx</option>
+                    <option value="5078456">xxxx</option>
+                    <option value="5078457">xxxx</option>
+                </select>
+            </div>
+            <div class="span2">
+                <input type="text" placeholder="宝贝名称" style="width: 80%;line-height: 22px;height: 22px;">
+            </div>
+            <div class="span2">
+                <input type="text" placeholder="商家编码" style="width: 80%;line-height: 22px;height: 22px;">
+            </div>
+            <div class="span2">
+                <a class="btn orange-btn fc12" href="#">&emsp;搜索&emsp;</a>
+            </div>
+            <div class="span3">
+            </div>
+        </div>
+    </form>
+    <div class="ui-box">
+        <table class="ui-table ui-table-list" style="padding: 0px;">
+            <thead class="js-list-header-region tableFloatingHeaderOriginal">
+            <tr>
+                <th class="text-center"><input type="checkbox" class="js-check-all"
+                                               id="js-check-all"></th>
+                <th class="text-center">商品名称</th>
+                <th class="text-center">商品编码</th>
+                <th class="text-center">价格（元）</th>
+                <th class="text-center"><input type="checkbox">&nbsp;只显示已选择</th>
+            </tr>
+            </thead>
+            <tbody class="js-list-body-region">
+            </tbody>
+        </table>
+        <div class="pagination text-right">
+            <ul>
+                <li><a href="#">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center" style="width: 100%;">
+        <a class="js-chosePro btn orange-btn fc12" href="javascript:;">&emsp;保存&emsp;</a>
+        <a class="btn white-btn fc12" href="javascript:;">&emsp;取消&emsp;</a>
+    </div>
+</div>
+<script>
+    $(function () {
+        add_goods_list(goods_list);
+    });
+</script>

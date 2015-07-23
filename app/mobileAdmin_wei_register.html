@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>微店长注册</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            注册微店长
+        </div>
+    </div>
+</header>
+<div class="reg-container">
+    <form>
+        <div class="reg-logo">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="reg-main">
+            <div class="reg-list">
+                <div class="reg-listRow">
+                    <input type="text" placeholder="微店名称" name="wei_name" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>任意数字或字母</div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="text" placeholder="推荐人" name="wei_recommend" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>任意汉字</div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="text" placeholder="身份证号码" name="wei_idCard" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>输入正确的身份证号码</div>
+                </div>
+                <!--<div class="reg-listRow">-->
+                    <!--<span>上传个人手持身份证照：</span>-->
+                    <!--<div class="add-container">-->
+                        <!--<a href="javascript:;" class="clearfix">-->
+                            <!--<span class="add_address">-->
+                                <!--<em class="list_add_a">&nbsp;</em>-->
+                                <!--<em class="list_add_b">&nbsp;</em>-->
+                            <!--</span>-->
+                            <!--<span class="add_address_text">-->
+                                <!--上传身份证-->
+                            <!--</span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<span class="id-hand-s">-->
+                            <!--必须上传手持身份证，个人与身份证要展示在同一张照片上-->
+                        <!--</span>-->
+                <!--</div>-->
+                <div class="reg-listRow">
+                    <span><b class="ct_5">*</b>上传个人手持身份证照</span>
+                    <div class="upload-container clearfix wei-upload">
+                        <span class="img_ul clearfix">
+                        </span>
+                        <span id="cardno_pic_add" class="img_add">
+                            <em class="img_add_a">&nbsp;</em>
+                            <em class="img_add_b">&nbsp;</em>
+                        </span>
+                        <span class="id-hand-s-epl clearfix">
+                            <span class="id-hand-s-text">示例：</span>
+                            <span class="id-hand-s-img">
+                                <img src="Public/img/aaa_400x400.png">
+                            </span>
+                        </span>
+                        <span class="id-hand-s">
+                            必须上传手持身份证，个人与身份证要展示在同一张照片上
+                        </span>
+                    </div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="password" placeholder="密码" name="password" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b> 6-21位数字或字母</div>
+                </div>
+                <div class="clearfix pt10">
+                    <label class="checkbox">
+                        <input type="checkbox" name="usage" value="1" checked=""><a
+                            href="javascript:;" class="ct_3" target="_blank">我已阅读并同意使用条款</a></label>
+                </div>
+                <div class="sub-btn">
+                    <a href="javascript:void(0);" class="wei-btn wei-bg-red">立即注册</a>
+                </div>
+            </div>
+            <div class="p10"><a href="login.html" class="ct_6 underline">已有账号?立即登陆</a></div>
+        </div>
+    </form>
+
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/jn_mobile.js"></script>
+<script src="Public/js/upload.js"></script>
+<script>
+    var url = "upload.php";
+    $('#cardno_pic_add').uploads({
+        'c_id':'cardno_pic_add',
+        'input_id':'id',
+        'c_url':url,
+        'extensions':'',
+        'number':0,
+        singleRepeat:true
+    });
+
+//    if($.browser.safari){
+//        $('.img_add').css('z-index','-1');
+//    }
+
+    //alert(window.navigator.userAgent);
+
+    //iPhone下的微信浏览器
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Mobile/9B176 MicroMessenger/4.3.2"
+    //Android下的微信浏览器
+    "Mozilla/5.0 (Linux; U; Android 4.4.2; zh-cn; HTC M8St Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/537.36 MicroMessenger/6.0.0.50_r844973.501"
+
+
+</script>
+</body>
+</html>

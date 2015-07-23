@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>复制demo</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+</head>
+<body>
+<input type="text" id="inp" value="梦龙小站" />
+<a href="javascript:;" id="cop">复制</a>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="Public/js/jn_mobile.js"></script>
+<script>
+    //获取剪贴板数据方法
+    function getClipboardText(event){
+        var clipboardData = event.clipboardData || window.clipboardData;
+        return clipboardData.getData("text");
+    };
+    //设置剪贴板数据
+    function setClipboardText(event, value){
+        if(event.clipboardData){
+            return event.clipboardData.setData("text/plain", value);
+        }else if(window.clipboardData){
+            return window.clipboardData.setData("text", value);
+        }
+    };
+
+
+    window.onload = function(){
+        var oInp = document.getElementById("inp");
+
+        function getClipboardText(event){
+            var clipboardData = event.clipboardData || window.clipboardData;
+            return clipboardData.getData("text");
+        };
+        function setClipboardText(event, value){
+            if(event.clipboardData){
+                return event.clipboardData.setData("text/plain", value);
+            }else if(window.clipboardData){
+                return window.clipboardData.setData("text", value);
+            }
+        };
+
+        /**
+         * 事件触发器
+         * @param { Object } DOM元素
+         * @param { String / Object } 事件类型 / event对象
+         * @param { Array }  传递给事件处理函数的附加参数
+         * @param { Boolean } 是否冒泡
+         */
+        function def_trigger( elem, event, data, isStopPropagation ){
+            var type = event.type || event,
+            // 冒泡的父元素，一直到document、window
+                    parent = elem.parentNode ||
+                            elem.ownerDocument ||
+                            elem === elem.ownerDocument && win,
+                    eventHandler = $.data( elem, type + 'Handler' );
+
+            isStopPropagation = typeof data === 'boolean' ?
+                    data : (isStopPropagation || false);
+
+            data = data && isArray( data ) ? data : [];
+
+            // 创建自定义的event对象
+            event = typeof event === 'object' ?
+                    event : {
+                type : type,
+                preventDefault : noop,
+                stopPropagation : function(){
+                    isStopPropagation = true;
+                }
+            };
+
+            event.target = elem;
+            data.unshift( event );
+            if( eventHandler ){
+                eventHandler.call( elem, data );
+            }
+            // 递归调用自身来模拟冒泡
+            if( parent && !isStopPropagation ){
+                data.shift();
+                this.def_trigger( parent, event, data );
+            }
+        };
+
+        oInp.addEventListener('copy',function(event){
+            var event = event || window.event;
+            setClipboardText(event, oInp.value);
+            var text = getClipboardText(event);
+
+            if(!/^\d+$/.test(text)){
+                event.preventDefault();
+            }
+            alert(text)
+        }, false);
+
+        document.getElementById('cop').addEventListener('click', function () {
+            oInp.def_trigger(oInp, 'copy');
+        });
+    }
+
+    $(function () {
+//        $('#cop').click(function () {
+//            $('#inp').trigger('copy');
+//        });
+//        $('#inp').on('copy', function (event) {
+//            var event = $.event;
+//            setClipboardText(event, $(this).val());
+//            var text = getClipboardText(event);
+//            JQbox.alert(text)
+//        });
+
+
+
+
+
+        $('.c-btn-orgn').click(function () {
+            //JQbox.alert('爱疯奥斯卡就对啦扩散奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散爱疯奥斯卡就对啦扩散奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散');
+            JQbox.confirm('爱疯奥斯卡就对啦扩散奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到奥斯卡就对啦扩散到到了re?',function(){
+                JQAjax.post(this,{
+                    url:$("#buy_form").attr('action'),
+                    form:'pay_form',
+                    wait:true
+                })
+            })
+        });
+//        JQbox.alert("alert");
+//        JQbox.reload('reload');
+//        JQbox.jump('jump','test.html');
+//        JQbox.close('close');
+//        JQbox.open('open');
+//        JQbox.confirm('confirm');
+
+
+    });
+</script>
+</body>
+</html>

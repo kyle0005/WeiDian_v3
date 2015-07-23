@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/datepicker.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/tab.js"></script>
+    <script src="Public/js/height.js"></script>
+    <script src="Public/js/select.js"></script>
+    <script src="Public/js/bootstrap-datepicker.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li>
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="active">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+<div id="left">
+    <div class="subnav">
+        <div class="subnav-title ">
+            <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>订单管理</span></a>
+        </div>
+        <ul class="subnav-menu" style="display: block;">
+            <li class="">
+                <a href="javascript:;" target="_self">所有订单</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">维权订单</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">货到付款订单</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">代付订单</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="right">
+<div class="a-main">
+<div class="a-container">
+    <div class="orderSel">
+        <form class="form-horizontal ui-box list-filter-form" onsubmit="return false;">
+            <div class="clearfix">
+                <div class="filter-groups">
+                    <div class="control-group">
+                        <label class="control-label">订单号：</label>
+
+                        <div class="controls">
+                            <input type="text" name="order_no" value="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">交易号：</label>
+
+                        <div class="controls">
+                            <input type="text" name="outer_transaction_number" value="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">收货人姓名：</label>
+
+                        <div class="controls">
+                            <input type="text" name="user_name" value="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">收货人手机：</label>
+
+                        <div class="controls">
+                            <input type="text" name="tel" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-left">
+                    <div class="filter-groups">
+                        <div class="control-group">
+                            <label class="control-label">订单类型：</label>
+
+                            <div class="controls">
+                                <select name="type" class="js-type-select">
+
+                                    <option value="normal" selected="">普通订单</option>
+
+                                    <option value="peerpay">代付订单</option>
+
+                                    <option value="gift">送礼订单</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">订单状态：</label>
+
+                            <div class="controls">
+                                <select name="state" class="js-state-select">
+                                    <option value="all">所有订单</option>
+                                    <option value="topay">待付款</option>
+                                    <option value="tosend">待发货</option>
+                                    <option value="send">已发货</option>
+                                    <option value="sign">标记签收</option>
+                                    <option value="cancel">已关闭</option>
+                                    <option value="book">临时单</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">微信昵称：</label>
+
+                            <div class="controls">
+                                <input type="text" name="customer_name" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-groups">
+
+                        <div class="control-group">
+                            <label class="control-label">付款方式：</label>
+
+                            <div class="controls">
+                                <select name="buy_way">
+
+                                    <option value="all" selected="">全部</option>
+
+                                    <option value="wxpay">微信安全支付</option>
+
+                                    <option value="umpay">银行卡付款</option>
+
+                                    <option value="aliwap">支付宝付款</option>
+
+                                    <option value="codpay">货到付款</option>
+
+                                    <option value="peerpay">找人代付</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">物流方式：</label>
+
+                            <div class="controls">
+                                <select name="express_type">
+
+                                    <option value="all" selected="">全部</option>
+
+                                    <option value="express">快递发货</option>
+
+                                    <option value="selffetch">上门自提</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">维权状态：</label>
+
+                            <div class="controls">
+                                <select name="feedback">
+
+                                    <option value="all" selected="">全部</option>
+
+                                    <option value="none">未收到维权</option>
+
+                                    <option value="wait">维权处理中</option>
+
+                                    <option value="working">已处理待买家同意</option>
+
+                                    <option value="done">维权结束</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-filter-groups clearfix">
+                        <div class="control-group">
+                            <label class="control-label select">
+                                <select name="time_type">
+
+                                    <option value="book_time">下单时间</option>
+
+                                    <option value="pay_time">付款时间</option>
+
+                                    <option value="express_time" selected="">发货时间</option>
+
+                                    <option value="sign_time">签收时间</option>
+
+                                    <option value="close_time">关闭时间</option>
+
+                                    <option value="refund_time">退款时间</option>
+
+                                    <option value="feedback_time">维权时间</option>
+
+                                </select>
+                            </label>
+
+                            <div class="controls">
+                                <input type="text" name="start_time" value="2014-10-16" class="js-start-time">
+                                <span>至</span>
+                                <input type="text" name="end_time" value="2014-10-21" class="js-end-time">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="ui-btn-group">
+                        <a href="javascript:;" class="btn orange-btn fc12">筛&emsp;选</a>
+                        <a href="javascript:;" class="btn white-btn fc12">导&emsp;出</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="a-container">
+    <div class="ui-nav">
+        <ul class="js-order-tab">
+            <li class="active">
+                <a href="javascript:;">所有订单</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">待付款</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">待发货</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">已发货</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">标记签收</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">已关闭</a>
+            </li>
+
+            <li>
+                <a href="javascript:;">临时单</a>
+            </li>
+        </ul>
+    </div>
+    <div class="js-order-tabs">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">1</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="order-title">
+                    <td>
+                        <input type="checkbox">&emsp;<span>2014-11-18</span>
+                    </td>
+                    <td>
+                        <span>订单号:<span>1736192739173</span></span>
+                    </td>
+                    <td colspan="2">
+                        <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                    </td>
+                    <td colspan="3">
+                        <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                    </td>
+                </tr>
+                <tr class="order-pro">
+                    <td class="o-pros-pic">
+                        <a href="javascript:;">
+                            <img src="Public/img/pro_80x80.jpg">
+                        </a>
+                    </td>
+                    <td class="o-pros-con">
+                        <a href="javascript:;" class="o-pros-txt1">
+                            摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                        </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                    </td>
+                    <td class="o-pros-pri">
+                        <span>99.90</span>
+                    </td>
+                    <td class="o-pros-num">
+                        <span>1</span>
+                    </td>
+                    <td class="o-pros-total-pri">
+                        <em>109.90</em>
+                        <span>(含运费:10.00)</span>
+                    </td>
+                    <td class="o-pros-det">
+                        <span>交易成功</span><br>
+                        <a href="javascript:;">产看详情</a>
+                    </td>
+                    <td class="o-pros-other">
+                        
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">2</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">3</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">4</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">5</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">6</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="js-order-tabs hide">
+        <table class="tb-void">
+            <colgroup>
+                <col class="o-pros-pic">
+                <col class="o-pros-con">
+                <col class="o-pros-pri">
+                <col class="o-pros-num">
+                <col class="o-pros-total-pri">
+                <col class="o-pros-det">
+                <col class="o-pros-other">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="o-pros-pic">7</th>
+                <th class="o-pros-con">宝贝</th>
+                <th class="o-pros-pri">单价(元)</th>
+                <th class="o-pros-num">数量</th>
+                <th class="o-pros-total-pri">实付款(元)</th>
+                <th class="o-pros-det">交易状态</th>
+                <th class="o-pros-other">交易操作</th>
+            </tr>
+            <tr class="esp-h">
+                <th colspan="7"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+            <tbody>
+            <tr class="order-title">
+                <td>
+                    <input type="checkbox">&emsp;<span>2014-11-18</span>
+                </td>
+                <td>
+                    <span>订单号:<span>1736192739173</span></span>
+                </td>
+                <td colspan="2">
+                    <a href="javascript:;">xxxxxxxxxxx店铺</a>
+                </td>
+                <td colspan="3">
+                    <a href="javascript:;"><img src="Public/img/delete_gray.png" width="20px"></a>
+                </td>
+            </tr>
+            <tr class="order-pro">
+                <td class="o-pros-pic">
+                    <a href="javascript:;">
+                        <img src="Public/img/pro_80x80.jpg">
+                    </a>
+                </td>
+                <td class="o-pros-con">
+                    <a href="javascript:;" class="o-pros-txt1">
+                        摩托罗拉 moto g 2代摩托罗拉 moto g 2代摩托罗拉
+                    </a>
+                        <span class="o-pros-txt2">
+                            机身颜色: 白套餐类型: 官方标配机身内存: 8GB版本类型: 美国
+                        </span>
+                </td>
+                <td class="o-pros-pri">
+                    <span>99.90</span>
+                </td>
+                <td class="o-pros-num">
+                    <span>1</span>
+                </td>
+                <td class="o-pros-total-pri">
+                    <em>109.90</em>
+                    <span>(含运费:10.00)</span>
+                </td>
+                <td class="o-pros-det">
+                    <span>交易成功</span><br>
+                    <a href="javascript:;">产看详情</a>
+                </td>
+                <td class="o-pros-other">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+    $(function () {
+        var startTime;
+        var endTime;
+        $('.js-start-time').datepicker({
+            format: 'yyyy.mm.dd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        }).on('changeDate', function (ev) {
+            startTime = ev.date.valueOf();
+        });
+        $('.js-end-time').datepicker({
+            format: 'yyyy.mm.dd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'zh-CN'
+        }).on('changeDate', function (ev) {
+            endTime = ev.date.valueOf();
+            end = endTime;
+            start = startTime;
+            if (end < start) {
+                alert("“结束时间 ”不能早于“开始时间 ” ！");
+
+            } else {
+
+            }
+        });
+
+
+    })
+</script>
+</body>
+</html>

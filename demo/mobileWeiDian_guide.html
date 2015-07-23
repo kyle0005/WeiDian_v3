@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>引导页</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no">
+  <link href="Public/css/bootstrap.css" rel="stylesheet">
+  <link href="Public/css/base.css" rel="stylesheet">
+  <link href="Public/css/main.css" rel="stylesheet">
+  <link href="Public/css/font-awesome.css" rel="stylesheet">
+  <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="guide-slider">
+  <div id="guideCarousel" class="ui-slider carousel slide">
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+      <div class="active item">
+        <img alt="First slide" src="Public/img/guide0_h662.png">
+      </div>
+      <div class="item">
+        <img alt="Second slide" src="Public/img/guide1_h662.png">
+      </div>
+      <div class="item">
+        <img alt="Third slide" src="Public/img/guide2_h662.png">
+      </div>
+      <div class="item">
+        <img alt="Fourth slide" src="Public/img/guide3_h662.png">
+      </div>
+      <div class="item">
+        <img alt="Fifth slide" src="Public/img/guide4_h662.png">
+      </div>
+      <div class="item">
+        <img alt="Sixth slide" src="Public/img/guide5_h662.png">
+      </div>
+    </div>
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+      <li data-target="#guideCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#guideCarousel" data-slide-to="1"></li>
+      <li data-target="#guideCarousel" data-slide-to="2"></li>
+      <li data-target="#guideCarousel" data-slide-to="3"></li>
+      <li data-target="#guideCarousel" data-slide-to="4"></li>
+      <li data-target="#guideCarousel" data-slide-to="5"></li>
+    </ol>
+  </div>
+</div>
+<div class="guide-foot">
+  <div class="btn-con clearfix">
+    <a class="wei-btn wei-bg-org wei-btn-container-2 lh30" style="border-radius: 4px;" href="#">免费注册开店</a>
+    <a class="wei-btn wei-bg-org wei-btn-container-2 lh30" style="border-radius: 4px;"
+       href="https://itunes.apple.com/cn/app/huang-jin-li-shi-wei-dian/id1018234082?ls=1&mt=8">下载手机APP</a>
+  </div>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/hammer.js"></script>
+<script>
+  $(function () {
+    $('#guideCarousel').carousel({interval: false});
+
+    //touch事件
+    var myElement = document.getElementById('guideCarousel');
+
+    var hammertime = new Hammer(myElement);
+    hammertime.on('panleft', function (ev) {
+      $(myElement).carousel('next');            //将轮播转到下一帧。
+    });
+    hammertime.on('panright', function (ev) {
+      $(myElement).carousel('prev');            //将轮播转到上一帧。
+    });
+  });
+</script>
+</body>
+</html>

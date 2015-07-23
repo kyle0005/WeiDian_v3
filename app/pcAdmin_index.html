@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/height.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+    <div id="navigation">
+        <div class="container-fluid">
+            <div>
+                <a href="javascript:;" target="_self" id="brand"></a>
+                <a href="javascript:;" target="_self" class="toggle-nav"
+                   rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+            </div>
+            <ul class="main-nav">
+                <li class="active">
+                    <a href="javascript:;" target="_self">
+                        <span>店铺</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="product.html" target="_self">商品</a>
+                </li>
+                <li class="">
+                    <a href="javascript:;" target="_self">
+                        <span>订单</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a data-hover="dropdown" href="javascript:;" target="_self">
+                        <span>微信</span>
+                    </a>
+                    <ul class="dropdown-menu code_download">
+                        <li><img src="Public/img/androidcode.jpg"></li>
+                    </ul>
+
+                </li>
+                <li class="">
+                    <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                        <span>帮助中心</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                        <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                        <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="user">
+                <ul class="icon-nav">
+                    <li>
+                        <a href="javascript:;" target="_self" title="首页"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                           style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                    </li>
+                    <li class="dropdown sett" style="">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                                class="icon-cog"></i></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                            退出</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="content">
+        <div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+            <div class="subnav">
+                <div class="subnav-title ">
+                    <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>店铺管理</span></a>
+                </div>
+                <ul class="subnav-menu" style="display: block;">
+                    <li class="">
+                        <a href="shopInfo.html">店铺信息设置</a>
+                    </li>
+                    <li class="">
+                        <a href="product.html" target="_self">商品管理</a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">订单管理</a>
+                    </li>
+                </ul>
+                <div class="subnav-title ">
+                    <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>用户管理</span></a>
+                </div>
+                <ul class="subnav-menu" style="display: block">
+                    <li class="">
+                        <a href="javascript:;">修改密码</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="a-main">
+                <div class="a-container">
+                    <dl class="clearfix">
+                        <dt class="store-logo">
+                            <a href="#" class="photo" style="">
+                                <i class="hide" style="display: none;">修改</i>
+                            </a>
+                        </dt>
+                        <dd class="store-board">
+                            <h2>啊啊啊啊</h2>
+                            <nav>
+                                <a class="btn orange-btn fc12" href="product_publish.html">+发布商品</a>
+                                <a class="btn white-btn fc12" href="preview.html">
+                                    访问店铺</a>
+                            </nav>
+                        </dd>
+                    </dl>
+                    <div class="store-cert">认证店铺</div>
+                </div>
+                <div class="a-container">
+                    <div class="ui-overview">
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <span class="h4">0</span>
+                                <span class="h5">昨日浏览PV</span>
+                            </div>
+                        </div>
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <span class="h4">0</span>
+                                <span class="h5">昨日浏览UV</span>
+                            </div>
+                        </div>
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <span class="h4">0</span>
+                                <span class="h5">昨日到店PV</span>
+                            </div>
+                        </div>
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <span class="h4">0</span>
+                                <span class="h5">昨日到店UV</span>
+                            </div>
+                        </div>
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <a class="h4" href="#">1</a>
+                                <span class="h5">微杂志</span>
+                            </div>
+                        </div>
+                        <div class="overview-group">
+                            <div class="overview-group-inner">
+                                <a class="h4" href="#">6</a>
+                                <span class="h5">商品</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="a-container">
+                    <div class="ui-block-head">
+                        <h3 class="block-title">7天浏览排行</h3>
+                    </div>
+
+                    <div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <div class="td-cont">
+                                        页面名称
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="td-cont">
+                                        浏览UV/PV
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="td-cont">
+                                        外部分享UV/PV
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="td-cont">
+                                        导出UV/PV
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="td-cont">
+                                        平均停留时间
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="td-cont">
+                                        平均访问深度
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="td-title">
+                                    <div class="td-cont">
+                                        <a href="javascript:;" target="_blank">6MM酒红天然石榴石手链 999千足金转运珠路咱通</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        0 / 0
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-title">
+                                    <div class="td-cont">
+                                        <a href="javascript:;" target="_blank">6MM酒红天然石榴石手链 999千足金转运珠路咱通</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        0 / 0
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-title">
+                                    <div class="td-cont">
+                                        <a href="javascript:;" target="_blank">6MM酒红天然石榴石手链 999千足金转运珠路咱通</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        1 / 1
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        0 / 0
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="td-cont">
+                                        <span class="gray">暂无</span>
+                                        <span class="hide">0</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>支付订单</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+</head>
+<body class="re-pop-ui">
+<div class="pay-container">
+    <header class="nav-wrap">
+        <div class="nav">
+            <div class="row-fluid">
+                <div class="span2">
+                    <a class="btn back_btn" type="button" href="javascript:history.go(-1);">返回</a>
+                </div>
+                <div class="span2"></div>
+                <div class="span4 text-center">订单支付</div>
+                <div class="span4"></div>
+            </div>
+        </div>
+    </header>
+    <section class="pay-module">
+        <p class="pay-text">
+            <img src="/Public/img/icon-succ.png">订单提交成功,请尽快付款！ </p>
+
+        <p>
+            订单号：<span>201411120000000036</span>
+        </p>
+
+        <p>
+            应付金额：<span class="reg-text">¥13500</span>
+        </p>
+
+        <p>暂不支持在线支付，如有需要请联系客户。电话：<a href="tel://4001192011">400-119-2011</a></p>
+    </section>
+
+    <form id="pay_form" action="testpost.html" method="post">
+        <section class="pay-module">
+            <div class="pay-m-title">选择支付方式</div>
+            <div class="pay-m-choose">
+                <ul>
+                    <li title="无线支付宝">
+                        <input id="alipaymobile" type="radio" name="payment" value="alipaymobile" checked="checked">
+                        <label for="alipaymobile">
+                            <span class="bank-alipaymobile"></span> </label>
+                    </li>
+                    <li title="线下支付">
+                        <input id="offline" type="radio" name="payment" value="offline">
+                    </li>
+                </ul>
+                <label for="offline">
+                    <div class="offline-text">
+                        开户行：中国建设银行股份有限公司上海曹家渡支行<br/>
+                        帐　号：3100&nbsp;1540&nbsp;7000&nbsp;5001&nbsp;2132<br/>
+                        收款人：上海金望文化传播有限公司<br/>
+
+                        <div class="offline-text-red red">
+                            转款时备注：张珍强（18616311580）客户款
+                        </div>
+
+                    </div>
+                    <br/>
+                    <!--
+                    <span class="i_pri">注：先生/女士您需到银行汇款或网银转账，将商品应付款汇入浙江金牛工贸有限公司指定帐户，因为这个是新发行的产品，公司将在一个月内为您安排发货。</span>
+                     -->
+                    <div style="width: 100%;height: 20px; margin-bottom: 10px; border-bottom: 1px solid #7abd54;"></div>
+                    <div style="font-weight: bold; font-size: 14px; margin: 0 10px;">如需帮助，请拔打：<a
+                            href="tel://4001192011">400-119-2011</a>
+                    </div>
+                </label>
+            </div>
+            <div class="dt-btn orderD-btn">
+                <a href="javascript:;" class="c-btn-orgn">
+                    <span>确认付款</span>
+                </a>
+            </div>
+        </section>
+    </form>
+</div>
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script>
+    $(function () {
+        $('.c-btn-orgn').click(function () {
+            JQbox.confirm('are you sure?',function(){
+                JQAjax.post(this,{
+                    url:$("#pay_form").attr('action'),
+                    form:'pay_form',
+                    wait:true,
+                    method:'goto'
+                })
+            })
+
+
+        });
+
+//        JQbox.alert("alert");
+//        JQbox.reload('reload');
+//        JQbox.jump('jump','test.html');
+//        JQbox.close('close');
+//        JQbox.open('open');
+//        JQbox.confirm('confirm');
+    });
+</script>
+
+</body>
+</html>
+<div id="think_page_trace"
+     style="position: fixed;bottom:0;right:0;font-size:14px;width:100%;z-index: 999999;color: #000;text-align:left;font-family:'微软雅黑';">
+<div id="think_page_trace_tab" style="display: none;background:white;margin:0;height: 250px;">
+<div id="think_page_trace_tab_tit"
+     style="height:30px;padding: 6px 12px 0;border-bottom:1px solid #ececec;border-top:1px solid #ececec;font-size:16px">
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">基本</span>
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">文件</span>
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">流程</span>
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">错误</span>
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">SQL</span>
+    <span style="color:#000;padding-right:12px;height:30px;line-height: 30px;display:inline-block;margin-right:3px;cursor: pointer;font-weight:700">调试</span>
+</div>
+<div id="think_page_trace_tab_cont" style="overflow:auto;height:212px;padding: 0; line-height: 24px">
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">请求信息 : 2014-11-14 19:25:57
+            HTTP/1.1 GET : /shop/10001/order/done/201411120000000036
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">运行时间 : 0.4559s ( Load:0.0119s
+            Init:0.0049s Exec:0.3879s Template:0.0512s )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">吞吐率 : 2.19req/s</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">内存开销 : 3,909.66 kb</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">查询信息 : 14 queries 0 writes</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">文件加载 : 54</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">缓存信息 : 0 gets 0 writes</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">配置加载 : 139</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">会话信息 :
+            SESSION_ID=73par3aedde0so1pgtmopjm9k3
+        </li>
+    </ol>
+</div>
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Web\index.php ( 1.40 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\ThinkPHP.php ( 4.54 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Think.class.php ( 11.97 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Storage.class.php ( 1.34 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Storage\Driver\File.class.php ( 3.42 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Mode\common.php ( 2.75 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Common\functions.php ( 49.85 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Common\function.php ( 7.60 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Hook.class.php ( 3.91 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\App.class.php ( 13.04 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Dispatcher.class.php ( 14.51 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Route.class.php ( 13.06 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Controller.class.php ( 10.54 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\View.class.php ( 7.40 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\BuildLiteBehavior.class.php ( 3.61 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\ParseTemplateBehavior.class.php ( 3.80 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\ContentReplaceBehavior.class.php ( 1.87 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Conf\convention.php ( 11.01 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Conf\config.php ( 2.27 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Conf\tags.php ( 0.22 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Lang\zh-cn.php ( 2.51 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Conf\debug.php ( 1.47 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Conf\debug.php ( 0.08 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Conf\db.php ( 0.20 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Conf\config.php ( 1.17 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\ReadHtmlCacheBehavior.class.php ( 5.51 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\CheckLangBehavior.class.php ( 2.89 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Lang\zh-cn.php ( 1.83 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Controller\OrderController.class.php ( 2.12 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Controller\BaseController.class.php ( 1.59 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Controller\BaseController.class.php ( 1.24 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Controller\RestController.class.php ( 8.52 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Logic\MemberLogic.class.php ( 0.54 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\MemberModel.class.php ( 4.74 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\BaseModel.class.php ( 1.80 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Model.class.php ( 58.56 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Db.class.php ( 31.69 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php ( 10.47 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Logic\ShopInfoLogic.class.php ( 1.46 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\ShopInfoModel.class.php ( 1.04 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Logic\OrdersLogic.class.php ( 6.61 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\OrdersModel.class.php ( 9.92 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\OrdersViewModel.class.php ( 0.55 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\BaseViewModel.class.php ( 0.73 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Model\ViewModel.class.php ( 9.35 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Shop\Logic\PaymentLogic.class.php ( 0.60 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Common\Model\PaymentModel.class.php ( 0.73 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Template.class.php ( 27.73 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Template\TagLib\Cx.class.php ( 21.90 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Template\TagLib.class.php ( 8.95 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\Application\Runtime\Cache\Shop\d8e5f12633afac03f2eed89241bd11d1.php ( 4.53 KB
+            )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\WriteHtmlCacheBehavior.class.php ( 0.95 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\TokenBuildBehavior.class.php ( 2.45 KB )
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">
+            D:\workspace\jinniu_com\ThinkPHP\Library\Behavior\ShowPageTraceBehavior.class.php ( 5.13 KB )
+        </li>
+    </ol>
+</div>
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ app_init ] --START--</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run Behavior\BuildLiteBehavior [
+            RunTime:0.000039s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ app_init ] --END-- [
+            RunTime:0.000211s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ app_begin ] --START--</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run Behavior\ReadHtmlCacheBehavior
+            [ RunTime:0.000536s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run Behavior\CheckLangBehavior [
+            RunTime:0.000892s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ app_begin ] --END-- [
+            RunTime:0.001701s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ view_parse ] --START--</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ template_filter ] --START--</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run
+            Behavior\ContentReplaceBehavior [ RunTime:0.000119s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ template_filter ] --END-- [
+            RunTime:0.000293s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run Behavior\ParseTemplateBehavior
+            [ RunTime:0.043952s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ view_parse ] --END-- [
+            RunTime:0.044124s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ view_filter ] --START--</li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run
+            Behavior\WriteHtmlCacheBehavior [ RunTime:0.000553s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">Run Behavior\TokenBuildBehavior [
+            RunTime:0.000553s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ view_filter ] --END-- [
+            RunTime:0.001394s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[ app_end ] --START--</li>
+    </ol>
+</div>
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8192] mysql_connect(): The mysql
+            extension is deprecated and will be removed in the future: use mysqli or PDO instead
+            D:\workspace\jinniu_com\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[2] Missing argument 1 for
+            Shop\Logic\PaymentLogic::getList(), called in
+            D:\workspace\jinniu_com\Application\Shop\Controller\OrderController.class.php on line 76 and defined
+            D:\workspace\jinniu_com\Application\Shop\Logic\PaymentLogic.class.php 第 14 行.
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8] Undefined variable: data
+            D:\workspace\jinniu_com\Application\Shop\Logic\PaymentLogic.class.php 第 16 行.
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">[8] Undefined variable: book
+            D:\workspace\jinniu_com\Application\Runtime\Cache\Shop\d8e5f12633afac03f2eed89241bd11d1.php 第 62 行.
+        </li>
+    </ol>
+</div>
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `member` [
+            RunTime:0.009525s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SELECT * FROM `member` WHERE (
+            id='2' ) LIMIT 1 [ RunTime:0.000732s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `shop_info` [
+            RunTime:0.070512s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SELECT * FROM `shop_info` WHERE (
+            id='10001' and status='1' ) LIMIT 1 [ RunTime:0.069534s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SELECT * FROM `member` WHERE `id`
+            = 1 LIMIT 1 [ RunTime:0.000441s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `orders` [
+            RunTime:0.007886s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `orders` [
+            RunTime:0.005690s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `order_receiver`
+            [ RunTime:0.006812s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM
+            `order_statustime` [ RunTime:0.006540s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `express` [
+            RunTime:0.008029s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `payment` [
+            RunTime:0.006455s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SELECT Orders.order_id AS
+            order_id,Orders.member_id AS member_id,Orders.shop_id AS shop_id,Orders.total AS
+            total,Orders.account_point AS account_point,Orders.account_amount AS
+            account_amount,Orders.cash_amount AS cash_amount,Orders.status AS status,Orders.is_submit AS
+            is_submit,Orders.pay_id AS pay_id,Orders.express_id AS express_id,Orders.remark AS
+            remark,Orders.express_number AS express_number,Orders.create_time AS
+            create_time,OrderReceiver.order_id AS order_id,OrderReceiver.name AS name,OrderReceiver.phone AS
+            phone,OrderReceiver.province AS province,OrderReceiver.city AS city,OrderReceiver.region AS
+            region,OrderReceiver.address AS address,OrderReceiver.zipcode AS zipcode,OrderStatustime.order_id AS
+            order_id,OrderStatustime.order_time AS order_time,OrderStatustime.submit_time AS
+            submit_time,OrderStatustime.cancel_time AS cancel_time,OrderStatustime.pay_time AS
+            pay_time,OrderStatustime.send_time AS send_time,OrderStatustime.receiver_time AS
+            receiver_time,OrderStatustime.comment_time AS comment_time,Express.name AS express_name,Payment.name
+            AS pay_name FROM orders Orders LEFT JOIN order_receiver OrderReceiver ON
+            Orders.order_id=OrderReceiver.order_id JOIN order_statustime OrderStatustime ON
+            Orders.order_id=OrderStatustime.order_id LEFT JOIN express Express ON Orders.express_id=Express.id
+            LEFT JOIN payment Payment ON Orders.pay_id=Payment.id WHERE ( Orders.shop_id='10001' and
+            Orders.order_id='201411120000000036' and Orders.member_id='2' ) LIMIT 1 [ RunTime:0.063945s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SHOW COLUMNS FROM `payment` [
+            RunTime:0.005720s ]
+        </li>
+        <li style="border-bottom:1px solid #EEE;font-size:14px;padding:0 12px">SELECT * FROM `payment` WHERE (
+            status='1' ) [ RunTime:0.000541s ]
+        </li>
+    </ol>
+</div>
+<div style="display:none;">
+    <ol style="padding: 0; margin:0">
+    </ol>
+</div>
+</div>
+</div>
+<div id="think_page_trace_close"
+     style="display:none;text-align:right;height:15px;position:absolute;top:10px;right:12px;cursor: pointer;"><img
+        style="vertical-align:top;"
+        src="data:image/gif;base64,R0lGODlhDwAPAJEAAAAAAAMDA////wAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMyOjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUQxMjc1MUJCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUQxMjc1MUNCQUJDMTFFMTk0OUVGRjc3QzU4RURFNkEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRDEyNzUxOUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRDEyNzUxQUJBQkMxMUUxOTQ5RUZGNzdDNThFREU2QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAAAAAAALAAAAAAPAA8AAAIdjI6JZqotoJPR1fnsgRR3C2jZl3Ai9aWZZooV+RQAOw=="/>
+</div>
+</div>
+<div id="think_page_trace_open"
+     style="height:30px;float:right;text-align: right;overflow:hidden;position:fixed;bottom:0;right:0;color:#000;line-height:30px;cursor:pointer;">
+    <div style="background:#232323;color:#FFF;padding:0 6px;float:right;line-height:30px;font-size:14px">0.4559s</div>
+    <img width="30" style="" title="ShowPageTrace"
+         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjVERDVENkZGQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjVERDVENzAwQjkyNDExRTE5REY3RDQ5RTQ2RTRDQUJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NURENUQ2RkRCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NURENUQ2RkVCOTI0MTFFMTlERjdENDlFNDZFNENBQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5fx6IRAAAMCElEQVR42sxae3BU1Rk/9+69+8xuNtkHJAFCSIAkhMgjCCJQUi0GtEIVbP8Qq9LH2No6TmfaztjO2OnUdvqHFMfOVFTqIK0vUEEeqUBARCsEeYQkEPJoEvIiELLvvc9z+p27u2F3s5tsBB1OZiebu5dzf7/v/L7f952zMM8cWIwY+Mk2ulCp92Fnq3XvnzArr2NZnYNldDp0Gw+/OEQ4+obQn5D+4Ubb22+YOGsWi/Todh8AHglKEGkEsnHBQ162511GZFgW6ZCBM9/W4H3iNSQqIe09O196dLKX7d1O39OViP/wthtkND62if/wj/DbMpph8BY/m9xy8BoBmQk+mHqZQGNy4JYRwCoRbwa8l4JXw6M+orJxpU0U6ToKy/5bQsAiTeokGKkTx46RRxxEUgrwGgF4MWNNEJCGgYTvpgnY1IJWg5RzfqLgvcIgktX0i8dmMlFA8qCQ5L0Z/WObPLUxT1i4lWSYDISoEfBYGvM+LlMQQdkLHoWRRZ8zYQI62Thswe5WTORGwNXDcGjqeOA9AF7B8rhzsxMBEoJ8oJKaqPu4hblHMCMPwl9XeNWyb8xkB/DDGYKfMAE6aFL7xesZ389JlgG3XHEMI6UPDOP6JHHu67T2pwNPI69mCP4rEaBDUAJaKc/AOuXiwH07VCS3w5+UQMAuF/WqGI+yFIwVNBwemBD4r0wgQiKoFZa00sEYTwss32lA1tPwVxtc8jQ5/gWCwmGCyUD8vRT0sHBFW4GJDvZmrJFWRY1EkrGA6ZB8/10fOZSSj0E6F+BSP7xidiIzhBmKB09lEwHPkG+UQIyEN44EBiT5vrv2uJXyPQqSqO930fxvcvwbR/+JAkD9EfASgI9EHlp6YiHO4W+cAB20SnrFqxBbNljiXf1Pl1K2S0HCWfiog3YlAD5RGwwxK6oUjTweuVigLjyB0mX410mAFnMoVK1lvvUvgt8fUJH0JVyjuvcmg4dE5mUiFtD24AZ4qBVELxXKS+pMxN43kSdzNwudJ+bQbLlmnxvPOQoCugSap1GnSRoG8KOiKbH+rIA0lEeSAg3y6eeQ6XI2nrYnrPM89bUTgI0Pdqvl50vlNbtZxDUBcLBK0kPd5jPziyLdojJIN0pq5/mdzwL4UVvVInV5ncQEPNOUxa9d0TU+CW5l+FoI0GSDKHVVSOs+0KOsZoxwOzSZNFGv0mQ9avyLCh2Hpm+70Y0YJoJVgmQv822wnDC8Miq6VjJ5IFed0QD1YiAbT+nQE8v/RMZfmgmcCRHIIu7Bmcp39oM9fqEychcA747KxQ/AEyqQonl7hATtJmnhO2XYtgcia01aSbVMenAXrIomPcLgEBA4liGBzFZAT8zBYqW6brI67wg8sFVhxBhwLwBP2+tqBQqqK7VJKGh/BRrfTr6nWL7nYBaZdBJHqrX3kPEPap56xwE/GvjJTRMADeMCdcGpGXL1Xh4ZL8BDOlWkUpegfi0CeDzeA5YITzEnddv+IXL+UYCmqIvqC9UlUC/ki9FipwVjunL3yX7dOTLeXmVMAhbsGporPfyOBTm/BJ23gTVehsvXRnSewagUfpBXF3p5pygKS7OceqTjb7h2vjr/XKm0ZofKSI2Q/J102wHzatZkJPYQ5JoKsuK+EoHJakVzubzuLQDepCKllTZi9AG0DYg9ZLxhFaZsOu7bvlmVI5oPXJMQJcHxHClSln1apFTvAimeg48u0RWFeZW4lVcjbQWZuIQK1KozZfIDO6CSQmQQXdpBaiKZyEWThVK1uEc6v7V7uK0ysduExPZx4vysDR+4SelhBYm0R6LBuR4PXts8MYMcJPsINo4YZCDLj0sgB0/vLpPXvA2Tn42Cv5rsLulGubzW0sEd3d4W/mJt2Kck+DzDMijfPLOjyrDhXSh852B+OvflqAkoyXO1cYfujtc/i3jJSAwhgfFlp20laMLOku/bC7prgqW7lCn4auE5NhcXPd3M7x70+IceSgZvNljCd9k3fLjYsPElqLR14PXQZqD2ZNkkrAB79UeJUebFQmXpf8ZcAQt2XrMQdyNUVBqZoUzAFyp3V3xi/MubUA/mCT4Fhf038PC8XplhWnCmnK/ZzyC2BSTRSqKVOuY2kB8Jia0lvvRIVoP+vVWJbYarf6p655E2/nANBMCWkgD49DA0VAMyI1OLFMYCXiU9bmzi9/y5i/vsaTpHPHidTofzLbM65vMPva9HlovgXp0AvjtaqYMfDD0/4mAsYE92pxa+9k1QgCnRVObCpojpzsKTPvayPetTEgBdwnssjuc0kOBFX+q3HwRQxdrOLAqeYRjkMk/trTSu2Z9Lik7CfF0AvjtqAhS4NHobGXUnB5DQs8hG8p/wMX1r4+8xkmyvQ50JVq72TVeXbz3HvpWaQJi57hJYTw4kGbtS+C2TigQUtZUX+X27QQq2ePBZBru/0lxTm8fOOQ5yaZOZMAV+he4FqIMB+LQB0UgMSajANX29j+vbmly8ipRvHeSQoQOkM5iFXcPQCVwDMs5RBCQmaPOyvbNd6uwvQJ183BZQG3Zc+Eiv7vQOKu8YeDmMcJlt2ckyftVeMIGLBCmdMHl/tFILYwGPjXWO3zOfSq/+om+oa7Mlh2fpSsRGLp7RAW3FUVjNHgiMhyE6zBFjM2BdkdJGO7nP1kJXWAtBuBpPIAu7f+hhu7bFXIuC5xWrf0X2xreykOsUyKkF2gwadbrXDcXrfKxR43zGcSj4t/cCgr+a1iy6EjE5GYktUCl9fwfMeylyooGF48bN2IGLTw8x7StS7sj8TF9FmPGWQhm3rRR+o9lhvjJvSYAdfDUevI1M6bnX/OwWaDMOQ8RPgKRo0eulBTdT8AW2kl8e9L7UHghHwMfLiZPNoSpx0yugpQZaFqKWqxVSM3a2pN1SAhC2jf94I7ybBI7EL5A2Wvu5ht3xsoEt4+Ay/abXgCQAxyOeDsDlTCQzy75ohcGgv9Tra9uiymRUYTLrswOLlCdfAQf7HPDQQ4ErAH5EDXB9cMxWYpjtXApRncojS0sbV/cCgHTHwGNBJy+1PQE2x56FpaVR7wfQGZ37V+V+19EiHNvR6q1fRUjqvbjbMq1/qfHxbTrE10ePY2gPFk48D2CVMTf1AF4PXvyYR9dV6Wf7H413m3xTWQvYGhQ7mfYwA5mAX+18Vue05v/8jG/fZX/IW5MKPKtjSYlt0ellxh+/BOCPAwYaeVr0QofZFxJWVWC8znG70au6llVmktsF0bfHF6k8fvZ5esZJbwHwwnjg59tXz6sL/P0NUZDuSNu1mnJ8Vab17+cy005A9wtOpp3i0bZdpJLUil00semAwN45LgEViZYe3amNye0B6A9chviSlzXVsFtyN5/1H3gaNmMpn8Fz0GpYFp6Zw615H/LpUuRQQDMCL82n5DpBSawkvzIdN2ypiT8nSLth8Pk9jnjwdFzH3W4XW6KMBfwB569NdcGX93mC16tTflcArcYUc/mFuYbV+8zY0SAjAVoNErNgWjtwumJ3wbn/HlBFYdxHvSkJJEc+Ngal9opSwyo9YlITX2C/P/+gf8sxURSLR+mcZUmeqaS9wrh6vxW5zxFCOqFi90RbDWq/YwZmnu1+a6OvdpvRqkNxxe44lyl4OobEnpKA6Uox5EfH9xzPs/HRKrTPWdIQrK1VZDU7ETiD3Obpl+8wPPCRBbkbwNtpW9AbBe5L1SMlj3tdTxk/9W47JUmqS5HU+JzYymUKXjtWVmT9RenIhgXc+nroWLyxXJhmL112OdB8GCsk4f8oZJucnvmmtR85mBn10GZ0EKSCMUSAR3ukcXd5s7LvLD3me61WkuTCpJzYAyRurMB44EdEJzTfU271lUJC03YjXJXzYOGZwN4D8eB5jlfLrdWfzGRW7icMPfiSO6Oe7s20bmhdgLX4Z23B+s3JgQESzUDiMboSzDMHFpNMwccGePauhfwjzwnI2wu9zKGgEFg80jcZ7MHllk07s1H+5yojtUQTlH4nFdLKTGwDmPbIklOb1L1zO4T6N8NCuDLFLS/C63c0eNRimZ++s5BMBHxU11jHchI9oFVUxRh/eMDzHEzGYu0Lg8gJ7oS/tFCwoic44fyUtix0n/46vP4bf+//BRgAYwDDar4ncHIAAAAASUVORK5CYII=">
+</div>
+<script type="text/javascript">
+    (function () {
+        var tab_tit = document.getElementById('think_page_trace_tab_tit').getElementsByTagName('span');
+        var tab_cont = document.getElementById('think_page_trace_tab_cont').getElementsByTagName('div');
+        var open = document.getElementById('think_page_trace_open');
+        var close = document.getElementById('think_page_trace_close').childNodes[0];
+        var trace = document.getElementById('think_page_trace_tab');
+        var cookie = document.cookie.match(/thinkphp_show_page_trace=(\d\|\d)/);
+        var history = (cookie && typeof cookie[1] != 'undefined' && cookie[1].split('|')) || [0, 0];
+        open.onclick = function () {
+            trace.style.display = 'block';
+            this.style.display = 'none';
+            close.parentNode.style.display = 'block';
+            history[0] = 1;
+            document.cookie = 'thinkphp_show_page_trace=' + history.join('|')
+        }
+        close.onclick = function () {
+            trace.style.display = 'none';
+            this.parentNode.style.display = 'none';
+            open.style.display = 'block';
+            history[0] = 0;
+            document.cookie = 'thinkphp_show_page_trace=' + history.join('|')
+        }
+        for (var i = 0; i < tab_tit.length; i++) {
+            tab_tit[i].onclick = (function (i) {
+                return function () {
+                    for (var j = 0; j < tab_cont.length; j++) {
+                        tab_cont[j].style.display = 'none';
+                        tab_tit[j].style.color = '#999';
+                    }
+                    tab_cont[i].style.display = 'block';
+                    tab_tit[i].style.color = '#000';
+                    history[1] = i;
+                    document.cookie = 'thinkphp_show_page_trace=' + history.join('|')
+                }
+            })(i)
+        }
+        parseInt(history[0]) && open.click();
+        (tab_tit[history[1]] || tab_tit[0]).click();
+    })();
+</script>

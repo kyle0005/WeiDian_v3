@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>收藏商品</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            商品收藏
+        </div>
+    </div>
+</header>
+<div id="main" class="">
+    <section class="fav-module">
+        <ul class="list-cons-list">
+            <li>
+                <a href="detail.html">
+                    <div class="list-cons-list-left">
+                        <img class="" src="Public/img/nexus.jpg" style="visibility: visible;">
+                    </div>
+                    <div class="list-cons-list-right">
+                        <span class="d-title">谷歌/Google Nexus 5 LG N5 五儿子原封三网电信手机 Nexus中文网</span>
+                        <p class="d-price">
+                            <em class="d-price-h">￥2330.00</em> <del></del>
+                        </p>
+                        <p class="list-cons-list-info">
+                            <span class="d-num">月售<em>102</em>笔</span>
+                        </p>
+                    </div>
+                </a>
+                <div class="js-fav-del fav-del fav-del-po-a"></div>
+            </li>
+            <li>
+                <a href="detail.html">
+                    <div class="list-cons-list-left">
+                        <img class="" src="Public/img/nexus.jpg" style="visibility: visible;">
+                    </div>
+                    <div class="list-cons-list-right">
+                        <span class="d-title">谷歌/Google Nexus 5 LG N5 五儿子原封三网电信手机 Nexus中文网</span>
+                        <p class="d-price">
+                            <em class="d-price-h">￥2330.00</em> <del></del>
+                        </p>
+                        <p class="list-cons-list-info">
+                            <span class="d-num">月售<em>102</em>笔</span><span class="js-fav-del fav-del"></span>
+                        </p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</div>
+
+
+<div id="bottom">
+    <div class="c-footer ">
+        <section class="footer-t c-footer-t">
+            <p class="c-user-info">
+                <span><a href="login.html">登录</a></span>
+                <span><a href="register.html">注册</a></span>
+            </p>
+
+            <p class="gotop c-gotop">
+                <a id="J_GoTop" href="javascript:scroll(0,0)">top<b> </b></a>
+            </p>
+        </section>
+    </div>
+</div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+            <li>
+                <a href="cart.html">购物车</a>
+            </li>
+            <li>
+                <a href="orders.html">我的订单</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script>
+        $('.js-fav-del').click(function(){
+            $(this).parent('li').remove();
+        });
+</script>
+</body>
+</html>

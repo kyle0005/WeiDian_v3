@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>托管管理</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <!--<link href="Public/css/mobile.style.css" rel="stylesheet">-->
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            托管管理
+        </div>
+    </div>
+</header>
+<section class="host-tab">
+    <ul class="nav nav-tabs" id="hostTab">
+        <li class="active"><a href="#all"><span class="host-tab-txt">全部托管</span></a></li>
+        <li><a href="#forCheck"><span class="host-tab-txt">待审核</span></a></li>
+        <li><a href="#checked"><span class="host-tab-txt">已审核</span></a></li>
+        <li><a href="#hosted"><span class="host-tab-txt">已托管</span></a></li>
+        <li><a href="#refused"><span class="host-tab-txt">已拒绝</span></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="all">
+            <ul>
+                <li class="pl10 pr10 pt10 pb10 bb">
+                    <a href="#" class="hst-a">
+                        <span class="row-fluid">
+                        <span class="span6">
+                            订单号：115646467979<br>画圣小铜章
+                        </span>
+                        <span class="span6 text-right">
+                            <span class="hst-list-r">
+                                <span style="color: #ff8000;">已托管</span><br>x1
+                            </span>
+                        </span>
+                    </span>
+                    </a>
+                </li>
+                <li class="pl10 pr10 pt10 pb10 bb">
+                    <a href="#" class="hst-a">
+                        <span class="row-fluid">
+                        <span class="span6">
+                            订单号：115646467979<br>羊首小银章
+                        </span>
+                        <span class="span6 text-right">
+                            <span class="hst-list-r">
+                                <span style="color: #ff8000;">待审核</span><br>x1
+                            </span>
+                        </span>
+                    </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane" id="forCheck">2</div>
+        <div class="tab-pane" id="checked">3</div>
+        <div class="tab-pane" id="hosted">4</div>
+        <div class="tab-pane" id="refused">5</div>
+    </div>
+</section>
+<div style="height: 55px;"></div>
+<footer class="wei-foot text-center">
+    <ul class="clearfix">
+        <li class="wei-foot-li">
+            <img src="Public/img/index.png" alt=""/><br>首页
+        </li>
+        <li class="wei-foot-li curFoot">
+            <img src="Public/img/workspace.png" alt=""/><br>工作台
+        </li>
+        <li class="wei-foot-li">
+            <img src="Public/img/personal.png" alt=""/><br>我
+        </li>
+    </ul>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
+<script>
+    $(function () {
+        $('#hostTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+    });
+</script>
+</body>
+</html>

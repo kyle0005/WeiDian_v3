@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>产品列表</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<div class="productList-container">
+    <section class="list-container">
+    <div class="com-cons">
+    <ul class="list-cons-list clearfix" id="content" style="height:600px">
+        <li>
+            <div class="list-cons-list-left">
+                <img class="" src="Public/img/a2.jpg" style="visibility: visible;">
+            </div>
+            <div class="list-cons-list-right clearfix">
+                <a href="detail.html" class="d-title">
+                    谷歌/Google Nexus 5 LG N5 原封三网电信手机 Nexus中文网
+                </a>
+                <div class="clearfix">
+                    <p class="d-price d-price-h">
+                        ￥<em>23300000</em>
+                    </p>
+                    <p class="list-cons-list-info">
+                        库存：<em>1020000</em>
+                    </p>
+                    <p class="d-commission">
+                        佣金：<span class="d-price-h">￥<em>999990</em></span>
+                    </p>
+                </div>
+                <div class="de-opt">
+                    <a href="#" class="wei-btn wei-bg-blue">上架</a>
+                    <a href="#" class="wei-btn wei-bg-red">下架</a>
+                    <a href="#" class="wei-btn wei-bg-orgn">删除</a>
+                </div>
+
+            </div>
+        </li>
+        <li>
+            <div class="list-cons-list-left">
+                <img class="" src="Public/img/a2.jpg" style="visibility: visible;">
+            </div>
+            <div class="list-cons-list-right clearfix">
+                <a href="detail.html" class="d-title">
+                    谷歌/Google Nexus 5 LG N5 原封三网电信手机 Nexus中文网
+                </a>
+                <div class="clearfix">
+                    <p class="d-price d-price-h">
+                        ￥<em>23300000</em>
+                    </p>
+                    <p class="list-cons-list-info">
+                        库存：<em>1020000</em>
+                    </p>
+                    <p class="d-commission">
+                        佣金：<span class="d-price-h">￥<em>999990</em></span>
+                    </p>
+                </div>
+                <div class="de-opt">
+                    <a href="#" class="wei-btn wei-bg-blue">上架</a>
+                    <a href="#" class="wei-btn wei-bg-red">下架</a>
+                    <a href="#" class="wei-btn wei-bg-orgn">删除</a>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>
+</section>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script>
+    $(function () {
+        var data = {
+            img_src: 'resource/img/a2.jpg',
+            title:'谷歌/Google Nexus 5 LG N5 原封三网电信手机 Nexus中文网',
+            price:2330.00,
+            rest:102,
+            commission:100000
+        };
+
+        var range = 50;             //距下边界长度/单位px
+        var maxnum = 10;            //设置加载最多次数
+        var num = 1;
+        var totalheight = 0;
+        var main = $("#content");                     //主体元素
+        $(window).scroll(function(){
+            var srollPos = $(window).scrollTop();    //滚动条距顶部距离(页面超出窗口的高度)
+
+            //console.log("滚动条到顶部的垂直高度: "+$(document).scrollTop());
+            //console.log("页面的文档高度 ："+$(document).height());
+            //console.log('浏览器的高度：'+$(window).height());
+
+            totalheight = parseFloat($(window).height()) + parseFloat(srollPos);
+            if(($(document).height()-range) <= totalheight  && num != maxnum) {
+                var img_src = data.img_src;
+                var title = data.title;
+                var price = data.price;
+                var rest = data.rest;
+                var commission = data.commission;
+
+                var str = '<li><div class="list-cons-list-left"><img class="" src="'
+                        + img_src
+                        + '" style="visibility:visible;"></div><div class="list-cons-list-right clearfix"><a href="detail.html" class="d-title">'
+                        + title
+                        + '</a><div class="clearfix"><p class="d-price d-price-h"><em>￥'
+                        + price + '</em></p><p class="list-cons-list-info">库存：<em>'
+                        + rest +'</em></p><p class="d-commission">佣金：<span class="d-price-h">￥<em>'
+                        + commission +'</em></span></p></div><div class="de-opt"><a href="#" class="pro-up">上架</a>' +
+                        '<a href="#" class="pro-down">下架</a><a href="#" class="pro-del">删除</a></div></div></li>';
+                main.append(str);
+                num++;
+            }
+        });
+    })
+
+</script>
+<!--<div id="content" style="height:600px">-->
+<!--<div style='border:1px solid tomato;margin-top:20px;color:#ac1;height:800'>hello world test DIV</div>-->
+<!--</div>-->
+</body>
+</html>

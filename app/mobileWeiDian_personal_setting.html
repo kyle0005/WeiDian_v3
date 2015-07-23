@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>个人信息设置</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/bootstrap-switch.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            个人信息设置
+        </div>
+    </div>
+</header>
+<section class="setting-container shop-setting">
+    <form class="form-horizontal underline-con">
+        <fieldset class="inp-container">
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">用户名</span>
+                    <input class="user-name" type="text" name="user_name" placeholder="请输入用户名">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">昵称</span>
+                    <input class="user-nickname" type="text" name="nick-name" placeholder="请输入昵称">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">地址</span>
+                    <input class="user-address" type="text" name="user-address" placeholder="请输入地址">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">微信号</span>
+                    <input class="user-weChat" type="text" placeholder="请输入微信号" name="user-weChat">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">qq号</span>
+                    <input class="user-qq" type="text" name="user-qq" placeholder="请输入qq号">
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="chs-container">
+            <div class="control-group">
+                <span class="left-label">性别</span>
+                    <input type="checkbox" id="switch" class="switch" data-on-text="女" data-off-text="男" />
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <span class="left-label">生日</span>
+                    <input class="user-birthday" type="date" name="user-birthday">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div id="province">
+                    <ul class="p-addr-info">
+                        <li>
+                            <div class="p-c-form-select">
+                                <span class="left-label">省份</span>
+                                <select id="J_province" class="p-prov">
+                                    <option value="">请选择省份</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p-c-form-select">
+                                <span class="left-label">城市</span>
+                                <select id="J_city" class="p-city" disabled="disabled">
+                                    <option value="">请选择城市</option>
+
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="p-c-form-select">
+                                <span class="left-label">地区</span>
+                                <select id="J_region" class="p-dist" disabled="disabled">
+                                    <option value="">请选择地区</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="control-group">
+                <div class="sub-btn">
+                    <a class="wei-btn wei-bg-red" href="javascript:;">保存修改</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
+<div style="height: 49px"></div>
+<footer class="foot-nav">
+    <div class="foot-content">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="Public/img/i_home.png">
+                    &nbsp;工作台
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_product.png">
+                    &nbsp;宝贝管理
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="Public/img/i_set.png">
+                    &nbsp;设置
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery.cityselect.js"></script>
+<script src="Public/js/bootstrap-switch.js"></script>
+<script>
+//    $(function(){
+//        $("#province").citySelect({
+//            prov:"请选择",
+//            city:"请选择",
+//            dist:"请选择",
+//            required:true
+//        });
+//    });
+$(function () {
+    $('#switch').bootstrapSwitch();
+    $('.bootstrap-switch-container > span').on('click', function () {
+//        alert($('#switch').bootstrapSwitch('state'));
+    });
+})
+</script>
+</body>
+</html>

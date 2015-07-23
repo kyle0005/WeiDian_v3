@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>帮助文档详情</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no">
+  <link href="http://test.shop.golddiy.com/Public/css/bootstrap.css" rel="stylesheet">
+  <link href="http://test.shop.golddiy.com/Public/css/base.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://test.shop.golddiy.com/Public/css/main.css"/>
+  <link href="http://test.shop.golddiy.com/Public/css/font-awesome.css" rel="stylesheet">
+  <link href="http://test.shop.golddiy.com/Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="pl10 pr10 lh40" style="color: blue; border-bottom: 1px dashed #999;">
+  &laquo;使用帮助
+</header>
+<section class="wei-container10">
+  <h3>如何邀请朋友开店一起赚钱？</h3>
+  <p>点击“我”最下方“推荐给朋友，一起赚钱”，朋友通过您分享的邀请开店链接，将自动会成为您的推荐人或联盟成员。
+  </p>
+  <p class="mt10 pb10 bb"><img  data-original="help/app_invite.jpg" width="240" class="lazy" /></p>
+</section>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
+<script>
+  $(function () {
+    $("img.lazy").lazyload({
+      appear: function () {
+        //图片加载时
+        $(this).addClass('lazy-container');
+      },
+      load: function () {
+        //图片加载后
+        $(this).removeClass('lazy-container');
+      },
+      event:'scroll',
+      placeholder: "Public/img/loading_bg.png"
+    });
+
+    $(window).bind("load", function() {
+      var timeout = setTimeout(function() {
+        $("img.lazy").trigger("scroll");         //触发scroll事件
+      }, 0);
+    });
+  })
+</script>
+</body>
+</html>

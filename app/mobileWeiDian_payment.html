@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>支付</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.theme.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            订单支付
+        </div>
+    </div>
+</header>
+<div class="pay-container">
+    <section class="pay-module">
+        <p class="pay-text">
+            <img src="Public/img/icon-succ.png">
+            订单提交成功,请尽快付款！
+        </p>
+        <p>
+            订单号：<span>1939488327</span>
+        </p>
+        <p>
+            应付金额：<span class="reg-text">￥</span><span class="reg-text">3064.00</span>
+        </p>
+    </section>
+    <section class="pay-module">
+        <div class="pay-m-title">选择支付方式</div>
+        <div class="pay-m-choose">
+            <ul>
+                <li>
+                    <input type="radio" name="bankRadio" id="zfb-pay" value="zfb">
+                    <label for="zfb-pay" id="zfbPay">
+                        <span class="bank-alipaymobile"></span>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" name="bankRadio" id="wx-pay" value="wx">
+                    <label for="wx-pay" id="wxPay">
+                        <span class="bank-tenpaymobile"></span>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" name="bankRadio" id="cy-bank" value="cy">
+                    <label for="cy-bank" id="chooseBank">
+                        <span class="bank-pnrmobile"></span>
+                    </label>
+                </li>
+                <li>
+                    <input type="radio" name="bankRadio" id="xx-bank" value="cy">
+                    <label for="xx-bank" id="xxBank">
+                        <span class="ccb"></span>&emsp;<span
+                            style="color: #999;display:inline-block;height: 28px;line-height: 28px;vertical-align: top;margin-top: 4px;">
+                        （银行汇款）</span>
+                    </label>
+                </li>
+            </ul>
+            <label class="js-bank-info hide">
+                    <div class="offline-text">
+                        <div class="clearfix">
+                            <span class="offline-text-left">开户行：</span>
+                            <span class="offline-text-right">中国建设银行股份有限公司上海曹家渡支行</span>
+                        </div>
+                        <div class="clearfix">
+                            <span class="offline-text-left">帐　号：</span>
+                            <span class="offline-text-right">3100&nbsp;1540&nbsp;7000&nbsp;5001&nbsp;2132</span>
+                        </div>
+                        <div class="clearfix">
+                            <span class="offline-text-left">收款人：</span>
+                            <span class="offline-text-right">上海金望文化传播有限公司</span>
+                        </div>
+                        <div class="offline-text-red red">
+                            转款时备注：客户款
+                        </div>
+                    </div>
+
+                    <div style="width: 100%;height: 20px; margin-bottom: 10px; border-bottom: 1px solid #7abd54;"></div>
+                    <div style="font-weight: bold; font-size: 14px; margin: 0 10px;">如需帮助，请拔打：<a
+                            href="tel://4001192011">400-119-2011</a>
+                    </div>
+                </label>
+
+        </div>
+        <div class="sub-btn">
+            <a href="javascript:;" class="wei-btn wei-bg-red">
+                确认付款
+            </a>
+        </div>
+    </section>
+</div>
+<!--弹出层-->
+<div class="pop-div hide">
+    <div class="pay-container">
+        <div class="pay-m-choose">
+            <div class="text-right" style="position: relative">
+                <a href="#" class="pop-div-x">
+                    <img src="Public/img/x.png" width="20px">
+                </a>
+            </div>
+            <ul class="banks-menu">
+                <li class="js-banks chosen">
+                    <a href="javascript:;">
+                        <span class="ccb"></span>&nbsp;建设银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="icbc"></span>&nbsp;工商银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="cmbc"></span>&nbsp;招商银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="spdb"></span>&nbsp;浦发银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="cgb"></span>&nbsp;广发银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="cmsb"></span>&nbsp;民生银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="cib"></span>&nbsp;兴业银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="fsbc"></span>&nbsp;邮储银行信用卡
+                    </a>
+                </li>
+                <li class="js-banks">
+                    <a href="javascript:;">
+                        <span class="ccb_cx"></span>&nbsp;建设银行储蓄卡
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
+<script>
+    $(function () {
+        $('#zfbPay').click(function () {
+            $('.js-bank-info').hide();
+        });
+        $('#wxPay').click(function () {
+            $('.js-bank-info').hide();
+        });
+        $('#chooseBank').click(function () {
+            $('.pop-div').show();
+            $('.js-bank-info').hide();
+//           JQbox.open({
+//               type: "open",
+//               title: "请选择银行支付",
+//               url: 'mobileWeiDian_payment_banks.html',
+//               width: 300,
+//               height:370,
+//               modal:true
+//           }) ;
+        });
+        $('#xx-bank').click(function () {
+            $('.js-bank-info').show();
+        });
+
+        $('.js-banks').click(function () {
+            $('.js-banks').removeClass('chosen');
+            $(this).addClass('chosen');
+        });
+
+        $('.pop-div-x').click(function () {
+            $('.pop-div').hide();
+            $("input:radio[name='bankRadio']").attr("checked",false);
+        });
+    })
+</script>
+</body>
+</html>

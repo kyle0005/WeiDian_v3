@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>复制demo</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+</head>
+<body>
+<a href="#none" class="copy">点击复制我</a>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/jn_mobile.js"></script>
+<script src="Public/js/jquery.zclip.js"></script>
+<script>
+    $(document).ready(function(){
+        /* 定义所有class为copy标签，点击后可复制被点击对象的文本 */
+        $(".copy").zclip({
+            path: "ZeroClipboard.swf",
+            copy: function(){
+                return $(this).text();
+            },
+            beforeCopy:function(){/* 按住鼠标时的操作 */
+                $(this).css("color","orange");
+            },
+            afterCopy:function(){/* 复制成功后的操作 */
+                JQbox.alert($(this).text());
+            }
+        });
+    });
+</script>
+</body>
+</html>

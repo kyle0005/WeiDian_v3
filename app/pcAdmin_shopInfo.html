@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <base href="." target="mainFrame">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="Public/js/application.js"></script>
+    <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+    <script src="Public/js/tab.js"></script>
+    <script src="Public/js/height.js"></script>
+    <script src="Public/js/select.js"></script>
+    <style type="text/css">
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: none
+        }
+    </style>
+    <title>微门店</title>
+</head>
+
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li class="active">
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li>
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+    <div id="left">
+        <div class="subnav">
+            <div class="subnav-title ">
+                <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>店铺管理</span></a>
+            </div>
+            <ul class="subnav-menu" style="display: block;">
+                <li class="">
+                    <a href="shopInfo.html" target="_self">店铺信息</a>
+                </li>
+                <li class="">
+                    <a href="#" target="_self">通用设置</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right">
+        <div class="a-main">
+            <div class="a-container shop-setting">
+                <form class="form-horizontal underline-con">
+                    <h5 class="setting-btn">店铺信息设置</h5>
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label">所属公司：</label>
+
+                            <div class="controls">
+                                <span class="sink">sdss</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">店铺名称：</label>
+
+                            <div class="controls">
+
+                                <div class="hide js-team-name-input">
+                                    <input type="text" name="team_name" value="cccccccccccccccccc" maxlength="30">
+                                    <p class="help-block error-message">店铺名称只能修改一次，请您谨慎操作</p>
+                                </div>
+
+                                <div class="js-team-name-text">
+                                    <span class="sink">cccccccccccccccccc</span>
+                                    <a href="javascript:;" class="sink sink-minor js-team-name-edit">修改</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">认证类型：</label>
+
+                            <div class="controls">
+                                <span class="sink">个人认证</span>
+
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">主营类目：</label>
+
+                            <div class="controls">
+                                <span class="sink js-business">3C数码</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">创建日期：</label>
+
+                            <div class="controls">
+                                <span class="sink">2014-10-22 15:12:51</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">店铺 Logo：</label>
+
+                            <div class="js-fix controls">
+                                <span class="avatar"><img class="js-avatar-img avatar-img"
+                                                          src="http://imgqn.koudaitong.com/upload_files/shop.png"></span>
+                                <a href="javascript:;" class="js-upload-img upload-img">修改</a>
+                                <span>建议图片尺寸</span>
+                            </div>
+
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">店铺简介：</label>
+
+                            <div class="controls">
+                                <textarea name="intro" class="input-intro" cols="30" rows="3" maxlength="100"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">联系人姓名：</label>
+
+                            <div class="controls">
+                                <input class="contact-name" type="text" name="contact_name" placeholder="请填写完整的真实姓名"
+                                       value="cccccc">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">联系人 QQ：</label>
+
+                            <div class="controls">
+                                <input class="qq" type="text" placeholder="填写能联系到您的QQ号码" name="qq" value="234234234"
+                                       maxlength="15/">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">店铺背景：</label>
+
+                            <div id="form_banner_img" class="js-fix controls">
+                        <span class="avatar">
+                            <img class="avatar-img" src="">
+                        </span>
+                                <input id="banner_img" name="banner_img" type="hidden" value="">
+                                <a href="javascript:;" id="banner-btn" class="js-upload-img upload-img">修改</a>
+                            </div>
+
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">联系人手机号：</label>
+
+                            <div class="controls">
+                                <input class="mobile" type="text" name="mobile" placeholder="填写准确的手机号码，便于及时联系"
+                                       value="12244353333" maxlength="11/">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="control-group">
+                        <label class="control-label"></label>
+                        <div class="controls">
+                            <button class="btn orange-btn fc12" type="submit">保存修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="Public/js/jinniu.js"></script>
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/upload__.js"></script>
+
+<script>
+    $(function () {
+        $('.js-team-name-edit').click(function () {
+            $('.js-team-name-text').addClass('hide');
+            $('.js-team-name-input').removeClass('hide');
+        });
+
+        var url = "upload.php";
+        $('.js-upload-img').click(function () {
+            $('#banner-uploadModal').modal('hide');
+            $('#uploadModal').modal();
+            $('#logo-add').uploads({
+                'c_id':'logo-add',
+                'input_id':'hidden_logo_img',
+                'c_url':url,
+                'extensions':'',
+                'number':2
+            });
+        });
+        $('#banner-btn').click(function () {
+            $('#uploadModal').modal('hide');
+            $('#banner-uploadModal').modal();
+            $('#banner-add').uploads({
+                'c_id': 'banner-add',
+                'input_id': 'hidden_banner_img',
+                'c_url': url,
+                'number': 2
+            });
+        });
+    })
+</script>
+<!-- Modal -->
+<div>
+    <div id="uploadModal" class="modal hide fade" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h5 id="myModalLabel">修改店铺图片</h5>
+        </div>
+        <div class="modal-body">
+            <div class="upload-container">
+                <span class="img_ul clearfix">
+                </span>
+                <span id="logo-add" class="img_add" data-number="1">
+                    <em class="img_add_a">&nbsp;</em>
+                    <em class="img_add_b">&nbsp;</em>
+                </span>
+            </div>
+            最大支持 1 MB 的图片( jpg / gif )，不能选中大于 1 MB 的图片11
+        </div>
+        <div class="modal-footer">
+            <button class="js-upload btn orange-btn fc12">确定上传</button>
+        </div>
+    </div>
+    <script>
+        $('.js-upload').click(function(){
+            $('.js-avatar-img').attr('src','');
+            $('#uploadModal').modal('hide');
+        });
+    </script>
+</div>
+<!-- Modal2 -->
+<div>
+    <div id="banner-uploadModal" class="modal hide fade" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h5 id="banner-label">修改店铺图片</h5>
+        </div>
+        <div class="modal-body">
+            <div class="upload-container">
+                    <span class="img_ul clearfix">
+                    </span>
+                    <span id="banner-add" class="img_add" data-number="1">
+                        <em class="img_add_a">&nbsp;</em>
+                        <em class="img_add_b">&nbsp;</em>
+                    </span>
+        </div>
+
+            最大支持 1 MB 的图片( jpg / gif / png )，不能选中大于 1 MB 的图片22
+        </div>
+        <div class="modal-footer">
+            <button id="banner-btn-ok" class="btn orange-btn fc12">确定上传</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

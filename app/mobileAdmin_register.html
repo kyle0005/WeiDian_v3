@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>注册</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap_min.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            注册微门店
+        </div>
+    </div>
+</header>
+<div class="reg-container">
+    <form>
+        <div class="reg-logo">
+            <img src="Public/img/logo.png">
+        </div>
+        <div class="reg-main">
+            <div class="reg-list">
+                <div class="reg-listRow">
+                    <input type="text" placeholder="手机号码" name="account" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b>填写您常用的手机号码，用于接收验证码</div>
+                </div>
+                <div class="reg-listRow">
+                    <div class="reg-fromBtn">
+                        <div class="valcode-btn">
+                            <a href="javascript:void(0);" class="wei-btn wei-bg-light-green" role="msgcode" id="reSendCode">获取验证码</a>
+                        </div>
+                    </div>
+                    <div class="reg-fromBox">
+                        <input type="text" placeholder="请输入短信验证码" name="code" class="inputText inputBlock">
+                    </div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="password" placeholder="密码" name="password" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b> 6-21位数字或字母</div>
+                </div>
+                <div class="reg-listRow">
+                    <input type="password" placeholder="确认密码" name="password" class="inputText inputBlock">
+
+                    <div class=""><b class="ct_5">*</b> 6-21位数字或字母</div>
+                </div>
+                <div class="clearfix pt10">
+                    <label class="pull-left checkbox"><input type="checkbox" name="usage" value="1"
+                                                                  checked="">我已阅读并同意使用条款</label>
+                    <a href="javascript:;" class="pull-left ct_5" target="_blank">《注册协议》</a>
+                </div>
+                <div class="sub-btn">
+                    <a href="javascript:void(0);" class="wei-btn wei-bg-red">立即注册</a>
+                </div>
+
+            </div>
+            <a href="mobileAdmin_login.html" class="loginRw"><img src="Public/img/login5.png"></a>
+        </div>
+    </form>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap_min.js"></script>
+<script>
+    $valCode = $('#reSendCode');
+//    $valCode.on('click',function () {
+//        wait_click($(this));
+//    });
+//
+//    function wait_click(){
+//        //$valCode = $('.js-valCode');
+//        var num = 10;
+//        $valCode.addClass('code-mask')
+//        var timer = setInterval(function () {
+//            $valCode.off('click');
+//            $valCode.text( num + '秒后重新获取' );
+//            num--;
+//            if (num < 0) {
+//                clearTimeout(timer);
+//                $valCode.text('获取验证码');
+//                $valCode.removeClass('code-mask');
+//                $valCode.on('click',function(){
+//                    wait_click();
+//                });
+//            }
+//        },1000);
+//    }
+
+
+
+    $(function() {
+        //协议
+        $('.js-valCode').on('click', function() {
+            if ($('#username').val() == '') {
+                JQbox.alert('请填写手机号码');
+                return false;
+            }
+            //var url = 'http://passport.golddiy.com/ajax/sendcode?mobile=' + $('#username').val();
+            var url = 'Public/js/valcode.json';
+            JQAjax.post(this,{
+                url:url
+            })
+        });
+        $('#signup-btn').click(function() {
+            JQAjax.post(this, {
+                url: location.href,
+                form: 'reg-form',
+                wait: true
+            });
+        });
+    });
+
+    function findPwd(msg, url) {
+        JQbox.confirm(msg, function() {
+            location.href=url;
+        });
+    }
+    function waitTime(){
+        JQbox.alert("短信已发送到您的手机，<br />请稍后查看手机短信验证码");
+        $valCode = $('.js-valCode');
+        var num = 60;
+        $valCode.addClass('code-mask')
+        var timer = setInterval(function () {
+            $valCode.off('click');
+            $valCode.text( num + '秒后重新获取' );
+            num--;
+            if (num < 0) {
+                clearTimeout(timer);
+                $valCode.text('获取验证码');
+                $valCode.removeClass('code-mask');
+                $valCode.on('click',function(){
+                    if ($('#username').val() == '') {
+                        JQbox.alert('请填写手机号码');
+                        return false;
+                    }
+                    var url = 'http://passport.golddiy.com/ajax/sendcode?mobile=' + $('#username').val();
+                    JQAjax.post(this,{
+                        url:url
+                    });
+                });
+            }
+        },1000);
+    }
+
+</script>
+</body>
+</html>
