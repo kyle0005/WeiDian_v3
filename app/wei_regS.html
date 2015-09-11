@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>注册</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+            注册
+        </div>
+    </div>
+</header>
+<section class="pl10 pr10 bb">
+      <div class="wei-form-group bb">
+        <span class="wei-form-text">真实姓名：</span>
+        <input type="text" class="wei-form-inp" maxlength="25" placeholder="姓名">
+        <a href="javascript:void(0);" class="text-x hide">
+          <img src="Public/img/xxx.png"/>
+        </a>
+      </div>
+      <div class="wei-form-group bb">
+        <span class="wei-form-text">身&ensp;份&ensp;证：</span>
+        <input type="text" class="wei-form-inp" maxlength="21" placeholder="身份证">
+        <a href="javascript:void(0);" class="text-x hide">
+          <img src="Public/img/xxx.png"/>
+        </a>
+      </div>
+      <div class="wei-form-group bb">
+        <span class="wei-form-text">店铺名称：</span>
+        <input type="text" class="wei-form-inp" maxlength="21" placeholder="不超过15个字符">
+        <a href="javascript:void(0);" class="text-x hide">
+          <img src="Public/img/xxx.png"/>
+        </a>
+      </div>
+      <div class="wei-form-group">
+        <span class="wei-form-text">推&ensp;荐&ensp;人：</span>
+        <input type="text" class="wei-form-inp" maxlength="21" placeholder="手机号码可为空">
+        <a href="javascript:void(0);" class="text-x hide">
+          <img src="Public/img/xxx.png"/>
+        </a>
+      </div>
+</section>
+<section class="pl30 pr30 mt15">
+  <div class="sub-btn">
+    <a class="wei-btn wei-bg-sRed" style="border-radius: 4px;" href="javascript:;">注&emsp;册</a>
+  </div>
+</section>
+<a href="wei_login.html" class="logImmi">
+  <img src="Public/img/logImmi.png"/>
+</a>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script>
+  $(function () {
+    $(document).on('click', '.text-x', function(){
+      $(this).parent('.wei-form-group').children('.wei-form-inp').val('');
+      $(this).addClass('hide');
+    });
+
+    $(document).on('keyup', 'input[type=text], input[type=password]', function(){
+      var textX = $(this).parent('.wei-form-group').children('.text-x');
+      if($(this).val() != ''){
+        $(textX).removeClass('hide');
+      }
+      else{
+        $(textX).addClass('hide');
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>stickup</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no">
+  <!--<link rel="stylesheet" href="Public/css/stickup.css"/>-->
+  <style>
+    .div-nav{
+      height: 30px;
+      width: 200px;
+      background-color: green;
+    }
+    .nav-img{
+      width: 100%;
+    }
+    .nav-img>img{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar-wrapper div-nav"></div>
+<div class="nav-img">
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+  <img class="lazy" data-original="Public/img/a1.jpg"/>
+  <img class="lazy" data-original="Public/img/a2.jpg"/>
+  <img class="lazy" data-original="Public/img/a3.jpg"/>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
+<script src="Public/js/stickUp.js"></script>
+<script>
+  jQuery(function($) {
+    $(document).ready( function() {
+      //enabling stickUp on the '.navbar-wrapper' class
+      $('.navbar-wrapper').stickUp();
+    });
+  });
+
+  $(function () {
+    $("img.lazy").lazyload({
+      appear: function () {
+        //图片加载时
+        $(this).addClass('lazy-container');
+      },
+      load: function () {
+        //图片加载后
+        $(this).removeClass('lazy-container');
+      },
+      event:'scroll',
+      placeholder: "Public/img/loading_bg.png"
+    });
+
+    $(window).bind("load", function() {
+      var timeout = setTimeout(function() {
+        $("img.lazy").trigger("scroll");         //触发scroll事件
+      }, 0);
+    });
+  })
+</script>
+</body>
+</html>

@@ -195,7 +195,8 @@ var buyNow = new Object({
     prices = new BigDecimal(prices.toString())
       .subtract(new BigDecimal(couponNum.toString()))
       .add(new BigDecimal(expreeVal.toString()));
-    return (prices <= 0 ? 0 : prices).toString();
+    prices = prices <= 0 ? 0 : prices;
+    return (parseFloat(prices).toFixed(2)).toString();
   }
 })
 

@@ -7,6 +7,11 @@
   height: auto;
   font-size: 14px;
   margin: 0 auto;
+  border-radius: 4px;
+}
+
+a.unfillet-btn{
+  border-radius: 0;
 }
 
 /* 按钮容器 */
@@ -158,5 +163,17 @@
   color: #ffffff;
   background-color: #dab866;
   border: 1px solid #dab866;
+}
+
+.wei-bg-999 {
+  color: #ffffff;
+  background-color: #999;
+  border: 1px solid #999;
+}
+
+.wei-bg-999:link, .wei-bg-999:visited, .wei-bg-999:hover, .wei-bg-999:active {
+  color: #ffffff;
+  background-color: #999;
+  border: 1px solid #999;
 }
 

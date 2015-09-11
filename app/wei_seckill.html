@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>1元夺宝</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+          1元夺宝
+        </div>
+    </div>
+</header>
+<section>
+  <div class="js-tab">
+    <ul class="sec-tab clearfix bb">
+      <li class="order-cur text-center">
+        <a href="javascript:;" class="">
+          <span class="">12月20号&nbsp;12:00</span><br><span class="">即将开始</span>
+        </a>
+      </li>
+      <li class="text-center">
+        <a href="javascript:;" class="">
+          <span class="">12月20号&nbsp;12:00</span><br><span class="">即将开始</span>
+        </a>
+      </li>
+      <li class="text-center">
+        <a href="javascript:;" class="">
+          <span class="">12月20号&nbsp;12:00</span><br><span class="">即将开始</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="" id="tab1">
+    <div class="secKill-con text-center">
+      <canvas class="process" width="122px" height="122px"></canvas>
+      <a href="javascript:;" class="js-invite secKill-r">邀请好友</a>
+      <a href="javascript:;" class="js-secRule secKill-l">活动规则</a>
+      <div class="color-theme2">
+        已解锁至第<span class="js-level">0</span>关
+      </div>
+    </div>
+    <div class="sec-time">
+      <div class="sec-time-con text-center">
+        <span class="sec-time-txt color-999">还有</span>
+        <span class="js-sec-hour sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-min sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-sec sec-time-clock fs16 fb"></span>
+        <span class="js-status sec-time-txt color-999">开始</span>
+      </div>
+    </div>
+    <div class="wei-container10">
+      <ul class="i-con-list clearfix">
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center fs12">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div id="footer" style="height: 40px;"></div>
+    <footer class="text-center">
+      <a href="javascript:;" class="js-cli wei-btn wei-bg-sRed" style="position:fixed;z-index: 12;bottom:0;left:0;width: 100%;border:0;border-radius: 0;height: 40px;line-height: 40px;">我要报名</a>
+    </footer>
+  </div>
+  <div class="hide" id="tab2">
+    <div class="secKill-con text-center">
+      <canvas class="process" width="122px" height="122px"></canvas>
+      <a href="javascript:;" class="js-invite secKill-r">邀请好友</a>
+      <a href="javascript:;" class="js-secRule secKill-l">活动规则</a>
+      <div class="color-theme2">
+        已解锁至第<span class="js-level">0</span>关
+      </div>
+    </div>
+    <div class="sec-time">
+      <div class="sec-time-con text-center">
+        <span class="sec-time-txt color-999">还有</span>
+        <span class="js-sec-hour sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-min sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-sec sec-time-clock fs16 fb"></span>
+        <span class="js-status sec-time-txt color-999">开始</span>
+      </div>
+    </div>
+    <div class="wei-container10">
+      <ul class="i-con-list clearfix">
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_o.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div id="footer" style="height: 40px;"></div>
+    <footer class="text-center">
+      <a href="javascript:;" class="js-cli wei-btn wei-bg-sRed" style="position:fixed;z-index: 12;bottom:0;left:0;width: 100%;border:0;border-radius: 0;height: 40px;line-height: 40px;">我要报名</a>
+    </footer>
+  </div>
+  <div class="hide" id="tab3">
+    <div class="secKill-con text-center">
+      <canvas class="process" width="122px" height="122px"></canvas>
+      <a href="javascript:;" class="js-invite secKill-r">邀请好友</a>
+      <a href="javascript:;" class="js-secRule secKill-l">活动规则</a>
+      <div class="color-theme2">
+        已解锁至第<span class="js-level">0</span>关
+      </div>
+    </div>
+    <div class="sec-time">
+      <div class="sec-time-con text-center">
+        <span class="sec-time-txt color-999">还有</span>
+        <span class="js-sec-hour sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-min sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
+        <span class="js-sec-sec sec-time-clock fs16 fb"></span>
+        <span class="js-status sec-time-txt color-999">开始</span>
+      </div>
+    </div>
+    <div class="wei-container10">
+      <ul class="i-con-list clearfix">
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_o.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+        <li>
+          <a href="#" class="i-con-list-a">
+            <img class="lazy" data-original="Public/img/a1.png">
+            <span class="i-pro-title fs14 overTextH">2014APEC国礼系列《四海升平》典藏版</span>
+            <span class="fs14 color-theme2 lh30">￥49999.0<del class="fs12 color-999">￥82999.0</del></span>
+          </a>
+          <a href="#" class="sec-grab">
+            <img src="Public/img/seckill_g.png"/>
+          </a>
+          <span class="color-white sec-grab-con">
+            <img src="Public/img/seckill_lock.png" class="sec-lock"/>
+            <span class="sec-grab-txt text-center">
+              满<span class="js-totalNum color-theme2">150</span>人可解锁
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div id="footer" style="height: 40px;"></div>
+    <footer class="text-center">
+      <a href="javascript:;" class="js-cli wei-btn wei-bg-sRed" style="position:fixed;z-index: 12;bottom:0;left:0;width: 100%;border:0;border-radius: 0;height: 40px;line-height: 40px;">我要报名</a>
+    </footer>
+  </div>
+</section>
+<div id="popUpWrap" class="pop-up-wrap none">
+  <div class="pop-up">
+    <!--活动规则-->
+    <div class="pop-height">
+      <section class="clearfix hst-choose-sec pl15 pr15 bb">
+        <div class="pull-left fs16">
+          活动规则
+        </div>
+        <div class="pull-right">
+          <a href="#" class="js-x hst-x">
+            <img src="Public/img/hst_x.png" alt=""/>
+          </a>
+        </div>
+      </section>
+      <div class="mr15 ml15">
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+    </div>
+  </div>
+  <!--蒙层-->
+  <div class="js-mask pop-up-mask"></div>
+</div>
+<div class="js-wrap2 pop-up-wrap">
+  <div class="js-mask2 pop-up-mask text-right">
+    <img src="Public/img/arrow2.png" width="100px" class="mt10 mr10"/>
+    <span class="color-white text-center fs18 lh30" style="position: absolute;display: block;top: 150px;width: 100%;">邀请好友或<br>分享到朋友圈</span>
+  </div>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
+<script src="Public/js/jquery.cookie.js"></script>
+<script>
+  $(function () {
+    var arr = {
+      tab1: {
+        regNum: 10,
+        totalNum: 150,
+        level: 2,
+        year: 2015,
+        month: 8,
+        day: 25,
+        hh: 14,
+        mm: 20,
+        ss: 0,
+        status: '开始'
+      },
+      tab2: {
+        regNum: 50,
+        totalNum: 100,
+        level: 5,
+        year: 2015,
+        month: 8,
+        day: 26,
+        hh: 12,
+        mm: 0,
+        ss: 0,
+        status: '结束'
+      },
+      tab3: {
+        regNum: 100,
+        totalNum: 300,
+        level: 10,
+        year: 2015,
+        month: 8,
+        day: 27,
+        hh: 12,
+        mm: 0,
+        ss: 0,
+        status: '开始'
+      }
+    };
+
+    var tab = $.cookie('tab'); // 读取 cookie
+
+    $('#' + tab).show();
+
+    var t_id = 'tab1';
+
+    var int = window.setInterval(function(){
+      ShowCountDown(arr[t_id].year, arr[t_id].month, arr[t_id].day, arr[t_id].hh, arr[t_id].mm, arr[t_id].ss);
+    }, 1000);
+
+    $('.js-level').html(arr[t_id].level);
+    $('.js-status').html(arr[t_id].status);
+
+    //tab切换
+    var click_obj  = $('.js-tab').find('li');
+    var tab_obj = $('.js-tab').siblings();
+
+    drawProcess(t_id, arr[t_id].totalNum);
+    $('.js-cli').click(function () {
+      arr[t_id].regNum++;
+      if(arr[t_id].regNum <= arr[t_id].totalNum){
+        $('#' + t_id + ' canvas.process').text(arr[t_id].regNum);
+        drawProcess(t_id, arr[t_id].totalNum);
+      }
+
+    });
+
+    $(click_obj).click(function(){
+        $(click_obj).removeClass('order-cur');
+        $(this).addClass('order-cur');
+
+        var ind = $(this).index();
+        $(tab_obj).addClass('hide');
+        $(tab_obj).eq(ind).removeClass('hide');
+        t_id = $(tab_obj).eq(ind).attr('id');
+
+        //设置cookie
+      $.cookie('tab', 'tab1', { expires: 7 }); // 存储一个带7天期限的 cookie
+
+        drawProcess(t_id, arr[t_id].totalNum);
+        $('.js-level').html(arr[t_id].level);
+        $('.js-status').html(arr[t_id].status);
+        window.clearInterval(int);
+        int = window.setInterval(function(){
+          ShowCountDown(arr[t_id].year,arr[t_id].month,arr[t_id].day, arr[t_id].hh, arr[t_id].mm, arr[t_id].ss);
+        }, 1000);
+
+      });
+
+    $("img.lazy").lazyload({
+      appear: function () {
+        //图片加载时
+        $(this).addClass('lazy-container');
+      },
+      load: function () {
+        //图片加载后
+        $(this).removeClass('lazy-container');
+      },
+      event:'scroll',
+      placeholder: "Public/img/loading_bg.png"
+    });
+
+    $(window).bind("load", function() {
+      var timeout = setTimeout(function() {
+        $("img.lazy").trigger("scroll");         //触发scroll事件
+      }, 0);
+    });
+
+    pop.popUpC($('.js-secRule'), 150);
+    pop.popDownC();
+
+    $('.js-wrap2').hide();
+    $('.js-invite').click(function () {
+      $('.js-wrap2').show();
+    });
+    $('.js-wrap2').click(function () {
+      $('.js-wrap2').hide();
+    });
+
+    //(a,b,x,y):a, b是圆心; x, y是初始点, 得到 根据角度计算点的 function
+    function createCalculateCoordinate (a, b, x, y){
+      return function (c) {
+        var x0 = Math.cos(c) * (x - a) - Math.sin(c) * (y - b) + a;
+        var y0 = Math.cos(c) * (y - b) - Math.sin(c) * (x - a) + b;
+        return {
+          x: x0,
+          y: y0
+        }
+      }
+    }
+
+    function drawProcess(t_id, totalNum) {
+      // 选出页面上所有class为process的canvas元素,然后迭代每一个元素画图(这里用Jquery的选择器选的)
+      $('#' + t_id + ' canvas.process').each(function() {
+        // 拿到canvas标签中间的文字
+        var text=arr[t_id].regNum;
+//        var process = text.substring(0, text.length-1);
+        var process = text / totalNum;
+
+        // 一个canvas标签
+        var canvas = this;
+        // 拿到绘图上下文,目前只支持"2d"
+        var context = canvas.getContext('2d');
+        // 将绘图区域清空,如果是第一次在这个画布上画图,画布上没有东西,这步就不需要了
+        context.clearRect(0, 0, 122, 122);
+
+        // ***开始画一个灰色的圆
+        context.beginPath();
+        // 坐标移动到圆心
+        context.moveTo(0, 0);
+        // 画圆,圆心是61,61,半径53,从角度0开始,画到2PI结束,最后一个参数是方向顺时针还是逆时针
+        context.arc(61, 61, 53, 0, Math.PI * 2, false);
+        context.closePath();
+        // 填充颜色
+        context.fillStyle = '#dcdcdc';
+        context.fill();
+        // ***灰色的圆画完
+
+        // 画进度
+        context.beginPath();
+        // 画扇形的时候这步很重要,画笔不在圆心画出来的不是扇形
+        context.moveTo(61, 61);
+        // 跟上面的圆唯一的区别在这里,不画满圆,画个扇形
+
+        context.arc(61, 61, 53, Math.PI * -0.5, Math.PI * (2 * process - 0.5), false);
+        context.closePath();
+        context.fillStyle = '#ff8000';
+        context.fill();
+
+        // 画内部空白
+        context.beginPath();
+        context.moveTo(61, 61);
+        context.arc(61, 61, 51, 0, Math.PI * 2, true);
+        context.closePath();
+        context.fillStyle = '#ffffff';
+        context.fill();
+
+        // 画进度条上的圆点
+        var mathFn = createCalculateCoordinate(61, 61, 61, 9);
+        var res = mathFn(Math.PI * 2 * process);
+        var point_x = res.x;
+        var point_y = res.y;
+
+        context.beginPath();
+        context.moveTo(point_x, point_y);
+        context.arc(point_x, point_y, 8, 0, Math.PI * 2, false);
+        context.closePath();
+        context.fillStyle = '#ffbf7f';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(point_x, point_y);
+        context.arc(point_x, point_y, 6, 0, Math.PI * 2, false);
+        context.closePath();
+        context.fillStyle = '#ffffff';
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(point_x, point_y);
+        context.arc(point_x, point_y, 4, 0, Math.PI * 2, false);
+        context.closePath();
+        context.fillStyle = '#ff8000';
+        context.fill();
+
+        //在中间写字
+        context.font = "bold 12px Arial";
+        context.fillStyle = '#999999';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.moveTo(61, 61);
+        context.fillText("已报名", 61, 32);
+
+        context.font = "bold 28px Arial";
+        context.fillStyle = '#ff8000';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.moveTo(61, 61);
+        context.fillText(text + "人", 61, 61);
+
+        context.font = "bold 12px Arial";
+        context.fillStyle = '#666666';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.moveTo(61, 61);
+        context.fillText("满" + totalNum + "人解锁", 61, 88);
+      });
+    }
+
+    function ShowCountDown(year,month,day,hh,mm,ss){
+      var now = new Date();
+      var endDate = new Date(year, month-1, day, hh, mm, ss);   //状态到达时间
+      var leftTime=endDate.getTime()-now.getTime();
+      var leftsecond = parseInt(leftTime/1000);
+      var day1=Math.floor(leftsecond/(60*60*24));
+
+      var hour=Math.floor((leftsecond-day1*24*60*60)/3600);
+//      var hour=Math.floor((leftsecond)/3600);
+      var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60);
+      var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60);
+
+      $('.js-sec-hour').html(Math.floor((leftsecond)/3600));
+      $('.js-sec-min').html(minute);
+      $('.js-sec-sec').html(second);
+
+      if(leftsecond == 300 || leftsecond == 0){
+        //重新刷新页面
+        window.location.reload();
+      }
+//      var cc = document.getElementById(divname);
+//      cc.innerHTML = "距离"+year+"年"+month+"月"+day+"日还有："+day1+"天"+hour+"小时"+minute+"分"+second+"秒";
+    }
+
+  });
+</script>
+</body>
+</html>

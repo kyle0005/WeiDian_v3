@@ -1,0 +1,172 @@
+<div style="background-color: #ffffff; width: 800px;">
+    <div class="hst-warn pl10 pr10">
+        <img src="Public/img/warn.png"/><span class="js-hst-warn">请慎重填写您的相关信息，一经提交，不可修改！</span>
+    </div>
+    <section style="border-bottom: 1px solid #ddd;">
+        <div class="hst-title" style="border: none;">
+            <p class="hst-title-p">
+                <img src="Public/img/hst_order.png"/>订单号：115646467979
+            </p>
+        </div>
+        <div class="hst-title" style="border: none;">
+            <p class="hst-txt">
+              <span class="hst-txt-con">微店长手机号：13600841847</span><br>
+              <span class="hst-txt-con">藏品名称：画圣小铜章</span><br>
+              <span class="hst-txt-con">宝贝数量：1</span><br>
+              <span class="hst-txt-con">托管数量：1</span><br>
+              <span class="hst-txt-con">提货数量：<span class="color-theme2">0</span></span>
+            </p>
+        </div>
+    </section>
+  <section>
+    <div class="hst-title" style="border: none;">
+      <p class="hst-title-p">
+        <img src="Public/img/hst_amount.png"/>应付金额：450元<br>
+        <span class="color-666">（350元监管费+100元托管费）</span>
+        <a href="#" class="wei-btn wei-bg-sRed" style="line-height: 22px;">我要付款</a>
+      </p>
+    </div>
+  </section>
+    <section>
+        <ul class="hst-conList" style="margin: 0;">
+          <li>
+              <span>提货数量：</span>
+              <input type="text" placeholder="请正确输入" class="js-pickNum"/>
+          </li>
+          <li>
+            <span>应付金额：</span>
+            <input type="text" placeholder="请正确输入" class="js-payment"/>
+          </li>
+        </ul>
+    </section>
+    <div class="hst-container clearfix">
+        <section class="hst-content" style="margin-top: 10px;">
+            <div class="hst-conTitle">
+                账户
+                <a href="javascript:void(0);" class="js-hst-plus hst-ope">
+                    <img src="Public/img/hst_plus.png" alt=""/>
+                </a>
+            </div>
+            <ul class="hst-conList" style="margin: 0;">
+                <li>
+                    <span class="hst-conList-left">交易账户：</span>
+                    <input type="text" placeholder="请正确输入" style="text-indent: 2em;" class="js-hostAccount"/>
+                </li>
+                <li>
+                    <span class="hst-conList-left">姓名：</span>
+                    <input type="text" placeholder="请输入真实姓名" style="text-indent: 2em;" class="js-hostName"/>
+                </li>
+                <li>
+                    <span class="hst-conList-left">身份证号：</span>
+                    <input type="text" placeholder="未填写" style="text-indent: 2em;" class="js-hostID"/>
+                </li>
+                <li>
+                    <span class="hst-conList-left">托管数量：</span>
+                    <input type="text" placeholder="未填写" style="text-indent: 2em;" class="js-hostNum"/>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <section style="margin: 10px;">
+        <span class="hst-conList-left">备注</span><br>
+        <textarea style="width: 80%;"></textarea>
+    </section>
+    <section style="margin: 10px; padding-bottom: 10px;">
+        <div class="sub-btn">
+            <a href="#" class="js-hst-sub wei-btn wei-bg-red" style="background-color: #ff8000; line-height: 25px; border-radius: 4px;">提&emsp;交</a>
+        </div>
+    </section>
+</div>
+<script>
+    $(function () {
+        //        askFor窗口页面
+        var proNum = 4;     //商品数量
+        var accountNum = 1;
+        var total;
+        var sec = "<section class='hst-content' style='margin-top: 10px;'><div class='hst-conTitle'>账户"
+                + "<a href='javascript:void(0);' class='js-hst-minus hst-ope'>"
+                + "<img src='Public/img/hst_minus.png' alt=''/>"
+                + "</a>"
+                + "</div>"
+                + "<ul class='hst-conList' style='margin: 0;'>"
+                + "<li>"
+                + "<span class='hst-conList-left'>交易账户：</span>"
+                + "<input type='text' placeholder='请正确输入' style='text-indent: 2em;' class='js-hostAccount'/>"
+                + "</li>"
+                + "<li>"
+                + "<span class='hst-conList-left'>姓名：</span>"
+                + "<input type='text' placeholder='请输入真实姓名' style='text-indent: 2em;' class='js-hostName'/>"
+                + "</li>"
+                + "<li>"
+                + "<span class='hst-conList-left'>身份证号：</span>"
+                + "<input type='text' placeholder='未填写' style='text-indent: 2em;' class='js-hostID'/>"
+                + "</li>"
+                + "<li>"
+                + "<span class='hst-conList-left'>托管数量：</span>"
+                + "<input type='text' placeholder='未填写' style='text-indent: 2em;' class='js-hostNum'/>"
+                + "</li>"
+                + "</ul>"
+                + "</section>";
+
+            $(document).on('click', '.js-hst-plus', function () {
+                if(proNum - accountNum < 1){
+                    $('.js-hst-warn').html('账户数最多为' + proNum + '个！');
+                    return false;
+                }
+                if(accountNum < 3){
+                    $('.hst-container').append(sec);
+                    accountNum++;
+                }else{
+                    $('.js-hst-warn').html('账户数最多为3个！');
+                }
+
+            });
+
+
+        $(document).on('click', '.js-hst-minus', function () {
+            $(this).parents('.hst-content').remove();
+            accountNum = $('.hst-content').length;
+//            accountNum--;
+        });
+
+        $(document).on('click', '.js-hst-sub', function () {
+            total = 0;
+
+//            非空验证
+            if($(".js-hostNum").val().length == 0){
+                $('.js-hst-warn').html('请填写托管数量！');
+                return false;
+            }
+
+
+            $(".js-hostNum").each(function(){
+                if($(this).val() < 1){
+                    $('.js-hst-warn').html('托管数量不能小于1！');
+                    return false;
+                }
+                total += parseInt($(this).val());
+
+            });
+            if(total > proNum){
+                $('.js-hst-warn').html('托管总数不能大于商品数！');
+            }
+            else if(total == 0){
+                $('.js-hst-warn').html('托管数不能为0！');
+
+            }
+            else{
+                if(total < proNum){
+                    JQbox.confirm({
+                        content: '您托管的总数小于您的订单购买数，是否继续托管？'
+                    });
+                }
+                else{
+                    if(proNum === total){
+                        JQbox.alert('提交成功！');
+                    }
+                }
+            }
+        });
+
+    });
+</script>

@@ -2587,23 +2587,23 @@ span.img_ul{
     border-bottom: 1px solid #eee;
 }
 .ex-list li:last-child{
-    color: #ff5000;
+    color: #ff8000;
 }
 .ex-left{
     height: 35px;
     line-height: 35px;
     width: 30%;
     padding-right: 5%;
-    background-color: #88cdfe;
-    color: #ffffff;
+    background-color: #dddddd;
+    color: #ff8000;
 }
 .ex-right{
     height: 35px;
     line-height: 35px;
     width: 60%;
     padding-left: 5%;
-    background-color: #67baf7;
-    color: #ffffff;
+    background-color: #eeeeee;
+    color: #ff8000;
 }
 .ex-leftCon{
     width: 30%;

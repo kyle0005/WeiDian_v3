@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!--<base target="mainFrame">-->
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+    <link rel="stylesheet" href="Public/css/jqui/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Public/css/button.css" media="all">
+    <title>秒杀列表</title>
+</head>
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+    <div class="container-fluid">
+        <div>
+            <a href="javascript:;" target="_self" id="brand"></a>
+            <a href="javascript:;" target="_self" class="toggle-nav"
+               rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+        </div>
+        <ul class="main-nav">
+            <li>
+                <a href="index.html" target="_self">
+                    <span>店铺</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="product.html" target="_self">商品</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="">
+                <a data-hover="dropdown" href="javascript:;" target="_self">
+                    <span>微信</span>
+                </a>
+                <ul class="dropdown-menu code_download">
+                    <li><img src="Public/img/androidcode.jpg"></li>
+                </ul>
+
+            </li>
+            <li class="">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle" data-hover="dropdown">
+                    <span>帮助中心</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" target="_blank">使用指南</a></li>
+                    <li><a href="javascript:;" target="_blank">产品问答</a></li>
+                    <li><a href="javascript:;" target="_blank">在线客服</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="user">
+            <ul class="icon-nav">
+                <li>
+                    <a href="index.html" target="_self" title="首页"><i class="icon-home"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="消息"
+                       style=""><i class="icon-envelope"></i><span class="label label-lightred">4</span></a>
+                </li>
+                <li class="dropdown sett" style="">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="系统设置"><i
+                            class="icon-cog"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:;" target="_self" title="退出"><i class="icon-signout"></i>
+                        退出</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="content">
+<div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+    <div class="subnav">
+        <div class="subnav-title ">
+            <a href="javascript:;" class="toggle-subnav"><i class="icon-angle-right"></i><span>商品管理</span></a>
+        </div>
+        <ul class="subnav-menu" style="display: block;">
+            <li class="">
+                <a href="#" target="_self">出售中的产品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">已售罄的商品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">仓库中的商品</a>
+            </li>
+            <li class="">
+                <a href="#" target="_self">商品分类</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">促销管理</a>
+            </li>
+            <li class="">
+                <a href="javascript:;" target="_self">卡卷管理</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="right">
+    <div class="a-main">
+        <div class="a-container">
+            <div class="goods-list">
+            <div class="js-list-filter-region clearfix ui-box" style="position: relative; min-height: 28px;">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <!--<a class="btn orange-btn fc12" href="pcAdmin_product_createPromotion.html">创建托管</a>-->
+                    </div>
+                    <div class="span10">
+                        <div class="span3 text-right" style="line-height: 30px">
+                            秒杀标题:
+                        </div>
+                        <div class="span2">
+                            <input style="width: 100%; margin-bottom: 0;border-radius: 0">
+                        </div>
+                        <div class="span1" style="line-height: 30px">
+                            开始时间:
+                        </div>
+                        <div class="span2">
+                            <input type="date" style="width: 100%;">
+                        </div>
+                        <div class="span1" style="line-height: 30px">
+                            结束时间:
+                        </div>
+                        <div class="span2">
+                            <input type="date" style="width: 100%;">
+                        </div>
+                        <div class="span1 text-right">
+                            <a class="btn orange-btn fc12" href="#">搜索</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-box">
+                <table class="ui-table ui-table-list" style="padding: 0px;">
+                    <thead class="js-list-header-region tableFloatingHeaderOriginal">
+                    <tr>
+                        <th class="text-center">秒杀标题</th>
+                        <th class="text-center">开始时间</th>
+                        <th class="text-center">结束时间</th>
+                        <th class="text-center">
+                            <select style="width: 100%;margin: 0;border-radius: 0;">
+                                <option>全部</option>
+                                <option>领取中</option>
+                                <option>已结束</option>
+                            </select>
+                        </th>
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="js-list-body-region">
+                    <tr>
+                        <td class="text-center">
+                            收到回复疯啦弗兰克
+                        </td>
+                        <td class="text-center">
+                            2014.11.11 00:00
+                        </td>
+                        <td class="text-center">
+                            2014.11.12 23:00
+                        </td>
+                        <td class="text-center">
+                            不限
+                        </td>
+                        <td class="text-center">
+                            <p>
+                                <a href="javascript:void(0);" class="js-host-check">查看</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-host-edit">编辑</a>
+                                <span>-</span>
+                                <a href="javascript:void(0);" class="js-host-reject">拒绝</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="js-list-footer-region ui-box">
+                <div class="pagenavi">
+                    <ul class="pagination">
+                        <li class="prev disabled">
+                            <a href="#">
+                                <i class="fa icon-double-angle-left"></i>&nbsp; Previous
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li class="next">
+                            <a href="#">Next&nbsp;<i class="fa icon-double-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="total">共 2 条，每页 20 条</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/chooseAll.js"></script>
+<script src="Public/js/jquery-ui.js"></script>
+<script src="Public/js/jinniu.js"></script>
+<script>
+    $(function () {
+        $('#js-check-all').SelectA();
+
+       $('.js-host-edit').click(function () {
+           JQbox.open({
+               title: '申请秒杀',
+               url: 'pcAdmin_seckill_askFor.html',
+               width: 830
+           });
+       }) ;
+        $('.js-host-check').click(function () {
+            JQbox.open({
+                title: '查看秒杀',
+                url: 'pcAdmin_seckill_check.html',
+                width: 830
+            });
+        }) ;
+        $('.js-host-reject').click(function () {
+            JQbox.open({
+                title: '拒绝',
+                url: 'pcAdmin_seckill_reject.html',
+                width: 250
+            });
+        }) ;
+        $(document).on('click', '.js-hst-rej', function () {
+            $("#dialog").dialog("destroy").remove();
+        });
+
+    });
+</script>
+</body>
+</html>

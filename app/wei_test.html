@@ -1,137 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>图片轮播</title>
+  <title>demo</title>
   <meta charset="utf-8"/>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>首页</title>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
   <meta name="format-detection" content="telephone=no">
-  <style>
-    #stage {
-      width: 1200px;
-      height: 300px;
-    }
-
-    #container {
-      width: 680px;
-      height: 281px;
-      display: inline-block;
-    }
-
-    img {
-      position: absolute;
-      -webkit-transition: all 1s ease-in-out;
-    }
-
-    .disappear {
-      -webkit-transform: scale(0, 0);
-      -webkit-transform-origin: bottom left;
-      opacity: 0;
-    }
-
-    .show {
-      -webkit-transform: scale(1, 1);
-      -webkit-transform-origin: top right;
-      opacity: 1;
-    }
-
-    .scale {
-      -webkit-transform: scale(0, 0);
-      opacity: 0;
-    }
-
-    .btn-left-container {
-      display: inline-block;
-      height: 281px;
-      width: 60px;
-      margin: 0 20px;
-    }
-
-    .btn-left-container:hover {
-      background-color: #e6e6e6;
-    }
-
-    .img-left-btn {
-      float: left;
-      width: 40px;
-      height: 72px;
-      margin-left: 10px;
-      margin-top: 110px;
-      background-color: dimgray;
-    }
-
-    .img-left-btn:hover {
-      background-color: #e6e6e6;
-    }
-
-    .btn-right-container {
-      display: inline-block;
-      height: 281px;
-      width: 60px;
-      margin: 0 20px;
-    }
-
-    .btn-right-container:hover {
-      background-color: #e6e6e6;
-    }
-
-    .img-right-btn {
-      float: right;
-      width: 40px;
-      height: 72px;
-      margin-right: 10px;
-      margin-top: 110px;
-      background-color: #e6e6e6;
-    }
-
-    .img-right-btn:hover {
-      background-color: #e6e6e6;
-    }
-  </style>
 </head>
 <body>
-<div id='stage'>
-  <div class='btn-left-container'>
-    <span class='img-left-btn'>
-    </span>
-  </div>
-  <div id='container'>
-    <img src='Public/img/lunbo1.png' class='scale'/>
-    <img src='Public/img/lunbo2.png' class='scale'/>
-    <img src='Public/img/lunbo3.png'/>
-  </div>
-  <div class='btn-right-container'>
-    <span class='img-right-btn'>
-    </span>
-  </div>
-</div>
+<canvas class="process" width="106px" height="106px">80</canvas>
+<a href="javascript:;" class="js-cli">click</a>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script>
+  $(function () {
+    drawProcess();
+    $('.js-cli').click(function () {
+      var per = parseInt($('canvas.process').text()) + 1;
+      if(per <= 150){
+        $('canvas.process').text(per);
+        drawProcess();
+      }
+    });
 
-<script type="text/javascript">
-  var imgs = document.getElementsByTagName('img');
-  var index = imgs.length - 1;
-  var btn = document.getElementsByClassName('img-right-btn')[0];
-  btn.onclick = function () {
-    if (index === 0) return;
-    var img = imgs[eval(index)];
-    img.className = 'disappear';
-    index--;
-    img = imgs[eval(index)];
-    img.className = 'show';
-  };
+    function drawProcess() {
+      // 选出页面上所有class为process的canvas元素,然后迭代每一个元素画图(这里用Jquery的选择器选的)
+      $('canvas.process').each(function() {
+        // 第一部先拿到canvas标签中间的文字,就是那个61%
+        var text=$(this).text().replace(/\s/g,"");
+//        var process = text.substring(0, text.length-1);
+        var process = text / 150;
 
-  btn = document.getElementsByClassName('img-left-btn')[0];
-  btn.onclick = function () {
-    if (index === 8) return;
-    var img = imgs[eval(index)];
-    img.className = 'scale';
-    index++;
-    img = imgs[eval(index)];
-    img.className = 'show';
-  };
+        // 一个canvas标签
+        var canvas = this;
+        // 拿到绘图上下文,目前只支持"2d"
+        var context = canvas.getContext('2d');
+        // 将绘图区域清空,如果是第一次在这个画布上画图,画布上没有东西,这步就不需要了
+        context.clearRect(0, 0, 106, 106);
+
+        // ***开始画一个灰色的圆
+        context.beginPath();
+        // 坐标移动到圆心
+        context.moveTo(53, 53);
+        // 画圆,圆心是24,24,半径24,从角度0开始,画到2PI结束,最后一个参数是方向顺时针还是逆时针
+        context.arc(53, 53, 53, 0, Math.PI * 2, false);
+        context.closePath();
+        // 填充颜色
+        context.fillStyle = '#dcdcdc';
+        context.fill();
+        // ***灰色的圆画完
+
+        // 画进度
+        context.beginPath();
+        // 画扇形的时候这步很重要,画笔不在圆心画出来的不是扇形
+        context.moveTo(53, 53);
+        // 跟上面的圆唯一的区别在这里,不画满圆,画个扇形
+
+        context.arc(53, 53, 53, Math.PI * -0.5, Math.PI * (2 * process - 0.5), false);
+        context.closePath();
+        context.fillStyle = '#ff8000';
+        context.fill();
+
+//        // 画进度条上的圆点
+//        context.beginPath();
+//        // 画扇形的时候这步很重要,画笔不在圆心画出来的不是扇形
+//        context.moveTo(0, 53);
+//        // 跟上面的圆唯一的区别在这里,不画满圆,画个扇形
+//
+//        context.arc(53, 53, 53, Math.PI * -0.5, Math.PI * (2 * process - 0.5), false);
+//        context.closePath();
+//        context.fillStyle = '#ff8000';
+//        context.fill();
+
+
+        // 画内部空白
+        context.beginPath();
+        context.moveTo(53, 53);
+        context.arc(53, 53, 50, 0, Math.PI * 2, true);
+        context.closePath();
+        context.fillStyle = '#ffffff';
+        context.fill();
+
+//        // 画一条线
+//        context.beginPath();
+//        context.arc(53, 53, 48.5, 0, Math.PI * 2, true);
+//        context.closePath();
+//        // 与画实心圆的区别,fill是填充,stroke是画线
+//        context.strokeStyle = '#000';
+//        context.stroke();
+
+        //在中间写字
+        context.font = "bold 9pt Arial";
+        context.fillStyle = '#ff8000';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.moveTo(53, 53);
+        context.fillText(text, 53, 53);
+      });
+    }
+
+  });
+
 </script>
 </body>
 </html>

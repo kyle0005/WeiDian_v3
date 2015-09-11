@@ -15,7 +15,6 @@ function is_weixn() {
         return false;
     }
 }
-//var url = 'Public/js/test2';
 /**
  * 下拉刷新 （自定义实现此方法）
  * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
