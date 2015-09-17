@@ -1952,7 +1952,25 @@ h5.setting-btn{
     margin: 0 30px 20px 30px;
 }
 
-/* 预览页面 */
+.orderInfo-container .orderInfo-list{
+  width: 20%;
+  margin: 20px 13.3% 30px 0;
+}
+.orderInfo-container .orderInfo-list li{
+  height: auto;
+}
+.orderInfo-container .orderInfo-list li .orderInfo-list-left{
+  display: inline-block;
+  float: left;
+  width: 90px;
+}
+.orderInfo-container .orderInfo-list li .orderInfo-list-right{
+  display: inline-block;
+  width: 180px;
+}
+
+
+  /* 预览页面 */
 .headerbar {
     background-color: #efefef;
     border-bottom: 1px solid #c1c1c1;
@@ -2885,3 +2903,5 @@ input[type=radio].hst-radio {
   width: 1029px;
 }
 /*app下载结束*/
+
+

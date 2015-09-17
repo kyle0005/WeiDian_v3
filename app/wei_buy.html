@@ -78,7 +78,7 @@
           订单优惠
         </div>
         <div class="pull-right">
-          <span class="js-couponInfo-price hide">优惠卷：<span class="color-theme2">50元</span></span>&emsp;
+          <span class="js-couponInfo-price hide" data-coupon_pri="50.00">优惠卷：<span class="color-theme2">50元</span></span>&emsp;
           <input class="js-buy-coup mui-switch mui-switch-anim" type="checkbox" unchecked style="margin-top: -3px;">
         </div>
       </div>
@@ -239,7 +239,7 @@
         </div>
       </section>
       <div style="height: 30px;"></div>
-      <a href="javascript:;" class="js-save wei-btn unfillet-btn wei-bg-sRed" style="position: absolute;border: none;width: 100%;bottom: 0;line-height: 30px;">
+      <a href="javascript:;" class="js-save wei-btn unfillet-btn wei-bg-sRed" style="position: absolute;border: none;width: 100%;bottom: 0;line-height: 40px;">
         保&emsp;存
       </a>
     </div>
@@ -537,7 +537,7 @@
         });
         expreeVal = $(".chooseExpress").find("option:selected").data('value');
 
-        couponNum = $('.js-couponInfo-price').data('couponPri');
+        couponNum = $('.js-couponInfo-price').data('coupon_pri');
         if(typeof couponNum == 'undefined'){
           couponNum = 0;
         }
@@ -548,7 +548,7 @@
         $('.js-buy-ani').height('0px');
 
         // data-couponPri="50.00"
-        couponNum = 50.00;
+        //couponNum = 50.00;
         $('.js-couponInfo-price').data('couponPri', couponNum);
         $('.js-couponInfo-price >span').html(couponNum + '元');
         $('.js-couponInfo-price').removeClass('hide');

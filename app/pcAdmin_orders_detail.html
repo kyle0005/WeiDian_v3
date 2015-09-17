@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
     <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
     <link rel="stylesheet" type="text/css" href="Public/css/datepicker.css" media="all">
+  <link rel="stylesheet" type="text/css" href="Public/css/button2.css" media="all">
     <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="Public/js/application.js"></script>
     <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
@@ -127,24 +128,67 @@
                         <h5>订单详情</h5>
                     </div>
                     <div class="orderInfo-container">
-                        <dl>
-                            <dt><span>订单概况</span></dt>
-                            <dd>
-                                <div class="orderInfo-top">
-                                    <span>订单号：1248172638135</span>
-                                    <span>订单状态：<b class="red">已支付</b></span>
-                                </div>
-                                <ul>
-                                    <li>收&ensp;货&ensp;人：卡洛斯卡</li>
-                                    <li>收货地址：是的减哈卡收费卡洛斯的合法看来是减lkdjgld23</li>
-                                    <li>手机号码：329339288</li>
-                                    <li>支付方式：货到付款</li>
-                                    <li>运&emsp;&emsp;费：￥0.00</li>
-                                    <li>送货日期：2014-10-17</li>
-                                    <li>配送时间：19:00-22:00</li>
-                                </ul>
-                            </dd>
-                        </dl>
+                      <dl>
+                        <dt><span>订单概况</span></dt>
+                        <dd class="clearfix">
+                          <div class="orderInfo-top">
+                            <span>订单号：1509160446188743</span>
+                            <span>订单状态：<b class="red">等待付款</b></span>
+                            <span>黄金历史(18616607877)</span>
+                          </div>
+                          <ul class="pull-left orderInfo-list">
+                            <li class="clearfix"><span class="orderInfo-list-left">会员手机&nbsp;：</span><span class="orderInfo-list-right">18616607877</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">收&ensp;货&ensp;人&nbsp;：</span><span class="orderInfo-list-right">刘江</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">收货地址&nbsp;：</span><span class="orderInfo-list-right">上海 上海 静安区 万航渡路676弄58号 (邮政编码：200012)</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">手机号码&nbsp;：</span><span class="orderInfo-list-right">18616607877</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">支付方式&nbsp;：</span><span class="orderInfo-list-right">银行汇款</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">物流方式&nbsp;：</span><span class="orderInfo-list-right">顺丰快递</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">物流单号&nbsp;：</span><span class="orderInfo-list-right">（发货区域：）
+                              <a class="expressEditClick" href="javascript:;"
+                                 data-url="http://test.shop.golddiy.com/admin/order/senddialog/1509160446188743">修改</a>
+                              </span>
+                            </li>
+                            <li class="clearfix"><span class="orderInfo-list-left">订单关闭时间&nbsp;：</span><span class="orderInfo-list-right">2015-09-16 10:40:39</span></li>
+                          </ul>
+                          <ul class="pull-left orderInfo-list">
+                            <li class="clearfix">发&emsp;&emsp;票</li>
+                            <li class="clearfix"><span class="orderInfo-list-left">发票类型&nbsp;：</span><span class="orderInfo-list-right">增值税</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">发票内容&nbsp;：</span><span class="orderInfo-list-right">工艺品</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">单位名称&nbsp;：</span><span class="orderInfo-list-right">45</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">纳税人识别码&nbsp;：</span><span class="orderInfo-list-right">454</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">注册地址&nbsp;：</span><span class="orderInfo-list-right">4554</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">注册电话&nbsp;：</span><span class="orderInfo-list-right">45</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">开户银行&nbsp;：</span><span class="orderInfo-list-right">45</span></li>
+                            <li class="clearfix"><span class="orderInfo-list-left">银行账户&nbsp;：</span><span class="orderInfo-list-right">45</span></li>
+                          </ul>
+                        </dd>
+                      </dl>
+                      <div class="clearfix text-center" style="width: 100%;">
+                        <div style="margin: 0 auto;width: 50%;" class="row-fluid text-center">
+                          <span class="span3">
+                                  <a href="javascript:;"
+                                     data-url="http://test.shop.golddiy.com/admin/order/addtimedialog/1509160446188743"
+                                     class="is-addtime btn wei-btn wei-bg-orgn">延长关闭时间</a>
+                              </span>                        <!-- 如果支付方式为线下支付-->
+                            <!-- 如果支付方式为线下支付-->
+                          <span class="span3">
+                                  <a href="javascript:;"
+                                     data-url="http://test.shop.golddiy.com/admin/order/address/1509160446188743"
+                                     class="is-address btn wei-btn wei-bg-orgn">修改收货址</a>
+                              </span>
+                          <span class="span3">
+                                      <a href="javascript:;"
+                                         data-url="http://test.shop.golddiy.com/admin/order/pay/1509160446188743"
+                                         class="is-pay btn wei-btn wei-bg-orgn">确认支付</a>
+                                  </span>                        <!-- 用户不需要此订单，关闭订单 -->
+                          <span class="span3">
+                                      <a href="javascript:;"
+                                         data-url="http://test.shop.golddiy.com/admin/order/cancel/1509160446188743"
+                                         class="is-close btn wei-btn wei-bg-red">关闭</a>
+                                  </span>                        <!-- 给用户发货 -->
+                            <!-- 确认用户收到货 -->
+                        </div>
+                      </div>
                     </div>
                     <div class="orderInfo-container">
                         <dl>
