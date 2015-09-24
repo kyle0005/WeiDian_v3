@@ -10,8 +10,7 @@
     <meta name="format-detection" content="telephone=no">
     <link href="Public/css/bootstrap.css" rel="stylesheet">
     <link href="Public/css/base.css" rel="stylesheet">
-    <!--<link href="Public/css/main.css" rel="stylesheet">-->
-    <link href="Public/css/mobile.style.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
     <link href="Public/css/font-awesome.css" rel="stylesheet">
     <link href="Public/css/button.css" rel="stylesheet">
 </head>
@@ -29,19 +28,25 @@
 <section>
     <ul>
         <li class="p10 tra-con bb clearfix">
+          <a href="#" class="traSettle-a">
             <div class="mb5"><span class="pb5 bb">交易日期：2015.1.1</span></div>
-            <span class="tra-detail mt5">手续费：￥7657</span>
-            <span class="tra-detail mt5">佣金：<span class="color-theme2">￥7657</span></span>
+            <span class="tra-detail2 mt5">手续费：￥7657</span>
+            <span class="tra-detail2 mt5">佣金：<span class="color-theme2">￥7657</span></span>
+          </a>
         </li>
         <li class="p10 tra-con bb clearfix">
+          <a href="#" class="traSettle-a">
             <div class="mb5"><span class="pb5 bb">交易日期：2015.1.1</span></div>
-            <span class="tra-detail mt5">成员佣金：<span class="color-theme2">￥7657</span></span>
-            <span class="tra-detail mt5">佣金：<span class="color-theme2">￥7657</span></span>
+            <span class="tra-detail2 mt5">成员佣金：<span class="color-theme2">￥7657</span></span>
+            <span class="tra-detail2 mt5">佣金：<span class="color-theme2">￥7657</span></span>
+          </a>
         </li>
         <li class="p10 tra-con bb clearfix">
+          <a href="#" class="traSettle-a">
             <div class="mb5"><span class="pb5 bb">交易日期：2015.1.1</span></div>
-            <span class="tra-detail mt5">手续费：￥7657</span>
-            <span class="tra-detail mt5">佣金：<span class="color-theme2">￥7657</span></span>
+            <span class="tra-detail2 mt5">手续费：￥7657</span>
+            <span class="tra-detail2 mt5">佣金：<span class="color-theme2">￥7657</span></span>
+          </a>
         </li>
     </ul>
 </section>
@@ -72,20 +77,5 @@
 </footer>
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
-<script>
-    $(function () {
-        $('.js-more').click(function () {
-            var tra_opt = $(this).parents().siblings('.js-tra-opt');
-            if($(tra_opt).hasClass('hide')){
-                $(tra_opt).removeClass('hide');
-                $(this).removeClass('tra-more').addClass('tra-more-cli');
-
-            }else{
-                $(tra_opt).addClass('hide');
-                $(this).removeClass('tra-more-cli').addClass('tra-more');
-            }
-        });
-    });
-</script>
 </body>
 </html>

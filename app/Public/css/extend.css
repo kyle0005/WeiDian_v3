@@ -1953,8 +1953,8 @@ h5.setting-btn{
 }
 
 .orderInfo-container .orderInfo-list{
-  width: 20%;
-  margin: 20px 13.3% 30px 0;
+  width: 320px;
+  margin: 20px 100px 30px 0;
 }
 .orderInfo-container .orderInfo-list li{
   height: auto;

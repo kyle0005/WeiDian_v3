@@ -107,6 +107,7 @@
           开具发票
         </div>
         <div class="pull-right">
+          <span id="b-txt">xxxxxxx</span>
           <input class="js-buy-invoice mui-switch mui-switch-anim" type="checkbox" unchecked style="margin-top: -3px;">
         </div>
       </div>
@@ -145,12 +146,12 @@
       <section>
         <div class="js-tab t2">
           <ul class="sec-tab clearfix bb de-tab-con">
-            <li class="order-cur text-center" style="height: 35px; line-height: 35px;">
+            <li class="order-cur text-center" style="height: 35px; line-height: 35px;" data-type="normal">
               <a href="javascript:;">
                 普通发票
               </a>
             </li>
-            <li class="text-center" style="height: 35px; line-height: 35px;">
+            <li class="text-center" style="height: 35px; line-height: 35px;" data-type="notNormal">
               <a href="javascript:;">
                 增值税发票
               </a>
@@ -187,38 +188,38 @@
             <form class="form-horizontal underline-con">
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">单位名称</span>
-                  <input type="text" name="com_name" maxlength="30">
+                  <span class="left-label" style="width: 25%;">单位名称</span>
+                  <input type="text" name="com_name" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">纳税人识别码</span>
-                  <input type="text" name="com_code" maxlength="30">
+                  <span class="left-label" style="width: 25%;">纳税识别码</span>
+                  <input type="text" name="com_code" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">注册地址</span>
-                  <input type="text" name="com_address" maxlength="30">
+                  <span class="left-label" style="width: 25%;">注册地址</span>
+                  <input type="text" name="com_address" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">注册电话</span>
-                  <input type="text" name="com_phone" maxlength="30">
+                  <span class="left-label" style="width: 25%;">注册电话</span>
+                  <input type="text" name="com_phone" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">开户银行</span>
-                  <input type="text" name="com_bank" maxlength="30">
+                  <span class="left-label" style="width: 25%;">开户银行</span>
+                  <input type="text" name="com_bank" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px">
                 <div class="controls">
-                  <span class="left-label">银行账户</span>
-                  <input type="text" name="com_bankAccount" maxlength="30">
+                  <span class="left-label" style="width: 25%;">银行账户</span>
+                  <input type="text" name="com_bankAccount" maxlength="30" style="width: 75%;">
                 </div>
               </div>
               <div class="control-group" style="margin-bottom: 10px;padding-bottom: 10px;">
@@ -252,249 +253,113 @@
 <script src="Public/js/BigDecimal-all-last.min.js"></script>
 <script src="Public/js/tools.js"></script>
 <script src="Public/js/jquery.cookie.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
 <script>
-    $(function () {
-      var data = {
-        t1:{},
-        t2:{}
+  $(function () {
+
+    function GetRandomNum(Min,Max)
+    {
+      var Range = Max - Min;
+      var Rand = Math.random();
+      return(Min + Math.round(Rand * Range));
+    }
+
+    var data = {
+      t1:{},
+      t2:{}
+    }
+
+    var isExist = false;  //cookie是否存在
+    var isOpen = false;    //开关是否开启
+    var isTabNor = true;  //判断普通发票(true)还是增值税发票(false)
+    var isAddOrUpdate = true;   //判断新增(true)还是修改(false)
+
+    //判断cookie是否存在
+    var tabdata = $.cookie('tabData'); // 读取 cookie
+    if(tabdata != null && tabdata != undefined && tabdata != ''){
+      isExist = true;
+      isOpen = true;
+      data=JSON.parse(tabdata);
+      if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
+        isTabNor = true;
+      }else{
+        isTabNor = false;
       }
 
-      var isExist = false;  //cookie是否存在
-      var isOpen = false;    //开关是否开启
-      var isTabNor = true;  //判断普通发票(true)还是增值税发票(false)
-      var isAddOrUpdate = true;   //判断新增(true)还是修改(false)
+      if(isTabNor){
+        if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
+          $('#inv').val(JSON.stringify(data['t1']));
+          $('.js-title').html(data['t1'].title);
+          $('.js-con').html(data['t1'].con);
 
-      //判断cookie是否存在
-      var tabdata = $.cookie('tabData'); // 读取 cookie
-      if(tabdata != null && tabdata != undefined){
-        isExist = true;
+          switchCtrl(true);
+        }
+
+      }else{
+        if(data['t2'].com_name != null && data['t2'].com_name != undefined && data['t2'].com_name != ''){
+          $('#inv').val(JSON.stringify(data['t2']));
+          $('.js-title').html(data['t2'].com_name);
+          $('.js-con').html(data['t2'].con);
+
+          switchCtrl(true);
+        }
+
+      }
+    }
+
+    //开具发票
+    $('.js-buy-invoice').change(function () {
+      if($(this).attr('checked')){
+        //开
         isOpen = true;
-        data=JSON.parse(tabdata);
-        if(data['t1'].title != null || data['t1'].title != undefined || data['t1'].title != ''){
-          isTabNor = true;
-        }else{
-          isTabNor = false;
-        }
-
-        if(isTabNor){
-          if(data['t1'] != null){
-            $('.js-title').html(data['t1'].title);
-            $('.js-con').html(data['t1'].con);
-          }
-
-        }else{
-          if(data['t2'] != null){
-            $('.js-title').html(data['t2'].com_name);
-            $('.js-con').html(data['t2'].con);
-          }
-
-        }
-        $('.js-buy-invoice').attr('checked', true);
-        $('.js-buy-ani2').height('40px');
-      }
-
-      //开具发票
-      $('.js-buy-invoice').change(function () {
-        if($(this).attr('checked')){
-          //开
-          isOpen = true;
-          isAddOrUpdate = true;
-          invoice_add();
-        }else{
-          //关
-          isOpen = false;
-          isAddOrUpdate = false;
-          invoice_add();
-        }
-      });
-
-      //添加发票
-      function invoice_add(){
-        if(isOpen){
-          //开
-            if(isTabNor){
-              if(data['t1'] != null){
-                $('.js-title').html(data['t1'].title);
-                $('.js-con').html(data['t1'].con);
-              }
-
-            }else{
-              if(data['t2'] != null){
-                $('.js-title').html(data['t2'].com_name);
-                $('.js-con').html(data['t2'].con);
-              }
-
-            }
-
-          $('input[name="title"]').val('');
-          $('input[name="ho-con"]').each(function(){
-            $(this).attr("checked",false);
-          });
-
-          $('input[name="com_name"]').val('');
-          $('input[name="com_code"]').val('');
-          $('input[name="com_address"]').val('');
-          $('input[name="com_phone"]').val('');
-          $('input[name="com_bank"]').val('');
-          $('input[name="com_bankAccount"]').val('');
-          $('input[name="ho-con2"]').each(function(){
-            $(this).attr("checked",false);
-          });
-
-          $('.js-buy-invoice').attr('checked', true);
-          $('.js-buy-ani2').height('40px');
-
-          //滑出蒙层，开具发票
-          $('#popUpWrap').removeClass('none');
-          $('.pop-up').height(400);
-        }else{
-          //关
-          $('.js-buy-ani2').height('0px');
-
-          data['t1'].title = null;
-          data['t1'].con = null;
-          data['t2'].com_name = null;
-          data['t2'].com_code = null;
-          data['t2'].com_address = null;
-          data['t2'].com_phone = null;
-          data['t2'].com_bank = null;
-          data['t2'].com_bankAccount = null;
-          data['t2'].con = null;
-        }
-      }
-
-      //发票修改按钮
-      $('.js-update').click(function () {
+        isAddOrUpdate = true;
+      }else{
+        //关
+        isOpen = false;
         isAddOrUpdate = false;
+      }
+      invoice_add();
+    });
+
+    //开关控制
+    function switchCtrl(flag){
+      if(flag){
+        //开
+        $('.js-buy-invoice').attr('checked', true);
+        $('.js-buy-ani2').height('40px');
+        $('#b-txt').hide();
+      }else{
+        //关
+        $('.js-buy-invoice').attr('checked', false);
+        $('.js-buy-ani2').height('0');
+        $('#b-txt').show();
+      }
+
+    }
+
+
+    //添加发票
+    function invoice_add(){
+      $.cookie('tabData', null, { expires: -1, path:"/", domain:"shop.golddiy.com"});
+      if(isOpen){
+        //开
         if(isTabNor){
-          //若为普通发票
-          $('input[name="title"]').val(data['t1'].title);
-          $('input[name="ho-con"]').each(function(){
-            if($(this).data('v') == data['t1'].con){
-              $(this).attr("checked",true);
-            }
-          });
-
-          $('.order-cur').removeClass('order-cur');
-          $('.js-tab ul li:first').addClass('order-cur');
-          $('.js-tab').siblings('div').addClass('hide');
-          $('.js-tab').siblings('div').eq(0).removeClass('hide');
-        }else{
-          //若为增值税发票
-          $('input[name="com_name"]').val(data['t2'].com_name);
-          $('input[name="com_code"]').val(data['t2'].com_code);
-          $('input[name="com_address"]').val(data['t2'].com_address);
-          $('input[name="com_phone"]').val(data['t2'].com_phone);
-          $('input[name="com_bank"]').val(data['t2'].com_bank);
-          $('input[name="com_bankAccount"]').val(data['t2'].com_bankAccount);
-          $('input[name="ho-con2"]').each(function(){
-            if($(this).data('v') == data['t2'].con){
-              $(this).attr("checked",true);
-            }
-          });
-
-          $('.order-cur').removeClass('order-cur');
-          $('.js-tab ul li:last').addClass('order-cur');
-          $('.js-tab').siblings('div').addClass('hide');
-          $('.js-tab').siblings('div').eq(1).removeClass('hide');
-        }
-        //滑出蒙层，开具发票
-        $('#popUpWrap').removeClass('none');
-        $('.pop-up').height(400);
-
-
-      });
-
-      $('.js-mask, .js-x').click(function(){
-        if(isAddOrUpdate){
-          //若为新增是滑窗
-          $('.js-buy-invoice').attr('checked', false);
-          $('.js-buy-ani2').height('0');
-          isOpen = false;
-
-          $('.pop-up').height('0');
-          setTimeout(function(){
-            $('#popUpWrap').addClass('none');
-          },600);
-
-          //清空表单
-          if(isAddOrUpdate){
-            //普通发票
-            //获取表单元素的值
-            data['t1'].title = $('input[name="title"]').val();
-            data['t1'].con = $('input[name="ho-con"]:checked').data('v');
-          }else{
-            //增值税发票
-            data['t2'].com_name = $('input[name="com_name"]').val();
-            data['t2'].com_code = $('input[name="com_code"]').val();
-            data['t2'].com_address = $('input[name="com_address"]').val();
-            data['t2'].com_phone = $('input[name="com_phone"]').val();
-            data['t2'].com_bank = $('input[name="com_bank"]').val();
-            data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
-            data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
-          }
-
-        }else{
-          //若为修改时滑窗
-          $('.pop-up').height('0');
-          setTimeout(function(){
-            $('#popUpWrap').addClass('none');
-          },600);
-        }
-      });
-
-      //发票滑出框保存按钮
-      $('.js-save').click(function () {
-        if(isTabNor){
-          //普通发票
-          //获取表单元素的值
-          data['t1'].title = $('input[name="title"]').val();
-          data['t1'].con = $('input[name="ho-con"]:checked').data('v');
-
-          if(data['t1'] != null){
+          if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
             $('.js-title').html(data['t1'].title);
             $('.js-con').html(data['t1'].con);
           }
-        }else{
-          //增值税发票
-          data['t2'].com_name = $('input[name="com_name"]').val();
-          data['t2'].com_code = $('input[name="com_code"]').val();
-          data['t2'].com_address = $('input[name="com_address"]').val();
-          data['t2'].com_phone = $('input[name="com_phone"]').val();
-          data['t2'].com_bank = $('input[name="com_bank"]').val();
-          data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
-          data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
 
-          if(data['t2'] != null){
+        }else{
+          if(data['t2'].com_name != null && data['t2'].com_name != undefined && data['t2'].com_name != ''){
             $('.js-title').html(data['t2'].com_name);
             $('.js-con').html(data['t2'].con);
           }
+
         }
 
-        isExist = true;
-        var jsonStr = JSON.stringify(data);
-        $.cookie('tabData', jsonStr, { expires: 7 });
-        $('.inv').val(jsonStr);   //存入隐藏的input中
-
-        $('.js-buy-invoice').attr('checked', true);
-        $('.js-buy-ani2').height('40px');
-        isOpen = true;
-
-        $('.pop-up').height('0');
-        setTimeout(function(){
-          $('#popUpWrap').addClass('none');
-        },600);
-
-      });
-
-      //tab切换
-      var click_obj  = $('.js-tab').find('li');
-      var tab_obj = $('.js-tab').siblings();
-      $(click_obj).click(function(){
-        isTabNor ? isTabNor = false : isTabNor = true;
         $('input[name="title"]').val('');
         $('input[name="ho-con"]').each(function(){
-            $(this).attr("checked",false);
+          $(this).attr("checked",false);
         });
 
         $('input[name="com_name"]').val('');
@@ -504,57 +369,307 @@
         $('input[name="com_bank"]').val('');
         $('input[name="com_bankAccount"]').val('');
         $('input[name="ho-con2"]').each(function(){
-            $(this).attr("checked",false);
+          $(this).attr("checked",false);
         });
 
-        $(click_obj).removeClass('order-cur');
-        $(this).addClass('order-cur');
+        switchCtrl(true);
 
-        var ind = $(this).index();
-        $(tab_obj).addClass('hide');
-        $(tab_obj).eq(ind).removeClass('hide');
-      });
+        //滑出蒙层，开具发票
+        $('#popUpWrap').removeClass('none');
+        $('.pop-up').height(400);
+      }else{
+        //关
+        switchCtrl(false);
+
+        data['t1'].title = null;
+        data['t1'].con = null;
+        data['t2'].com_name = null;
+        data['t2'].com_code = null;
+        data['t2'].com_address = null;
+        data['t2'].com_phone = null;
+        data['t2'].com_bank = null;
+        data['t2'].com_bankAccount = null;
+        data['t2'].con = null;
+      }
+    }
+
+    //发票修改按钮
+    $('.js-update').click(function () {
+      isAddOrUpdate = false;
+      if(isTabNor){
+        //若为普通发票
+        $('input[name="title"]').val(data['t1'].title);
+        $('input[name="ho-con"]').each(function(){
+          if($(this).data('v') == data['t1'].con){
+            $(this).attr("checked",true);
+          }
+        });
+
+        $('.order-cur').removeClass('order-cur');
+        $('.js-tab ul li:first').addClass('order-cur');
+        $('.js-tab').siblings('div').addClass('hide');
+        $('.js-tab').siblings('div').eq(0).removeClass('hide');
+      }else{
+        //若为增值税发票
+        $('input[name="com_name"]').val(data['t2'].com_name);
+        $('input[name="com_code"]').val(data['t2'].com_code);
+        $('input[name="com_address"]').val(data['t2'].com_address);
+        $('input[name="com_phone"]').val(data['t2'].com_phone);
+        $('input[name="com_bank"]').val(data['t2'].com_bank);
+        $('input[name="com_bankAccount"]').val(data['t2'].com_bankAccount);
+        $('input[name="ho-con2"]').each(function(){
+          if($(this).data('v') == data['t2'].con){
+            $(this).attr("checked",true);
+          }
+        });
+
+        $('.order-cur').removeClass('order-cur');
+        $('.js-tab ul li:last').addClass('order-cur');
+        $('.js-tab').siblings('div').addClass('hide');
+        $('.js-tab').siblings('div').eq(1).removeClass('hide');
+      }
+      //滑出蒙层，开具发票
+      $('#popUpWrap').removeClass('none');
+      $('.pop-up').height(400);
 
 
-      //订单优惠
-      $('.js-buy-coup').change(function () {
-        if($(this).attr('checked')){
-          $('.js-buy-ani').height('40px');
+    });
+
+    $('.js-mask, .js-x').click(function(){
+      if(isAddOrUpdate){
+        //若为新增是滑窗
+        switchCtrl(false);
+        isOpen = false;
+
+        $('.pop-up').height('0');
+        setTimeout(function(){
+          $('#popUpWrap').addClass('none');
+        },600);
+
+        //清空表单
+        if(isAddOrUpdate){
+          //普通发票
+          //获取表单元素的值
+          data['t1'].title = $('input[name="title"]').val();
+          data['t1'].con = $('input[name="ho-con"]:checked').data('v');
         }else{
-          $('.js-buy-ani').height('0px');
+          //增值税发票
+          data['t2'].com_name = $('input[name="com_name"]').val();
+          data['t2'].com_code = $('input[name="com_code"]').val();
+          data['t2'].com_address = $('input[name="com_address"]').val();
+          data['t2'].com_phone = $('input[name="com_phone"]').val();
+          data['t2'].com_bank = $('input[name="com_bank"]').val();
+          data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
+          data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
         }
+
+      }else{
+        //若为修改时滑窗
+        $('.pop-up').height('0');
+        setTimeout(function(){
+          $('#popUpWrap').addClass('none');
+        },600);
+      }
+    });
+
+    //发票滑出框保存按钮
+    $('.js-save').click(function () {
+      if(isTabNor){
+        //普通发票
+        //获取表单元素的值
+        data['t1'].title = $('input[name="title"]').val();
+        data['t1'].con = $('input[name="ho-con"]:checked').data('v');
+        if (!data['t1'].title) {
+          JQbox.alert("请输入发票抬头");
+          return false;
+        }
+        if (!data['t1'].con) {
+          JQbox.alert("请选择发票内容");
+          return false;
+        }
+
+        if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
+          $('#inv').val(JSON.stringify(data['t1']));
+          $('.js-title').html(data['t1'].title);
+          $('.js-con').html(data['t1'].con);
+        }
+      }else{
+        //增值税发票
+        data['t2'].com_name = $('input[name="com_name"]').val();
+        data['t2'].com_code = $('input[name="com_code"]').val();
+        data['t2'].com_address = $('input[name="com_address"]').val();
+        data['t2'].com_phone = $('input[name="com_phone"]').val();
+        data['t2'].com_bank = $('input[name="com_bank"]').val();
+        data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
+        data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
+
+        if (!data['t2'].com_name) {
+          JQbox.alert("请输入单位名称");
+          return false;
+        }
+        if (!data['t2'].com_code) {
+          JQbox.alert("请输入纳税人识别码");
+          return false;
+        }
+        if (!data['t2'].com_address) {
+          JQbox.alert("请输入注册地址");
+          return false;
+        }
+        if (!data['t2'].com_phone) {
+          JQbox.alert("请输入注册电话");
+          return false;
+        }
+        if (!data['t2'].com_bank) {
+          JQbox.alert("请输入开户银行");
+          return false;
+        }
+        if (!data['t2'].com_bankAccount) {
+          JQbox.alert("请输入银行账户");
+          return false;
+        }
+
+        if (!data['t2'].con) {
+          JQbox.alert("请选择发票内容");
+          return false;
+        }
+
+        if(data['t2'].com_name != null && data['t2'].com_name != undefined && data['t2'].com_name != ''){
+          $('#inv').val(JSON.stringify(data['t2']));
+          $('.js-title').html(data['t2'].com_name);
+          $('.js-con').html(data['t2'].con);
+        }
+      }
+
+      isExist = true;
+      var jsonStr = JSON.stringify(data);
+      $.cookie('tabData', jsonStr, { expires: 7,path:"/",domain:"shop.golddiy.com"});
+
+      switchCtrl(true);
+      isOpen = true;
+
+      $('.pop-up').height('0');
+      setTimeout(function(){
+        $('#popUpWrap').addClass('none');
+      },600);
+
+    });
+
+    //tab切换
+    var click_obj  = $('.js-tab').find('li');
+    var tab_obj = $('.js-tab').siblings();
+    $(click_obj).click(function(){
+
+      $('input[name="title"]').val('');
+      $('input[name="ho-con"]').each(function(){
+        $(this).attr("checked",false);
       });
 
-        var arrChk = $(".js-buy-cal");
-        var prices = '0.00';
-        var couponNum = '0.00';
-        var expreeVal = '0.00';
-        $(arrChk).each(function(){
-            var num = $(this).find('.js-buy-num').data('num');
-            var price = $(this).find('.js-buy-price').data('price');
-            prices = new BigDecimal(num.toString()).multiply(new BigDecimal(price.toString())).add(new
-                    BigDecimal(prices.toString()));
-        });
-        expreeVal = $(".chooseExpress").find("option:selected").data('value');
+      $('input[name="com_name"]').val('');
+      $('input[name="com_code"]').val('');
+      $('input[name="com_address"]').val('');
+      $('input[name="com_phone"]').val('');
+      $('input[name="com_bank"]').val('');
+      $('input[name="com_bankAccount"]').val('');
+      $('input[name="ho-con2"]').each(function(){
+        $(this).attr("checked",false);
+      });
 
-        couponNum = $('.js-couponInfo-price').data('coupon_pri');
-        if(typeof couponNum == 'undefined'){
-          couponNum = 0;
-        }
-        $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+      $(click_obj).removeClass('order-cur');
+      $(this).addClass('order-cur');
 
-      $('.js-useCoup').click(function () {
-        $('.js-buy-coup').attr('checked', false);
+      var tp = $('.order-cur').data('type');
+      tp == 'normal' ? isTabNor = true : isTabNor = false;
+
+      var ind = $(this).index();
+      $(tab_obj).addClass('hide');
+      $(tab_obj).eq(ind).removeClass('hide');
+    });
+
+
+    //订单优惠
+    $('.js-buy-coup').change(function () {
+      if($(this).attr('checked')){
+        $('.js-buy-ani').height('40px');
+      }else{
         $('.js-buy-ani').height('0px');
+      }
+    });
 
-        // data-couponPri="50.00"
-        //couponNum = 50.00;
-        $('.js-couponInfo-price').data('couponPri', couponNum);
-        $('.js-couponInfo-price >span').html(couponNum + '元');
-        $('.js-couponInfo-price').removeClass('hide');
-        $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+    var arrChk = $(".js-buy-cal");
+    var prices = '0.00';
+    var couponNum = '0.00';
+    var expreeVal = '0.00';
+    $(arrChk).each(function(){
+      var num = $(this).find('.js-buy-num').data('num');
+      var price = $(this).find('.js-buy-price').data('price');
+      prices = new BigDecimal(num.toString()).multiply(new BigDecimal(price.toString())).add(new
+        BigDecimal(prices.toString()));
+    });
+    expreeVal = $(".chooseExpress").find("option:selected").data('value');
+
+    couponNum = $('.js-couponInfo-price').data('coupon_pri');
+    if(typeof couponNum == 'undefined'){
+      couponNum = 0;
+    }
+    $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+
+    $('.js-useCoup').click(function () {
+
+      JQAjax.post(this,{
+        url : "http://test.shop.golddiy.com/shop/10001/ajax/validcoupon",
+        form : {
+          "products" : [{"ProductId":"44","RealPrice":"39800.00","DiscountPrice":"39800.00","Count":1,"DiscountId":0}],
+          "code" : $('#input-coupon-code').val()
+        },
+        wait : true
+
       });
-    })
+    });
+
+    $('#order-btn').click(function () {
+      var obj = $(this);
+      if (!obj.hasClass('wei-bg-white')) {
+        obj.removeClass('wei-bg-sRed').addClass('wei-bg-white').val('订单提交中...');
+        var wait = GetRandomNum(0, 3);
+        var interval = setInterval(function () {
+          var time = --wait;
+          if (time <= 0) {
+            JQAjax.post(obj, {
+              url: $('#order-form').attr('action'),
+              form: 'order-form',
+              wait: true
+            });
+            clearInterval(interval);
+          }
+        }, 1000);
+      }
+    });
+  });
+
+
+  function success_coupon(coupon_price) {
+    couponNum = coupon_price;
+
+    $('.js-buy-coup').attr('checked', false);
+    $('.js-buy-ani').height('0px');
+
+    var prices = 0.00;
+    $('.js-buy-cal').each(function(){
+      var num = $(this).find('.js-buy-num').data('num');
+      var price = $(this).find('.js-buy-price').data('price');
+      prices = new BigDecimal(num.toString()).multiply(new BigDecimal(price.toString())).add(new
+        BigDecimal(prices.toString()));
+    });
+    expreeVal = $(".chooseExpress").find("option:selected").data('value');
+
+    $('#coupon_code').val($('#input-coupon-code').val());
+
+    $('.js-couponInfo-price').data('coupon_pri', couponNum);
+    $('.js-couponInfo-price >span').html(couponNum + '元');
+    $('.js-couponInfo-price').removeClass('hide');
+    $('.js-buy-listRmb').html(buyNow.countPrice(prices, couponNum, expreeVal).toString());
+
+  }
 </script>
 </body>
 </html>

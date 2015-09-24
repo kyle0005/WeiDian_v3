@@ -302,13 +302,16 @@ body {
 .p10 {
   padding: 10px;
 }
+.m10{
+  margin: 10px;
+}
 
 .bt {
   border-top: 1px solid #e3e3e3;
 }
 
 .bb {
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .wei-border {
@@ -5971,15 +5974,33 @@ a.tra-hRecord:hover, a.tra-hRecord:active {
 }
 
 li.tra-con:nth-child(2n-1) {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
 }
 
 .tra-detail {
+  display: inline-block;
+}
+.tra-detail2{
   display: inline-block;
   float: left;
   width: 50%;
 }
 
+span.tra-detail:nth-child(2n){
+  float: right;
+}
+.tra-down{
+  background-color: #f8f8f8;
+}
+.tra-down .bb{
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.traSettle-a{
+  display: block;
+  height: 50px;
+  background: url("../img/r-arr.png") no-repeat right center;
+}
 /* 交易中心new结束 */
 
 /* 搜索页 */

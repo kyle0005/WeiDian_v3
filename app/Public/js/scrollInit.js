@@ -116,9 +116,17 @@ function loaded() {
         }
     }
     if($('footer').length > 0){
+      if($('#btn').length > 0){
+        $('#wrapper').css('bottom','90px');
+      }else{
         $('#wrapper').css('bottom','50px');
+      }
     }else{
+      if($('#btn').length > 0){
+        $('#wrapper').css('bottom','40px');
+      }else{
         $('#wrapper').css('bottom','0');
+      }
     }
 
     //loadFirData(); 当前页不默认加载
