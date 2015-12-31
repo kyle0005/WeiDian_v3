@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>送拍记录</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+  <link href="Public/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap" id="top">
+    <div class="nav">
+        <a href="javascript:history.go(-1);" class="nav-back">
+            <i class="icon-2x icon-angle-left"></i>
+        </a>
+        <div class="nav-title">
+          送拍记录
+        </div>
+    </div>
+</header>
+<section id="main">
+  <div id="wrapper">
+    <div id="scroller">
+      <div id="pullDown">
+        <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+      </div>
+      <ul>
+        <li class="mt10 pl10 pr10 relative">
+          <a href="#" class="list-content clearfix">
+            <span class="auction-rec-list-left pull-left"><img src="Public/img/pro7.png" class=""></span>
+            <span class="auction-rec-list-right clearfix bb pb10">
+              <span class="clearfix mb10 list-content" style="line-height: 16px;">
+                <span class="overTextH auction-rec-list-title pull-left">
+                  黄金历史观音送福挂坠和田玉吊坠3D硬金转运sdsdsdsdsdsdsdsd珠
+                </span>
+                <span class="color-theme2 list-content pull-right">待审核</span>
+              </span>
+              <span class="">
+                起竞价：￥22986
+              </span>
+            </span>
+          </a>
+          <a href="javascript:void(0);" class="auction-ol-btn wei-btn wei-bg-white" style="width: 80px; bottom: 10px; right: 10px;">出价记录</a>
+        </li>
+        <li class="mt10 pl10 pr10 relative">
+          <a href="#" class="list-content clearfix">
+            <span class="auction-rec-list-left pull-left"><img src="Public/img/pro7.png" class=""></span>
+            <span class="auction-rec-list-right clearfix bb pb10">
+              <span class="clearfix mb10 list-content" style="line-height: 16px;">
+                <span class="overTextH auction-rec-list-title pull-left">
+                  黄金历史观音送福挂坠和田玉吊坠3D硬金转运sdsdsdsdsdsdsdsd珠
+                </span>
+                <span class="color-theme2 list-content pull-right">待审核</span>
+              </span>
+              <span class="">
+                起竞价：￥22986
+              </span>
+            </span>
+          </a>
+          <a href="javascript:void(0);" class="auction-ol-btn wei-btn wei-bg-white" style="width: 80px; bottom: 10px; right: 10px;">出价记录</a>
+        </li>
+    </ul>
+      <div id="pullUp">
+        <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer" style="height: 50px;"></div>
+<footer class="wei-foot text-center">
+  <ul class="l4 clearfix">
+    <li class="wei-foot-li">
+      <a href="javascript:void(0);" class="">
+        <span class="wei-foot-bg wei-foot-index"></span>
+        首页
+      </a>
+    </li>
+    <li class="wei-foot-li">
+      <a href="javascript:void(0);" class="">
+        <span class="wei-foot-bg wei-foot-search"></span>
+        搜索
+      </a>
+    </li>
+    <li class="wei-foot-li">
+      <a href="javascript:void(0);" class="cart">
+        <span class="wei-foot-bg wei-foot-cart"></span>
+        购物车
+      </a>
+    </li>
+    <li class="wei-foot-li">
+      <a href="javascript:void(0);" class="curFoot">
+        <span class="wei-foot-bg wei-foot-person"></span>
+        我
+      </a>
+    </li>
+  </ul>
+</footer>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
+<script src="Public/js/jinniu.mobile.js"></script>
+<script>
+  var is_app = false;
+  var _p = 1;
+  var _total = 10;
+</script>
+<script src="Public/js/iscroll.js"></script>
+<script src="Public/js/scrollInit.js"></script>
+<script>
+    $(function () {
+      $("img.lazy").lazyload({
+        appear: function () {
+          //图片加载时
+          $(this).addClass('lazy-container');
+        },
+        load: function () {
+          //图片加载后
+          $(this).removeClass('lazy-container');
+        },
+        event:'scroll',
+        placeholder: "Public/img/loading_bg.png"
+      });
+
+      $(window).bind("load", function() {
+        var timeout = setTimeout(function() {
+          $("img.lazy").trigger("scroll");         //触发scroll事件
+        }, 0);
+      });
+
+      //tab切换
+      tab.tabClick($('.js-tab'), 'order-cur');
+
+    });
+
+</script>
+</body>
+</html>

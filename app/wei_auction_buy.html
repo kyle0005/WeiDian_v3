@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>支付余款</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap">
+  <div class="nav">
+    <a href="javascript:history.go(-1);" class="nav-back">
+      <i class="icon-2x icon-angle-left"></i>
+    </a>
+    <div class="nav-title">
+      支付余款
+    </div>
+  </div>
+</header>
+<form method="post" action="">
+  <div class="wei-addr">
+    <a class="wei-addr-a clearfix" href="javascript:;">
+      <span class="mb5 fs14"><img src="Public/img/addr_per_28x31.png"/>啊啊啊</span>
+      <span class="mb5 pull-right mr30"><img src="Public/img/addr_phone_22x28.png"/>1383838438</span><br>
+      <span><img src="Public/img/address_29x29.png"/>上海市静安区万航渡路676弄58号</span>
+      <img src="Public/img/r-arr.png" class="wei-addr-ra">
+    </a>
+  </div>
+  <a class="wei-noaddr" style="display: none;">
+    亲，请新建收货地址以确保宝贝顺利到达
+    <img src="Public/img/r-arr-red.png"/>
+  </a>
+  <section class="wei-iContainer">
+    <a href="wei_index.html" class="lh40 bb mr10 ml10 fs14 auction-title">
+      黄金历史NO1旗舰店
+    </a>
+    <div class="order-list pl10 pr10">
+      <ul class="mt10">
+        <li>
+          <a href="#" class="js-buy-cal list-content clearfix">
+            <span class="order-pro-img"><img src="Public/img/a1.jpg" class=""></span>
+            <span class="order-list-con clearfix">
+              <span class="overTextH">
+                黄金历史观音送福挂坠和田玉吊坠3D硬金转运珠
+              </span>
+              <span class="js-auctPri pull-left" data-auctpri="22986" style="display: inline-block;width: 50%;">
+                竞拍价：￥22986
+              </span>
+              <span class="js-auctOrdPri" data-auctordpri="10000" style="display: inline-block;width: 50%;">
+                已付订金：￥10000
+              </span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="">
+    <div class="ml10 mr10">
+      <div class="clearfix lh40">
+        <textarea placeholder="告诉卖家您的要求吧...（限150个字）" class="mt5 mb5 lh30" style="background-color: #f5f5f5;text-indent: 6px;width: 100%;height: 30px;"></textarea>
+      </div>
+    </div>
+
+  </section>
+  <div style="height: 40px;"></div>
+  <section class="buy-foot text-right bt">
+    应付:<span class="color-theme2 mr10">￥<span class="js-buy-listRmb"></span></span>
+    <a href="#" class="wei-btn wei-bg-sRed pull-right" style="width: 33.3%;line-height: 40px; border-radius: 0;">支付余款</a>
+  </section>
+</form>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/BigDecimal-all-last.min.js"></script>
+<script>
+  $(function () {
+    var pri = $('.js-auctPri').data('auctpri');
+    var ordPri = $('.js-auctOrdPri').data('auctordpri');
+
+    var prices = new BigDecimal(pri.toString())
+      .subtract(new BigDecimal(ordPri.toString()));
+    prices = prices <= 0 ? 0 : prices;
+
+    $('.js-buy-listRmb').html((parseFloat(prices).toFixed(2)).toString());
+  })
+</script>
+</body>
+</html>

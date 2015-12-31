@@ -15,18 +15,22 @@
     <link href="Public/css/button.css" rel="stylesheet">
     <link href="Public/css/main.css" rel="stylesheet">
 </head>
-<body>
+<body class="">
 <header class="wei-head color-666 clearfix">
   <div class="pull-left">
-    <img src="Public/img/logo_64x64.png" class="wei-head-img" width="25px"/><span class="wei-shopTitle">黄金历史NO1旗舰店</span>
+    <a href="#">
+      <img src="Public/img/logo_64x64.png" class="wei-head-img"/><span class="wei-shopTitle">黄金历史NO1旗舰店</span>
+    </a>
   </div>
   <div class="pull-right">
-    <img src="Public/img/user_45x45.png" class="wei-head-img" width="20px"/><span class="wei-shopTitle">登录</span>
+    <a href="#">
+      <img src="Public/img/user_45x45.png" class="wei-head-img2"/><span class="wei-shopTitle">登录</span>
+    </a>
   </div>
 </header>
 <section class="wei-iContainer">
   <div class="i-top text-center">
-    <img src="Public/img/no-banner.jpg" height="100%"/>
+    <img src="Public/img/no-banner.jpg" width="100%"/>
     <div class="i-top-con">
       <a href="javascript:;" class="js-manage i-top-user">
         <img src="Public/img/uuu.png"/>
@@ -44,6 +48,11 @@
     <li class="i-top-list-link">
       <a href="javascript:;">
         <img src="Public/img/i_newPro_32x32.png" width="16px"/><br>上新宝贝
+      </a>
+    </li>
+    <li class="i-top-list-link">
+      <a href="javascript:;" class="color-theme2">
+        <img src="Public/img/i_auction_32x32_2.png" width="16px"/><br>拍卖专场
       </a>
     </li>
     <li class="i-top-list-link">
@@ -68,29 +77,13 @@
             <img src="Public/img/ad/ad-2.jpg">
           </a>
         </div>
-        <div class="item">
-          <a href="#" >
-            <img src="Public/img/ad/ad-3.jpg">
-          </a>
-        </div>
-        <div class="item">
-          <a href="#" >
-            <img src="Public/img/ad/ad-2.jpg">
-          </a>
-        </div>
-        <div class="item">
-          <a href="#" >
-            <img src="Public/img/ad/ad-1.png">
-          </a>
-        </div>
+
       </div>
       <!-- 轮播（Carousel）指标 -->
       <ol class="carousel-indicators">
         <li data-target="#i-myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#i-myCarousel" data-slide-to="1"></li>
-        <li data-target="#i-myCarousel" data-slide-to="2"></li>
-        <li data-target="#i-myCarousel" data-slide-to="3"></li>
-        <li data-target="#i-myCarousel" data-slide-to="4"></li>
+
       </ol>
     </div>
   </div>
@@ -186,35 +179,60 @@
     </section>
   </div>
 </div>
+<!--<footer class="wei-foot text-center">-->
+  <!--<ul class="l4 clearfix">-->
+    <!--<li class="wei-foot-li">-->
+      <!--<a href="javascript:void(0);" class="">-->
+        <!--<span class="wei-foot-bg wei-foot-index"></span>-->
+        <!--首页-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li class="wei-foot-li">-->
+      <!--<a href="javascript:void(0);" class="">-->
+        <!--<span class="wei-foot-bg wei-foot-search"></span>-->
+        <!--搜索-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li class="wei-foot-li">-->
+      <!--<a href="javascript:void(0);" class="cart">-->
+        <!--<span class="wei-foot-bg wei-foot-cart"></span>-->
+        <!--购物车-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li class="wei-foot-li">-->
+      <!--<a href="javascript:void(0);" class="curFoot">-->
+        <!--<span class="wei-foot-bg wei-foot-person"></span>-->
+        <!--我-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</footer>-->
 <div id="footer" style="height: 50px;"></div>
 <footer class="wei-foot text-center">
   <ul class="l4 clearfix">
     <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="">
-        <span class="wei-foot-bg wei-foot-index"></span>
-        首页
+      <a href="javascript:void(0);">
+        <img src="Public/img/wei_home.png" width="32px"/>
       </a>
     </li>
     <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="">
-        <span class="wei-foot-bg wei-foot-search"></span>
-        搜索
+      <a href="javascript:void(0);">
+        <img src="Public/img/wei_search.png" width="32px"/>
       </a>
     </li>
     <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="cart">
-        <span class="wei-foot-bg wei-foot-cart"></span>
-        购物车
+      <a href="javascript:void(0);">
+        <img src="Public/img/wei_shopping.png" width="32px"/>
       </a>
     </li>
     <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="curFoot">
-        <span class="wei-foot-bg wei-foot-person"></span>
-        我
+      <a href="javascript:void(0);">
+        <img src="Public/img/wei_me.png" width="32px"/>
       </a>
     </li>
   </ul>
 </footer>
+
 <div id="popLeftWrap" class="pop-up-wrap none">
   <div class="pop-left">
     <!--分类信息-->

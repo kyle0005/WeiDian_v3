@@ -57,6 +57,8 @@
     <div class="sec-time">
       <div class="sec-time-con text-center">
         <span class="sec-time-txt color-999">还有</span>
+        <span class="j-days js-sec-day sec-time-clock fs16 fb"></span>
+        <span class="j-days sec-time-txt">：</span>
         <span class="js-sec-hour sec-time-clock fs16 fb"></span>
         <span class="sec-time-txt">：</span>
         <span class="js-sec-min sec-time-clock fs16 fb"></span>
@@ -138,6 +140,8 @@
     <div class="sec-time">
       <div class="sec-time-con text-center">
         <span class="sec-time-txt color-999">还有</span>
+        <span class="js-sec-day sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
         <span class="js-sec-hour sec-time-clock fs16 fb"></span>
         <span class="sec-time-txt">：</span>
         <span class="js-sec-min sec-time-clock fs16 fb"></span>
@@ -219,6 +223,8 @@
     <div class="sec-time">
       <div class="sec-time-con text-center">
         <span class="sec-time-txt color-999">还有</span>
+        <span class="js-sec-day sec-time-clock fs16 fb"></span>
+        <span class="sec-time-txt">：</span>
         <span class="js-sec-hour sec-time-clock fs16 fb"></span>
         <span class="sec-time-txt">：</span>
         <span class="js-sec-min sec-time-clock fs16 fb"></span>
@@ -330,9 +336,9 @@
         totalNum: 150,
         level: 2,
         year: 2015,
-        month: 8,
-        day: 25,
-        hh: 14,
+        month: 11,
+        day: 30,
+        hh: 18,
         mm: 20,
         ss: 0,
         status: '开始'
@@ -342,7 +348,7 @@
         totalNum: 100,
         level: 5,
         year: 2015,
-        month: 8,
+        month: 12,
         day: 26,
         hh: 12,
         mm: 0,
@@ -354,7 +360,7 @@
         totalNum: 300,
         level: 10,
         year: 2015,
-        month: 8,
+        month: 12,
         day: 27,
         hh: 12,
         mm: 0,
@@ -563,7 +569,14 @@
       var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60);
       var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60);
 
-      $('.js-sec-hour').html(Math.floor((leftsecond)/3600));
+      if(day1 <= 0){
+        $('.j-days').hide();
+      }
+      else{
+        $('.j-days').show();
+        $('.js-sec-day').html(day1);
+      }
+      $('.js-sec-hour').html(Math.floor(hour));
       $('.js-sec-min').html(minute);
       $('.js-sec-sec').html(second);
 
@@ -571,6 +584,8 @@
         //重新刷新页面
         window.location.reload();
       }
+
+
 //      var cc = document.getElementById(divname);
 //      cc.innerHTML = "距离"+year+"年"+month+"月"+day+"日还有："+day1+"天"+hour+"小时"+minute+"分"+second+"秒";
     }

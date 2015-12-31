@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>微店</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" type="text/css" href="http://test.shop.golddiy.com/Public/css/wei_pc_lib.css" media="all">
+  <link rel="stylesheet" type="text/css" href="Public/css/style.css" media="all">
+  <link rel="stylesheet" type="text/css" href="Public/css/extend.css" media="all">
+  <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css" media="all">
+  <link rel="stylesheet" type="text/css" href="Public/css/button.css" media="all">
+</head>
+<body class="theme-orange" data-theme="theme-orange">
+<div id="navigation">
+  <div class="container-fluid">
+    <div>
+      <a href="javascript:;" id="brand"></a>
+      <a href="javascript:;" class="toggle-nav"
+         rel="tooltip" data-placement="bottom" title="Toggle navigation"><i class="icon-reorder"></i></a>
+    </div>
+    <ul class="main-nav">
+      <li class="active">
+        <a href="http://test.shop.golddiy.com/admin/goods">宝贝</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/discount">促销</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/order">订单</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/alliance">微联盟</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/exchange">交易所</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/finance/created">财务</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/member">用户</a>
+      </li>
+      <li class="">
+        <a href="http://test.shop.golddiy.com/admin/system/department">系统</a>
+      </li>
+
+    </ul>
+
+    <div class="user">
+      <ul class="icon-nav">
+        <li>
+          <a>欢迎您，admin店长</a>
+        </li>
+        <li>
+          <a href="http://test.shop.golddiy.com/admin/logout" title="退出"><i class="icon-signout"></i>
+            退出</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid" id="content">
+  <div id="left" tabindex="5000" style="overflow: hidden; outline: none; display: block;" class="">
+    <div class="subnav">
+      <div class="subnav-title ">
+        <a href="javascript:;" class="toggle-subnav">
+          <i class="icon-angle-right"></i><span>
+                宝贝管理
+                                </span></a>
+      </div>
+
+      <ul class="subnav-menu" style="display: block;">
+        <li class="">
+          <a href="http://test.shop.golddiy.com/admin/goods">宝贝</a>
+        </li>
+        <li class="">
+          <a href="http://test.shop.golddiy.com/admin/goods?status=1">出售中的宝贝</a>
+        </li>
+        <li class="">
+          <a href="http://test.shop.golddiy.com/admin/goods?status=0">停售中的宝贝</a>
+        </li>
+
+        <li class="">
+          <a href="http://test.shop.golddiy.com/admin/goods/goodscategory">宝贝分类</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="right">
+    <div class="a-main">
+      <div class="a-container">
+        <div class="goods-edit-area">
+          <div class="a-container">
+            <div class="goods-edit-area">
+              <div class="">
+                <form action="http://test.shop.golddiy.com/admin/goods" id="goods-form" method="post">
+                  <div class="good-info clearfix">
+                    <div class="control-group">
+                      <label class="control-label">拍品名称：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input type="text" name="name"
+                                 placeholder="请输入宝贝名称" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">市场预估价：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <span class="add-on">¥</span>
+                          <input type="number" name="market_price"
+                                 placeholder="请输入市场价" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">拍卖数量：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <span class="add-on">¥</span>
+                          <input type="number" name="price"
+                                 placeholder="请输入销售价" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">起拍价：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <span class="add-on">¥</span>
+                          <input type="number" name="agency_price"
+                                 placeholder="请输入代理价" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">拍卖类型：</label>
+                      <div class="controls">
+                        <select class="js-auction-choose">
+                          <option value="0">加价幅度</option>
+                          <option value="1">一口价</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="control-group" id="auction-pri">
+                      <label class="control-label">加价幅度：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append text-center">
+                          <span style="display: inline-block;line-height: 30px;font-size:12px;">10&nbsp;X&nbsp;</span>
+                          <input class="js-auction-pri" type="text"placeholder="请输入加价幅度" style="width: 60%;">
+                          <span style="display: inline-block;line-height: 30px;font-size:12px;">&nbsp;=&nbsp;</span>
+                          <span class="js-auction-calTol" style="display: inline-block;line-height: 30px;font-size:12px;"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">保证金：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input type="text" name="barcode"
+                                 placeholder="请输入宝贝条码" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">开始时间：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input id="begintime" name="begintime" type="text" value="2015-07-21 14:54"
+                                 onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate" readonly>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">结束时间：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input id="endtime" name="endtime" type="text" value="2015-07-21 14:54"
+                                 onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})" class="Wdate" readonly>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">推广佣金：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input type="number" name="level_weight"
+                                 placeholder="请输入宝贝优先级" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">服务费：</label>
+                      <div class="controls">
+                        <div class="input-prepend input-append">
+                          <input type="number" name="level_weight"
+                                 placeholder="请输入宝贝优先级" value="">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label">宝贝图集：</label>
+                      <div class="controls">
+                        <div class="upload-container">
+                                            <span class="img_ul clearfix">
+                                                                                            </span>
+                                        <span id="img_add" class="img_add">
+                                            <em class="img_add_a">&nbsp;</em>
+                                            <em class="img_add_b">&nbsp;</em>
+                                        </span>
+                      </div>
+                        <p class="help-desc">建议尺寸：800 x 800 像素，第一张将会作为默认显示图片</p>
+                      </div>
+                    </div>
+                    <hr />
+
+                    <div class="control-group">
+                      <ul id="content-tab" class="nav nav-tabs">
+                        <li class="active"><a href="#pc_content_tab" data-toggle="tab">电脑版详情</a></li>
+                        <li><a href="#mobile_content_tab" data-toggle="tab">移动版详情</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="pc_content_tab" class="tab-pane active">
+                          <input name="pc_content_id" type="hidden" value="">                                            <textarea id="pc_content" name="pc_content" class="span11" rows="5"></textarea>
+                        </div>
+                        <div id="mobile_content_tab" class="tab-pane">
+                          <input name="mobile_content_id" type="hidden" value="">                                            <textarea id="mobile_content" name="mobile_content" class="span4" rows="30"></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="control-group">
+                      <label class="control-label"></label>
+                      <div class="controls">
+                        <button id="goods-btn" class="btn orange-btn fc12" type="button">保存修改</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var golddiy_image_path = "http://img.golddiy.com";
+</script>
+<script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="Public/js/application.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
+<script src="Public/js/height.js"></script>
+<script src="Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="Public/js/jinniu.js"></script>
+
+<script src="Public/js/plupload.full.min.js"></script>
+<script src="Public/js/i18n/zh_CN.js"></script>
+<script src="Public/js/upload.js"></script>
+<script src="Public/js/ueditor/ueditor.config.js"></script>
+<script src="Public/js/ueditor/ueditor.all.js"></script>
+<script src="Public/js/WdatePicker/WdatePicker.js"></script>
+<script>
+  $(function () {
+    var _ueurl = "/Admin/Ueditor/index";
+    var pcue = UE.getEditor('pc_content', {
+      serverUrl : _ueurl,
+      UEDITOR_HOME_URL:'/Public/js/ueditor/'
+    });
+    pcue.ready(function() {
+      $('#pc_content').removeClass('span11');
+    });
+
+    var mobileue = UE.getEditor('mobile_content',{
+      serverUrl : _ueurl,
+      UEDITOR_HOME_URL:'/Public/js/ueditor/',
+      toolbars : [
+        ['undo','redo','indent','insertimage','insertvideo','attachment','link','unlink','forecolor','backcolor','selectall','source'],
+        ['fontfamily','fontsize','bold','italic','underline','strikethrough','subscript','superscript','blockquote']
+      ]
+    });
+    mobileue.ready(function () {
+      $('#mobile_content').removeClass('span4');
+    });
+
+    $('#content-tab a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    })
+
+    $('#goods-btn').click(function () {
+      JQAjax.post(this, {
+        url: $('#goods-form').attr('action'),
+        form : 'goods-form',
+        wait : true
+      });
+    });
+
+    /** 添加行 */
+    $('#add-extend').click(function() {
+      $('#extend-row').append($('#extend-template').html());
+      $('.is-remove').on('click', function () {
+        $(this).parent().parent().remove();
+      });
+    });
+    /** 删除行 */
+    $('.is-remove').on('click', function () {
+      $(this).parent().parent().remove();
+    });
+
+    //添加产品图片
+    $('#img_add').uploads({
+      'c_id': 'img_add',
+      'input_id': 'imagepath',
+      'c_url': "http://test.shop.golddiy.com/admin/upload/image",
+      'number': 6
+    });
+
+    $('#auction-pri').show();
+    $('.js-auction-choose').change(function(){
+      var checkValue=$(this).val();
+      if(checkValue == '0'){
+        $('#auction-pri').show();
+      }else{
+        $('#auction-pri').hide();
+      }
+    });
+    $('.js-auction-pri').keyup(function () {
+      var num = $(this).val();
+        num = 10 * parseInt(num);
+      $('.js-auction-calTol').html(num);
+
+    });
+
+  });
+</script>
+
+</body>
+</html>

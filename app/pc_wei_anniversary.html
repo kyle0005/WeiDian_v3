@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>微店周年庆</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <style>
+    /* base.css */
+    body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+      margin: 0;
+      padding: 0
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 100%
+    }
+
+    ul, ol, li {
+      list-style: none
+    }
+
+    em, i {
+      font-style: normal
+    }
+
+    strong, b {
+      font-weight: normal
+    }
+
+    img {
+      border: 0
+    }
+
+    input, img {
+      vertical-align: middle
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    a:hover{
+      text-decoration: none;
+    }
+
+    * {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    }
+
+    input, select, textarea {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-appearance: none;
+      border: 0;
+      border-radius: 0
+    }
+
+    textarea:focus {
+      outline: 0
+    }
+    html{
+      font-size: 12px;
+    }
+    body {
+      height: 100%;
+    }
+
+    .clearfix:after {
+      display: block;
+      content: '';
+      clear: both;
+      visibility: hidden
+    }
+
+    .none {
+      display: none !important
+    }
+    .relative {
+      position: relative;
+    }
+    .absolute {
+      position: absolute;
+    }
+    /* base.css end */
+
+    @font-face {
+      font-family: corbel;
+      src: url(Public/fonts/corbel.ttf);
+      /*src: url(Public/fonts/corbel.ttf?#font-spider) format('truetype');*/
+    }
+    @font-face {
+      font-family: frutiger;
+      src: url(Public/fonts/FrutigerLT75Black.ttf);
+      /*src: url(Public/fonts/FrutigerLT75Black.ttf?#font-spider) format('truetype');*/
+    }
+    @font-face {
+      font-family: fa;
+      src: url(Public/fonts/时尚中黑简体.ttf);
+      /*src: url(Public/fonts/时尚中黑简体.ttf?#font-spider) format('truetype');*/
+    }
+    .anni-bg{
+      background: url("Public/img/anniversary.jpg") no-repeat center center;
+      height: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      color: #fff;
+    }
+    .anni-logo{
+      width: 100%;
+      padding-bottom: 9.6875%;
+    }
+    .anni-logo>img{
+      margin-left: 2.604%;
+      margin-top: 2.604%;
+      width: 10.46875%;
+    }
+    .anni-content{
+      width: 64.0625%;
+      margin: 0 auto;
+    }
+    .anni-title-fir{
+      font-family: fa;
+      font-size: 8.3333rem;
+      height: 8.3333rem;
+      line-height: 8.3333rem;
+      text-align: center;
+      margin-bottom: 2.195%;
+    }
+    .anni-title-sec{
+      text-align: center;
+      font-family: corbel;
+      font-size: 5.2rem;
+      height: 5.2rem;
+      line-height: 5.2rem;
+      letter-spacing: -3px;
+      margin-bottom: 10.9756%;
+    }
+    .anni-amout{
+      margin-bottom: 8.13%;
+    }
+    .anni-amout li{
+      position: relative;
+      float: left;
+      height: 11.16667rem;;
+      line-height: 11.16667rem;
+      width: 7.47967%;
+    }
+    .anni-amout li.anni-amout-fir{
+      font-family: fa;
+      font-size: 6rem;
+      width: 25.20325%;
+    }
+    .anni-amout-mark{
+      font-family: fa;
+      font-size: 8.3333rem;
+      background: url('Public/img/anni_num_pill.png') center center no-repeat;
+      background-size: 100%;
+      text-indent: -0.813%;
+    }
+    .anni-amout-nums{
+      font-family: frutiger;
+      font-size: 10rem;
+      background: url('Public/img/anni_num_pill.png') center center no-repeat;
+      background-size: 100%;
+      text-indent: 0.3252%;
+    }
+    .anni-amout-nums:last-child{
+      background: url('Public/img/anni_num.png') center center no-repeat;
+      background-size: 100%;
+    }
+    .anni-visit{
+      margin-bottom: 13.9837%;
+    }
+    .anni-visit span{
+      display: inline-block;
+      line-height: 4.5833rem;
+    }
+    .anni-visit-title{
+      font-family: fa;
+      font-size: 4.5833rem;
+      float: left;
+    }
+    .anni-visit-title:last-child{
+      float: right;
+    }
+    .anni-visit-num{
+      font-family: frutiger;
+      font-size: 4.5833rem;
+    }
+    @media screen and (max-width: 1680px) and (min-width: 1600px){
+      /* 1680x1050 */
+      html{
+        font-size: 10.7px;
+      }
+      .anni-logo{
+        padding-bottom: 10%;
+      }
+      .anni-visit{
+        margin-bottom: 19.2%;
+      }
+    }
+    @media screen and (max-width: 1600px) and (min-width: 1440px){
+      /* 1600x900 */
+      html{
+        font-size: 10.2px;
+      }
+      .anni-logo{
+        padding-bottom: 5%;
+      }
+      .anni-visit{
+        margin-bottom: 15.8%;
+      }
+    }
+    @media screen and (max-width: 1440px) and (min-width: 1366px){
+      /* 1440x900 */
+      html{
+        font-size: 9.2px;
+      }
+      .anni-logo{
+        padding-bottom: 7%;
+      }
+      .anni-visit{
+        margin-bottom: 18.5%;
+      }
+    }
+    @media screen and (max-width: 1366px) and (min-width: 1280px){
+      /* 1366x768 */
+      html{
+        font-size: 8.7px;
+      }
+      .anni-logo{
+        padding-bottom: 4%;
+      }
+      .anni-visit{
+        margin-bottom: 11.2%;
+      }
+    }
+    @media screen and (max-width: 1280px) and (min-width: 1024px){
+      /* 1280x800 */
+      html{
+        font-size: 8.2px;
+      }
+      .anni-logo{
+        padding-bottom: 8%;
+      }
+      .anni-visit{
+        margin-bottom: 12%;
+      }
+    }
+    @media screen and (max-width: 1024px) and (min-width: 800px){
+      /* 1024x768 */
+      html{
+        font-size: 6.56px;
+      }
+      .anni-logo{
+        padding-bottom: 10%;
+      }
+      .anni-title-fir {
+        margin-bottom: 0;
+      }
+      .anni-title-sec {
+        letter-spacing: -2px;
+      }
+      .anni-visit{
+        margin-bottom: 20.3%;
+      }
+    }
+    @media screen and (max-width: 800px){
+      /* 800x600 */
+      html{
+        font-size: 5.1px;
+      }
+      .anni-logo{
+        padding-bottom: 7%;
+      }
+      .anni-title-sec {
+        letter-spacing: -1.5px;
+      }
+      .anni-amout {
+        margin-bottom: 0;
+      }
+      .anni-visit{
+        margin-bottom: 18%;
+      }
+    }
+
+  </style>
+</head>
+<body class="anni-bg">
+<section style="height: 100%;">
+  <div class="anni-logo">
+    <img src="Public/img/anni_logo.png"/>
+  </div>
+  <div class="anni-content">
+    <div class="anni-title-fir">2016年黄金历史微店周年庆</div>
+    <div class="anni-title-sec">GOLD HISTORICAL MICRO SHOP ANNIVERSARY</div>
+    <ul class="anni-amout clearfix">
+      <li class="anni-amout-fir">
+        总销售额
+      </li>
+      <li class="anni-amout-mark">￥</li>
+      <li class="anni-amout-nums">1</li>
+      <li class="anni-amout-nums">2</li>
+      <li class="anni-amout-nums">3</li>
+      <li class="anni-amout-nums">4</li>
+      <li class="anni-amout-nums">5</li>
+      <li class="anni-amout-nums">6</li>
+      <li class="anni-amout-nums">7</li>
+      <li class="anni-amout-nums">8</li>
+      <li class="anni-amout-nums">9</li>
+    </ul>
+    <div class="anni-visit clearfix">
+      <span class="anni-visit-title"><span class="anni-visit-num"></span></span>
+      <span class="anni-visit-title"><span class="anni-visit-num"></span></span>
+    </div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>上下加载(iscroll)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!--demo展示所用css，不用关心 begin-->
+  <style>
+    /* reset.css */
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+    time, mark, audio, video, input  {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+      -webkit-text-size-adjust: none;
+    }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+
+    body {
+      font-family: arial, sans-serif;
+    }
+
+    ol, ul {
+      list-style: none;
+    }
+
+    blockquote, q {
+      quotes: none;
+    }
+
+    blockquote:before, blockquote:after, q:before, q:after {
+      content: '';
+      content: none;
+    }
+
+    ins {
+      text-decoration: none;
+    }
+
+    del {
+      text-decoration: line-through;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    /* reset.css end*/
+
+    .ui-refresh{
+      height: 300px;
+    }
+
+    .data-list {
+      width: 100%;
+      text-align: left;
+    }
+
+    .data-list li {
+      color: #333;
+      border-bottom: 1px solid #e7e7e7;
+      background-color: #fafafa;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 10px 10px 90px;
+      display: block;
+      position: relative;
+      -webkit-transform: translateZ(0px);
+    }
+
+    .data-list li.ui-list-hover {
+      background: #ededed;
+    }
+
+    .data-list li a {
+      text-decoration: none;
+    }
+
+    .data-list li dt {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 16px;
+      padding-top: 10px;
+      color: #333;
+    }
+
+    .data-list li dt:first-child {
+      padding-top: 0;
+    }
+
+    .data-list li dd.content {
+      font-size: 14px;
+      color: #545454;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+
+    .data-list li dd.source {
+      font-size: 12px;
+      color: #969696;
+      margin-top: 8px;
+    }
+
+    .data-list img {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      width: 57px;
+      margin-top: -35px;
+    }
+  </style>
+  <!--demo展示所用css end-->
+
+  <!--组件依赖css begin-->
+  <style>
+    .ui-loading {
+      width: 40px;
+      height: 40px;
+      text-indent: -10000px;
+      background: url('ui-loading.png') 0 0 no-repeat;
+      -webkit-background-size: 40px 40px;
+      -webkit-animation-name: ui-loading-anim;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: step-start;
+    }
+
+    @-webkit-keyframes ui-loading-anim {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      8.32% {
+        -webkit-transform: rotate(0deg);
+      }
+      8.33% {
+        -webkit-transform: rotate(30deg);
+      }
+      16.65% {
+        -webkit-transform: rotate(30deg);
+      }
+      16.66% {
+        -webkit-transform: rotate(60deg);
+      }
+      24.99% {
+        -webkit-transform: rotate(60deg);
+      }
+      25% {
+        -webkit-transform: rotate(90deg);
+      }
+      33.32% {
+        -webkit-transform: rotate(90deg);
+      }
+      33.33% {
+        -webkit-transform: rotate(120deg);
+      }
+      41.65% {
+        -webkit-transform: rotate(120deg);
+      }
+      41.66% {
+        -webkit-transform: rotate(150deg);
+      }
+      49.99% {
+        -webkit-transform: rotate(150deg);
+      }
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+      58.32% {
+        -webkit-transform: rotate(180deg);
+      }
+      58.33% {
+        -webkit-transform: rotate(210deg);
+      }
+      66.65% {
+        -webkit-transform: rotate(210deg);
+      }
+      66.66% {
+        -webkit-transform: rotate(240deg);
+      }
+      74.99% {
+        -webkit-transform: rotate(240deg);
+      }
+      75% {
+        -webkit-transform: rotate(270deg);
+      }
+      83.32% {
+        -webkit-transform: rotate(270deg);
+      }
+      83.33% {
+        -webkit-transform: rotate(300deg);
+      }
+      91.65% {
+        -webkit-transform: rotate(300deg);
+      }
+      91.66% {
+        -webkit-transform: rotate(330deg);
+      }
+      99.99% {
+        -webkit-transform: rotate(330deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    .ui-refresh .ui-refresh-up, .ui-refresh .ui-refresh-down{
+      background: #fff;
+      padding: 1em 10px;
+      border-bottom: 1px solid #ccc;
+      font-size: 14px;
+      color: #888;
+      text-align: center;
+    }
+
+    @media all and (min-device-width: 768px) and (max-device-width:1024px) {
+      .ui-refresh .ui-refresh-up, .ui-refresh .ui-refresh-down{
+        font-size: 16px;;
+      }
+    }
+
+    .ui-refresh .ui-refresh-up .ui-loading,
+    .ui-refresh .ui-refresh-down .ui-loading{
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      -webkit-background-size: 25px 25px;
+      vertical-align: middle;
+    }
+    .ui-refresh .ui-refresh-up .ui-refresh-label,
+    .ui-refresh .ui-refresh-down .ui-refresh-label{
+      display: inline-block;
+      vertical-align: middle;
+      color: #2E435D;
+    }
+
+    .ui-refresh .ui-refresh-up .ui-refresh-icon,
+    .ui-refresh .ui-refresh-down .ui-refresh-icon{
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      background: url('r-flip.png') no-repeat;
+      -webkit-background-size: 25px 25px;
+      -webkit-transition-property: -webkit-transform;
+      -webkit-transition-duration: 400ms;
+      -webkit-transition-timing-function: ease-in-out;
+    }
+
+    .ui-refresh .ui-refresh-down .ui-refresh-icon{
+      -webkit-transform: rotate(180deg) translateZ(0);
+    }
+
+    .ui-refresh .ui-refresh-up .ui-refresh-flip{
+      -webkit-transform: rotate(180deg) translateZ(0);
+    }
+
+    .ui-refresh .ui-refresh-down .ui-refresh-flip{
+      -webkit-transform: rotate(0deg) translateZ(0);
+    }
+
+
+    .ui-refresh .ui-refresh-up .ui-loading,
+    .ui-refresh .ui-refresh-down .ui-loading{
+      -webkit-transition-duration: 0ms;      /*鍋滄flip鍔ㄧ敾*/
+    }
+  </style>
+  <!--组件依赖css end-->
+  <!--组件依赖js begin-->
+  <script type="text/javascript" src="jquery-1.8.3.js"></script>
+  <script type="text/javascript" src="iscroll.js"></script>     <!--iScroll-->
+  <script type="text/javascript" src="gmu.js"></script>
+  <script type="text/javascript" src="event.js"></script>
+  <script type="text/javascript" src="widget.js"></script>
+  <script type="text/javascript" src="refresh.js"></script>
+  <script type="text/javascript" src="$iscroll.js"></script>   <!--iscroll上下滑动插件-->
+  <!--组件依赖js end-->
+</head>
+
+<body>
+<div class="ui-refresh">
+  <div class="ui-refresh-up"></div>    <!--setup方式带有class为ui-refresh-down或ui-refresh-up的元素必须加上，用于放refresh按钮-->
+  <ul class="data-list">
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.baidu.com">
+        <dl>
+          <dt>英国地标“大本钟”用女王名</dt>
+          <dd class="content">新华网深圳3月23日电（记者 赵瑞西）23日，深圳市南山区西里医院的大楼</dd>
+          <dd class="source">来源：新浪</dd>
+        </dl>
+      </a>
+    </li>
+  </ul>
+  <div class="ui-refresh-down"></div>      <!--setup方式带有class为ui-refresh-down或ui-refresh-up的元素必须加上，用于放refresh按钮-->
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    /*组件初始化js begin*/
+    $('.ui-refresh').css('height', window.innerHeight - ($('header').height() || 42)).refresh({
+      load: function (dir, type) {
+        var me = this;
+        $.getJSON('refresh.php', function (data) {
+          var $list = $('.data-list'),
+            html = (function (data) {      //数据渲染
+              var liArr = [];
+              $.each(data, function () {
+                liArr.push(this.html);
+              });
+              return liArr.join('');
+            })(data);
+
+          $list[dir == 'up' ? 'prepend' : 'append'](html);
+          me.afterDataLoading(dir);    //数据加载完成后改变状态
+        });
+      }
+    });
+    /*组件初始化js end*/
+  })
+</script>
+</body>
+</html>

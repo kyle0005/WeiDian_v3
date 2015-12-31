@@ -151,6 +151,11 @@ function loaded() {
     myScroll = new iScroll('wrapper', {
         scrollbarClass: 'myScrollbar', /* 重要样式 */
         topOffset: pullDownOffset,
+        useTransition: false,
+      hScrollbar: false,
+      vScrollbar: false,
+      momentum: false,
+      useTransform: false,
         onRefresh: function () {
             if (pullDownEl.className.match('loading')) {
                 pullDownEl.className = '';
