@@ -12,6 +12,14 @@ $(function () {
         try { m += s2.split(".")[1].length } catch (e) { }
         return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
     }
+
+  function countPrice(price, num){
+    price = new BigDecimal(price.toString())
+      .multiply(new BigDecimal(num.toString()));
+    price = price <= 0 ? 0 : price;
+    return (parseFloat(price).toFixed(2)).toString();
+  }
+
     function countSumPrice() {
         //计算全部宝贝价格
         total_pri = 0.00;
@@ -21,8 +29,8 @@ $(function () {
             if($(this).is((':checked'))){
                 var price = $(this).parent().siblings('.cart-list-item').find('em.subtotal').attr('tprice');
                 var num = $(this).parent().siblings('.cart-list-item').find('input.c-f-text').val();
-                //total_pri += (price * num);
-                total_pri += accMul(price, num);
+                //total_pri += accMul(price, num);
+              total_pri += countPrice(price, num);
                 total_pri.toFixed(2);
                 _goods_ids += $(this).data('goodsid') + ',';
                 _ext_ids += $(this).data('extid') + ',';

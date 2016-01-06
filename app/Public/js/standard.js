@@ -20,14 +20,14 @@ $(function(){
         var s = $('.selectedli');
         if (s.length > 0) {
             $('.js-price').html('¥' + s.data('price') + '');
-            $('.js-rest').html('（库存' + s.data('stock') + '件）');
+            $('.js-rest').html('[' + s.data('stock-desc') + ']');
             $('.js-chosen').html('已选："' + $('.selectedli').text() + '"');
             $('#ext_id').val(s.data('extid'));
             $('#goods_number').data('default', s.data('stock'));
             $('#goods_number').val(1);
         } else {
             $('.js-price').html($('.js-price').data('src'));
-            $('.js-rest').html('（库存'+ $('.js-rest').data('src') +'件）');
+            $('.js-rest').html('['+ $('.js-rest').data('src') +']');
             $('.js-chosen').html('已选：""');
             $('#ext_id').val('');
             $('#goods_number').data('default', $('.js-rest').data('src'));

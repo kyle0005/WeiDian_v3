@@ -233,21 +233,16 @@
 
     </div>
 </footer>
-<div class="c-float-popWrap confirmMode none" style="opacity: 1; top: 234.5px; left: 50px; position: absolute">
-    <div class="c-float-modePop">
-        <div class="warnMsg">确认删除这<span class="del-num">1</span>种商品？</div>
-        <div class="content"></div>
-        <div class="doBtn">
-            <button class="ok">确定</button>
-            <button class="cancel">取消</button>
-        </div>
-    </div>
-</div>
 
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
 <script src="Public/js/tools.js"></script>
 <script src="Public/js/BigDecimal-all-last.min.js"></script>
 <script src="Public/js/cart.js"></script>
+<script>
+  $(function () {
+    $('.c-f-checkbox').attr("checked", false);
+  })
+</script>
 </body>
 </html>
