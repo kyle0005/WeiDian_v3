@@ -25,7 +25,7 @@
           , _j = 0
           , _num = 0;
         var obj = new Image();
-        obj.src = 'Public/js/shake/mainbg.jpg';
+        obj.src = 'Public/shake/mainbg.jpg';
         obj.onload = obj.onreadystatechange = obj.onerror = function(){
           _j++;
           _num = _j/len*100;
@@ -98,7 +98,7 @@
           }
         }
 
-        //$.addHandler(win, "devicemotion", deviceMotionHandler);//摇一摇暂时去掉
+        $.addHandler(win, "devicemotion", deviceMotionHandler);//摇一摇暂时去掉
 
         Min.start();
 
