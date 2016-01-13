@@ -185,12 +185,29 @@
           var content = document.getElementsByClassName('content')[0];
           setTimeout(function () {
             $('.content').fadeIn(content, 20, 100);
-            $('.js-again').click(function () {
-              win.location.reload();
-            });
           }, 800);
 
+          $('.js-again').click(function () {
+            win.location.reload();
+          });
+
         },700);
+
+
+        //卷轴效果
+        var c = document.getElementsByClassName("content-c")[0];
+        var wid = 0;
+        var speed = 60;
+        c.style.width = wid + "%";
+        (function () {
+          wid += 2;
+          c.style.width = wid + "%";
+          if (wid < 88) {
+            setTimeout(arguments.callee, speed)
+          }
+        })();
+
+
       }
     }
     ,P = { //公用
