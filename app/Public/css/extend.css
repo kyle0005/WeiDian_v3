@@ -31,6 +31,64 @@ ul li{
 .red{
     color: red;
 }
+.color-theme {
+  color: #ff5000;
+}
+
+.color-theme2 {
+  color: #ff8000;
+}
+.color-f15424{
+  color: #f15424;
+}
+
+.color-ccc {
+  color: #cccccc;
+}
+
+.color-999 {
+  color: #999999;
+}
+
+.color-666 {
+  color: #666666;
+}
+
+.color-333 {
+  color: #333333;
+}
+
+.color-eee {
+  color: #eeeeee;
+}
+
+.color-org {
+  color: #f8a31f;
+}
+
+.color-dOrg {
+  color: #f4cc66;
+}
+
+.color-blue {
+  color: rgb(93, 107, 133);
+}
+
+.color-black {
+  color: #000000;
+}
+
+.color-white {
+  color: #ffffff;
+}
+
+.color-b51 {
+  color: #515151;
+}
+
+.color-b666 {
+  color: #666666;
+}
 /* 颜色结束 */
 
 /* 按钮开始 */
@@ -2904,4 +2962,89 @@ input[type=radio].hst-radio {
 }
 /*app下载结束*/
 
+/*index-new*/
+.pc-header{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eeeeef;
+}
+.pc-contanier{
+  width: 1000px;
+  height: 60px;
+  margin: 0 auto;
+  line-height: 60px;
 
+}
+.pc-header-log{
+  float: right;
+}
+.pc-header-log li{
+  position: relative;
+  float: left;
+  width: 70px;
+}
+.pc-header-log li:nth-child(1)::after{
+  content: "";
+  display: block;
+  width: 1px;
+  height: 10px;
+  background: #ccc;
+  position: absolute;
+  right: 0px;
+  top: 25px;
+}
+.pc-header-a{
+  display: block;
+  margin: 19px 0;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  color: #333;
+  border: 1px solid #f8f8f8;
+}
+.pc-header-log li:nth-child(2) a{
+  margin-left: 10px;
+}
+a.pc-header-a:hover{
+  background-color: #fff;
+  border: 1px solid #efefef;
+  color: #333;
+}
+.pc-focus{
+  background: url("../img/test.png") no-repeat center;
+  background-size: cover;
+  height: 640px;
+  width: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: zz;
+  src: url(../fonts/造字工房悦黑常规体.otf);
+}
+
+.pc-title{
+  font-family: zz;
+  font-size: 36px;
+  line-height: 36px;
+  margin: 113px 0 7px;
+}
+.pc-vTitle{
+  font-family: zz;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+  margin-bottom: 30px;
+}
+.pc-contanier .pc-down{
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  vertical-align: text-bottom;
+}
+a.pc-down:hover{
+  border: 1px solid #ff8000;
+  background-color: #fff;
+  color: #ff8000;
+}
+/*index-new end*/

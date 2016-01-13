@@ -30,8 +30,7 @@ $(function () {
                 var price = $(this).parent().siblings('.cart-list-item').find('em.subtotal').attr('tprice');
                 var num = $(this).parent().siblings('.cart-list-item').find('input.c-f-text').val();
                 //total_pri += accMul(price, num);
-              total_pri += countPrice(price, num);
-                total_pri.toFixed(2);
+              total_pri += parseFloat(countPrice(price, num));
                 _goods_ids += $(this).data('goodsid') + ',';
                 _ext_ids += $(this).data('extid') + ',';
             }
