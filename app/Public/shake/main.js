@@ -185,6 +185,9 @@
           var content = document.getElementsByClassName('content')[0];
           setTimeout(function () {
             $('.content').fadeIn(content, 20, 100);
+            $('.js-again').click(function () {
+              win.location.reload();
+            });
           }, 800);
 
         },700);

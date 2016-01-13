@@ -17,7 +17,7 @@ body { font: 1em/16em; font-size:75%; font-family:"微软雅黑", "Microsoft YaH
 }
 @font-face {
   font-family: l;
-  src: url(../fonts/DINCond-Medium.otf);
+  src: url(FZLSJW.TTF);
 }
 body,div,p,h1,h2,h3{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;}
 address,cite,em,i{font-style:normal;}li{list-style:none;}
@@ -117,11 +117,11 @@ body,.game,.loading,.mainbg{ display:-webkit-box; display:-moz-box; display:-ms-
 }
 .reel-result{
   position: absolute;
-  width: 90%;
+  width: 96%;
   top: 25%;
-  left: 5%;
+  left: 2%;
   color: #46270b;
-  font-size: 14px;
+  font-size: 15px;
   font-family: l;
 }
 .reel-title{
