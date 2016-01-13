@@ -16,8 +16,8 @@ body { font: 1em/16em; font-size:75%; font-family:"微软雅黑", "Microsoft YaH
   clear: both;
 }
 @font-face {
-  font-family: aa;
-  src: url(LISHUSJ.TTF);
+  font-family: l;
+  src: url(../fonts/DINCond-Medium.otf);
 }
 body,div,p,h1,h2,h3{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;}
 address,cite,em,i{font-style:normal;}li{list-style:none;}
@@ -122,7 +122,7 @@ body,.game,.loading,.mainbg{ display:-webkit-box; display:-moz-box; display:-ms-
   left: 5%;
   color: #46270b;
   font-size: 14px;
-  font-family: aa;
+  font-family: l;
 }
 .reel-title{
   color: #d40110;
