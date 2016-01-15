@@ -3,12 +3,7 @@
  */
 (function( win ){
   var body = $('body')
-    ,L = {//进度条
-      bg : function(){
-
-      }
-    }
-    ,I = {
+    I = {
       _init : function(){
         I.html();
         I.loading();
@@ -25,7 +20,7 @@
           , _j = 0
           , _num = 0;
         var obj = new Image();
-        obj.src = 'Public/js/shake/mainbg.jpg';
+        obj.src = config.imgPre + 'shake/mainbg.jpg';
         obj.onload = obj.onreadystatechange = obj.onerror = function(){
           _j++;
           _num = _j/len*100;
@@ -34,14 +29,10 @@
             I.hideDiv(I.load,0);
           }
         }
-
       }
       ,html : function(){
         I.load = $("<div class='loading'><div class='bg'><div class='num' style='width:2%'></div></div></div>").appendTo(body);
         I.load.num = I.load.find('.num')
-      }
-      ,down : function(){
-
       }
     }
     ,Min = { //首页
@@ -51,25 +42,23 @@
       ,_platform: ''
       ,_init : function(){
         Min.bg = $('.mainbg');
-        //Min.btn = Min.bg.find('.btn')   //点击事件
         Min.resize();
 
         //判断移动设备iPhone4或iPhone5
         function get_platform() {
-          var _width = document.body.clientWidth ;
           var _height = document.body.clientHeight ;
           return (_height > 480 ? 'p5' : 'p4');
         }
         Min._platform = get_platform();
         if(Min._platform == 'p4'){
           var bg = document.getElementsByClassName("couqian")[0];
-          bg.style.backgroundImage = "url(Public/shake/wei_bg_ip4.png)";
+          bg.style.backgroundImage = "url(" + config.imgPre + "shake/wei_bg_ip4.png)";
           bg.style.backgroundPosition = "center top";
           bg.style.backgroundRepeat = "no-repeat";
           bg.style.backgroundSize = "100%";
 
           var shakeGif = document.getElementsByClassName("reel-shake")[0];
-          shakeGif.style.marginTop = "53%";
+          shakeGif.style.marginTop = "56%";
         }
 
         //摇一摇
@@ -80,7 +69,6 @@
       ,resize : function(){
         var  _v = P.width/Min.w
           ,_h = _v*Min.h;
-        //Min.bg.css({h:_h})
       }
       ,start : function(){
         body.css({overflowY:'hidden'});
@@ -117,23 +105,17 @@
             shake.liTime = new Date().getTime();
             if(shake.curTime > 10000 && (shake.liTime - shake.curTime) > 480){
               shake.curTime = 0;
-
               shake.shakeFlag = true;
-
             }
-
             var acceleration =event.accelerationIncludingGravity;
-
               shake.x = acceleration.x;
               shake.y = acceleration.y;
               shake.z = acceleration.z;
-
             if(Math.abs(shake.x-shake.lastX) > shake.speed || Math.abs(shake.y-shake.lastY) > shake.speed) {
               shake.curTime = new Date().getTime();
               shake.liTime = shake.curTime;
               shake.sTime = new Date().getTime();
               Min.start();
-
             } else if (shake.sTime && (new Date().getTime() - shake.sTime) >= 1000) {
               window.removeEventListener('devicemotion',shake.deviceMotionHandler,false);
               G.end();
@@ -141,46 +123,7 @@
             shake.lastX = shake.x;
             shake.lastY = shake.y;
             shake.lastZ = shake.z;
-
-                //// 获取含重力的加速度
-                //var acceleration = event.accelerationIncludingGravity;
-                //
-                //// 获取当前时间
-                //var cTime = new Date().getTime();
-                //var diffTime = cTime -shake.last_update;
-                //// 固定时间段
-                //if (diffTime > 150) {
-                //  shake.last_update = cTime;
-                //
-                //  shake.x = acceleration.x;
-                //  shake.y = acceleration.y;
-                //  shake.z = acceleration.z;
-                //
-                //  var speed = Math.abs(shake.x + shake.y + shake.z - shake.lastX - shake.lastY - shake.lastZ) / diffTime * 10000;
-                //
-                //  shake.liTime = new Date().getTime();
-                //  if (speed > shake.SHAKE_THRESHOLD) {
-                //    shake.curTime = 0;
-                //
-                //    setTimeout(function(){
-                //      shake.shakeFlag = true;
-                //      Min.start();
-                //    },100);
-                //  }
-                //
-                //  if(Math.abs(shake.x-shake.lastX) > shake.speed || Math.abs(shake.y-shake.lastY) > shake.speed) {
-                //    shake.curTime = new Date().getTime();
-                //    shake.liTime = shake.curTime;
-                //  }
-                //
-                //  shake.lastX = shake.x;
-                //  shake.lastY = shake.y;
-                //  shake.lastZ = shake.z;
-                //}
-
-
           }
-
       }
     ,G = { //开始游戏
       bg : $('.game')
@@ -189,13 +132,7 @@
       ,icon : $('.game .qian i')
       ,num : 9
       ,_init : function(){
-        G.page = [
-          'page-dxzq.html'
-          , 'page-hjfs.html'
-          , 'page-kssz.html'
-          , 'page-qxph.html'
-          , 'page-slb.html'
-        ];
+        G.page = [];
       }
       ,start : function(){
         G.bg.css3({display:'box'},true)
@@ -209,16 +146,11 @@
                 G.icon.addClass('i-bg'+num);
                 setTimeout(v,200);
           }
-
         })();
       }
       ,end : function(){
         G.one.css({dis:0});
         G.two.css({dis:1});
-
-        var n = Math.floor(Math.random() * G.num)+1
-
-          //win.location.href = G.page[n-1]; //跳转解签页面 暂时去掉
 
           var end = document.getElementsByClassName('end')[0];
           setTimeout(function () {
@@ -237,12 +169,13 @@
           var arr = [];
           arr.push(n + '');
           $.local.set('gameNum', JSON.stringify(arr));
-          $('.js-again').click(function () {
+
+          var again = document.getElementsByClassName('js-again')[0];
+          again.onclick = function () {
             win.location.reload();
-          });
+          };
 
         },1000);
-
 
         //卷轴效果
         var c = document.getElementsByClassName("content-c")[0];
@@ -258,6 +191,14 @@
         })();
 
         var txt = document.getElementsByClassName('reel-result')[0];
+        var reelTitle = document.getElementsByClassName('reel-title')[0];
+        var reelTxt = document.getElementsByClassName('reel-txt')[0];
+
+        //获取解签内容
+        var n = Math.floor(Math.random() * config.sticks.length);
+        reelTitle.innerHTML = config.sticks[n].title;
+        reelTxt.innerHTML = config.sticks[n].content;
+
         setTimeout(function () {
           $('.reel-result').fadeIn(txt, 20, 100);
         }, 2400);

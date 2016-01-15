@@ -308,8 +308,9 @@ body, .game, .loading, .mainbg {
 }
 
 .reel-shake {
-  margin-top: 64%;
+  margin-top: 66%;
   width: 16%;
+  margin-left: 2%;
 }
 
 .content {
