@@ -48,16 +48,34 @@
       w : 480
       ,h : 853  // w , h 为图片比列
       ,flag: false
+      ,_platform: ''
       ,_init : function(){
         Min.bg = $('.mainbg');
         //Min.btn = Min.bg.find('.btn')   //点击事件
         Min.resize();
 
-        //摇一摇
-        shake.init();
+        //判断移动设备iPhone4或iPhone5
+        function get_platform() {
+          var _width = document.body.clientWidth ;
+          var _height = document.body.clientHeight ;
+          return (_height > 480 ? 'p5' : 'p4');
+        }
+        Min._platform = get_platform();
+        if(Min._platform == 'p4'){
+          var bg = document.getElementsByClassName("couqian")[0];
+          bg.style.backgroundImage = "url(Public/shake/wei_bg_ip4.png)";
+          bg.style.backgroundPosition = "center top";
+          bg.style.backgroundRepeat = "no-repeat";
+          bg.style.backgroundSize = "100%";
 
-        //shake.shakeFlag = true;
-        //Min.start();
+          var shakeGif = document.getElementsByClassName("reel-shake")[0];
+          shakeGif.style.marginTop = "53%";
+        }
+
+        //摇一摇
+        //shake.init();
+        Min.start();
+        G.end();
       }
       ,resize : function(){
         var  _v = P.width/Min.w
@@ -191,11 +209,6 @@
                 G.icon.addClass('i-bg'+num);
                 setTimeout(v,200);
           }
-          else{
-              //window.removeEventListener('devicemotion',shake.deviceMotionHandler,false);
-              //G.end();
-
-              }
 
         })();
       }
@@ -230,7 +243,7 @@
         //卷轴效果
         var c = document.getElementsByClassName("content-c")[0];
         var wid = 0;
-        var speed = 60;
+        var speed = 50;
         c.style.width = wid + "%";
         (function () {
           wid += 2;
@@ -240,7 +253,10 @@
           }
         })();
 
-
+        var txt = document.getElementsByClassName('reel-result')[0];
+        setTimeout(function () {
+          $('.reel-result').fadeIn(txt, 20, 100);
+        }, 2400);
       }
     }
     ,P = { //公用

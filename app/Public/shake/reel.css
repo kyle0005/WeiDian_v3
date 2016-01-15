@@ -1,5 +1,8 @@
-body { font: 1em/16em; font-size:75%; font-family:"微软雅黑", "Microsoft YaHei", "Hiragino Sans GB", Helvetica, Arial, sans-serif}
-
+body {
+  font: 1em/16em;
+  font-size: 75%;
+  font-family: "微软雅黑", "Microsoft YaHei", "Hiragino Sans GB", Helvetica, Arial, sans-serif
+}
 
 .clearfix {
   *zoom: 1;
@@ -15,88 +18,328 @@ body { font: 1em/16em; font-size:75%; font-family:"微软雅黑", "Microsoft YaH
 .clearfix:after {
   clear: both;
 }
+
 @font-face {
   font-family: l;
   src: url(FZLSJW.TTF);
 }
-body,div,p,h1,h2,h3{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;}
-address,cite,em,i{font-style:normal;}li{list-style:none;}
-a{text-decoration:none;}
-a:hover{text-decoration:underline;}
-body { color:#727272; background:#fff;}
+
+body, div, p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+address, cite, em, i {
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  color: #727272;
+  background: #fff;
+}
+
 /* font-family:"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体";*/
-body,html,root{ width:100%; height:100%;}
+body, html, root {
+  width: 100%;
+  height: 100%;
+}
+
 /* pub */
-body,.game,.loading,.mainbg{ display:-webkit-box; display:-moz-box; display:-ms-flexbox; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box;}
-.mainbg,.couqian{ -ms-flex:1; -webkit-box-flex:1; -moz-box-flex:1;}
-.mainbg{ -webkit-box-orient:vertical; -moz-box-orient:vertical; -ms-box-orient:vertical; -o-box-orient:vertical; box-orient:vertical;}
-.game,.loading{ -webkit-box-align:center; -moz-box-align:center; -o-box-align:center; -ms-box-align:center;}
-.game,.loading{ -webkit-box-pack:center; -moz-box-pack:center; -o-box-pack:center; -ms-box-pack:center;}
+body, .game, .loading, .mainbg {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.mainbg, .couqian {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+}
+
+.mainbg {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  -o-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.game, .loading {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-box-align: center;
+}
+
+.game, .loading {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-box-pack: center;
+}
+
 /* main */
-.mainbg{ position:relative; z-index:998; width:100%; background:url(wei_bg_1x1.png) repeat; background-size:100% auto; overflow-y:auto;}
-.main_bg{ background:#efeade; }
-.topbar img{ width:100%; }
-.mainbg .btn{ width:100%; text-align:center; overflow:hidden; padding-bottom:10px;}
-.mainbg .btn img{width:70%;}
-.couqian{ text-align:center; overflow:hidden; background:url(wei_bg.png) center top no-repeat; background-size:100%; }
+.mainbg {
+  position: relative;
+  z-index: 998;
+  width: 100%;
+  background: url(wei_bg_1x1.png) repeat;
+  background-size: 100% auto;
+  overflow-y: auto;
+}
+
+.main_bg {
+  background: #efeade;
+}
+
+.topbar img {
+  width: 100%;
+}
+
+.mainbg .btn {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.mainbg .btn img {
+  width: 70%;
+}
+
+.couqian {
+  text-align: center;
+  overflow: hidden;
+  background-image: url(wei_bg.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
 /* game */
-.game{ position:fixed; z-index:999; top:0; left:0; right:0; bottom:0; width:100%; height:100%; background:rgba(0,0,0,.7)}
-.game .qian{ width:147px; height:304px;}
-.game .qian i{ display:block; width:147px; height:304px; background:url(wei_con.png);}
-.game .qian i.i-bg2{ background-position:-147px 0;}
-.game .qian i.i-bg3{ background-position:-294px 0;}
-.game .qian i.i-bg4{ background-position:-441px 0;}
-.game .qian i.i-bg5{ background-position:-588px 0;}
-.game i.i-qian{ float:left; display:block; width:89px; height:300px; background:url(wei_decode.png); }
+.game {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .7)
+}
 
-.page h1{ padding:10px 20px; line-height: 1.4; font-weight: 400; font-size: 24px; color:#000;}
-.page .time{ margin-bottom: 18px; padding:0 20px; line-height: 20px; font-size:15px;}
-.content .pic,.weixincode{ padding:0 10px 10px;}
-.weixincode img{ width:100%;}
-.content .pic img{ width:100%;}
+.game .qian {
+  width: 147px;
+  height: 304px;
+}
 
-.share { text-align:center; }
-.share div{ padding:5px 0; }
-.share .btn{ display:inline-block; padding:0 15px; height:45px; line-height:45px; border-radius:.4em; box-shadow:2px 2px 4px rgba(0,0,0,.5); color:#fff; background:#c80000;margin-bottom:10px;font-family:"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","微软雅黑",tahoma,Helvetica,arial,sans-serif,simsun,"宋体";font-size:1.5em;}
+.game .qian i {
+  display: block;
+  width: 147px;
+  height: 304px;
+  background: url(wei_con.png);
+}
 
-.sharebg .bg{ position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.5); -webkit-transition-duration:.3s; -moz-transition-duration:.3s; -ms-transition-duration:.3s; -o-transition-duration:.3s;}
-.sharecnt{ position:absolute; top:50px; right:50px; width:50%;}
-.sharecnt img{ width:100%;}
+.game .qian i.i-bg2 {
+  background-position: -147px 0;
+}
 
-.loading{ position:fixed; left:0; top:0; width:100%; height:100%; z-index:999; background:rgba(0,0,0,.8); -webkit-transition-duration:.3s; -moz-transition-duration:.3s; -ms-transition-duration:.3s; -o-transition-duration:.3s; }
-.loading .bg{ width:70%; height:15px; overflow:hidden; border:3px solid #ccc; overflow:hidden; background:#fff;}
-.loading .num{ width:100%; height:15px; background:#999; -webkit-transition-duration:.3s; -moz-transition-duration:.3s; -ms-transition-duration:.3s; -o-transition-duration:.3s; }
+.game .qian i.i-bg3 {
+  background-position: -294px 0;
+}
 
+.game .qian i.i-bg4 {
+  background-position: -441px 0;
+}
 
-.share-mask { position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.8;background:#000 url(share-mask.png) 90% 10px no-repeat; -moz-background-size:105px 125px; -o-background-size:105px 125px; -webkit-background-size:105px 125px; background-size:105px 125px;display:none;}
+.game .qian i.i-bg5 {
+  background-position: -588px 0;
+}
 
-.reel-shake{
+.game i.i-qian {
+  float: left;
+  display: block;
+  width: 89px;
+  height: 300px;
+  background: url(wei_decode.png);
+}
+
+.page h1 {
+  padding: 10px 20px;
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 24px;
+  color: #000;
+}
+
+.page .time {
+  margin-bottom: 18px;
+  padding: 0 20px;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.content .pic, .weixincode {
+  padding: 0 10px 10px;
+}
+
+.weixincode img {
+  width: 100%;
+}
+
+.content .pic img {
+  width: 100%;
+}
+
+.share {
+  text-align: center;
+}
+
+.share div {
+  padding: 5px 0;
+}
+
+.share .btn {
+  display: inline-block;
+  padding: 0 15px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: .4em;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+  color: #fff;
+  background: #c80000;
+  margin-bottom: 10px;
+  font-family: "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "微软雅黑", tahoma, Helvetica, arial, sans-serif, simsun, "宋体";
+  font-size: 1.5em;
+}
+
+.sharebg .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  -webkit-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -ms-transition-duration: .3s;
+  -o-transition-duration: .3s;
+}
+
+.sharecnt {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 50%;
+}
+
+.sharecnt img {
+  width: 100%;
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, .8);
+  -webkit-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -ms-transition-duration: .3s;
+  -o-transition-duration: .3s;
+}
+
+.loading .bg {
+  width: 70%;
+  height: 15px;
+  overflow: hidden;
+  border: 3px solid #ccc;
+  overflow: hidden;
+  background: #fff;
+}
+
+.loading .num {
+  width: 100%;
+  height: 15px;
+  background: #999;
+  -webkit-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -ms-transition-duration: .3s;
+  -o-transition-duration: .3s;
+}
+
+.share-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: #000 url(share-mask.png) 90% 10px no-repeat;
+  -moz-background-size: 105px 125px;
+  -o-background-size: 105px 125px;
+  -webkit-background-size: 105px 125px;
+  background-size: 105px 125px;
+  display: none;
+}
+
+.reel-shake {
   margin-top: 64%;
   width: 16%;
 }
-.content{
+
+.content {
   position: relative;
   width: 93.75%;
   display: none;
 }
-.reel div{
+
+.reel div {
   float: left;
 }
-.reel img{
+
+.reel img {
   width: 100%;
 }
-.content-l, .content-r{
+
+.content-l, .content-r {
   width: 5.5%;
 }
-.content-c{
+
+.content-c {
   width: 89%;
   position: relative;
 }
-.content-c img{
+
+.content-c img {
   margin-top: 5%;
 }
-.reel-btn{
+
+.reel-btn {
   display: inline-block;
   text-align: center;
   width: 35%;
@@ -106,16 +349,19 @@ body,.game,.loading,.mainbg{ display:-webkit-box; display:-moz-box; display:-ms-
   color: #fff;
   background-color: #d40110;
 }
-.reel-share{
+
+.reel-share {
   position: absolute;
   top: -100%;
   right: 0;
   width: 45%;
 }
-.reel-share img{
+
+.reel-share img {
   width: 100%;
 }
-.reel-result{
+
+.reel-result {
   position: absolute;
   width: 96%;
   top: 25%;
@@ -123,10 +369,13 @@ body,.game,.loading,.mainbg{ display:-webkit-box; display:-moz-box; display:-ms-
   color: #46270b;
   font-size: 15px;
   font-family: l;
+  opacity: 0;
 }
-.reel-title{
+
+.reel-title {
   color: #d40110;
 }
-.reel-txt{
-  font-size: 12px;
+
+.reel-txt {
+  font-size: 14px;
 }
