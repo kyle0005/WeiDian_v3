@@ -352,7 +352,7 @@ body, .game, .loading, .mainbg {
 
 .reel-share {
   position: absolute;
-  top: -100%;
+  top: -90%;
   right: 0;
   width: 45%;
 }

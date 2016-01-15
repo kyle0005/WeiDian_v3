@@ -73,9 +73,9 @@
         }
 
         //摇一摇
-        //shake.init();
-        Min.start();
-        G.end();
+        shake.init();
+        //Min.start();
+        //G.end();
       }
       ,resize : function(){
         var  _v = P.width/Min.w
@@ -228,6 +228,10 @@
           var content = document.getElementsByClassName('content')[0];
           setTimeout(function () {
             $('.content').fadeIn(content, 20, 100);
+            if(Min._platform == 'p4'){
+              var shareImg = document.getElementsByClassName('reel-share')[0];
+              shareImg.style.top = '-65%';
+            }
           }, 1000);
         setTimeout(function(){
           var arr = [];
