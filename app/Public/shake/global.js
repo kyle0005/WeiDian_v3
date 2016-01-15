@@ -44,7 +44,29 @@
           mouseup: "touchend",
           mousemove: "touchmove"
         }[c] || c;
-      a[!0 === e ? "removeEventListener" : "addEventListener"](c, d, !1);
+
+      //a[!0 === e ? "removeEventListener" : "addEventListener"](c, d, !1);
+
+      if(!0 === e){
+        removeEventListener(c, d, !1);
+      }else{
+        addEventListener(c, d, !1);
+      }
+    },
+    removeHandler: function(a, c, d, e) {
+      if ($.browser.isIphone || $.browser.isAndroid) c = {
+          mousedown: "touchstart",
+          mouseup: "touchend",
+          mousemove: "touchmove"
+        }[c] || c;
+
+      //a[!0 === e ? "removeEventListener" : "addEventListener"](c, d, !1);
+
+      if(!0 === e){
+        removeEventListener(c, d, !1);
+      }else{
+        addEventListener(c, d, !1);
+      }
     },
     getEvent: function(a, c, d) {
       a = a || window.event;
@@ -267,9 +289,9 @@
         $.addHandler(this, a, c, d);
       });
     },
-    removeHandler: function(a, c) {
+    removeHandler: function(a, c, d) {
       return this.each(function() {
-        $.addHandler(this, a, c, b);
+        $.removeHandler(this, a, c, b);
       });
     },
     click: function(a) {

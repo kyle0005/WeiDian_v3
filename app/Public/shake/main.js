@@ -47,61 +47,17 @@
     ,Min = { //首页
       w : 480
       ,h : 853  // w , h 为图片比列
+      ,flag: false
       ,_init : function(){
         Min.bg = $('.mainbg');
         //Min.btn = Min.bg.find('.btn')   //点击事件
         Min.resize();
-        //Min.btn.click(Min.start);
-        //setTimeout(Min.start,10000);
 
-        var SHAKE_THRESHOLD = 1000;
-        // 定义一个变量保存上次更新的时间
-        var last_update = 0;
-        // 紧接着定义x、y、z记录三个轴的数据以及上一次出发的时间
-        var x;
-        var y;
-        var z;
-        var last_x;
-        var last_y;
-        var last_z;
+        //摇一摇
+        shake.init();
 
-        // 为了增加这个例子的一点无聊趣味性，增加一个计数器
-        var count = 0;
-
-        function deviceMotionHandler(eventData) {
-          // 获取含重力的加速度
-          var acceleration = eventData.accelerationIncludingGravity;
-
-          // 获取当前时间
-          var curTime = new Date().getTime();
-          var diffTime = curTime -last_update;
-          // 固定时间段
-          if (diffTime > 100) {
-            last_update = curTime;
-
-            x = acceleration.x;
-            y = acceleration.y;
-            z = acceleration.z;
-
-            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-
-            if (speed > SHAKE_THRESHOLD) {
-              setTimeout(function(){
-                Min.start();
-                $.removeHandler(win, "devicemotion", deviceMotionHandler);
-              },300);
-            }
-
-            last_x = x;
-            last_y = y;
-            last_z = z;
-          }
-        }
-
-        //$.addHandler(win, "devicemotion", deviceMotionHandler);//摇一摇暂时去掉
-
-        Min.start();
-
+        //shake.shakeFlag = true;
+        //Min.start();
       }
       ,resize : function(){
         var  _v = P.width/Min.w
@@ -109,13 +65,105 @@
         //Min.bg.css({h:_h})
       }
       ,start : function(){
-        body.css({overflowY:'hidden'})
+        body.css({overflowY:'hidden'});
         G.start();
       }
       ,restart : function(){
         body.css({overflowY:'auto'})
       }
+
     }
+    ,shake = {
+      SHAKE_THRESHOLD: 1000,
+      last_update: 0,
+            speed:10,
+            x:0,
+            y:0,
+            z:0,
+            lastX:0,
+            lastY:0,
+            lastZ:0,
+            liTime:0,
+            curTime:0,
+            shakeFlag:false,
+            sTime:0,
+            init:function(){
+              if(window.DeviceMotionEvent){
+                //绑定摇动事件
+                window.addEventListener('devicemotion',shake.deviceMotionHandler,false);
+              }else{
+                return false;
+              }
+            }
+      ,deviceMotionHandler: function(){
+            shake.liTime = new Date().getTime();
+            if(shake.curTime > 10000 && (shake.liTime - shake.curTime) > 480){
+              shake.curTime = 0;
+
+              shake.shakeFlag = true;
+
+            }
+
+            var acceleration =event.accelerationIncludingGravity;
+
+              shake.x = acceleration.x;
+              shake.y = acceleration.y;
+              shake.z = acceleration.z;
+
+            if(Math.abs(shake.x-shake.lastX) > shake.speed || Math.abs(shake.y-shake.lastY) > shake.speed) {
+              shake.curTime = new Date().getTime();
+              shake.liTime = shake.curTime;
+              shake.sTime = new Date().getTime();
+              Min.start();
+
+            } else if (shake.sTime && (new Date().getTime() - shake.sTime) >= 1000) {
+              window.removeEventListener('devicemotion',shake.deviceMotionHandler,false);
+              G.end();
+            }
+            shake.lastX = shake.x;
+            shake.lastY = shake.y;
+            shake.lastZ = shake.z;
+
+                //// 获取含重力的加速度
+                //var acceleration = event.accelerationIncludingGravity;
+                //
+                //// 获取当前时间
+                //var cTime = new Date().getTime();
+                //var diffTime = cTime -shake.last_update;
+                //// 固定时间段
+                //if (diffTime > 150) {
+                //  shake.last_update = cTime;
+                //
+                //  shake.x = acceleration.x;
+                //  shake.y = acceleration.y;
+                //  shake.z = acceleration.z;
+                //
+                //  var speed = Math.abs(shake.x + shake.y + shake.z - shake.lastX - shake.lastY - shake.lastZ) / diffTime * 10000;
+                //
+                //  shake.liTime = new Date().getTime();
+                //  if (speed > shake.SHAKE_THRESHOLD) {
+                //    shake.curTime = 0;
+                //
+                //    setTimeout(function(){
+                //      shake.shakeFlag = true;
+                //      Min.start();
+                //    },100);
+                //  }
+                //
+                //  if(Math.abs(shake.x-shake.lastX) > shake.speed || Math.abs(shake.y-shake.lastY) > shake.speed) {
+                //    shake.curTime = new Date().getTime();
+                //    shake.liTime = shake.curTime;
+                //  }
+                //
+                //  shake.lastX = shake.x;
+                //  shake.lastY = shake.y;
+                //  shake.lastZ = shake.z;
+                //}
+
+
+          }
+
+      }
     ,G = { //开始游戏
       bg : $('.game')
       ,one : $('.game .qian')
@@ -129,29 +177,7 @@
           , 'page-kssz.html'
           , 'page-qxph.html'
           , 'page-slb.html'
-          , 'page-tk.html'
-          , 'page-tpcz.html'
-          , 'page-wdyl.html'
-          , 'page-zt.html'
-          //, 'page-gr.html'
-          //, 'page-tl.html'
-          //, 'page-tchg.html'
         ];
-        //var wei = 'http://mp.weixin.qq.com/s?__biz=MzAwOTI0MTUxMA==&mid=20664'
-        //G.page = [
-        //	 wei+'4436&idx=1&sn=e8f570f9b156317482b40280405410bc'
-        //	,wei+'4490&idx=1&sn=fad4aac9d709f6ba8ba8f1802ccc93f4'
-        //	,wei+'4541&idx=1&sn=07ae64e7f38736e6f207f1d8ab291196'
-        //	,wei+'4577&idx=1&sn=9ad3f4f8905a205a82d10a3fac1480a6'
-        //	,wei+'4628&idx=1&sn=e4622eb14053984017b35f6235752e8b'
-        //	,wei+'4762&idx=1&sn=d253bc41d250a2c4109e6ebf56a4b70d'
-        //	,wei+'4820&idx=1&sn=36bc163f83a135b39532a03e808a6788'
-        //	,wei+'4889&idx=1&sn=0e6aa572bc35a77534a40d10e191dddc'
-        //	,wei+'4920&idx=1&sn=2d125028db3462f55250d3f79d7c6a47'
-        //	,wei+'4941&idx=1&sn=d506e7ddd08d2ba7f78cf1fd810e2870'
-        //	,wei+'4977&idx=1&sn=0343b2478eba457bef1ae35f6e4bc539'
-        //	,wei+'5004&idx=1&sn=c91a81e0d3b223669dfd95c5eb1b6ab0'
-        //]
       }
       ,start : function(){
         G.bg.css3({display:'box'},true)
@@ -159,14 +185,18 @@
         (function v(){
           num++;
           n++;
-          if(n<11){
-            if(num>5)num=1;
-            G.icon[0].className = '';
-            G.icon.addClass('i-bg'+num);
-            setTimeout(v,300)
-          }else{
-            G.end();
+          if(n<6){
+                if(num>5)num=1;
+                G.icon[0].className = '';
+                G.icon.addClass('i-bg'+num);
+                setTimeout(v,200);
           }
+          else{
+              //window.removeEventListener('devicemotion',shake.deviceMotionHandler,false);
+              //G.end();
+
+              }
+
         })();
       }
       ,end : function(){
@@ -174,24 +204,27 @@
         G.two.css({dis:1});
 
         var n = Math.floor(Math.random() * G.num)+1
+
+          //win.location.href = G.page[n-1]; //跳转解签页面 暂时去掉
+
+          var end = document.getElementsByClassName('end')[0];
+          setTimeout(function () {
+            G.two.fadeOut(end, 20, 0);
+          }, 500);
+
+          var content = document.getElementsByClassName('content')[0];
+          setTimeout(function () {
+            $('.content').fadeIn(content, 20, 100);
+          }, 1000);
         setTimeout(function(){
           var arr = [];
           arr.push(n + '');
           $.local.set('gameNum', JSON.stringify(arr));
-          //win.location.href = G.page[n-1]; //跳转解签页面 暂时去掉
-
-          var end = document.getElementsByClassName('end')[0];
-          G.two.fadeOut(end, 20, 0);
-          var content = document.getElementsByClassName('content')[0];
-          setTimeout(function () {
-            $('.content').fadeIn(content, 20, 100);
-          }, 800);
-
           $('.js-again').click(function () {
             win.location.reload();
           });
 
-        },700);
+        },1000);
 
 
         //卷轴效果
