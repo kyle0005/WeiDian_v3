@@ -58,7 +58,7 @@
           bg.style.backgroundSize = "100%";
 
           var shakeGif = document.getElementsByClassName("reel-shake")[0];
-          shakeGif.style.marginTop = "56%";
+          shakeGif.style.marginTop = "58%";
         }
 
         //摇一摇
@@ -199,9 +199,6 @@
         reelTitle.innerHTML = config.sticks[n].title;
         reelTxt.innerHTML = config.sticks[n].content;
 
-        setTimeout(function () {
-          $('.reel-result').fadeIn(txt, 20, 100);
-        }, 2400);
       }
     }
     ,P = { //公用

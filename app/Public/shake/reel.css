@@ -308,9 +308,9 @@ body, .game, .loading, .mainbg {
 }
 
 .reel-shake {
-  margin-top: 66%;
-  width: 16%;
   margin-left: 2%;
+  width: 11%;
+  margin-top: 68%;
 }
 
 .content {
@@ -370,7 +370,6 @@ body, .game, .loading, .mainbg {
   color: #46270b;
   font-size: 15px;
   font-family: l;
-  opacity: 0;
 }
 
 .reel-title {
