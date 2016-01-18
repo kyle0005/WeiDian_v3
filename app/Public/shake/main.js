@@ -52,7 +52,7 @@
         Min._platform = get_platform();
         if(Min._platform == 'p4'){
           var bg = document.getElementsByClassName("couqian")[0];
-          bg.style.backgroundImage = "url(" + config.imgPre + "shake/wei_bg_i4__.png)";
+          bg.style.backgroundImage = "url(" + config.imgPre + "shake/wei_bg_ip4.png)";
           bg.style.backgroundPosition = "center top";
           bg.style.backgroundRepeat = "no-repeat";
           bg.style.backgroundSize = "100%";
@@ -190,7 +190,6 @@
           }
         })();
 
-        var txt = document.getElementsByClassName('reel-result')[0];
         var reelTitle = document.getElementsByClassName('reel-title')[0];
         var reelTxt = document.getElementsByClassName('reel-txt')[0];
 

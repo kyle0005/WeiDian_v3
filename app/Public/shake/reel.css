@@ -21,7 +21,8 @@ body {
 
 @font-face {
   font-family: l;
-  src: url(FZLSJW.TTF);
+  /*src: url(FZLSJW.TTF?#font-spider) format('truetype');*/
+
 }
 
 body, div, p, h1, h2, h3 {
@@ -131,7 +132,7 @@ body, .game, .loading, .mainbg {
 .couqian {
   text-align: center;
   overflow: hidden;
-  background-image: url(wei_bg_i6__.png);
+  background-image: url(wei_bg.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 100%;
