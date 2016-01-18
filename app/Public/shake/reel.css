@@ -131,7 +131,7 @@ body, .game, .loading, .mainbg {
 .couqian {
   text-align: center;
   overflow: hidden;
-  background-image: url(wei_bg.png);
+  background-image: url(wei_bg_i6__.png);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -379,3 +379,82 @@ body, .game, .loading, .mainbg {
 .reel-txt {
   font-size: 14px;
 }
+
+.wei_qrcodeL{
+  position: absolute;
+  bottom: 50px;
+  left: 8.4375%;
+  width: 15.3125%;
+}
+.wei_qrcodeR{
+  position: absolute;
+  bottom: 50px;
+  right: 8.4375%;
+  width: 15.3125%;
+}
+@media screen and (min-height:416px){     /* 大于等于416px */
+  .wei_qrcodeL{
+    bottom: 53px;
+  }
+  .wei_qrcodeR{
+    bottom: 53px;
+  }
+}
+@media screen and (min-height:480px){
+  .wei_qrcodeL{
+    bottom: 118px;
+  }
+  .wei_qrcodeR{
+    bottom: 118px;
+  }
+}
+@media screen and (min-height:504px){
+  .wei_qrcodeL{
+    bottom: 88px;
+  }
+  .wei_qrcodeR{
+    bottom: 88px;
+  }
+}
+@media screen and (min-height:568px){
+  .wei_qrcodeL{
+    bottom: 151px;
+  }
+  .wei_qrcodeR{
+    bottom: 151px;
+  }
+}
+@media screen and (min-height:603px){
+  .wei_qrcodeL{
+    bottom: 116px;
+  }
+  .wei_qrcodeR{
+    bottom: 116px;
+  }
+}
+@media screen and (min-height:627px){
+  .wei_qrcodeL{
+    bottom: 140px;
+  }
+  .wei_qrcodeR{
+    bottom: 140px;
+  }
+}
+@media screen and (min-height:672px){
+  .wei_qrcodeL{
+    bottom: 136px;
+  }
+  .wei_qrcodeR{
+    bottom: 136px;
+  }
+}
+@media screen and (min-height:736px){
+  .wei_qrcodeL{
+    bottom: 197px;
+  }
+  .wei_qrcodeR{
+    bottom: 197px;
+  }
+}
+
+
