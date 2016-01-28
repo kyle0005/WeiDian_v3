@@ -98,8 +98,13 @@ function showResult(msg,scale){
     });
 
   $.post("", {code: index.code} , function(data) {
-
-  });
+      if (data) {
+        if (data.message) {
+          index.num = data.index;
+          index.code = data.code;
+        }
+      }
+    });
 }
 
 
