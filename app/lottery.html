@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="Public/lottery/css/bootstrap.css">
+    <link rel="stylesheet" href="Public/lottery/css/mui.css">
+    <script src="Public/lottery/js/jquery2.1.4.js"></script>
+    <script src="Public/lottery/js/jquery.transit.js"></script>
+    <script src="Public/lottery/js/mui.js"></script>
+</head>
+<body>
+	<div class="mui-bg mui-control" id="bg">
+         <img src="Public/lottery/img/bg.png" class="mui-img">
+     </div>
+    <div class="container mui-page" id="page">
+        <div class="mui-rule mui-control" id="rule">
+            <img src="Public/lottery/img/btn_des.png" class="mui-img" id="btn_rule">
+        </div>
+        <div class="mui-tip1 mui-control" id="tip1">
+            <img src="Public/lottery/img/tip1.png" class="mui-img">
+        </div>
+        <div class="mui-tip2 mui-control" id="tip2">
+            <img src="Public/lottery/img/tip2.png" class="mui-img">
+        </div>
+        <div class="mui-red mui-control" id="red">
+            <img src="Public/lottery/img/rbg_red.png" class="mui-img">
+        </div>
+        <div class="mui-prize mui-control" id="prize">
+          <div class="sectors-container">
+            <!--<div class="sectors sector-a"><div class="sectors-txt">新年快乐</div></div>-->
+            <!--<div class="sectors sector-b"><div class="sectors-txt">20元<br><span style="font-size: 12px;">无条件</span></div></div>-->
+            <!--<div class="sectors sector-c"><div class="sectors-txt">100元<br><span style="font-size: 12px;">满200使用</span></div></div>-->
+            <!--<div class="sectors sector-d"><div class="sectors-txt">200元<br><span style="font-size: 12px;">满500使用</span></div></div>-->
+            <!--<div class="sectors sector-e"><div class="sectors-txt">500元<br><span style="font-size: 12px;">满1000使用</span></div></div>-->
+          </div>
+        </div>
+        <div class="mui-point mui-control" id="point">
+            <img src="Public/lottery/img/rbg_point.png" class="mui-img" id="btn_start">
+        </div>
+        <div class="mui-luck mui-control" id="luck">
+        	<div class="mui-luck-panel">
+        		<div class="mui-luck-title">幸运用户</div>
+            	<div class="mui-luck-content" id="luckUser">
+	            	<div><span>11.23 16:15</span><span>沈*赐获得10元购物券</span></div>
+	            	<div><span>11.23 15:50</span><span>王*获得5元手机充值卡</span></div>
+	            	<div><span>11.23 15:37</span><span>倪*获得30元购物券</span></div>
+            	</div>
+        	</div>
+
+        </div>
+    </div>
+    <div class="mui-visited" id="visited">
+            <div class="mui-visited-shadow mui-control" id="visited-shadow"></div>
+            <div class="mui-visited-back mui-control" id="visited-back">
+                <img src="Public/lottery/img/noy.png" class="mui-img">
+            </div>
+            <div class="mui-visited-ok mui-control" id="visited-ok">
+                <img src="Public/lottery/img/ok.png" class="mui-img" id="btn-visited-ok">
+            </div>
+        </div>
+        <div class="mui-winning" id="winning">
+            <div class="mui-winning-shadow mui-control" id="winning-shadow"></div>
+            <div class="mui-winning-back mui-control" id="winning-back">
+                <img src="Public/lottery/img/win.png" class="mui-img">
+            </div>
+            <div class="mui-winning-text mui-control" id="winning-text">
+
+            </div>
+            <div class="mui-winning-ok mui-control" id="winning-ok">
+                <img src="Public/lottery/img/ok.png" class="mui-img" id="btn-winning-ok">
+            </div>
+        </div>
+    <div class="mui-loading" id="loading">
+         <ul>
+             <li class="animated"></li>
+             <li class="animated"></li>
+             <li class="animated"></li>
+             <li class="animated"></li>
+             <li class="animated"></li>
+         </ul>
+     </div>
+    <!--   没有机会的界面   -->
+    <!-- 正式 -->
+</body>
+</html>
