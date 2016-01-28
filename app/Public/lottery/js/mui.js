@@ -2,12 +2,12 @@ $(function(){
     mui.screen.init();
 
     //去规则页面
-    document.getElementById("btn_rule").addEventListener("touchstart",function(){
-        location = "rule.html"+location.search;
-    });
-    document.getElementById("btn_rule").addEventListener("click",function(){
-        location = "rule.html"+location.search;
-    });
+    //document.getElementById("btn_rule").addEventListener("touchstart",function(){
+    //    location = "rule.html"+location.search;
+    //});
+    //document.getElementById("btn_rule").addEventListener("click",function(){
+    //    location = "rule.html"+location.search;
+    //});
 
     //点击开始抽奖
     document.getElementById("btn_start").addEventListener("touchstart",getLotteryResult);
@@ -157,23 +157,23 @@ var mui = {
                 'height':titleHeight+"px",'display':'block'});*/
 
             //活动规则
-            var ruleTop = height*0/mui.screen.imgHeight,
-                ruleRight = width*12/mui.screen.imgWidth,
-                ruleHeight = height*85/mui.screen.imgHeight;
-            $("#rule").css({"top":ruleTop+"px",'right':ruleRight+"px",
-                'height':ruleHeight+"px",'display':'block'});
+            //var ruleTop = height*0/mui.screen.imgHeight,
+            //    ruleRight = width*12/mui.screen.imgWidth,
+            //    ruleHeight = height*85/mui.screen.imgHeight;
+            //$("#rule").css({"top":ruleTop+"px",'right':ruleRight+"px",
+            //    'height':ruleHeight+"px",'display':'block'});
 
             //tip1 职工e家 火热上线
             var tip1Top = height*77/mui.screen.imgHeight,
-                tip1Height = height*57/mui.screen.imgHeight;
+                tip1Height = height*257/mui.screen.imgHeight;
             $("#tip1").css({"top":tip1Top+"px",
                 'height':tip1Height+"px",'display':'block'});
 
             //tip2 抽奖抽不停
-            var tip2Top = height*148/mui.screen.imgHeight,
-                tip2Height = height*110/mui.screen.imgHeight;
-            $("#tip2").css({"top":tip2Top+"px",
-                'height':tip2Height+"px",'display':'block'});
+            //var tip2Top = height*148/mui.screen.imgHeight,
+            //    tip2Height = height*110/mui.screen.imgHeight;
+            //$("#tip2").css({"top":tip2Top+"px",
+            //    'height':tip2Height+"px",'display':'block'});
 
             //rbg  转盘的合并
             var centerPointX = width/2,
