@@ -59,11 +59,9 @@ body, html {
 
 .mui-luck-panel {
   display: inline-block;
-  border: 1px #ec8a17 solid;
-  color: #DD6916;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0px 15px;
+  width: 46.875%;
 }
 
 @media (min-width: 320px) and (max-width: 374px) {
@@ -349,4 +347,11 @@ body, html {
   -webkit-transition: opacity 0.3s, color 0.3s;
   -moz-transition: opacity 0.3s, color 0.3s;
   transition: opacity 0.3s, color 0.3s;
+}
+.n-start{
+  display: block;
+  width: 100%;
+}
+.n-start>img{
+  width: 100%;
 }
