@@ -25,7 +25,7 @@ $(function(){
 
 });
 
-/*var page = {
+var page = {
     gameOver:false,
     isStart:false,
     baseNUm:72,
@@ -33,10 +33,10 @@ $(function(){
     angleCount:0,
     prizes:[
         {name:'新年快乐',angle:{"min":-36,"max":36},msg:'新年快乐',msg2:'新年快乐'},
-        {name:'20元',angle:{"min":36,"max":108},msg:'抽中20元 无条件',msg2:'获得20元 无条件'},
-        {name:'100元',angle:{"min":108,"max":180},msg:'抽中100元 满200使用',msg2:'获得100元 满200使用'},
-        {name:'200元',angle:{"min":180,"max":252},msg:'抽中200元 满500使用',msg2:'获得200元 满500使用'},
-        {name:'500元',angle:{"min":252,"max":324},msg:'抽中500元 满1000使用',msg2:'获得500元 满1000使用'},
+        {name:'20元',angle:{"min":36,"max":108},msg:'抽中20元 无条件抽中20元无条件抽中20元无条件抽中20元无条件',msg2:'获得20元 无条件'},
+        {name:'100元',angle:{"min":108,"max":180},msg:'抽中100元 满200使用抽中100元 满200使用抽中100元 满200使用抽中100元 满200使用',msg2:'获得100元 满200使用'},
+        {name:'200元',angle:{"min":180,"max":252},msg:'抽中200元 满500使用抽中200元 满500使用抽中200元 满500使用抽中200元 满500使用',msg2:'获得200元 满500使用'},
+        {name:'500元',angle:{"min":252,"max":324},msg:'抽中500元 满1000使用抽中500元 满1000使用抽中500元 满1000使用抽中500元 满1000使用',msg2:'获得500元 满1000使用'},
     ],
 };
 
@@ -44,7 +44,7 @@ $(function(){
 var index = {
   num: Math.floor(Math.random()*5),
   code: "asasdasasd"
-};*/
+};
 
 //点击抽奖
 function getLotteryResult(){
@@ -54,7 +54,7 @@ function getLotteryResult(){
 	page.isStart = true;
 
     var prizeId = award.num,
-
+      prizeId = 1,
         rounds = Math.floor(Math.random()*4)+4;
     page.pointAngle = (360 - page.angleCount % 360) + 360*rounds - ( Math.floor(Math.random()*page.baseNUm) + page.prizes[prizeId].angle.min);
 
@@ -105,15 +105,17 @@ function showResult(msg,scale){
 }
 
 function popUp(msg,scale, flag){
-  if(flag){
-    $(".js-win").hide();
-    $(".js-win-sorry").show();
-  }else{
-    $(".js-win").show();
-    $(".js-win-sorry").hide();
-  }
+  $(".js-win").hide();
+  $(".js-win-sorry").show();
+  //if(flag){
+  //  $(".js-win").hide();
+  //  $(".js-win-sorry").show();
+  //}else{
+  //  $(".js-win").show();
+  //  $(".js-win-sorry").hide();
+  //}
 
-  $("#winning-text").text(msg);
+  //$("#winning-text").html(msg);
   $("#winning").transition({
     scale: scale,
     duration: 500,
@@ -267,7 +269,7 @@ var mui = {
                 "width":winBackWidth+"px",'height':winBackHeight+"px",'display':'block'});
             var winTextHeight = height*50/mui.screen.imgHeight,
                 winTextTop = height*625/mui.screen.imgHeight;
-            $("#winning-text").css({"top":winTextTop+"px", 'height':winTextHeight+"px",
+            $("#winning-text").css({"top":winTextTop+"px",
                 'font-size':winTextHeight-5+"px",'display':'block'});
             var winOkWidth = width*280/mui.screen.imgWidth,
                 winOkHeight = height*80/mui.screen.imgHeight,

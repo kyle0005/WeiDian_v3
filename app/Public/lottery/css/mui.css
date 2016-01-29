@@ -165,7 +165,10 @@ body, html {
 }
 
 .mui-winning-text {
-  width: 100%;
+  width: 60%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%);
   z-index: 101;
   text-align: center;
   color: #FFFFFF;
@@ -354,4 +357,19 @@ body, html {
 }
 .n-start>img{
   width: 100%;
+}
+
+.overTextH {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.overText {
+  /*文本文字超过容器以省略号显示*/
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
