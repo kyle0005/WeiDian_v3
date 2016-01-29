@@ -25,7 +25,7 @@ $(function(){
 
 });
 
-var page = {
+/*var page = {
     gameOver:false,
     isStart:false,
     baseNUm:72,
@@ -44,7 +44,7 @@ var page = {
 var index = {
   num: Math.floor(Math.random()*5),
   code: "asasdasasd"
-};
+};*/
 
 //点击抽奖
 function getLotteryResult(){
@@ -53,7 +53,7 @@ function getLotteryResult(){
 	}
 	page.isStart = true;
 
-    var prizeId = index.num,
+    var prizeId = award.num,
 
         rounds = Math.floor(Math.random()*4)+4;
     page.pointAngle = (360 - page.angleCount % 360) + 360*rounds - ( Math.floor(Math.random()*page.baseNUm) + page.prizes[prizeId].angle.min);
@@ -85,6 +85,22 @@ function doOK(){
 }
 
 function showResult(msg,scale){
+
+    if (msg != '') {
+        $.post(page.url, {code: award.code}, function (data) {
+            if (data) {
+                if (data.message) {
+                    //错误信息
+                    alert(data.message);
+
+                } else {
+                    award.num = data.num;
+                    award.code = data.code;
+                }
+            }
+        }, 'json');
+    }
+
     $("#winning-text").text(msg);
     $("#winning").transition({
         scale: scale,
@@ -95,15 +111,6 @@ function showResult(msg,scale){
         		page.isStart = false;
         	}
         }
-    });
-
-  $.post("", {code: index.code} , function(data) {
-      if (data) {
-        if (data.message) {
-          index.num = data.index;
-          index.code = data.code;
-        }
-      }
     });
 }
 
