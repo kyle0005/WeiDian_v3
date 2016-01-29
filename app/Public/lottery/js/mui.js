@@ -91,7 +91,7 @@ function showResult(msg,scale){
             if (data) {
                 if (data.message) {
                     //错误信息
-                    alert(data.message);
+                  popUp(data.message,scale, true);
 
                 } else {
                     award.num = data.num;
@@ -101,19 +101,30 @@ function showResult(msg,scale){
         }, 'json');
     }
 
-    $("#winning-text").text(msg);
-    $("#winning").transition({
-        scale: scale,
-        duration: 500,
-        easing: 'easeOutSine',
-        complete:function(){
-        	if(scale == 0){
-        		page.isStart = false;
-        	}
-        }
-    });
+  popUp(msg,scale);
 }
 
+function popUp(msg,scale, flag){
+  if(flag){
+    $(".js-win").hide();
+    $(".js-win-sorry").show();
+  }else{
+    $(".js-win").show();
+    $(".js-win-sorry").hide();
+  }
+
+  $("#winning-text").text(msg);
+  $("#winning").transition({
+    scale: scale,
+    duration: 500,
+    easing: 'easeOutSine',
+    complete:function(){
+      if(scale == 0){
+        page.isStart = false;
+      }
+    }
+  });
+}
 
 var mui = {
     screen:{
