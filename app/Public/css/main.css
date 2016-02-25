@@ -7,6 +7,11 @@ body {
   background: #ffffff;
 }
 
+.gray-body{
+  background: #fafafa;
+  height: 100%;
+}
+
 .color-theme {
   color: #ff5000;
 }
@@ -3990,6 +3995,9 @@ input.reg-redBorder {
 .bank-tenpaymobile {
   background: url("../img/pay_tencent_128x40.png") no-repeat 15px 0;
 }
+.bank-wxpaymobile {
+  background: url("../img/pay_tencent_128x40.png") no-repeat 15px 0;
+}
 
 .bank-text {
   position: absolute;
@@ -6124,7 +6132,33 @@ span.tra-detail:nth-child(2n){
   height: 50px;
   background: url("../img/r-arr.png") no-repeat right center;
 }
-/* 交易中心new结束 */
+
+.tra-title{
+  top:-10px;
+  width: 100%;
+  text-align: center;
+}
+select.tra-sel{
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  width: 100%;
+  background: url("../img/arr_down.png") no-repeat right center;
+  background-size: auto 27%;
+}
+textarea.tra-tArea{
+  width: 100%;
+  /*min-height: 80px;*/
+}
+
+.trad-open .hst-conList-left{
+  width: 28%;
+  text-indent: 3.5px;
+}
+.trad-open .hst-conList li>input[type=text]{
+  width: 72%;
+}
+  /* 交易中心new结束 */
 
 /* 搜索页 */
 input[type="search"]::-webkit-textfield-decoration-container {
