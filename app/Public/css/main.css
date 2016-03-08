@@ -7565,6 +7565,20 @@ input.bid-add-inp{
 }
 /*移动管理页面*/
 
+.wei-tips{
+  padding: 10px;
+  background-color: #fdfbe9;
+  border: 1px solid #eae7d5;
+  color: #551313;
+  /*font-family: serif,Microsoft YaHei;*/
+}
+.wei-tips-title{
+  color: #320909;
+}
+.wei-tips-p{
+  text-indent: 1em;
+}
+
 /*直播*/
 .live-tab ul li {
   float: left;
@@ -7710,9 +7724,18 @@ a.live-date:active{
   border-radius: 4px;
   padding: 5px;
 }
+.sub-chat a:link, .sub-chat a:visited, .sub-chat a:hover, .sub-chat a:active{
+  text-decoration: none;
+  color: #999;
+  outline: none;
+}
 .sub-chat img{
   vertical-align: sub;
   width: 14px;
+}
+.live-text{
+  width: 100%;
+  min-height: 80px;
 }
 /* pswp = photoswipe */
 .pswp {

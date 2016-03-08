@@ -271,3 +271,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 };
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
+
+function loadData(){
+
+}
