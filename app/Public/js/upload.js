@@ -29,7 +29,8 @@
                 flash_swf_url: 'resource/js/Moxie.swf',
                 silverlight_xap_url: 'resource/js/Moxie.xap',
                 filters: [
-                    { title: "图片（" + _extensions + "）", extensions: _extensions }
+                    { title: "图片（" + _extensions + "）", extensions: _extensions },
+                    { title : "video files", extensions : "flv,mp4,avi,ts" }
                 ],
                 init: {
                     FilesAdded: function (up, files) {

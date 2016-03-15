@@ -125,7 +125,23 @@ ul li{
 }
 
 /* 按钮结束 */
+.overTextH {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.overText {
+  /*文本文字超过容器以省略号显示*/
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 /* 通用布局开始 */
 .a-main{
     padding: 15px;
@@ -2869,27 +2885,27 @@ h5.setting-btn{
 /* 申请托管结束 */
 
 /* 托管列表 */
-.host-tab .nav-tabs{
+.host-tab>.nav-tabs{
     border-bottom: none;
 }
-.host-tab .nav-tabs>li{
+.host-tab>.nav-tabs>li{
     width: 20%;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
-.host-tab .nav-tabs>li>a{
+.host-tab>.nav-tabs>li>a{
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
 }
-.host-tab .nav-tabs>.active>a, .nav-tabs>.active>a:hover{
+.host-tab>.nav-tabs>.active>a{
     color: #ff8000;
     cursor: default;
     background-color: #fff;
     border: none;
 }
-.host-tab .nav-tabs>.active>a>.host-tab-txt{
+.host-tab>.nav-tabs>.active>a>.host-tab-txt{
     border-bottom: 2px solid #ff8000;
 }
 .host-tab-txt{
@@ -3048,3 +3064,131 @@ a.pc-down:hover{
   color: #ff8000;
 }
 /*index-new end*/
+
+/*pcManage_live*/
+.live-pop{
+  position: relative;
+}
+.live-text{
+  min-width: 480px;
+  float: left;
+}
+ul.live_func{
+  padding: 0;
+  margin: 0;
+  min-width: 400px;
+  width: 100%;
+}
+.live_func li{
+  float: left;
+  margin: 0 20px;
+  height: 30px;
+  line-height: 30px;
+}
+.live_func li:first-child{
+  margin: 0 20px 0 0;
+}
+
+.live-pop-container{
+  position: absolute;
+  z-index: 999;
+  top:225px;
+  left: 215px;
+}
+.live-pop-content{
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
+}
+.live-pop-close{
+  position: absolute;
+  z-index: 2;
+  right: 6px;
+  top: 5px;
+  font-size: 18px;
+}
+.live-pop-inner{
+  width: 450px;
+  height: 200px;
+  padding: 10px;
+}
+.arrow-bor{
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  top: -14px;
+}
+.arrow-line{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-width: 7px;
+  border-style: solid;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: top;
+
+  border-color: transparent transparent #ccc transparent;
+}
+.arrow-em{
+  margin: 1px 0 0 -14px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-width: 7px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: top;
+  color: #fff;
+}
+.live-list{
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+.live-list>li{
+  position: relative;
+  min-width: 600px;
+  max-width: 700px;
+  border-bottom: 1px solid #ffffff;
+  padding: 0 0 10px 0;
+}
+.live-li-op{
+  text-align: right;
+  width: 100%;
+  z-index: 10;
+  margin-bottom: 5px;
+}
+.live-li-op a{
+  margin: 10px;
+}
+.live-list-img{
+  margin-left: 120px;
+}
+.live-list-img img{
+  width: 200px;
+  margin-bottom: 3px;
+}
+.comment-list{
+  margin-left: 120px;
+  background-color: #fff;
+}
+.chat-text{
+  margin: 20px;
+  width: 80%;
+}
+.comment-list ul{
+  margin: 20px ;
+  border-top: 1px solid #eee;
+}
+.comment-list li{
+  padding: 20px 0 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/*pcManage_live end*/
