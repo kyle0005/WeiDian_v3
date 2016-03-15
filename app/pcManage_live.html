@@ -102,13 +102,28 @@
         <div class="tab-content good-info">
           <div id="pc_live_tab" class="tab-pane active">
             <div class="live-pop">
-
+                    <!--<div class="live-pop-container">-->
+                      <!--<div class="live-pop-content">-->
+                        <!--<div class="">-->
+                          <!--<a href="javascript:void(0)" class="live-pop-close"><i class="icon-remove"></i></a>-->
+                        <!--</div>-->
+                        <!--<div class="live-pop-inner">-->
+                          <!--<p>请输入直播url</p>-->
+                          <!--<input type="text">-->
+                        <!--</div>-->
+                        <!--<div class="">-->
+                          <!--<span class="arrow-bor" style="left: 10px;">-->
+                            <!--<i class="arrow-line"></i><em class="arrow-em"></em>-->
+                          <!--</span>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
             </div>
             <ul class="live_func clearfix pull-left">
               <li><a href="javascript:void(0)" class="js-live" data-num="0"><i class="icon-facetime-video"></i>&nbsp;直播</a></li>
               <li><a href="javascript:void(0)" class="js-pic" data-num="1"><i class="icon-picture"></i>&nbsp;图片</a></li>
               <li><a href="javascript:void(0)" class="js-video" data-num="2"><i class="icon-youtube-play"></i>&nbsp;视频</a></li>
-              <li><a href="javascript:void(0)" class="js-top" data-num="3"><i class="icon-upload-alt"></i>&nbsp;置顶</a></li>
+              <li><label for="is_top" style="margin: 0;line-height: 30px;"><input id="is_top" type="checkbox" style="margin-top: -2px;">&nbsp;置顶</label></li>
             </ul>
             <div style="width: 700px;height: 70px;" class="clearfix">
               <textarea class="live-text" placeholder=""></textarea>
@@ -280,23 +295,7 @@
   </div>
 </div>
 
-<!--<div class="live-pop-container">-->
-  <!--<div class="live-pop-content">-->
-    <!--<div class="">-->
-      <!--<a href="javascript:void(0)" class="live-pop-close"><i class="icon-remove"></i></a>-->
-    <!--</div>-->
-    <!--<div class="live-pop-inner">-->
-      <!--<div>-->
 
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="">-->
-      <!--<span class="arrow-bor" style="left: 81px;">-->
-        <!--<i class="arrow-line"></i><em class="arrow-em"></em>-->
-      <!--</span>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 <script>
   var golddiy_image_path = "http://img.golddiy.com";
 </script>
@@ -352,11 +351,6 @@
       +'<div class="live-pop-inner">'
       +inner_text
       +'</div>'
-      +'<div class="">'
-      +'<span class="arrow-bor">'
-      +'<i class="arrow-line"></i><em class="arrow-em"></em>'
-      +'</span>'
-      +'</div>'
       +'</div>'
       +'</div>';
 
@@ -368,11 +362,11 @@
       }
       switch (parseInt(num)){
         case 0:
-          live_pop_left = '30px';
-          inner_text = '';
+          live_pop_left = '10px';
+          inner_text = '<p>请输入直播url</p><input type="text">';
           break;
         case 1:
-          live_pop_left = '110px';
+          live_pop_left = '90px';
           inner_text = '<div>'
             + '<p class="">本地上传</p>'
             + '<div class="upload-container">'
@@ -386,7 +380,7 @@
             + '</div>';
           break;
         case 2:
-          live_pop_left = '190px';
+          live_pop_left = '170px';
           inner_text = '<div>'
             + '<p class="">视频上传</p>'
             + '<div class="upload-container">'
@@ -398,10 +392,6 @@
             + '</div>'
             + '<p class="help-desc"></p>'
             + '</div>';
-          break;
-        case 3:
-          live_pop_left = '270px';
-          inner_text = '';
           break;
       }
 

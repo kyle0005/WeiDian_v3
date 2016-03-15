@@ -7580,6 +7580,9 @@ input.bid-add-inp{
 }
 
 /*直播*/
+.live_body{
+  background-color: #f5f3ea;
+}
 .live-tab ul li {
   float: left;
   width: 33.33%;
@@ -7591,7 +7594,7 @@ input.bid-add-inp{
 .live-tab ul li a {
   font-size: 12px;
   display: block;
-  color: #666;
+  color: #b08654;
 }
 
 .live-tab ul li.live-cur a {
@@ -7684,7 +7687,7 @@ a.live-date:active{
 .live-time{
   width: 12%;
   float: left;
-  color: #999;
+  color: #b08654;
 }
 .live-content{
   width: 88%;

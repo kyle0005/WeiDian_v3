@@ -3068,6 +3068,7 @@ a.pc-down:hover{
 /*pcManage_live*/
 .live-pop{
   position: relative;
+  width: 700px;
 }
 .live-text{
   min-width: 480px;
@@ -3090,17 +3091,13 @@ ul.live_func{
 }
 
 .live-pop-container{
-  position: absolute;
-  z-index: 999;
-  top:225px;
-  left: 215px;
+  width: 700px;
 }
 .live-pop-content{
   position: relative;
   background: #fff;
   border-radius: 3px;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 20px 1px rgba(0,0,0,0.2);
 }
 .live-pop-close{
   position: absolute;
@@ -3111,14 +3108,14 @@ ul.live_func{
 }
 .live-pop-inner{
   width: 450px;
-  height: 200px;
   padding: 10px;
 }
 .arrow-bor{
   position: absolute;
   overflow: hidden;
   display: block;
-  top: -14px;
+  top: 220px;
+  border-color: #ccc;
 }
 .arrow-line{
   display: inline-block;
@@ -3130,17 +3127,16 @@ ul.live_func{
   font-size: 0;
   line-height: 0;
   vertical-align: top;
-
-  border-color: transparent transparent #ccc transparent;
+  border-color: #ccc transparent transparent transparent;
 }
 .arrow-em{
-  margin: 1px 0 0 -14px;
+  margin: -1px 0 0 -14px;
   display: inline-block;
   width: 0;
   height: 0;
   border-width: 7px;
   border-style: solid;
-  border-color: transparent transparent #fff transparent;
+  border-color: #fff transparent transparent transparent;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
@@ -3171,7 +3167,7 @@ ul.live_func{
   margin-left: 120px;
 }
 .live-list-img img{
-  width: 200px;
+  width: 150px;
   margin-bottom: 3px;
 }
 .comment-list{
