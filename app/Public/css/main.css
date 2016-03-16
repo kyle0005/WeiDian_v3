@@ -72,6 +72,10 @@ body {
   color: #666666;
 }
 
+.color-b08654{
+  color: #b08654;
+}
+
 .mg5 {
   margin: 5px;
 }
@@ -6606,9 +6610,11 @@ input.wei-form-inp{
   border: none;
   padding: 4px 0;
   margin: 0;
-  box-shadow: none;
   font-size: 12px;
   outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+   box-shadow: none;
 }
 input[type=checkbox].remPwd {
   width: 12px;
@@ -7684,10 +7690,17 @@ a.live-date:active{
   border-radius: 0;
   padding: 0;
 }
+.live-li{
+  background: url(../img/lotus_1x1.png) repeat-y 13px 0px;
+}
 .live-time{
   width: 12%;
   float: left;
   color: #b08654;
+  background-color: #f5f3ea;
+}
+.live-time>img{
+  width: 70%;
 }
 .live-content{
   width: 88%;
@@ -7713,27 +7726,25 @@ a.live-date:active{
   bottom: 0;
   left: -10px;
   width: calc(100% + 20px);
-  background-color: #f8f8f8;
+  background-color: #f0eacd;
   padding: 10px 0 1px 0;
 }
 .sub-chat{
   position: fixed;
   bottom: 0;
   width: 100%;
-  /*height: 50px;*/
   z-index: 10;
   background-color: #ffffff;
-  /*border-top: 1px solid #f4f4f4;*/
-
   border-top: 1px solid #e3e3e3;
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 0;
 }
 .sub-chat a{
   display: block;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
   padding: 5px;
+  margin: 0 5px;
 }
 .sub-chat a:link, .sub-chat a:visited, .sub-chat a:hover, .sub-chat a:active{
   text-decoration: none;
@@ -7747,6 +7758,18 @@ a.live-date:active{
 .live-text{
   width: 100%;
   min-height: 80px;
+}
+.live-token-list .order-pro-img{
+  width: 110px;
+  height: 110px;
+}
+.live-token-con{
+  min-height: 37px;
+}
+.live-token-list .order-list-con{
+  margin-left: 120px;
+  padding-top: 10px;
+  border-bottom: 1px solid #e3c49d;
 }
 /* pswp = photoswipe */
 .pswp {

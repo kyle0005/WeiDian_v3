@@ -270,9 +270,94 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
   }
 };
 // execute above function
-initPhotoSwipeFromDOM('.my-gallery');
+
+//直播数据加载
+function loadData(data){
+  //console.log(data.news.newMessage[0].imgs);
+
+  //live
+  if(data.news.newMessage != undefined && data.news.newMessage !== '' && data.news.newMessage != null){
+    $.each(data.news.newMessage, function (i, item) {
+      var live_data = '<li class="live-li clearfix">'
+        + '<div class="js-live-time live-time">'
+        + data.news.newMessage[i].create_time
+        + '<img src="Public/img/lotus.png"/>'
+        + '</div>'
+        + '<div class="live-content">'
+        + '<div class="js-live-text">'
+        + data.news.newMessage[i].content
+        + '</div>'
+        + '<div class="my-gallery js-media">';
+
+      if(data.news.newMessage[i].imgs != undefined && data.news.newMessage[i].imgs != 0 && data.news.newMessage[i].imgs != '0'){
+        $.each(data.news.newMessage[i].imgs, function (i, item) {
+          live_data += '<figure>'
+            +'<a href="'
+            + item
+            + '" data-size="1500x800">'
+            + '<img src="'
+            + item
+            + '"/></a>'
+            + '</figure>';
+        });
+      }
+      if(data.news.newMessage[i].vod_id != undefined && data.news.newMessage[i].vod_id !== 0 && data.news.newMessage[i].vod_id != '0'){
+        live_data += '<div id="'
+          + data.news.newMessage[i].vod_id
+          + '"></div>';
+      }
+      live_data += '</div>'
+        + '</div>'
+        + '</li>';
+
+      init($('.js-live-list'), live_data, data.news.newMessage[i].vod_id);
+    });
+
+  }
+
+  //live-top
+  if(data.news.stickMessage != undefined && data.news.stickMessage !== '' && data.news.stickMessage != null){
+    var live_top = '<div class="ptop">'
+                  + data.news.stickMessage.content
+                  + '</div>'
+                  + '<div class="my-gallery">';
+    if(data.news.stickMessage.imgs != undefined && data.news.stickMessage.imgs != 0 && data.news.stickMessage.imgs != '0'){
+      $.each(data.news.stickMessage.imgs, function (i, item) {
+        live_top += '<figure>'
+          +'<a href="'
+          + item
+          + '" data-size="1500x800">'
+          + '<img src="'
+          + item
+          + '"/></a>'
+          + '</figure>';
+      });
+    }
+    if(data.news.stickMessage.vod_id != undefined && data.news.stickMessage.vod_id !== 0 && data.news.stickMessage.vod_id != '0'){
+      live_top += '<div id="'
+        + data.news.stickMessage.vod_id
+        + '"></div>';
+    }
+    live_top += '</div>';
+
+    init($('.js-stick-msg'), live_top, data.news.stickMessage.vod_id);
+  }
 
 
-function loadData(){
+}
 
+function init(obj, data, video_id){
+  $(obj).append(data);
+  initPhotoSwipeFromDOM('.my-gallery');
+  console.log(video_id)
+  if(video_id != '' && video_id != null && video_id != undefined && video_id != '0' && video_id != 0){
+    var option = {
+      "auto_play": "0",
+      "file_id": "14651978969256407716",
+      "app_id": "1251951972",
+      "width": 640,
+      "height": 480
+    }; /*调用播放器进行播放*/
+    new qcVideo.Player( /*代码中的id_video_container将会作为播放器放置的容器使用,可自行替换*/ video_id, option);
+  }
 }

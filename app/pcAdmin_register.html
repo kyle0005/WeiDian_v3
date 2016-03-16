@@ -19,11 +19,6 @@
     <script type="text/javascript" src="Public/js/application.js"></script>
     <script type="text/javascript" src="Public/js/bootstrap_min.js"></script>
     <script src="Public/js/height.js"></script>
-    <style type="text/css">
-        .dropdown-submenu:hover > .dropdown-menu {
-            display: none
-        }
-    </style>
     <title>微门店</title>
 </head>
 
@@ -39,40 +34,55 @@
             <div class="reg-list">
                 <div class="reg-listRow">
                     <input type="text" placeholder="手机号码" name="account" class="inputText inputBlock">
-
-                    <div class="pt10"><b class="ct_5">*</b>填写您常用的手机号码，用于接收验证码</div>
+                    <b class="ct_5">*</b>填写您常用的手机号码，用于接收验证码
                 </div>
-                <div class="reg-listRow">
-                    <div class="reg-fromBtn">
-                        <a href="javascript:void(0);" role="msgcode_p" id="picCode"><img src=""></a>
-                    </div>
-                    <div class="reg-fromBox">
-                        <input type="text" placeholder="请输入图片验证码" name="code" class="inputText inputBlock">
-                    </div>
-                </div>
-                <div class="reg-listRow">
-                    <div class="reg-fromBtn">
+                <div class="reg-listRow clearfix">
+                    <input type="text" placeholder="请输入短信验证码" name="code" class="inputText inputBlock pull-left" style="margin-right: 20px;">
+                    <span class="reg-fromBtn pull-left">
                         <a href="javascript:void(0);" role="msgcode" id="reSendCode">获取短信验证码</a>
-                    </div>
-                    <div class="reg-fromBox">
-                        <input type="text" placeholder="请输入短信验证码" name="code" class="inputText inputBlock">
-                    </div>
+                    </span>
                 </div>
                 <div class="reg-listRow">
                     <input type="password" placeholder="密码" name="password" class="inputText inputBlock">
-
-                    <div class="pt10"><b class="ct_5">*</b> 6-21位数字或字母</div>
+                    <b class="ct_5">*</b> 6-21位数字或字母
                 </div>
-                <div class="pt20">
+                <div class="reg-listRow">
+                  <input type="text" placeholder="真实姓名" name="name" class="inputText inputBlock">
+                  <b class="ct_5">*</b> 中文姓名
+                </div>
+                <div class="reg-listRow">
+                  <input type="text" placeholder="身份证号码" name="ID" class="inputText inputBlock">
+                  <b class="ct_5">*</b> 6-21位数字或字母
+                </div>
+                <div class="reg-listRow">
+                  <span><b class="ct_5">*</b>上传个人手持身份证照</span>
+                  <div class="upload-container clearfix wei-upload">
+                          <span class="img_ul clearfix">
+                          </span>
+                          <span id="cardno_pic_add" class="img_add">
+                              <em class="img_add_a">&nbsp;</em>
+                              <em class="img_add_b">&nbsp;</em>
+                          </span>
+                          <span class="id-hand-s-epl clearfix">
+                              <span class="id-hand-s-text">示例：</span>
+                              <span class="id-hand-s-img">
+                                  <img src="Public/img/aaa_400x400.png">
+                              </span>
+                          </span>
+                          <span class="id-hand-s">
+                              必须上传手持身份证，个人与身份证要展示在同一张照片上
+                          </span>
+                  </div>
+                </div>
+                <div class="" style="margin-top: 10px;">
                     <a href="javascript:void(0);" class="btn orange-btn fc12" style="display: block;">立即注册</a>
                 </div>
-                <div
-                        class="clearfix pt10">
+                <div class="clearfix" style="margin-top: 5px;">
                     <label class="checkbox"><input type="checkbox" name="usage" value="1" checked=""><a
                             href="javascript:;" class="ct_3" target="_blank">我已阅读并同意使用条款</a></label>
                 </div>
             </div>
-            <div class="p30"><a href="login.html" class="ct_6 underline">已有账号?立即登陆</a></div>
+            <div class="text-center" style="padding: 5px;"><a href="login.html" class="ct_6 underline">已有账号?立即登陆</a></div>
         </div>
     </form>
 
