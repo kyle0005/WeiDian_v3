@@ -7788,6 +7788,15 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
   height: 20px;
   line-height: 20px;
 }
+input.sub-chat-inp{
+  margin: 0 10px 0 10px;
+  width: 92%;
+}
+.chat-log>a.chat-log, .chat-log>a.chat-reg{
+  display: inline-block;
+  border: none;
+  color: #b08654;
+}
 /* pswp = photoswipe */
 .pswp {
   display: none;
