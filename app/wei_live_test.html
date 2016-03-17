@@ -440,35 +440,7 @@
   </div>
 
 </div>
-<div id="footer" style="height: 50px;"></div>
-<footer class="wei-foot text-center">
-  <ul class="l4 clearfix">
-    <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="">
-        <span class="wei-foot-bg wei-foot-index"></span>
-        首页
-      </a>
-    </li>
-    <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="">
-        <span class="wei-foot-bg wei-foot-search"></span>
-        搜索
-      </a>
-    </li>
-    <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="cart">
-        <span class="wei-foot-bg wei-foot-cart"></span>
-        购物车
-      </a>
-    </li>
-    <li class="wei-foot-li">
-      <a href="javascript:void(0);" class="curFoot">
-        <span class="wei-foot-bg wei-foot-person"></span>
-        我
-      </a>
-    </li>
-  </ul>
-</footer>
+
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
 <script src="Public/js/jquery-ui.min.js"></script>
@@ -516,24 +488,7 @@
 
   var page_num=2;
   $(document).ready(function(){
-    $(window).scroll(function(){
-      if($(document).scrollTop()>=$(document).height()-$(window).height()){
-        var div1tem = $('#container').height()
-        var str =''
-        $.ajax({
-          type:"GET",
-          url:'ajaxdata.php',
-          dataType:'json',
-          beforeSend:function(){
-            $('.ajax_loading').show() //显示加载时候的提示
-          },
-          success:function(ret){
-            $(".after_div").before(ret) //将ajxa请求的数据追加到内容里面
-            $('.ajax_loading').hide() //请求成功,隐藏加载提示
-          }
-        })
-      }
-    })
+
   })
   console.log(navigator.userAgent);
 </script>

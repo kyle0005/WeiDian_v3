@@ -7690,8 +7690,20 @@ a.live-date:active{
   border-radius: 0;
   padding: 0;
 }
+.check-new-l{
+  display: block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff8bf;
+  color: #eb7350;
+}
+a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:active{
+  color: #eb7350;
+}
 .live-li{
   background: url(../img/lotus_1x1.png) repeat-y 13px 0px;
+  margin-bottom: 12px;
 }
 .live-time{
   width: 12%;
@@ -7770,6 +7782,11 @@ a.live-date:active{
   margin-left: 120px;
   padding-top: 10px;
   border-bottom: 1px solid #e3c49d;
+}
+.loading-more{
+  display: block;
+  height: 20px;
+  line-height: 20px;
 }
 /* pswp = photoswipe */
 .pswp {

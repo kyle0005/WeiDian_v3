@@ -218,7 +218,9 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
           rect = thumbnail.getBoundingClientRect();
 
         return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-      }
+      },
+      // Tap on sliding area should close gallery
+      tapToClose: true
 
     };
 
@@ -273,12 +275,33 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 //直播数据加载
 function loadData(data){
-  //console.log(data.news.newMessage[0].imgs);
+  //live
+  insertLive(data);
+  //live_top
+  insertTop(data);
+  //chat
+  insertChat(data);
+}
 
+function initMedia(video_id){
+  if(video_id != '' && video_id != null && video_id != undefined && video_id != '0' && video_id != 0){
+    var option = {
+      "auto_play": "0",
+      "file_id": "14651978969256407716",
+      "app_id": "1251951972",
+      "width": 640,
+      "height": 480
+    }; /*调用播放器进行播放*/
+    new qcVideo.Player( /*代码中的id_video_container将会作为播放器放置的容器使用,可自行替换*/ video_id, option);
+  }
+}
+
+function insertLive(data){
   //live
   if(data.news.newMessage != undefined && data.news.newMessage !== '' && data.news.newMessage != null){
+    var live_data = '';
     $.each(data.news.newMessage, function (i, item) {
-      var live_data = '<li class="live-li clearfix">'
+      live_data = '<li class="live-li clearfix">'
         + '<div class="js-live-time live-time">'
         + data.news.newMessage[i].create_time
         + '<img src="Public/img/lotus.png"/>'
@@ -306,21 +329,26 @@ function loadData(data){
           + data.news.newMessage[i].vod_id
           + '"></div>';
       }
+
       live_data += '</div>'
         + '</div>'
         + '</li>';
 
-      init($('.js-live-list'), live_data, data.news.newMessage[i].vod_id);
+      $('.js-live-list').append(live_data);
+      initPhotoSwipeFromDOM('.my-gallery');
+      initMedia(data.news.newMessage[i].vod_id);
     });
 
   }
+}
 
+function insertTop(data){
   //live-top
   if(data.news.stickMessage != undefined && data.news.stickMessage !== '' && data.news.stickMessage != null){
     var live_top = '<div class="ptop">'
-                  + data.news.stickMessage.content
-                  + '</div>'
-                  + '<div class="my-gallery">';
+      + data.news.stickMessage.content
+      + '</div>'
+      + '<div class="my-gallery">';
     if(data.news.stickMessage.imgs != undefined && data.news.stickMessage.imgs != 0 && data.news.stickMessage.imgs != '0'){
       $.each(data.news.stickMessage.imgs, function (i, item) {
         live_top += '<figure>'
@@ -340,24 +368,72 @@ function loadData(data){
     }
     live_top += '</div>';
 
-    init($('.js-stick-msg'), live_top, data.news.stickMessage.vod_id);
+    $('.js-stick-msg').append(live_top);
+    initPhotoSwipeFromDOM('.my-gallery');
+
+    initMedia(data.news.stickMessage.vod_id);
+
   }
-
-
 }
 
-function init(obj, data, video_id){
-  $(obj).append(data);
-  initPhotoSwipeFromDOM('.my-gallery');
-  console.log(video_id)
-  if(video_id != '' && video_id != null && video_id != undefined && video_id != '0' && video_id != 0){
-    var option = {
-      "auto_play": "0",
-      "file_id": "14651978969256407716",
-      "app_id": "1251951972",
-      "width": 640,
-      "height": 480
-    }; /*调用播放器进行播放*/
-    new qcVideo.Player( /*代码中的id_video_container将会作为播放器放置的容器使用,可自行替换*/ video_id, option);
+function insertChat(data){
+  //chat
+  if(data.chats.newMessage != undefined && data.chats.newMessage !== '' && data.chats.newMessage != null){
+    var chats_data = '';
+    $.each(data.chats.newMessage, function (i, item) {
+      if(data.chats.newMessage[i].reply_id == '0'){
+        //非回复数据
+        chats_data = '<li class="relative mt10 mr10 ml10 bb">'
+          + '<div class="clearfix">'
+          + '<div class="chat-img">'
+          + '<a href="#"><img src="'
+          + data.chats.newMessage[i].avatar
+          + '"/></a>'
+          + '</div>'
+          + '<div class="chat-content color-999 clearfix">'
+          + '<span>'
+          + data.chats.newMessage[i].username
+          + '</span><span class="pull-right">'
+          + data.chats.newMessage[i].create_time
+          + '</span>'
+          + '<p class="mt5 mb10 color-333">'
+          + data.chats.newMessage[i].content
+          + '</p>'
+          + '</div>'
+          + '</div>';
+
+
+        $.each(data.chats.newMessage, function (j, item) {
+          if(data.chats.newMessage[i].id == data.chats.newMessage[j].reply_id){
+            //回复数据
+            chats_data += '<div class="chat-reply">'
+              + '<div class="chat-img text-center">'
+              + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
+              + '</div>'
+              + '<div class="chat-content color-999 clearfix">'
+              + '<div class="chat-img">'
+              + '<a href="#"><img src="'
+              + data.chats.newMessage[j].avatar
+              + '"/></a>'
+              + '</div>'
+              + '<div class="chat-content color-999 clearfix">'
+              + '<span>'
+              + data.chats.newMessage[j].username
+              + '</span>'
+              + '<p class="mt5 mb10 color-333 mr10">'
+              + data.chats.newMessage[j].content
+              + '</p>'
+              + '</div>'
+              + '</div>'
+              + '</div>';
+          }
+
+        });
+        chats_data += '</li>';
+      }
+      $('.js-chat-list').append(chats_data);
+      chats_data = '';
+    });
   }
+
 }
