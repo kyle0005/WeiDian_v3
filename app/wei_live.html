@@ -402,8 +402,16 @@
       }
     })
 
-    pop.popUpC($('.chat-content'), 250);
-    pop.popDownC();
+    $(document).on('click', 'new-chat', function () {
+      $('#popUpWrap').removeClass('none');
+      $('.pop-up').height(220);
+      $(this).data('id');
+    });
+    $('.pop-up').height('0');
+    setTimeout(function(){
+      $('#popUpWrap').addClass('none');
+    },600);
+
 
   });
 

@@ -349,7 +349,7 @@ function insertLive(data){
 
 function insertTop(data){
   //live-top
-  if(data.news.stickMessage != undefined && data.news.stickMessage !== '' && data.news.stickMessage != null){
+  if(data.news.stickMessage != undefined && data.news.stickMessage !== '' && data.news.stickMessage != null && data.news.stickMessage != false ){
     var live_top = '<div class="ptop">'
       + data.news.stickMessage.content
       + '</div>'
@@ -378,12 +378,14 @@ function insertTop(data){
 
     initMedia(data.news.stickMessage.vod_id);
 
+  }else{
+    $('.js-stick-msg').empty();
   }
 }
 
 function insertChat(data){
   //chat
-  if(data.chats.newMessage != undefined && data.chats.newMessage !== '' && data.chats.newMessage != null){
+  if(data.chats.newMessage != undefined && data.chats.newMessage !== '' && data.chats.newMessage != null && data.chats.newMessage != false){
     var chats_data = '';
     $.each(data.chats.newMessage, function (i, item) {
       if(data.chats.newMessage[i].reply_id == '0'){
@@ -391,9 +393,11 @@ function insertChat(data){
         chats_data = '<li class="relative mt10 mr10 ml10 bb" id="chat-'
           + data.chats.newMessage[i].id
           + '">'
-          + '<div class="clearfix">'
+          + '<div class="new-chat clearfix"  data-id="'
+          + data.chats.newMessage[i].id
+          + '">'
           + '<div class="chat-img">'
-          + '<a href="#"><img src="'
+          + '<a href="javascript:;"><img src="'
           + data.chats.newMessage[i].avatar
           + '"/></a>'
           + '</div>'
@@ -421,7 +425,7 @@ function insertChat(data){
               + '</div>'
               + '<div class="chat-content color-999 clearfix">'
               + '<div class="chat-img">'
-              + '<a href="#"><img src="'
+              + '<a href="javascript:;"><img src="'
               + data.chats.newMessage[j].avatar
               + '"/></a>'
               + '</div>'
@@ -440,12 +444,9 @@ function insertChat(data){
         });
         chats_data += '</li>';
       }
-      $('.js-chat-list').append(chats_data);
+      $('.js-chat-list').prepend(chats_data);
       chats_data = '';
     });
-  }
-  else{
-    $('.js-chat-list').empty();
   }
 
 }
