@@ -281,6 +281,9 @@ function loadData(data){
   insertTop(data);
   //chat
   insertChat(data);
+
+  //del
+  delData(data);
 }
 
 function initMedia(video_id){
@@ -301,7 +304,9 @@ function insertLive(data){
   if(data.news.newMessage != undefined && data.news.newMessage !== '' && data.news.newMessage != null){
     var live_data = '';
     $.each(data.news.newMessage, function (i, item) {
-      live_data = '<li class="live-li clearfix">'
+      live_data = '<li class="live-li clearfix" id="live-'
+        + data.news.newMessage[i].id
+        + '">'
         + '<div class="js-live-time live-time">'
         + data.news.newMessage[i].create_time
         + '<img src="Public/img/lotus.png"/>'
@@ -383,7 +388,9 @@ function insertChat(data){
     $.each(data.chats.newMessage, function (i, item) {
       if(data.chats.newMessage[i].reply_id == '0'){
         //非回复数据
-        chats_data = '<li class="relative mt10 mr10 ml10 bb">'
+        chats_data = '<li class="relative mt10 mr10 ml10 bb" id="chat-'
+          + data.chats.newMessage[i].id
+          + '">'
           + '<div class="clearfix">'
           + '<div class="chat-img">'
           + '<a href="#"><img src="'
@@ -406,7 +413,9 @@ function insertChat(data){
         $.each(data.chats.newMessage, function (j, item) {
           if(data.chats.newMessage[i].id == data.chats.newMessage[j].reply_id){
             //回复数据
-            chats_data += '<div class="chat-reply">'
+            chats_data += '<div class="chat-reply" id="re-'
+              + data.chats.newMessage[j].id
+              + '">'
               + '<div class="chat-img text-center">'
               + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
               + '</div>'
@@ -433,6 +442,32 @@ function insertChat(data){
       }
       $('.js-chat-list').append(chats_data);
       chats_data = '';
+    });
+  }
+  else{
+    $('.js-chat-list').empty();
+  }
+
+}
+
+function delData(data){
+  if(data.news.delMessage != false){
+    $.each(data.news.delMessage, function (i, con) {
+      $('#live-' + data.news.delMessage[i].id).remove();
+    });
+
+  }
+  if(data.chats.delMessage != false){
+    $.each(data.chats.delMessage, function (j, item) {
+      if(data.chats.delMessage[j].reply_id != undefined && data.chats.delMessage[j].reply_id !== '' && data.chats.delMessage[j].reply_id != null&& data.chats.delMessage[j].reply_id != '0') {
+        //删除无回复聊天内容
+        $('#re-' + data.chats.delMessage[j].id).remove();
+      }
+      else{
+        //删除回复内容
+        $('#chat-' + data.chats.delMessage[j].id).remove();
+      }
+
     });
   }
 

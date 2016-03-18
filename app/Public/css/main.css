@@ -7730,6 +7730,7 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
   width: 60%;
 }
 .chat-content{
+  display: block;
   width: 86%;
   margin-left: 14%;
 }
@@ -7740,6 +7741,7 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
   width: calc(100% + 20px);
   background-color: #f0eacd;
   padding: 10px 0 1px 0;
+  border-bottom: 1px solid #fff;
 }
 .sub-chat{
   position: fixed;
@@ -7749,7 +7751,7 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
   background-color: #ffffff;
   border-top: 1px solid #e3e3e3;
   margin-top: 10px;
-  padding: 10px 0;
+  padding-top: 10px;
 }
 .sub-chat a{
   display: block;
@@ -7766,6 +7768,11 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
 .sub-chat img{
   vertical-align: sub;
   width: 14px;
+}
+.reply-con{
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #eee;
 }
 .live-text{
   width: 100%;
@@ -7789,13 +7796,18 @@ a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:ac
   line-height: 20px;
 }
 input.sub-chat-inp{
-  margin: 0 10px 0 10px;
-  width: 92%;
+  width: 90%;
 }
 .chat-log>a.chat-log, .chat-log>a.chat-reg{
   display: inline-block;
   border: none;
   color: #b08654;
+}
+.chat-a{
+  display: block;
+}
+.chat-a span{
+  display: block;
 }
 /* pswp = photoswipe */
 .pswp {
