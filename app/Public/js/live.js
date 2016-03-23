@@ -12,8 +12,10 @@ function tabClick(tabObj, chosenClassName){        //Tab切换选项
     var ind = $(this).index();
     $(tab_obj).addClass('hide');
     $(tab_obj).eq(ind).removeClass('hide');
+
+    configs.tab ? configs.tab = false : configs.tab = true;
   });
-  configs.tab ? configs.tab = false : configs.tab = true;
+
 }
 tabClick($('.js-live-tab'),'live-cur');
 
@@ -21,13 +23,20 @@ tabClick($('.js-live-tab'),'live-cur');
 $('.js-up-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, 1);    //天数加一
-  $('.js-live-date').html(date);
-  livePages(false);
+  if(!date){
+    console.log('false');
+  }else{
+    $('.js-live-date').html(date);
+    configs.news.date = date;
+    livePages(false);
+  }
+
 });
 $('.js-down-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, -1);    //天数减一
   $('.js-live-date').html(date);
+  configs.news.date = date;
   livePages(false);
 });
 function addDate(date,days){
@@ -36,7 +45,7 @@ function addDate(date,days){
   if(days > 0){
     //加
     if(today.getTime() - d.getTime() < 24*60*60*1000){
-      return;
+      return false;
     }
   }
     d.setDate(d.getDate()+days);
@@ -48,19 +57,21 @@ function addDate(date,days){
     if(day<10){
       day = "0"+day;
     }
-    var val = d.getFullYear()+"-"+month+"-"+day;
-    return val;
+    var v = d.getFullYear()+"-"+month+"-"+day;
+    return v;
 }
 
 //live分页
 function livePages(flag){
   var list = $('.js-live-list');
   JQAjax.get(this,{
-    url : configs.news.url,
+    url : configs.news.url + '&last_id=' + configs.news.last_id + '&date=' + configs.news.date,
     wait : true,
-    form : configs.news,
     callback: function(result){
-      result = eval("(" + result + ")");
+      if(typeof result == 'string'){
+        result = eval("(" + result + ")");
+      }
+      configs.news.last_id = result.lastId;
       if(flag){
         //滚动分页
         $(list).append(result.html);
@@ -77,11 +88,13 @@ function livePages(flag){
 function chatPages(){
   var list = $('.js-chat-list');
   JQAjax.get(this,{
-    url : configs.news.url,
+    url : configs.chat.url + '&last_id=' + configs.chat.last_id,
     wait : true,
-    form : configs.news,
     callback: function(result){
-      result = eval("(" + result + ")");
+      if(typeof result == 'string') {
+        result = eval("(" + result + ")");
+      }
+      configs.chat.last_id = result.lastId;
         //滚动分页
         $(list).append(result.html);
     }

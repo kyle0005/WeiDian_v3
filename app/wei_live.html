@@ -63,21 +63,25 @@
           <div class="active item clearfix">
             <a href="#">
               <img src="Public/img/ad/ad-1.png">
-              <span class="main-join-num">图文直播</span>
+              <span class="main-join-num"></span>
+              <span class="main-join-txt">图文直播</span>
             </a>
             <a href="#">
               <img src="Public/img/ad/ad-2.jpg">
-              <span class="main-join-num">新闻直播</span>
+              <span class="main-join-num"></span>
+              <span class="main-join-txt">新闻直播</span>
             </a>
           </div>
           <div class="item clearfix">
             <a href="#">
               <img src="Public/img/ad/ad-2.jpg">
-              <span class="main-join-num">图文直播</span>
+              <span class="main-join-num"></span>
+              <span class="main-join-txt">图文直播</span>
             </a>
             <a href="#">
               <img src="Public/img/ad/ad-1.png">
-              <span class="main-join-num">新闻直播</span>
+              <span class="main-join-num"></span>
+              <span class="main-join-txt">新闻直播</span>
             </a>
           </div>
         </div>
@@ -257,18 +261,16 @@
 <script type="text/javascript">
   var configs = {
     news: {
-      url:":U('/channels/'.$vo['id'].'/news@'.C('LIVE_DOMAIN'))",
+      url:"http://127.0.0.1:8000/data.php?action=news",
       last_id: 1,
-      date: "2016-03-23",
-      page:1,
+      date: "2016-03-23"
     },
     chat:{
-      url:":U('/channels/'.$vo['id'].'/chats@'.C('LIVE_DOMAIN'))",
-      last_id: 1,
-      page:1,
+      url:"http://127.0.0.1:8000/data.php?action=chat",
+      last_id: 1
     },
     tab:true    //true:live, false:chat
-  }
+  };
   $(function () {
     var data = {
       "news": {
@@ -399,9 +401,9 @@
     //滚动到底部自动加载数据
     $(window).scroll(function () {
       if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
-        configs.tab ? livePages(true) : chatPages();
+        configs.tab == true ? livePages(true) : chatPages();
       }
-    })
+    });
 
     $('.new-chat').click(function () {
       $('#popUpWrap').removeClass('none');

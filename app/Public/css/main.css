@@ -7598,7 +7598,7 @@ input.bid-add-inp{
 }
 
 .live-tab ul li a {
-  font-size: 12px;
+  font-size: 14px;
   display: block;
   color: #b08654;
 }
@@ -7686,6 +7686,20 @@ a.live-date:active{
   opacity: 0.5;
   border-radius: 0;
   padding: 0;
+}
+#live-carousel .main-join-txt{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 0;
+  padding: 0;
+  z-index: 2;
 }
 .check-new-l{
   display: block;
