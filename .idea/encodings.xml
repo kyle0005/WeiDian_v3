@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/../Webapp_demo/Gruntfile.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/base.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/$iscroll.js" charset="UTF-8" />
@@ -22,5 +23,7 @@
     <file url="file://$PROJECT_DIR$/app/wei_live_sendMsg.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/wei_test6.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/wei_test7.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/index.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../WeiDian_v4/gulpfile.babel.js" charset="UTF-8" />
   </component>
 </project>

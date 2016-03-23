@@ -21,25 +21,46 @@ $('.js-up-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, 1);    //天数加一
   $('.js-live-date').html(date);
+
+  JQAjax.post(this,{
+    url : config.news,
+    form : {
+      "products" : [],
+      "code" : $('#input-coupon-code').val()
+    },
+    wait : true
+
+  });
+
 });
 $('.js-down-date').click(function () {
   var dateTxt = $('.js-live-date').html();
-  var date = addDate(dateTxt, -1);    //天数加一
+  var date = addDate(dateTxt, -1);    //天数减一
   $('.js-live-date').html(date);
 });
 function addDate(date,days){
+  var today = new Date();
   var d=new Date(date);
-  d.setDate(d.getDate()+days);
-  var month=d.getMonth()+1;
-  var day = d.getDate();
-  if(month<10){
-    month = "0"+month;
+
+  if(days > 0){
+    //加
+    if(today.getTime() - d.getTime() < 24*60*60*1000){
+      return;
+    }
   }
-  if(day<10){
-    day = "0"+day;
-  }
-  var val = d.getFullYear()+"-"+month+"-"+day;
-  return val;
+
+    d.setDate(d.getDate()+days);
+    var month=d.getMonth()+1;
+    var day = d.getDate();
+    if(month<10){
+      month = "0" + month;
+    }
+    if(day<10){
+      day = "0"+day;
+    }
+    var val = d.getFullYear()+"-"+month+"-"+day;
+    return val;
+
 }
 
 //弹窗
@@ -281,9 +302,10 @@ function loadData(data){
   insertTop(data);
   //chat
   insertChat(data);
-
+  //reply
+  insertReply(data);
   //del
-  delData(data);
+  //delData(data);
 }
 
 function initMedia(video_id){
@@ -384,71 +406,73 @@ function insertTop(data){
 }
 
 function insertChat(data){
+  var msg = data.chats.newMessage;
+  var chats_data = '';
   //chat
-  if(data.chats.newMessage != undefined && data.chats.newMessage !== '' && data.chats.newMessage != null && data.chats.newMessage != false){
-    var chats_data = '';
-    $.each(data.chats.newMessage, function (i, item) {
-      if(data.chats.newMessage[i].reply_id == '0'){
+  if(msg != undefined && msg !== '' && msg != null && msg != false){
+    $.each(msg, function (i, item) {
+      if(msg[i].reply_id == '0'){
         //非回复数据
-        chats_data = '<li class="relative mt10 mr10 ml10 bb" id="chat-'
-          + data.chats.newMessage[i].id
+        chats_data += '<li class="relative mt10 mr10 ml10 bb" id="chat-'
+          + msg[i].id
           + '">'
           + '<div class="new-chat clearfix"  data-id="'
-          + data.chats.newMessage[i].id
+          + msg[i].id
           + '">'
           + '<div class="chat-img">'
           + '<a href="javascript:;"><img src="'
-          + data.chats.newMessage[i].avatar
+          + msg[i].avatar
           + '"/></a>'
           + '</div>'
           + '<div class="chat-content color-999 clearfix">'
           + '<span>'
-          + data.chats.newMessage[i].username
+          + msg[i].username
           + '</span><span class="pull-right">'
-          + data.chats.newMessage[i].create_time
+          + msg[i].create_time
           + '</span>'
           + '<p class="mt5 mb10 color-333">'
-          + data.chats.newMessage[i].content
+          + msg[i].content
           + '</p>'
           + '</div>'
-          + '</div>';
-
-
-        $.each(data.chats.newMessage, function (j, item) {
-          if(data.chats.newMessage[i].id == data.chats.newMessage[j].reply_id){
-            //回复数据
-            chats_data += '<div class="chat-reply" id="re-'
-              + data.chats.newMessage[j].id
-              + '">'
-              + '<div class="chat-img text-center">'
-              + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
-              + '</div>'
-              + '<div class="chat-content color-999 clearfix">'
-              + '<div class="chat-img">'
-              + '<a href="javascript:;"><img src="'
-              + data.chats.newMessage[j].avatar
-              + '"/></a>'
-              + '</div>'
-              + '<div class="chat-content color-999 clearfix">'
-              + '<span>'
-              + data.chats.newMessage[j].username
-              + '</span>'
-              + '<p class="mt5 mb10 color-333 mr10">'
-              + data.chats.newMessage[j].content
-              + '</p>'
-              + '</div>'
-              + '</div>'
-              + '</div>';
-          }
-
-        });
-        chats_data += '</li>';
+          + '</div>'
+          +'</li>';
       }
-      $('.js-chat-list').prepend(chats_data);
-      chats_data = '';
     });
+    $('.js-chat-list').prepend(chats_data);
   }
+}
 
+function insertReply(data){
+  $.each(data.chats.newMessage, function (j, item) {
+    var re = $('#chat-' + data.chats.newMessage[j].reply_id);
+    if(re != undefined && re != null) {
+      //回复数据
+      var reply_data = '<div class="chat-reply" id="re-'
+        + data.chats.newMessage[j].id
+        + '">'
+        + '<div class="chat-img text-center">'
+        + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
+        + '</div>'
+        + '<div class="chat-content color-999 clearfix">'
+        + '<div class="chat-img">'
+        + '<a href="javascript:;"><img src="'
+        + data.chats.newMessage[j].avatar
+        + '"/></a>'
+        + '</div>'
+        + '<div class="chat-content color-999 clearfix">'
+        + '<span>'
+        + data.chats.newMessage[j].username
+        + '</span>'
+        + '<p class="mt5 mb10 color-333 mr10">'
+        + data.chats.newMessage[j].content
+        + '</p>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+
+      $(re).append(reply_data);
+    }
+  });
 }
 
 function delData(data){
