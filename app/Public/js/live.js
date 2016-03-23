@@ -24,12 +24,10 @@ $('.js-up-date').click(function () {
 
   JQAjax.post(this,{
     url : config.news,
-    form : {
-      "products" : [],
-      "code" : $('#input-coupon-code').val()
-    },
-    wait : true
+    wait : true,
+    callback: function(data){
 
+    }
   });
 
 });
