@@ -13,6 +13,7 @@ function tabClick(tabObj, chosenClassName){        //Tab切换选项
     $(tab_obj).addClass('hide');
     $(tab_obj).eq(ind).removeClass('hide');
   });
+  configs.tab ? configs.tab = false : configs.tab = true;
 }
 tabClick($('.js-live-tab'),'live-cur');
 
@@ -21,32 +22,23 @@ $('.js-up-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, 1);    //天数加一
   $('.js-live-date').html(date);
-
-  JQAjax.post(this,{
-    url : config.news,
-    wait : true,
-    callback: function(data){
-
-    }
-  });
-
+  livePages(false);
 });
 $('.js-down-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, -1);    //天数减一
   $('.js-live-date').html(date);
+  livePages(false);
 });
 function addDate(date,days){
   var today = new Date();
   var d=new Date(date);
-
   if(days > 0){
     //加
     if(today.getTime() - d.getTime() < 24*60*60*1000){
       return;
     }
   }
-
     d.setDate(d.getDate()+days);
     var month=d.getMonth()+1;
     var day = d.getDate();
@@ -58,20 +50,43 @@ function addDate(date,days){
     }
     var val = d.getFullYear()+"-"+month+"-"+day;
     return val;
-
 }
 
-//弹窗
-$('.js-sub-chat').click(function () {
+//live分页
+function livePages(flag){
+  var list = $('.js-live-list');
+  JQAjax.get(this,{
+    url : configs.news.url,
+    wait : true,
+    form : configs.news,
+    callback: function(result){
+      result = eval("(" + result + ")");
+      if(flag){
+        //滚动分页
+        $(list).append(result.html);
+      }
+      else{
+        //日期分页
+        $(list).html(result.html);
+      }
 
-  JQbox.open({
-    type: "open",
-    title: "我来聊两句",
-    url: 'wei_live_sendMsg.html',
-    modal:true
-  }) ;
-
-});
+    }
+  });
+}
+//chat分页
+function chatPages(){
+  var list = $('.js-chat-list');
+  JQAjax.get(this,{
+    url : configs.news.url,
+    wait : true,
+    form : configs.news,
+    callback: function(result){
+      result = eval("(" + result + ")");
+        //滚动分页
+        $(list).append(result.html);
+    }
+  });
+}
 
 //轮播
 $('#live-carousel').carousel({ interval: 3000});

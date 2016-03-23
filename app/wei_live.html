@@ -50,9 +50,7 @@
     </ul>
   </div>
   <div class="">
-    <div class="js-stick-msg mt10 ml10 mr10 mb5 clearfix">
-
-    </div>
+    <div class="js-stick-msg mt10 ml10 mr10 mb5 clearfix"></div>
     <div class="text-center pb10 bb ml10 mr10">
       <a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>
       &nbsp;<span class="js-live-date color-666">2016-03-23</span>&nbsp;
@@ -227,22 +225,12 @@
     <!--创建联盟-->
     <div class="pop-height">
       <section class="clearfix hst-choose-sec pl15 pr15">
-        <div class="text-center fs14">
-          我来聊两句
+        <div class="text-center clearfix">
+          <a href="#" class="js-cac pull-left">取消</a><span class="fs14">我来聊两句</span><a href="#" class="js-sen pull-right">发送</a>
         </div>
       </section>
-      <div class="mr10 ml10">
+      <div class="mr15 ml15">
         <textarea class="reply-con"></textarea>
-        <div class="mt10">
-          <ul class="chat-li clearfix">
-            <li>
-              <a href="#" class="js-cac wei-btn wei-bg-white lh30">取消</a>
-            </li>
-            <li>
-              <a href="#" class="js-sen wei-btn wei-bg-sRed lh30">发送</a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -267,12 +255,21 @@
 <script src="http://qzonestyle.gtimg.cn/open/qcloud/video/h5/h5connect.js"
         charset="utf-8"></script>
 <script type="text/javascript">
-  $(function () {
-    var config = {
-      news:{:U('/channels/'.$vo['id'].'/news@'.C('LIVE_DOMAIN'))},
-      chat:{:U('/channels/'.$vo['id'].'/chats@'.C('LIVE_DOMAIN'))}
+  var configs = {
+    news: {
+      url:":U('/channels/'.$vo['id'].'/news@'.C('LIVE_DOMAIN'))",
+      last_id: 1,
+      date: "2016-03-23",
+      page:1,
+    },
+    chat:{
+      url:":U('/channels/'.$vo['id'].'/chats@'.C('LIVE_DOMAIN'))",
+      last_id: 1,
+      page:1,
+    },
+    tab:true    //true:live, false:chat
   }
-
+  $(function () {
     var data = {
       "news": {
         "newMessage": [
@@ -402,15 +399,13 @@
     //滚动到底部自动加载数据
     $(window).scroll(function () {
       if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
-
-//        loadData(data);
-        console.log('loading new data...')
+        configs.tab ? livePages(true) : chatPages();
       }
     })
 
     $('.new-chat').click(function () {
       $('#popUpWrap').removeClass('none');
-      $('.pop-up').height(150);
+      $('.pop-up').height(110);
       $(this).data('id');
     });
     //点击蒙层处或者叉滑出
@@ -420,14 +415,9 @@
         $('#popUpWrap').addClass('none');
       },600);
 
-    }) ;
+    });
 
   });
-
-//  last_id = ，
-//  date =
-//    p =
-
 </script>
 <script src="Public/js/live.js"></script>
 </body>
