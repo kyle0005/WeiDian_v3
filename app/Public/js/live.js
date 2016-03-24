@@ -4,7 +4,7 @@
 //tab切换
 function tabClick(tabObj, chosenClassName){        //Tab切换选项
   var click_obj  = $(tabObj).find('li');
-  var tab_obj = $(tabObj).siblings();
+  var tab_obj = $(document).find('.tab-ops');
   $(click_obj).click(function(){
     $(click_obj).removeClass(chosenClassName);
     $(this).addClass(chosenClassName);
@@ -68,9 +68,9 @@ function livePages(flag){
     url : configs.news.url + '&last_id=' + configs.news.last_id + '&date=' + configs.news.date,
     wait : true,
     callback: function(result){
-      if(typeof result == 'string'){
-        result = eval("(" + result + ")");
-      }
+      //if(typeof result == 'string'){
+      //  result = eval("(" + result + ")");
+      //}
       configs.news.last_id = result.lastId;
       if(flag){
         //滚动分页
@@ -91,9 +91,9 @@ function chatPages(){
     url : configs.chat.url + '&last_id=' + configs.chat.last_id,
     wait : true,
     callback: function(result){
-      if(typeof result == 'string') {
-        result = eval("(" + result + ")");
-      }
+      //if(typeof result == 'string') {
+      //  result = eval("(" + result + ")");
+      //}
       configs.chat.last_id = result.lastId;
         //滚动分页
         $(list).append(result.html);
@@ -331,7 +331,7 @@ function loadData(data){
   //reply
   insertReply(data);
   //del
-  //delData(data);
+  delData(data);
 }
 
 function initMedia(video_id){
@@ -370,7 +370,7 @@ function insertLive(data){
           live_data += '<figure>'
             +'<a href="'
             + item
-            + '" data-size="1500x800">'
+            + '" data-size="800x800">'
             + '<img src="'
             + item
             + '"/></a>'
@@ -407,7 +407,7 @@ function insertTop(data){
         live_top += '<figure>'
           +'<a href="'
           + item
-          + '" data-size="1500x800">'
+          + '" data-size="800x800">'
           + '<img src="'
           + item
           + '"/></a>'

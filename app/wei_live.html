@@ -16,26 +16,24 @@
   <link href="Public/css/button.css" rel="stylesheet">
 </head>
 <body style="-webkit-overflow-scrolling: touch;" class="live_body">
-<header class="nav-wrap">
-  <div class="nav">
-    <a href="javascript:history.go(-1);" class="nav-back">
-      <i class="icon-2x icon-angle-left"></i>
-    </a>
-
-    <div class="nav-title">
-      直播
+<section class="live-container">
+  <header class="nav-wrap">
+    <div class="nav">
+      <a href="javascript:history.go(-1);" class="nav-back">
+        <i class="icon-2x icon-angle-left"></i>
+      </a>
+      <div class="nav-title">
+        直播
+      </div>
     </div>
-  </div>
-</header>
-<section class="mt10 ml10 mr10">
+  </header>
   <div class="main-img">
     <div class="main-title-con">
       <img src="Public/img/liveLogo.png"/>
+      <div class="main-join-line color-b08654">乐山大佛线</div>
       <div class="main-join-num">1234214241人参与</div>
     </div>
   </div>
-</section>
-<section>
   <div class="js-live-tab live-tab bb">
     <ul class="clearfix">
       <li class="live-cur">
@@ -45,11 +43,13 @@
         <a href="javascript:;"><i class="icon-comments"></i>&ensp;聊天室</a>
       </li>
       <li class="">
-        <a href="javascript:;"><i class="icon-comments"></i>&ensp;信物</a>
+        <a href="javascript:;"><i class="icon-lotus"></i>&ensp;信物</a>
       </li>
     </ul>
   </div>
-  <div class="">
+</section>
+<section class="live-main">
+  <div class="tab-ops">
     <div class="js-stick-msg mt10 ml10 mr10 mb5 clearfix"></div>
     <div class="text-center pb10 bb ml10 mr10">
       <a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>
@@ -90,9 +90,12 @@
         <a class="carousel-control right" href="#live-carousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="check-new">
-      <a href="#" class="check-new-l">
-        有新的消息，点击查看
+    <div class="check-new hide">
+      <!--<a href="#" class="check-new-l">-->
+        <!--有新消息，点击查看-->
+      <!--</a>-->
+      <a href="javascript:;" class="check-new-m">
+        有新消息，点击查看
       </a>
     </div>
     <ul class="js-live-list wei-container10">
@@ -101,7 +104,7 @@
       <!--</a>-->
     </ul>
   </div>
-  <div class="hide">
+  <div class="tab-ops hide">
     <ul class="js-chat-list">
       <!--<li class="relative mt10 mr10 ml10 bb">-->
         <!--<div class="chat-a clearfix">-->
@@ -117,14 +120,11 @@
       <!--</li>-->
     </ul>
     <div style="height: 55px;"></div>
-    <div class="sub-chat text-center">
-      <input type="text" placeholder="我来聊两句" class="sub-chat-inp color-999"/>
-      <!--<div class="chat-log text-center">-->
-      <!--您需要登录后才可以回复，请<a href="#" class="chat-log">登录</a>或者<a href="#" class="chat-reg">立即注册</a>-->
-      <!--</div>-->
+    <div class="sub-chat">
+      <a href="javascript:;" class="new-chat color-999"><img src="Public/img/chat_edit.png">&nbsp;我来聊两句</a>
     </div>
   </div>
-  <div class="hide">
+  <div class="tab-ops hide">
     <ul class="live-token-list">
       <li class="mt10 mr10 ml10">
         <a href="" class="js-buy-cal list-content mb5 clearfix">
@@ -254,8 +254,6 @@
 <script src="Public/js/photoswipe.js"></script>
 <script src="Public/js/photoswipe-ui-default.js"></script>
 <script src="Public/js/jinniu.mobile.js"></script>
-<script src="Public/js/iscroll.js"></script>
-<script src="Public/js/tools.js"></script>
 <script src="http://qzonestyle.gtimg.cn/open/qcloud/video/h5/h5connect.js"
         charset="utf-8"></script>
 <script type="text/javascript">
@@ -391,12 +389,9 @@
       "lastChatId": 1
     };
 
-    loadData(data);
+    initPhotoSwipeFromDOM('.my-gallery');
 
-    $('.check-new-l').click(function () {
-      console.log('loading new data...');
-      $(this).hide();
-    });
+    loadData(data);
 
     //滚动到底部自动加载数据
     $(window).scroll(function () {
@@ -407,7 +402,7 @@
 
     $('.new-chat').click(function () {
       $('#popUpWrap').removeClass('none');
-      $('.pop-up').height(110);
+      $('.pop-up').height(130);
       $(this).data('id');
     });
     //点击蒙层处或者叉滑出
@@ -419,7 +414,22 @@
 
     });
 
+
+    $('.check-new-m').click(function () {
+      $('.check-new').fadeOut();
+      $(document).scrollTop(0);
+    });
+    $(document).scroll(function() {
+      if(data.news.newMessage != false && $(document).scrollTop() > 260){
+        $('.check-new').fadeIn();
+      }
+      if($(document).scrollTop() <= 260){
+        $('.check-new').fadeOut();
+      }
+    });
+
   });
+
 </script>
 <script src="Public/js/live.js"></script>
 </body>

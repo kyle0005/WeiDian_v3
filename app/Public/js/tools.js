@@ -27,8 +27,6 @@ $(function(){
 
   tab.tabClick($('.js-orderTab'),'order-cur');
 
-  tab.tabClick($('.js-live-tab'),'live-cur');
-
   buyNow.listClick();
 });
 

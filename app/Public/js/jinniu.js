@@ -1,287 +1,166 @@
-﻿var JQCheck = {
+var JQCheck = {
     load: function () {
-        //给checkbox提供全选
         $(".checkbox").click(function () {
-            var checkall = true;
+            var a = !0;
             $(".checkbox").each(function () {
-                if (!$(this).attr('checked')) {
-                    checkall = false;
-                }
-            });
-            if (checkall) {
-                $(".checkall").attr("checked", "checked");
-            } else {
-                $(".checkall").removeAttr("checked");
-            }
-        });
-        $(".checkall").click(function () {
-            if ($(this).attr("checked")) {
-                $(".checkbox").attr("checked", "checked");
-            } else {
-                $(".checkbox").removeAttr("checked");
-            }
-        });
-    },
-    count: function() {
-        return $(".checkbox:checked").length;
-    },
-    valid: function () {
-        var bool = false;
-        $(".checkbox").each(function () {
-            if ($(this).attr('checked')) {
-                bool = true;
-                return;
-            }
-        });
-        return bool;
+                $(this).attr("checked") || (a = !1)
+            }), a ? $(".checkall").attr("checked", "checked") : $(".checkall").removeAttr("checked")
+        }), $(".checkall").click(function () {
+            $(this).attr("checked") ? $(".checkbox").attr("checked", "checked") : $(".checkbox").removeAttr("checked")
+        })
+    }, count: function () {
+        return $(".checkbox:checked").length
+    }, valid: function () {
+        var a = !1;
+        return $(".checkbox").each(function () {
+            return $(this).attr("checked") ? void(a = !0) : void 0
+        }), a
     }
-};
-
-
-var JQDialog ={
-    creat:function(options){
-        options = options || {};
-        if (!options.type) {
-            return;
+}, JQDialog = {
+    creat: function (a) {
+        if (a = a || {}, a.type) {
+            $("#dialog") && $("#dialog").dialog("destroy").remove();
+            var b = {
+                modal: a.modal ? a.modal : !1,
+                resizable: a.resizable ? a.resizable : !1,
+                bgiframe: a.bgiframe ? a.bgiframe : !1,
+                title: a.title
+            };
+            if (a.height && (b.height = a.height), a.width && (b.width = a.width), a.buttons && (b.buttons = a.buttons), "open" == a.type) {
+                var c = this;
+                JQAjax.get(null, {
+                    url: a.url, callback: function (a) {
+                        c.show(a, b)
+                    }
+                })
+            } else {
+                var d = "<p class='jqalert'>";
+                d += a.content + "</p>", this.show(d, b)
+            }
+            switch (a.type) {
+                case"reload":
+                    setTimeout("" + a.callback, 600);
+                    break;
+                case"alert":
+                    setTimeout("$('#dialog').dialog('close')", 2e3);
+                    break;
+                case"jump":
+                    setTimeout("" + a.callback, 600);
+                    break;
+                case"close":
+                    $(".ui-dialog-titlebar-close").click(a.callback)
+            }
         }
-        if ($('#dialog')) {
-            $("#dialog").dialog("destroy").remove();
-        }
-        var json = { "modal":options.modal ? options.modal :false,
-            "resizable": options.resizable ? options.resizable :false,
-            "bgiframe": options.bgiframe ? options.bgiframe : false,
-            "title":options.title
-        };
-        if (options.height) {
-            json.height = options.height;
-        }
-        if(options.width){
-            json.width = options.width;
-        }
-        if(options.buttons){
-            json.buttons = options.buttons;
-        }
-        if (options.type == "open") {
-            var self = this;
-            JQAjax.get(null,{
-                url:options.url,
-                callback:function (t) {
-                    self.show(t, json);
-                }
-            });
-        }else{
-            var html = "<p class='jqalert'>";
-            html += options.content + "</p>";
-            this.show(html, json);
-        }
-
-        switch (options.type) {
-            case "reload":
-                setTimeout(""+ options.callback +"", 600);
-                break;
-            case "alert":
-                setTimeout("$('#dialog').dialog('close')", 2000);
-                break;
-            case "jump":
-                setTimeout(""+ options.callback +"", 600);
-                break;
-            case "close":
-                $(".ui-dialog-titlebar-close").click(options.callback);
-                break;
-        }
-    },
-    show:function (html,options) {
-        var body = document.getElementsByTagName('body').item(0);
-        var div = document.createElement('div');
-        div.id = "dialog";
-        div.innerHTML = html;
-        body.appendChild(div);
-        $("#dialog").dialog(options);
+    }, show: function (a, b) {
+        var c = document.getElementsByTagName("body").item(0), d = document.createElement("div");
+        d.id = "dialog", d.innerHTML = a, c.appendChild(d), $("#dialog").dialog(b)
     }
-}; 
-
-///重写jquery dialog弹出提醒 
-var JQbox = {
-    alert: function (message) {
-        JQDialog.creat({
-            type:"alert",
-            title:"提示",
-            content:message
-        });
-    },
-    reload: function (message) {
-        JQDialog.creat({
-            type: "reload",
-            title: "提示",
-            content: message,
-            callback: "location.reload()"
-        });
-    },
-    jump: function (message,url) {
-        JQDialog.creat({
-            type: "jump",
-            title: "提示",
-            content: message,
-            callback: "location.href = \"" + url + "\""
-        });
-    },
-    close: function (message, callback) {
-        JQDialog.creat({
-            type: "close",
-            title: "提示",
-            content: message,
-            callback: callback,
-            modal:true
-        });
-    },
-    open: function (options) {
-        options = options || {},
-        JQDialog.creat({
+}, JQbox = {
+    alert: function (a) {
+        JQDialog.creat({type: "alert", title: "提示", content: a})
+    }, reload: function (a) {
+        JQDialog.creat({type: "reload", title: "提示", content: a, callback: "location.reload()"})
+    }, jump: function (a, b) {
+        JQDialog.creat({type: "jump", title: "提示", content: a, callback: 'location.href = "' + b + '"'})
+    }, close: function (a, b) {
+        JQDialog.creat({type: "close", title: "提示", content: a, callback: b, modal: !0})
+    }, open: function (a) {
+        a = a || {}, JQDialog.creat({
             type: "open",
-            title: options.title || "提示",
-            url: options.url,
-            width: options.width || 300,
-            height: options.height || 'auto'
-        });
-    },
-    confirm: function (message, surecall, cancelcall) {
+            title: a.title || "提示",
+            url: a.url,
+            width: a.width || 300,
+            height: a.height || "auto"
+        })
+    }, confirm: function (a, b, c) {
         JQDialog.creat({
-            type: "confirm",
-            title: "提示",
-            content: message,
-            height:180,
-            buttons:{
+            type: "confirm", title: "提示", content: a, height: 180, buttons: {
                 "确定": function () {
-                    $("#dialog").dialog("close");
-                    surecall.call(this);
-                },
-                "取消": function () {
-                    $( this ).dialog( "close" );
-                    cancelcall.call(this);
+                    $("#dialog").dialog("close"), b.call(this)
+                }, "取消": function () {
+                    $(this).dialog("close"), c.call(this)
                 }
-            }
-        });
-    }
-};
-
-
-var Ajax = function (element, options) {
-    options = options || {};
-    var html = "";
-    if (options.wait) {
-        if ($(element).hasClass("disabled")) {
-            return;
-        }
-        html = $(element).html();
-        $(element).addClass("disabled");
-        $(element).html(options.waitinfo || html+"中...");
-    }
-
-    if (options.type == 'GET' || options.type == 'LOAD') {
-        $.ajax({
-            url: options.url ? options.url : "",
-            type: 'GET',
-            cache: false,
-            timeout: 3000000,
-            error: function () { if (options.containerid) { $('#' + options.containerid).html('数据加载失败'); } else { /*alert('数据加载失败，可能是网络连接问题或者服务器错误。');*/ } },
-            success: options.callback,
-            complete: function () { if (html != "") { $(element).html(html); } }
-        });
-    } else if (options.type == 'POST') {
-        if (!options.url) {
-            options.url = $("#" + options.form).attr("action");
-        }
-        var data;
-        if ('object' == typeof(options.form)) {
-            data = options.form;
-        } else {
-            data = options.form ? $('#' + options.form).serialize() : "";
-        }
-        $.ajax({
-            url: options.url,
-            type: 'POST',
-            data: data,
-            cache: false,
-            timeout: 3000000,
-            error: function () { /*alert('数据加载失败，可能是网络连接问题或者服务器错误。');*/ },
-            success: options.callback,
-            complete: function () { $(element).removeClass("disabled"); if (html != "") { $(element).html(html); } }
-        });
-    }
-};
-//重装jquery ajax 方法
-var JQAjax = {
-    get: function (element, options) {
-        Ajax(element, {
-            type: "GET",
-            url: options.url,
-            wait: options.wait,
-            callback: options.callback
-        });
-    },
-    load: function (element, url) {
-        var cid = element.attr("data-load");
-        Ajax(element, {
-            type:"LOAD",
-            url:url,
-            containerid: cid,
-            callback: function (data) {
-                $('#' + cid).html(data);
             }
         })
-    },
-    post: function (element, options) {
-        if (options.confirm) {
-            if (!confirm('你确定要执行该操作？')) {
-                return;
-            }
-            //JQbox.confrim("你确定要执行该操作？");
+    }
+}, Ajax = function (a, b) {
+    b = b || {};
+    var c = "";
+    if (b.wait) {
+        if ($(a).hasClass("disabled"))return;
+        c = $(a).html(), $(a).addClass("disabled"), $(a).html(b.waitinfo || c + "中...")
+    }
+    if ("GET" == b.type || "LOAD" == b.type)$.ajax({
+        url: b.url ? b.url : "",
+        type: "GET",
+        cache: !1,
+        timeout: 3e6,
+        error: function () {
+            b.containerid && $("#" + b.containerid).html("数据加载失败")
+        },
+        success: b.callback,
+        complete: function () {
+            "" != c && $(a).html(c)
         }
-        $(".error").each(function () {
-            $(this).hide();
-        });
-        Ajax(element,{
-            type:"POST",
+    }); else if ("POST" == b.type) {
+        b.url || (b.url = $("#" + b.form).attr("action"));
+        var d;
+        d = "object" == typeof b.form ? b.form : b.form ? $("#" + b.form).serialize() : "", $.ajax({
+            url: b.url,
+            type: "POST",
+            data: d,
+            cache: !1,
+            timeout: 3e6,
+            error: function () {
+            },
+            success: b.callback,
+            complete: function () {
+                $(a).removeClass("disabled"), "" != c && $(a).html(c)
+            }
+        })
+    }
+}, JQAjax = {
+    get: function (a, b) {
+        Ajax(a, {type: "GET", url: b.url, wait: b.wait, callback: b.callback})
+    }, load: function (a, b) {
+        var c = a.attr("data-load");
+        Ajax(a, {
+            type: "LOAD", url: b, containerid: c, callback: function (a) {
+                $("#" + c).html(a)
+            }
+        })
+    }, post: function (element, options) {
+        (!options.confirm || confirm("你确定要执行该操作？")) && ($(".error").each(function () {
+            $(this).hide()
+        }), Ajax(element, {
+            type: "POST",
             wait: options.wait,
-            url:options.url,
+            url: options.url,
             form: options.form,
-            waitinfo:options.waitinfo,
-            callback: function (result) {
-                var data = eval('(' + result + ')');
-                if (data.method) {
-                    switch (data.method) {
-                        case "func":
-                            eval(data.func);
-                            break;
-                        case "remind":
-                            $('#e_remind').html(data.message).show();
-                            break;
-                        case "alert":
-                            JQbox.alert(data.message);
-                            break;
-                        case "goto":
-                            if (data.message) {
-                                JQbox.jump(data.message, data.url);
-                            } else {
-                                location.href = data.url;
-                            }
-                            break;
-                        case "reload":
-                            if (data.message) {
-                                JQbox.reload(data.message);
-                            } else {
-                                location.reload();
-                            }
-                            break;
-                        case "error":
-                            var err = data.dic;
-                            for (var o in data.dic) {
-                                $('#e_' + o).html(err[o]).show();
-                            }
-                            break;
-                    }
+            waitinfo: options.waitinfo,
+            callback: options.callback ? options.callback : function (result) {
+                var data = eval("(" + result + ")");
+                if (data.method)switch (data.method) {
+                    case"func":
+                        eval(data.func);
+                        break;
+                    case"remind":
+                        $("#e_remind").html(data.message).show();
+                        break;
+                    case"alert":
+                        JQbox.alert(data.message);
+                        break;
+                    case"goto":
+                        data.message ? JQbox.jump(data.message, data.url) : location.href = data.url;
+                        break;
+                    case"reload":
+                        data.message ? JQbox.reload(data.message) : location.reload();
+                        break;
+                    case"error":
+                        var err = data.dic;
+                        for (var o in data.dic)$("#e_" + o).html(err[o]).show()
                 }
             }
-        });
+        }))
     }
 };
