@@ -14,7 +14,6 @@
   <link href="Public/css/main.css" rel="stylesheet">
   <link href="Public/css/font-awesome.css" rel="stylesheet">
   <link href="Public/css/button.css" rel="stylesheet">
-  <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
 </head>
 <body style="-webkit-overflow-scrolling: touch;" class="live_body">
 <section class="live-container">
@@ -48,16 +47,15 @@
       </li>
     </ul>
   </div>
-  <div class="live-date hide">2016-03-25</div>
 </section>
 <section class="live-main">
   <div class="tab-ops">
     <div class="js-stick-msg mt10 ml10 mr10 mb5 clearfix"></div>
-    <!--<div class="text-center pb10 bb ml10 mr10">-->
-      <!--<a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>-->
-      <!--&nbsp;<span class="js-live-date color-666">2016-03-23</span>&nbsp;-->
-      <!--<a href="javascript:;" class="js-down-date live-date color-666"><i class="icon-caret-down"></i></a>-->
-    <!--</div>-->
+    <div class="text-center pb10 bb ml10 mr10">
+      <a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>
+      &nbsp;<span class="js-live-date color-666">2016-03-23</span>&nbsp;
+      <a href="javascript:;" class="js-down-date live-date color-666"><i class="icon-caret-down"></i></a>
+    </div>
     <div class="wei-container10">
       <div id="live-carousel" class="carousel slide">
         <!-- 轮播（Carousel）项目 -->
@@ -108,33 +106,18 @@
   </div>
   <div class="tab-ops hide">
     <ul class="js-chat-list">
-      <li class="relative mt10 mr10 ml10 bb">
-          <!--<div class="chat-a clearfix">-->
-            <!--<div class="chat-img"><a href="#"><img-->
-              <!--src="http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg"></a>-->
-            <!--</div>-->
-            <!--<div href="#" class="chat-content color-999 clearfix">-->
-              <!--<span>GoldHistory3</span><span class="pull-right">09:20</span>-->
-              <!--<span class="mt5 mb10 color-333">阿萨德健康急急急急急急急急急急急急急急急急急急急急急急急急急急急急阿萨德健康急急急急急急急急急急急急急急急急急急急急急急急急急急急急阿萨德健康急急急急急急急急急急急急急急急急急急急急急急急急急急急急阿萨德健康急急急急急急急急急急急急急急急急急急急急急急急急急急急急</span>-->
-            <!--</div>-->
+      <!--<li class="relative mt10 mr10 ml10 bb">-->
+        <!--<div class="chat-a clearfix">-->
+          <!--<div class="chat-img"><a href="#"><img-->
+            <!--src="http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg"></a>-->
           <!--</div>-->
-          <!--<div class="chat-reply" id="re-30">-->
-            <!--<div class="chat-img text-center">-->
-              <!--<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>-->
-            <!--</div>-->
-            <!--<div class="chat-content color-999 clearfix">-->
-              <!--<div class="chat-img">-->
-                <!--<a href="javascript:;">-->
-                  <!--<img src="http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg">-->
-                <!--</a>-->
-              <!--</div>-->
-              <!--<div class="chat-content color-999 clearfix">-->
-                <!--<span>GoldHistory3</span>-->
-                <!--<p class="mt5 mb10 color-333 mr10">30===28阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。</p>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-      </li>
+          <!--<a href="#" class="chat-content color-999 clearfix">-->
+            <!--<span>GoldHistory3</span><span class="pull-right">09:20</span>-->
+            <!--<span class="mt5 mb10 color-333">25===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约-->
+              <!--20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。</span>-->
+          <!--</a>-->
+        <!--</div>-->
+      <!--</li>-->
     </ul>
     <div style="height: 55px;"></div>
     <div class="sub-chat">
@@ -284,8 +267,7 @@
       url:"http://127.0.0.1:8000/data.php?action=chat",
       last_id: 1
     },
-    tab:true,    //true:live, false:chat
-    img_url:"Public/img/lotus.png"
+    tab:true    //true:live, false:chat
   };
   $(function () {
     var data = {
@@ -358,26 +340,17 @@
           {
             "id": "23",
             "member_id": "1",
-            "reply_id": "24",
+            "reply_id": "0",
             "content": "23===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "username": "GoldHistory1",
             "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20",
-            "reply": {
-              "id": "24",
-              "member_id": "2",
-              "reply_id": "0",
-              "content": "24===内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
-              "username": "GoldHistory2",
-              "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-              "create_time": "09:20"
-            }
+            "create_time": "09:20"
           },
           {
             "id": "24",
             "member_id": "2",
-            "reply_id": "0",
-            "content": "24===内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
+            "reply_id": "23",
+            "content": "24===23内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
             "username": "GoldHistory2",
             "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
             "create_time": "09:20"
@@ -385,62 +358,17 @@
           {
             "id": "25",
             "member_id": "2",
-            "reply_id": "0",
-            "content": "25===内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
+            "reply_id": "23",
+            "content": "25===23内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
             "username": "GoldHistory2",
             "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20",
-            "reply": {
-              "id": "27",
-              "member_id": "2",
-              "reply_id": "0",
-              "content": "27===内容的回复回复回复回复回复回复回复回复回复回复回复回复回复回复回复",
-              "username": "GoldHistory2",
-              "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-              "create_time": "09:20"
-            }
+            "create_time": "09:20"
           },
           {
             "id": "26",
             "member_id": "3",
             "reply_id": "0",
             "content": "26===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "username": "GoldHistory3",
-            "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20"
-          },
-          {
-            "id": "27",
-            "member_id": "4",
-            "reply_id": "0",
-            "content": "27===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "username": "GoldHistory3",
-            "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20"
-          },
-          {
-            "id": "28",
-            "member_id": "5",
-            "reply_id": "0",
-            "content": "28===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "username": "GoldHistory3",
-            "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20"
-          },
-          {
-            "id": "29",
-            "member_id": "6",
-            "reply_id": "0",
-            "content": "29===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "username": "GoldHistory3",
-            "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
-            "create_time": "09:20"
-          },
-          {
-            "id": "30",
-            "member_id": "7",
-            "reply_id": "0",
-            "content": "30===阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "username": "GoldHistory3",
             "avatar": "http://img.golddiy.com/Uploads/images/2015-08-10/55c85fa0512cc.jpg@1e_80w_80h_1c_0i_1o_90Q_1x.jpg",
             "create_time": "09:20"
@@ -453,7 +381,7 @@
           },
           {
             "id": "26",
-            "reply_id": "0"
+            "reply_id": ""
           }
         ]
       },
@@ -470,35 +398,13 @@
       if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
         configs.tab == true ? livePages(true) : chatPages();
       }
-
     });
 
-    $(document).on('click', '.new-chat', function () {
-      JQbox.confirm({
-        title: "提示",
-        content: "确认回复？",
-        buttons:{
-          "确定": function () {
-            $("#dialog").dialog("close");
-            surecall.call(this);
-
-            $('#popUpWrap').removeClass('none');
-            $('.pop-up').height(130);
-            $('.new-chat').data('id');
-          },
-          "取消": function () {
-            $( this ).dialog( "close" );
-            cancelcall.call(this);
-          }
-        }
-      });
+    $('.new-chat').click(function () {
+      $('#popUpWrap').removeClass('none');
+      $('.pop-up').height(130);
+      $(this).data('id');
     });
-
-//    $('.new-chat').click(function () {
-//      $('#popUpWrap').removeClass('none');
-//      $('.pop-up').height(130);
-//      $(this).data('id');
-//    });
     //点击蒙层处或者叉滑出
     $('.js-mask, .js-x, .js-cac, .js-sen').click(function(){
       $('.pop-up').height('0');
@@ -513,15 +419,12 @@
       $(document).scrollTop(0);
     });
     $(document).scroll(function() {
-      if(data != undefined && data.news.newMessage != false && $(document).scrollTop() > 260){
+      if(data.news.newMessage != false && $(document).scrollTop() > 260){
         $('.check-new').fadeIn();
-        $('.live-date').fadeIn();
       }
       if($(document).scrollTop() <= 260){
         $('.check-new').fadeOut();
-        $('.live-date').fadeOut();
       }
-
     });
 
   });
