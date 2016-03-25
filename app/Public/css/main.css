@@ -7910,7 +7910,7 @@ i.icon-lotus:before {
   z-index: 10;
 }
 .live-main{
-  margin-top: 60%;
+  margin-top: 63%;
 }
 .live-main2{
   margin-top: 48%;
@@ -8116,6 +8116,9 @@ a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:ac
   width: 88%;
   margin-left: 12%;
   font-size: 14px;
+}
+.is-reply{
+  display: block;
 }
 .chat-img {
   width: 14%;

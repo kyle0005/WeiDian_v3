@@ -247,7 +247,7 @@
     <div class="pop-height">
       <section class="clearfix hst-choose-sec pl15 pr15">
         <div class="text-center clearfix">
-          <a href="#" class="js-cac pull-left">取消</a><span class="fs14">我来聊两句</span><a href="#" class="js-sen pull-right">发送</a>
+          <a href="#" class="js-cac pull-left fs14">取消</a><span class="fs16">我来聊两句</span><a href="#" class="js-sen pull-right fs14">发送</a>
         </div>
       </section>
       <div class="mr15 ml15">
@@ -473,6 +473,13 @@
 
     });
 
+    var myElement = document.getElementsByClassName('')[0];
+
+    var hammertime = new Hammer(myElement);
+    hammertime.on('tap', function (ev) {
+
+    });
+
     $(document).on('click', '.new-chat', function () {
       JQbox.confirm({
         title: "提示",
@@ -485,6 +492,8 @@
             $('#popUpWrap').removeClass('none');
             $('.pop-up').height(130);
             $('.new-chat').data('id');
+
+            $(document).scrollTop(0);
           },
           "取消": function () {
             $( this ).dialog( "close" );

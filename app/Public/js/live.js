@@ -447,12 +447,12 @@ function insertChat(data) {
   if (msg != undefined && msg !== '' && msg != null && msg != false) {
     $.each(msg, function (i, item) {
         //回复数据
-        chats_data += '<li class="relative mt10 mr10 ml10 bb" id="chat-'
+        chats_data += '<li class="is-reply relative mt10 mr10 ml10 bb" id="chat-'
           + msg[i].id + '-' + (msg[i].reply_id > 0 ? msg[i].reply_id : 0)
-          + '">'
-          + '<div class="is-reply clearfix"  data-id="'
+          + '">  data-id="'
           + msg[i].id
-          + '">'
+          + '"'
+          + '<div class="clearfix">'
           + '<div class="chat-img">'
           + '<a href="javascript:;"><img src="'
           + msg[i].avatar
