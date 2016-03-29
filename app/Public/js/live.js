@@ -344,7 +344,7 @@ function playerVideo(){
     $('.px-video-container').remove();
 
     var vod_url = $(this).data('url');
-    var id =  $(this).data('id');
+    var id =  'v_' + $(this).data('id');
     $(this).hide();
 
     var player = '<div class="px-video-container text-center" id="'
