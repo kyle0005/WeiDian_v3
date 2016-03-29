@@ -342,6 +342,7 @@ function playerVideo(){
   $(document).on('click', '.video-player', function () {
     $('.video-player').show();
     $('.px-video-container').remove();
+    var img_src = $(this).children('img').src;
 
     var vod_url = $(this).data('url');
     var id =  'v_' + $(this).data('id');
@@ -353,7 +354,7 @@ function playerVideo(){
       + '<div class="px-video-img-captions-container">'
       + '<div class="px-video-captions hide"></div>'
       + '<video width="272" height="153" poster="'
-      + 'Public/img/video_bg.png'
+      + img_src
       + '" controls autoplay>'
       + '<source src="'
       + vod_url
@@ -409,14 +410,14 @@ function insertLive(data) {
             + '</figure>';
         });
       }
-      if (msg[i].vod_id != undefined && msg[i].vod_id !== 0 && msg[i].vod_id != '0') {
+      if (msg[i].vod_id != undefined && msg[i].vod_id !== 0 && msg[i].vod_id != '0' && msg[i].vod != undefined) {
         live_data += '<a href="javascript:;" class="video-player" data-url="'
-            + msg[i].live_url
+            + msg[i].vod.url
             + '" data-id="'
             + msg[i].vod_id
             + '">'
             + '<img src="'
-            + 'Public/video/poster_PayPal_Austin2.jpg'
+            + msg[i].vod.cover
             + '"/>'
             + '</a>';
       }
@@ -454,14 +455,14 @@ function insertTop(data) {
           + '</figure>';
       });
     }
-    if (msg.vod_id != undefined && msg.vod_id !== 0 && msg.vod_id != '0') {
+    if (msg.vod_id != undefined && msg.vod_id !== 0 && msg.vod_id != '0' && msg.vod != undefined) {
       live_top += '<a href="javascript:;" class="video-player" data-url="'
-        + msg[i].live_url
+        + msg[i].vod.url
         + '" data-id="'
         + msg[i].vod_id
         + '">'
         + '<img src="'
-        + 'Public/video/poster_PayPal_Austin2.jpg'
+        + msg[i].vod.cover
         + '"/>'
         + '</a>';
     }
