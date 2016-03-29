@@ -338,41 +338,67 @@ function loadData(data) {
   delData(data);
 }
 
-function initMedia(video_id) {
-  if (video_id != '' && video_id != null && video_id != undefined && video_id != '0' && video_id != 0) {
-    var option = {
-      "auto_play": "0",
-      "file_id": "14651978969256407716",
-      "app_id": "1251951972",
-      "width": 640,
-      "height": 480
-    };
-    /*调用播放器进行播放*/
-    new qcVideo.Player(/*代码中的id_video_container将会作为播放器放置的容器使用,可自行替换*/ video_id, option);
-  }
+function playerVideo(){
+  $(document).on('click', '.video-player', function () {
+    $('.video-player').show();
+    $('.px-video-container').remove();
+
+    var vod_url = $(this).data('url');
+    var id =  $(this).data('id');
+    $(this).hide();
+
+    var player = '<div class="px-video-container text-center" id="'
+      + id
+      + '">'
+      + '<div class="px-video-img-captions-container">'
+      + '<div class="px-video-captions hide"></div>'
+      + '<video width="272" height="153" poster="'
+      + 'Public/img/video_bg.png'
+      + '" controls autoplay>'
+      + '<source src="'
+      + vod_url
+      + '"/>'
+      + '</video>'
+      + '</div>'
+      + '<div class="px-video-controls"></div>'
+      + '</div>';
+
+    $(this).parents('.js-media').append(player);
+
+    //加载播放器
+    new InitPxVideo({
+      "videoId": id,
+      "captionsOnDefault": true,
+      "seekInterval": 20,
+      "videoTitle": "video",
+      "debug": true
+    });
+
+  });
 }
 
 function insertLive(data) {
+  var msg = data.news.newMessage;
   //live
-  if (data.news.newMessage != undefined && data.news.newMessage !== '' && data.news.newMessage != null) {
+  if (msg != undefined && msg !== '' && msg != null) {
     var live_data = '';
-    $.each(data.news.newMessage, function (i, item) {
+    $.each(msg, function (i, item) {
       live_data = '<li class="live-li clearfix" id="live-'
-        + data.news.newMessage[i].id
+        + msg[i].id
         + '">'
         + '<div class="js-live-time live-time">'
-        + data.news.newMessage[i].create_time
+        + msg[i].create_time
         + '<img src="' + configs.img_url
         + '">'
         + '</div>'
         + '<div class="live-content">'
         + '<div class="js-live-text">'
-        + data.news.newMessage[i].content
+        + msg[i].content
         + '</div>'
         + '<div class="my-gallery js-media">';
 
-      if (data.news.newMessage[i].imgs != undefined && data.news.newMessage[i].imgs != 0 && data.news.newMessage[i].imgs != '0') {
-        $.each(data.news.newMessage[i].imgs, function (i, item) {
+      if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
+        $.each(msg[i].imgs, function (i, item) {
           live_data += '<figure>'
             + '<a href="'
             + item
@@ -383,10 +409,16 @@ function insertLive(data) {
             + '</figure>';
         });
       }
-      if (data.news.newMessage[i].vod_id != undefined && data.news.newMessage[i].vod_id !== 0 && data.news.newMessage[i].vod_id != '0') {
-        live_data += '<div id="'
-          + data.news.newMessage[i].vod_id
-          + '"></div>';
+      if (msg[i].vod_id != undefined && msg[i].vod_id !== 0 && msg[i].vod_id != '0') {
+        live_data += '<a href="javascript:;" class="video-player" data-url="'
+            + msg[i].live_url
+            + '" data-id="'
+            + msg[i].vod_id
+            + '">'
+            + '<img src="'
+            + 'Public/video/poster_PayPal_Austin2.jpg'
+            + '"/>'
+            + '</a>';
       }
 
       live_data += '</div>'
@@ -395,23 +427,23 @@ function insertLive(data) {
 
       $('.js-live-list').prepend(live_data);
       initPhotoSwipeFromDOM('.my-gallery');
-      initMedia(data.news.newMessage[i].vod_id);
     });
 
   }
 }
 
 function insertTop(data) {
+  var msg = data.news.stickMessage;
   //live-top
-  if (data.news.stickMessage != undefined && data.news.stickMessage !== '' && data.news.stickMessage != null && data.news.stickMessage != false) {
+  if (msg != undefined && msg !== '' && msg != null && msg != false) {
     var live_top = '<div class="ptop" id="live-'
-      + data.news.stickMessage.id
+      + msg.id
       + '">'
-      + data.news.stickMessage.content
+      + msg.content
       + '</div>'
       + '<div class="my-gallery">';
-    if (data.news.stickMessage.imgs != undefined && data.news.stickMessage.imgs != 0 && data.news.stickMessage.imgs != '0') {
-      $.each(data.news.stickMessage.imgs, function (i, item) {
+    if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
+      $.each(msg.imgs, function (i, item) {
         live_top += '<figure>'
           + '<a href="'
           + item
@@ -422,22 +454,21 @@ function insertTop(data) {
           + '</figure>';
       });
     }
-    if (data.news.stickMessage.vod_id != undefined && data.news.stickMessage.vod_id !== 0 && data.news.stickMessage.vod_id != '0') {
-      live_top += '<div id="'
-        + data.news.stickMessage.vod_id
-        + '"></div>';
+    if (msg.vod_id != undefined && msg.vod_id !== 0 && msg.vod_id != '0') {
+      live_top += '<a href="javascript:;" class="video-player" data-url="'
+        + msg[i].live_url
+        + '" data-id="'
+        + msg[i].vod_id
+        + '">'
+        + '<img src="'
+        + 'Public/video/poster_PayPal_Austin2.jpg'
+        + '"/>'
+        + '</a>';
     }
     live_top += '</div>';
-
     $('.js-stick-msg').html(live_top);
     initPhotoSwipeFromDOM('.my-gallery');
-
-    initMedia(data.news.stickMessage.vod_id);
-
   }
-  //else{
-  //  $('.js-stick-msg').empty();
-  //}
 }
 
 function insertChat(data) {
@@ -447,11 +478,11 @@ function insertChat(data) {
   if (msg != undefined && msg !== '' && msg != null && msg != false) {
     $.each(msg, function (i, item) {
         //回复数据
-        chats_data += '<li class="is-reply relative mt10 mr10 ml10 bb" id="chat-'
+        chats_data += '<li class="is-reply relative mt10 mr10 ml10 bb" onclick="javascript:;" id="chat-'
           + msg[i].id + '-' + (msg[i].reply_id > 0 ? msg[i].reply_id : 0)
-          + '">  data-id="'
+          + '" data-id="'
           + msg[i].id
-          + '"'
+          + '">'
           + '<div class="clearfix">'
           + '<div class="chat-img">'
           + '<a href="javascript:;"><img src="'
@@ -496,39 +527,6 @@ function insertChat(data) {
     $('.js-chat-list').prepend(chats_data);
   }
 
-}
-
-function insertReply(data) {
-  $.each(data.chats.newMessage, function (j, item) {
-    var re = $('#chat-' + data.chats.newMessage[j].reply_id);
-    if (data.chats.newMessage[j].reply_id > 0) {
-      //回复数据
-      var reply_data = '<div class="chat-reply" id="re-'
-        + data.chats.newMessage[j].id
-        + '">'
-        + '<div class="chat-img text-center">'
-        + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
-        + '</div>'
-        + '<div class="chat-content color-999 clearfix">'
-        + '<div class="chat-img">'
-        + '<a href="javascript:;"><img src="'
-        + data.chats.newMessage[j].avatar
-        + '"/></a>'
-        + '</div>'
-        + '<div class="chat-content color-999 clearfix">'
-        + '<span>'
-        + data.chats.newMessage[j].username
-        + '</span>'
-        + '<p class="mt5 mb10 color-333 mr10">'
-        + data.chats.newMessage[j].content
-        + '</p>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
-
-      $(re).prepend(reply_data);
-    }
-  });
 }
 
 function delData(data) {

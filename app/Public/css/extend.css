@@ -2979,16 +2979,17 @@ input[type=radio].hst-radio {
 /*app下载结束*/
 
 /*index-new*/
+.pc-top{
+  line-height: 60px;
+  height: 60px;
+}
 .pc-header{
   background-color: #f8f8f8;
   border-bottom: 1px solid #eeeeef;
 }
 .pc-contanier{
   width: 1000px;
-  height: 60px;
   margin: 0 auto;
-  line-height: 60px;
-
 }
 .pc-header-log{
   float: right;
