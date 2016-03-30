@@ -278,7 +278,10 @@ module.exports = function (grunt) {
            '<%= config.dist %>/css/wei_common.css': [
              '<%= config.app %>/Public/css/base.css',
              '<%= config.app %>/Public/css/button.css',
-             '<%= config.app %>/Public/css/font-awesome.css',
+             '<%= config.app %>/Public/css/font-awesome.css'
+           ],
+           '<%= config.dist %>/css/px-video.css': [
+             '<%= config.app %>/Public/css/px-video.css'
            ]
 
          }

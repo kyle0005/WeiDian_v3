@@ -144,7 +144,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
       linkEl = figureEl.children[0]; // <a> element
 
       size = linkEl.getAttribute('data-size').split('x');
-      //console.log(linkEl.childNodes[0].naturalWidth);
+      console.log(linkEl.getAttribute('data-size'));
       size[0] = linkEl.childNodes[0].naturalWidth;
       size[1] = linkEl.childNodes[0].naturalHeight;
 
@@ -330,19 +330,20 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 function loadData(data) {
   //live
   insertLive(data);
+  //del
+  delData(data);
   //live_top
   insertTop(data);
   //chat
   insertChat(data);
-  //del
-  delData(data);
+
 }
 
 function playerVideo(){
   $(document).on('click', '.video-player', function () {
     $('.video-player').show();
     $('.px-video-container').remove();
-    var img_src = $(this).children('img').src;
+    //var img_src = $(this).children('img').attr('src');
 
     var vod_url = $(this).data('url');
     var id =  'v_' + $(this).data('id');
@@ -354,8 +355,8 @@ function playerVideo(){
       + '<div class="px-video-img-captions-container">'
       + '<div class="px-video-captions hide"></div>'
       + '<video width="272" height="153" poster="'
-      + img_src
-      + '" controls autoplay>'
+      //+ img_src
+      + '" controls >'
       + '<source src="'
       + vod_url
       + '"/>'
@@ -374,6 +375,7 @@ function playerVideo(){
       "videoTitle": "video",
       "debug": true
     });
+    $('#' + id).find('video')[0].play();
 
   });
 }
@@ -410,14 +412,17 @@ function insertLive(data) {
             + '</figure>';
         });
       }
-      if (msg[i].vod_id != undefined && msg[i].vod_id !== 0 && msg[i].vod_id != '0' && msg[i].vod != undefined) {
+      if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
         live_data += '<a href="javascript:;" class="video-player" data-url="'
             + msg[i].vod.url
             + '" data-id="'
-            + msg[i].vod_id
+            + msg[i].id
             + '">'
             + '<img src="'
             + msg[i].vod.cover
+            + '"/>'
+            + '<img class="video-player-btn" src="'
+            + configs.video_player
             + '"/>'
             + '</a>';
       }
@@ -437,11 +442,10 @@ function insertTop(data) {
   var msg = data.news.stickMessage;
   //live-top
   if (msg != undefined && msg !== '' && msg != null && msg != false) {
-    var live_top = '<div class="ptop" id="live-'
+    var live_top = '<div class="ptop" id="stick-'
       + msg.id
       + '">'
       + msg.content
-      + '</div>'
       + '<div class="my-gallery">';
     if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
       $.each(msg.imgs, function (i, item) {
@@ -455,18 +459,21 @@ function insertTop(data) {
           + '</figure>';
       });
     }
-    if (msg.vod_id != undefined && msg.vod_id !== 0 && msg.vod_id != '0' && msg.vod != undefined) {
+    if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
       live_top += '<a href="javascript:;" class="video-player" data-url="'
-        + msg[i].vod.url
+        + msg.vod.url
         + '" data-id="'
-        + msg[i].vod_id
+        + msg.id
         + '">'
         + '<img src="'
-        + msg[i].vod.cover
+        + msg.vod.cover
+        + '"/>'
+        + '<img class="video-player-btn" src="'
+        + configs.video_player
         + '"/>'
         + '</a>';
     }
-    live_top += '</div>';
+    live_top += '</div></div>';
     $('.js-stick-msg').html(live_top);
     initPhotoSwipeFromDOM('.my-gallery');
   }
@@ -531,18 +538,34 @@ function insertChat(data) {
 }
 
 function delData(data) {
-  if (data.news.delMessage != false) {
-    $.each(data.news.delMessage, function (i, con) {
-      $('#live-' + data.news.delMessage[i].id).remove();
+  var delMsg = data.news.delMessage;
+  if (delMsg != false) {
+    $.each(delMsg, function (i, con) {
+      var obj = $('#live-' + delMsg[i].id);
+      if($('#stick-' + delMsg[i].id).length > 0){
+        $('#stick-' + delMsg[i].id).remove();
+        $(obj).show();
+      }else{
+          if(data.newsStickId == delMsg[i].id){
+            $(obj).hide();
+          }else{
+            if($(obj).isHidden){
+              $(obj).show();
+            }else{
+              $(obj).remove();
+            }
+          }
+      }
     });
-
   }
-  if (data.chats.delMessage != false) {
+
+  var delChats = data.chats.delMessage;
+  if (delChats != false) {
     var _reId = 0;
-    $.each(data.chats.delMessage, function (j, item) {
-      _reId = data.chats.delMessage[j].reply_id > 0 ? data.chats.delMessage[j].reply_id : 0;
+    $.each(delChats, function (j, item) {
+      _reId = delChats[j].reply_id > 0 ? delChats[j].reply_id : 0;
         //删除回复内容
-      $('#chat-' + data.chats.delMessage[j].id + '-' + _reId).remove();
+      $('#chat-' + delChats[j].id + '-' + _reId).remove();
 
     });
   }

@@ -54,7 +54,7 @@
 </section>
 <section class="live-main">
   <div class="tab-ops">
-    <div class="js-stick-msg mt10 ml10 mr10 mb5 clearfix"></div>
+    <div class="js-stick-msg js-media mt10 ml10 mr10 mb5 clearfix"></div>
     <!--<div class="text-center pb10 bb ml10 mr10">-->
     <!--<a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>-->
     <!--&nbsp;<span class="js-live-date color-666">2016-03-23</span>&nbsp;-->
@@ -310,7 +310,8 @@
       last_id: 1
     },
     tab: true,    //true:live, false:chat
-    img_url: "Public/img/lotus.png"
+    img_url: "Public/img/lotus.png",
+    video_player: "Public/img/video_player.png"
   };
   $(function () {
     var data = {
@@ -320,10 +321,7 @@
             "id": "3",
             "content": "id==3阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],   //不为0且存在，有内容
-            "vod": {
-              url: '',    //视频地址
-              cover: ''   //图片地址
-            },
+            "vod": "",
             "vod_id": "0",  //不为0且存在，有内容
             "live_url": "",    //不为0且存在，有内容
             "username": null,
@@ -334,8 +332,8 @@
             "content": "id==4用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": 0,   //不为0且存在，有内容
             "vod": {
-              url: '',    //视频地址
-              cover: ''   //图片地址
+              url: 'Public/video/demo3.mp4',    //视频地址
+              cover: 'Public/img/video_bg.png'   //图片地址
             },
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -347,8 +345,8 @@
             "content": "id==5用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": 0,   //不为0且存在，有内容
             "vod": {
-              url: '',    //视频地址
-              cover: ''   //图片地址
+              url: 'Public/video/demo3.mp4',    //视频地址
+              cover: 'Public/img/111.jpg'   //图片地址
             },
             "vod_id": 'myvid',  //不为0且存在，有内容
             "live_url": "Public/video/demo3.mp4",    //不为0且存在，有内容
@@ -359,10 +357,7 @@
             "id": "6",
             "content": "id==6用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": ['Public/img/ppp2.png'],   //不为0且存在，有内容
-            "vod": {
-              url: '',    //视频地址
-              cover: ''   //图片地址
-            },
+            "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
@@ -372,10 +367,7 @@
             "id": "7",
             "content": "id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],   //不为0且存在，有内容
-            "vod": {
-              url: '',    //视频地址
-              cover: ''   //图片地址
-            },
+            "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
@@ -386,10 +378,7 @@
           "id": "3",
           "content": "置顶消息当然，这种写法也可以省略列名，这样每一对括号里的值的数目必须一致，而且这个数目必须和列数一致。",
           "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],
-          "vod": {
-            url: '',    //视频地址
-            cover: ''   //图片地址
-          },
+          "vod": "",
           "vod_id": "0",
           "live_url": "0",
           "username": null,
@@ -398,6 +387,9 @@
         "delMessage": [
           {
             "id": "4"
+          },
+          {
+            "id": "7"
           }
         ]
       },
@@ -559,21 +551,21 @@
 
     });
 
-    $('.check-new-m').click(function () {
-      $('.check-new').fadeOut();
-      $(document).scrollTop(0);
-    });
-    $(document).scroll(function () {
-      if (data != undefined && data.news.newMessage != false && $(document).scrollTop() > 260) {
-        $('.check-new').fadeIn();
-        $('.live-date').fadeIn();
-      }
-      if ($(document).scrollTop() <= 260) {
-        $('.check-new').fadeOut();
-        $('.live-date').fadeOut();
-      }
-
-    });
+//    $('.check-new-m').click(function () {
+//      $('.check-new').fadeOut();
+//      $(document).scrollTop(0);
+//    });
+//    $(document).scroll(function () {
+//      if (data != undefined && data.news.newMessage != false && $(document).scrollTop() > 260) {
+//        $('.check-new').fadeIn();
+//        $('.live-date').fadeIn();
+//      }
+//      if ($(document).scrollTop() <= 260) {
+//        $('.check-new').fadeOut();
+//        $('.live-date').fadeOut();
+//      }
+//
+//    });
 
     playerVideo();
   });
