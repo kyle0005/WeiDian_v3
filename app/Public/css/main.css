@@ -8052,12 +8052,56 @@ a.live-date:active {
   padding: 0;
   z-index: 2;
 }
+
 .check-new{
   position: fixed;
   top: 220px;
   width: 100%;
   z-index: 11;
 }
+.check-new2{
+  position: fixed;
+  top: 176px;
+  width: 100%;
+  z-index: 11;
+}
+@media screen and (min-width: 320px) and (max-width: 360px) {
+  /* iphone5 */
+  .check-new{
+    top: 198px;
+  }
+  .check-new2{
+    top: 154px;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 375px) {
+  /* s6 */
+  .check-new{
+    top: 212px;
+  }
+  .check-new2{
+    top: 168px;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  /* iphone6 */
+  .check-new{
+    top: 216px;
+  }
+  .check-new2{
+    top: 172px;
+  }
+}
+@media screen and (min-width: 414px) and (max-width: 500px) {
+  /* iphone6 plus*/
+  .check-new{
+    top: 230px;
+  }
+  .check-new2{
+    top: 186px;
+  }
+}
+
 .check-new-l {
   display: block;
   text-align: center;
@@ -8066,6 +8110,7 @@ a.live-date:active {
   background-color: #fff8bf;
   color: #eb7350;
 }
+
 
 a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:active {
   color: #eb7350;
@@ -9341,9 +9386,9 @@ img.video-player-btn{
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -40px;
-  margin-left: -40px;
-  width: 80px;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
 }
 /*h5 player end*/
 

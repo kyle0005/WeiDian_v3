@@ -103,16 +103,16 @@
       </a>
     </div>
     <ul class="js-live-list wei-container10">
-      <li class="live-li clearfix" id="live-7">
-        <div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>
-        <div class="live-content">
-          <div class="js-live-text">id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为
-            44 亿美金。
-          </div>
-          <div class="my-gallery js-media">
-            <a href="javascript:;" class="video-player" data-url="Public/video/demo3.mp4" data-id="myvid">
-              <img src="Public/video/poster_PayPal_Austin2.jpg"/>
-            </a>
+      <!--<li class="live-li clearfix" id="live-7">-->
+        <!--<div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>-->
+        <!--<div class="live-content">-->
+          <!--<div class="js-live-text">id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为-->
+            <!--44 亿美金。-->
+          <!--</div>-->
+          <!--<div class="my-gallery js-media">-->
+            <!--<a href="javascript:;" class="video-player" data-url="Public/video/demo3.mp4" data-id="myvid">-->
+              <!--<img src="Public/video/poster_PayPal_Austin2.jpg"/>-->
+            <!--</a>-->
             <!--<div class="px-video-container text-center" id="myvid">-->
               <!--<div class="px-video-img-captions-container">-->
                 <!--<div class="px-video-captions hide"></div>-->
@@ -125,9 +125,9 @@
               <!--<div class="px-video-controls"></div>-->
             <!--</div>-->
 
-          </div>
-        </div>
-      </li>
+          <!--</div>-->
+        <!--</div>-->
+      <!--</li>-->
     </ul>
   </div>
   <div class="tab-ops hide">
@@ -365,7 +365,7 @@
           },
           {
             "id": "7",
-            "content": "id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
+            "content": "id==7sssssssssssssssssssssssssssss",
             "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
@@ -506,6 +506,7 @@
 
     loadData(data);
 
+
     //滚动到底部自动加载数据
     $(window).scroll(function () {
       if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
@@ -551,21 +552,21 @@
 
     });
 
-//    $('.check-new-m').click(function () {
-//      $('.check-new').fadeOut();
-//      $(document).scrollTop(0);
-//    });
-//    $(document).scroll(function () {
-//      if (data != undefined && data.news.newMessage != false && $(document).scrollTop() > 260) {
-//        $('.check-new').fadeIn();
+    $('.check-new-m').click(function () {
+      $('.check-new').fadeOut();
+      $(document).scrollTop(0);
+    });
+    $(document).scroll(function () {
+      if (data != undefined && data.news.newMessage != false && $(document).scrollTop() > 260) {
+        $('.check-new').fadeIn();
 //        $('.live-date').fadeIn();
-//      }
-//      if ($(document).scrollTop() <= 260) {
-//        $('.check-new').fadeOut();
+      }
+      if ($(document).scrollTop() <= 260) {
+        $('.check-new').fadeOut();
 //        $('.live-date').fadeOut();
-//      }
-//
-//    });
+      }
+
+    });
 
     playerVideo();
   });

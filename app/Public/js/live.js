@@ -76,6 +76,7 @@ function livePages(flag) {
         if (flag) {
           //滚动分页
           $(list).append(result.html);
+          initPhotoSwipeFromDOM('.my-gallery');
         }
         else {
           //日期分页
