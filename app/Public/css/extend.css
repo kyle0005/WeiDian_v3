@@ -3115,8 +3115,7 @@ ul.live_func{
   position: absolute;
   overflow: hidden;
   display: block;
-  top: 220px;
-  border-color: #ccc;
+  top: -14px;
 }
 .arrow-line{
   display: inline-block;
@@ -3128,16 +3127,17 @@ ul.live_func{
   font-size: 0;
   line-height: 0;
   vertical-align: top;
-  border-color: #ccc transparent transparent transparent;
+
+  border-color: transparent transparent #ccc transparent;
 }
 .arrow-em{
-  margin: -1px 0 0 -14px;
+  margin: 1px 0 0 -17px;
   display: inline-block;
   width: 0;
   height: 0;
   border-width: 7px;
   border-style: solid;
-  border-color: #fff transparent transparent transparent;
+  border-color: transparent transparent #fff transparent;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
@@ -4096,7 +4096,7 @@ a.news-list-a:hover{
 }
 
 .chat-img {
-  width: 40px;
+  width: 16%;
   height: 40px;
   float: left;
 }
@@ -4115,11 +4115,194 @@ a.news-list-a:hover{
 }
 
 .chat-content {
+  position: relative;
   margin: 10px 0;
   line-height: 40px;
 }
+.chat-p{
+  line-height: 20px;
+  margin-top: 5px;
+}
+.reply-btn{
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: 20px;
+  color: #b08654;
+}
+a.reply-btn:link, a.reply-btn:active, a.reply-btn:visited, a.reply-btn:hover{
+  text-decoration: none;
+}
+.reply-content{
+  width: 76%;
+  margin: 10px 0 10px 16%;
+  padding: 4%;
+  line-height: 40px;
+  background-color: #f8e8d3;
+  border-top: 1px dotted #b08654;
+  border-bottom: 1px dotted #b08654;
+}
+.reply-p{
+  line-height: 20px;
+}
+.reply-i{
+  width: 16%;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  color: #b08654;
+}
+.is-reply{
+  border-bottom: 1px dotted #b08654;
+}
+.reply-text{
+  position: relative;
+  margin-top: 20px;
+}
+.reply-text-area{
+  width: 94%;
+  min-height: 120px;
+  border: none;
+  outline: none;
+  padding: 3%;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius:4px;
+}
+.reply-down{
+  position: relative;
+  padding-top: 10px;
+}
+.reply-po{
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  bottom: 3px;
+  right: 0;
+  background-color: #cccccc;
+  color: #666;
+  text-align: center;
+}
+.reply-po:hover{
+  background-color: #81521e;
+  color: #fff;
+  text-decoration: none;
+}
+a.live-log:hover, a.live-reg:hover{
+  color: #81521e;
+}
 
-.chat-reply {
+#live-carousel .carousel-inner a {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 24%;
+  margin: 0 0.5%;
+}
 
+#live-carousel a img {
+  width: 100%;
+}
+
+#live-carousel .carousel-control {
+  top: 50%;
+  left: -5px;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  font-size: 40px;
+  line-height: 22.5px;
+
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#live-carousel .carousel-control.right {
+  right: -5px;
+  left: auto;
+}
+
+#live-carousel .main-join-num {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  border-radius: 0;
+  padding: 0;
+}
+
+#live-carousel .main-join-txt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 0;
+  padding: 0;
+  z-index: 2;
+}
+.product-show-list{
+  margin-bottom: 10px;
+}
+.product-show-list li{
+  float: left;
+  width: 184px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+.product-show-list li:nth-child(5n){
+  margin-right: 0;
+}
+.live-pros{
+  display: block;
+}
+.live-pros>span{
+  display: block;
+}
+.live-pros-title{
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #333;
+}
+.live-pros-p{
+  color: #666;
+}
+.live-pros-info{
+  height: 24px;
+  line-height: 24px;
+  margin: 5px 0 0 0;
+}
+.live-pros-price{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+  color: #ff8000;
+  height: 24px;
+  line-height: 24px;
+}
+.live-pros-by-phone{
+  display: inline-block;
+  float: right;
+  vertical-align: top;
+  color: #666;
+  height: 24px;
+  line-height: 24px;
 }
 /*pc_live end*/
