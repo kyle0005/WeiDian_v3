@@ -210,7 +210,6 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
         if(isMouseClick) {
 
           // is mouse click on image or zoom icon
-
           // zoom to original
           return 1;
 
@@ -228,7 +227,8 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
         }
       },
       // Tap on sliding area should close gallery
-      tapToClose: true
+      tapToClose: true,
+      clickToCloseNonZoomable: true
 
     };
 

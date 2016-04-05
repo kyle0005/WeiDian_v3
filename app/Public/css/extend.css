@@ -4026,6 +4026,34 @@ a.pswp__share--download:hover {
   width:300px;
   height:800px;
 }
+.check-new-l {
+  display: block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff8bf;
+  color: #eb7350;
+}
+
+
+a.check-new-l:link, a.check-new-l:visited, a.check-new-l:hover, a.check-new-l:active {
+  color: #eb7350;
+}
+.check-new-m{
+  display: block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  background-color: #4b93e4;
+  color: #fff;
+  border-radius: 15px;
+  width: 40%;
+  opacity: 0.9;
+}
+a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:active {
+  color: #fff;
+}
 .live-li {
   background: url(../img/lotus_1x1.png) repeat-y 14px 0px;
   padding-bottom: 12px;
