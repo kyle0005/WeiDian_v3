@@ -3969,6 +3969,8 @@ a.pswp__share--download:hover {
 .my-gallery {
   width: 100%;
   float: left;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .my-gallery img {
@@ -3980,11 +3982,11 @@ a.pswp__share--download:hover {
   display: block;
   float: left;
   margin: 0 1% 0 0;
-  width: 32.66%;
+  width: 49%;
   overflow: hidden;
 }
 
-.my-gallery figure:nth-child(3n) {
+.my-gallery figure:nth-child(2n) {
   margin: 0 0 1% 0;
 }
 
@@ -4009,12 +4011,20 @@ a.pswp__share--download:hover {
   margin-left: 10px;
 }
 .con-top{
-  /*width: 640px;*/
-  /*height: 365px;*/
   padding: 10px 20px 20px 20px;
   background: url('../img/pc_stick_bg.png') no-repeat left center;
   background-size: 100%;
   font-size: 14px;
+}
+.live-list-scroll{
+  overflow-y:scroll;
+  width:680px;
+  height:1200px;
+}
+.chat-list-scroll{
+  overflow-y:scroll;
+  width:300px;
+  height:800px;
 }
 .live-li {
   background: url(../img/lotus_1x1.png) repeat-y 14px 0px;
@@ -4026,7 +4036,36 @@ a.pswp__share--download:hover {
   margin-right: 11px;
   color: #b08654;
 }
+.pc-live-time{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 88px;
+  height: 30px;
+  background-color: #464646;
+  line-height: 30px;
+  text-align: center;
+  color: #f8e8d3;
+  z-index: 10;
+}
+.pc-live-times{
+  margin-right: 5px;
+}
+.video-player{
+  position: relative;
+  display: block;
+  font-size: 40px;
+}
+img.video-player-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  width: 60px;
+}
 .live-content {
+  position: relative;
   margin-top: 30px;
   margin-left: 41px;
   font-size: 14px;

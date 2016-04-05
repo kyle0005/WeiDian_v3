@@ -9,9 +9,6 @@ function livePages(flag) {
       url: configs.news.url + '?last_id=' + configs.news.last_id + '&date=' + configs.news.date,
       wait: true,
       callback: function (result) {
-        //if(typeof result == 'string'){
-        //  result = eval("(" + result + ")");
-        //}
         configs.news.last_id = result.lastId;
         if (flag) {
           //滚动分页
@@ -36,9 +33,6 @@ function chatPages() {
       url: configs.chat.url + '?last_id=' + configs.chat.last_id,
       wait: true,
       callback: function (result) {
-        //if(typeof result == 'string') {
-        //  result = eval("(" + result + ")");
-        //}
         configs.chat.last_id = result.lastId;
         //滚动分页
         $(list).append(result.html);
@@ -205,6 +199,34 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
         return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
       },
+      getDoubleTapZoom: function(isMouseClick, item) {
+
+        // isMouseClick          - true if mouse, false if double-tap
+        // item                  - slide object that is zoomed, usually current
+        // item.initialZoomLevel - initial scale ratio of image
+        //                         e.g. if viewport is 700px and image is 1400px,
+        //                              initialZoomLevel will be 0.5
+
+        if(isMouseClick) {
+
+          // is mouse click on image or zoom icon
+
+          // zoom to original
+          return 1;
+
+          // e.g. for 1400px image:
+          // 0.5 - zooms to 700px
+          // 2   - zooms to 2800px
+
+        } else {
+
+          // is double-tap
+
+          // zoom to original if initial zoom is less than 0.7x,
+          // otherwise to 1.5x, to make sure that double-tap gesture always zooms image
+          return item.initialZoomLevel < 0.7 ? 1 : 1.5;
+        }
+      },
       // Tap on sliding area should close gallery
       tapToClose: true
 
@@ -287,7 +309,7 @@ function playerVideo(){
       + '">'
       + '<div class="px-video-img-captions-container">'
       + '<div class="px-video-captions hide"></div>'
-      + '<video width="272" height="153" poster="'
+      + '<video width="608" height="342" poster="'
       //+ img_src
       + '" controls >'
       + '<source src="'
@@ -319,34 +341,33 @@ function insertLive(data) {
   if (msg != undefined && msg !== '' && msg != null) {
     var live_data = '';
     $.each(msg, function (i, item) {
-      live_data = '<li class="live-li clearfix" id="live-'
-        + msg[i].id
-        + '">'
-        + '<div class="js-live-time live-time">'
-        + msg[i].create_time
-        + '<img src="' + configs.img_url
-        + '">'
-        + '</div>'
-        + '<div class="live-content">'
-        + '<div class="js-live-text">'
-        + msg[i].content
-        + '</div>'
-        + '<div class="my-gallery js-media">';
+      live_data = '<li class="live-li clearfix" id="live-' +
+        msg[i].id +
+        '">' +
+        '<div class="live-time"><img src="' +
+        configs.img_url +
+        '"></div>' +
+        '<div class="live-content">' +
+        '<div class="pc-live-time">' +
+        msg[i].create_time +
+        '</div>' +
+        '<div class="my-gallery js-media">';
 
-      if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
-        $.each(msg[i].imgs, function (i, item) {
-          live_data += '<figure>'
-            + '<a href="'
-            + item
-            + '" data-size="800x800">'
-            + '<img src="'
-            + item
-            + '"/></a>'
-            + '</figure>';
-        });
-      }
-      if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-        live_data += '<a href="javascript:;" class="video-player" data-url="'
+        if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
+          $.each(msg[i].imgs, function (i, item) {
+            live_data += '<figure>'
+              + '<a href="'
+              + item
+              + '" data-size="800x800">'
+              + '<img src="'
+              + item
+              + '"/></a>'
+              + '</figure>';
+          });
+        }
+
+        if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
+          live_data += '<a href="javascript:;" class="video-player" data-url="'
             + msg[i].vod.url
             + '" data-id="'
             + msg[i].id
@@ -358,15 +379,17 @@ function insertLive(data) {
             + configs.video_player
             + '"/>'
             + '</a>';
-      }
+        }
 
-      live_data += '</div>'
-        + '</div>'
-        + '</li>';
+      live_data +='</div>' +
+         '<div class="js-live-text">' +
+          msg[i].content +
+          '</div>' +
+          '</li>';
 
       $('.js-live-list').prepend(live_data);
-      initPhotoSwipeFromDOM('.my-gallery');
     });
+    initPhotoSwipeFromDOM('.my-gallery');
 
   }
 }
@@ -418,50 +441,50 @@ function insertChat(data) {
   //chat
   if (msg != undefined && msg !== '' && msg != null && msg != false) {
     $.each(msg, function (i, item) {
-        //回复数据
-        chats_data += '<li class="is-reply relative mt10 mr10 ml10 bb" onclick="javascript:;" id="chat-'
-          + msg[i].id + '-' + (msg[i].reply_id > 0 ? msg[i].reply_id : 0)
-          + '" data-id="'
-          + msg[i].id
-          + '">'
-          + '<div class="clearfix">'
-          + '<div class="chat-img">'
-          + '<a href="javascript:;"><img src="'
-          + msg[i].avatar
-          + '"/></a>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<span>'
-          + msg[i].username
-          + '</span><span class="pull-right">'
-          + msg[i].create_time
-          + '</span>'
-          + '<p class="mt5 mb10 color-333">'
-          + msg[i].content
-          + '</p>'
-          + '</div>'
-          + '</div>';
-      if(msg[i].reply != undefined){
-        chats_data += '<div class="chat-reply">'
-          + '<div class="chat-img text-center">'
-          + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<div class="chat-img">'
-          + '<a href="javascript:;"><img src="'
-          + msg[i].reply.avatar
-          + '"/></a>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<span>'
-          + msg[i].reply.username
-          + '</span>'
-          + '<p class="mt5 mb10 color-333 mr10">'
-          + msg[i].reply.content
-          + '</p>'
-          + '</div>'
-          + '</div>'
-          + '</div>';
+      //回复数据
+      chats_data += '<li class="is-reply relative" onclick="javascript:;" id="chat-' +
+        msg[i].id + '-' + (msg[i].reply_id > 0 ? msg[i].reply_id : 0) +
+        '" data-id="' +
+        msg[i].id +
+        '">' +
+        '<div class="chat-content color-666">' +
+        '<a href="javascript:;" class="chat-img">' +
+        '<img src="' +
+        msg[i].avatar +
+        '">' +
+        '</a>' +
+        '<span>' +
+        msg[i].username +
+        '</span>' +
+        '<span class="pull-right color-999">' +
+        msg[i].create_time +
+        '</span>' +
+        '<p class="chat-p color-333">' +
+        msg[i].content +
+        '</p>' +
+        '<a href="javascript:;" class="reply-btn"><i class="icon-comments"></i>&ensp;回复</a>' +
+        '</div>';
+
+      if(msg[i].reply != undefined) {
+        chats_data += '<div class="chat-reply">' +
+          '<div class="reply-i text-center"><i class="color-b08654 icon-mail-reply icon-rotate-180"></i></div>' +
+          '<div class="reply-content color-666">' +
+          '<a href="javascript:;" class="chat-img">' +
+          '<img src="' +
+          msg[i].reply.avatar +
+          '">' +
+          '</a>' +
+          '<span>' +
+          msg[i].reply.username +
+          '</span>' +
+          '<span class="pull-right color-999">' +
+          msg[i].reply.create_time +
+          '</span>' +
+          '<p class="reply-p color-333">' +
+          msg[i].reply.content +
+          '</p>' +
+          '</div>' +
+          '</div>';
       }
       chats_data += '</li>';
     });
