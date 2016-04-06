@@ -311,7 +311,7 @@ function playerVideo(){
       + '<div class="px-video-captions hide"></div>'
       + '<video width="608" height="342" poster="'
       //+ img_src
-      + '" controls >'
+      + '" controls>'
       + '<source src="'
       + vod_url
       + '"/>'

@@ -3189,7 +3189,7 @@ ul.live_func{
 }
 .ptop {
   background: url("../img/ptop.png") no-repeat right top;
-  background-size: auto 100%;
+  background-size: auto 50px;
   min-height: 50px;
 }
 /*pcManage_live end*/
@@ -3994,9 +3994,51 @@ a.pswp__share--download:hover {
   display: none;
 }
 .live-container{
+  position: relative;
   float: left;
   width: 680px;
 }
+.live-d-page{
+  position: absolute;
+  left: -114px;
+  top: 74px;
+}
+.live-d-page a{
+  position: relative;
+  display: block;
+  width: 97px;
+  height: 29px;
+  line-height: 29px;
+  text-align: center;
+  border-right: 2px solid #d7d7d7;
+}
+.live-d-page a:link, .live-d-page a:visited, .live-d-page a:hover, .live-d-page a:active{
+  color: inherit;
+  text-decoration: none;
+}
+.live-d-page a.act{
+  width: 99px;
+  color: #fff;
+  border-right: 0;
+  background-color: #bf7824;
+}
+.live-d-page a.act:after{
+  content: '';
+  display: block;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #f5f3ea;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #bf7824;
+  position: absolute;
+  right: -7.5px;
+  top: 6.5px;
+}
+
 .right-container{
   margin-left: 700px;
   width: 300px;
@@ -4012,7 +4054,7 @@ a.pswp__share--download:hover {
 }
 .con-top{
   padding: 10px 20px 20px 20px;
-  background: url('../img/pc_stick_bg.png') no-repeat left center;
+  background: url('../img/pc_stick_bg.png') repeat-y left center;
   background-size: 100%;
   font-size: 14px;
 }
@@ -4200,6 +4242,8 @@ a.news-list-a:hover{
 }
 a.reply-btn:link, a.reply-btn:active, a.reply-btn:visited, a.reply-btn:hover{
   text-decoration: none;
+  outline: none;
+  color: #b08654;
 }
 .reply-content{
   width: 76%;
@@ -4229,7 +4273,6 @@ a.reply-btn:link, a.reply-btn:active, a.reply-btn:visited, a.reply-btn:hover{
 }
 .reply-text-area{
   width: 94%;
-  min-height: 120px;
   border: none;
   outline: none;
   padding: 3%;
@@ -4328,41 +4371,92 @@ a.live-log:hover, a.live-reg:hover{
 .product-show-list{
   margin-bottom: 10px;
 }
-.product-show-list li{
-  float: left;
-  width: 184px;
-  margin-right: 20px;
-  margin-bottom: 15px;
+.pro-show-pop{
+  position: absolute;
+  bottom: 122px;
+  left: 0;
+  z-index: 5;
+  width: 231px;
+  height: 0;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+  background-color: #fff;
+  -webkit-transition: .3s all ease-in-out;
+  -moz-transition: .3s all ease-in-out;
+  transition: .3s all ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-.product-show-list li:nth-child(5n){
+.pro-show-pop>img{
+  margin-top: 20px;
+}
+.product-show-list li{
+  position: relative;
+  z-index: 10;
+  float: left;
+  width: 232px;
+  margin: 0 24px 15px 0;
+}
+.product-show-list li:nth-child(4n){
   margin-right: 0;
+}
+.live-pros-con{
+  display: block;
+  position: relative;
+  padding: 5px 21px 10px 21px;
+  z-index: 10;
+  background-color: #fff;
 }
 .live-pros{
   display: block;
+  position: relative;
+  background-color: #fff;
+}
+.live-pros>img{
+  margin: 21px;
+  width: 190px;
 }
 .live-pros>span{
   display: block;
 }
 .live-pros-title{
-  margin: 5px 0 0 0;
+  position: absolute;
+  top: 205px;
+  left: 21px;
+  text-indent: 0.5em;
   font-size: 14px;
-  color: #333;
+  width: 190px;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  background-color: #000;
+  opacity: 0.5;
 }
-.live-pros-p{
+span.live-pros-p{
+  display: -webkit-box;
+  height: 60px;
+  margin-top: 5px;
   color: #666;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: normal;
 }
 .live-pros-info{
-  height: 24px;
-  line-height: 24px;
   margin: 5px 0 0 0;
+  height: 40px;
+  line-height: 40px;
 }
 .live-pros-price{
   display: inline-block;
-  vertical-align: middle;
   font-size: 18px;
   color: #ff8000;
-  height: 24px;
-  line-height: 24px;
+  margin-right: 5px;
 }
 .live-pros-by-phone{
   display: inline-block;
@@ -4371,5 +4465,19 @@ a.live-log:hover, a.live-reg:hover{
   color: #666;
   height: 24px;
   line-height: 24px;
+}
+.product-show{
+  position: relative;
+}
+.pc-gtop{
+  position: absolute;
+  display: block;
+  bottom: 15px;
+  right: -55px;
+  width: 35px;
+  height: 35px;
+  background-color: #f8e8d3;
+  text-align: center;
+  line-height: 35px;
 }
 /*pc_live end*/
