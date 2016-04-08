@@ -7951,7 +7951,8 @@ i.icon-lotus:before {
   min-height: 50px;
 }
 .ptop-content{
-  margin-bottom: 22px;
+  margin-bottom: 5px;
+  min-height: 50px;
 }
 
 .main-title-con {
@@ -9067,6 +9068,7 @@ a.pswp__share--download:hover {
 .my-gallery {
   width: 100%;
   float: left;
+  margin-top: 5px;
 }
 
 .my-gallery img {

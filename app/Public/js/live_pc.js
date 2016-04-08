@@ -11,8 +11,7 @@ function livePages(flag) {
   if (configs.news.last_id > 0) {
     var list = $('.js-live-list');
     JQAjax.get(this, {
-      url: configs.news.url + '?last_id=' + configs.news.last_id + '&date=' + configs.news.date,
-      wait: true,
+      url: configs.news.url + '?last_id=' + configs.news.last_id,
       callback: function (result) {
         configs.news.last_id = result.lastId;
         if (flag) {
@@ -47,10 +46,52 @@ function chatPages() {
   }
 }
 
+//信物分页
+function tokenPages(data){
+  var token_data;
+
+  if (data != undefined && data !== '' && data != null && data.length > 3) {
+      for(var i = 0;i < data.length;i++){
+        token_data += '<li class="relative">' +
+          '<a href="javascript:;" class="token-li-a">' +
+          '<img src="' +
+          data[i].img +
+          '"/>' +
+          '<span class="token-li-right">' +
+          '<span class="token-li-title">' +
+          data[i].name +
+          '</span>' +
+          '<span class="live-pros-p">' +
+          data[i].description +
+          '</span>' +
+          '<span class="live-pros-info">' +
+          '<span class="live-pros-price">￥' +
+          data[i].price +
+          '</span>' +
+          '<del class="">￥' +
+          data[i].market_price +
+          '</del>' +
+          '</span>' +
+          '</span>' +
+          '</a>' +
+          '<div class="pro-show-pop2">' +
+          '<img src="' +
+          data[i].qrcode_url +
+          '">' +
+          '<div>扫一扫，手机购买</div>' +
+          '</div>' +
+          '</li>';
+      }
+    $('.token-data').html(token_data);
+  }
+}
+
 //轮播
-$('#live-carousel').carousel({interval: false});
+if($('#live-carousel').length > 0) {
+  $('#live-carousel').carousel({interval: false});
 //touch事件
-var myElement = document.getElementById('live-carousel');
+  var myElement = document.getElementById('live-carousel');
+}
 
 //图片点击全屏显示
 var initPhotoSwipeFromDOM = function (gallerySelector) {
@@ -304,7 +345,7 @@ function playerVideo() {
   $(document).on('click', '.video-player', function () {
     $('.video-player').show();
     $('.px-video-container').remove();
-    //var img_src = $(this).children('img').attr('src');
+    $('.q-player').remove();
 
     var vod_url = $(this).data('url');
     var id = 'v_' + $(this).data('id');
@@ -341,7 +382,7 @@ function playerVideo() {
       $('#' + id).find('video')[0].play();
     }
     else{
-      player = '<div id="' +
+      player = '<div class="q-player" id="' +
         id +
         '"></div>';
       $(this).parents('.js-media').append(player);

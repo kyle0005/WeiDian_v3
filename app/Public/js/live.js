@@ -67,12 +67,8 @@ function livePages(flag) {
   if (configs.news.last_id > 0) {
     var list = $('.js-live-list');
     JQAjax.get(this, {
-      url: configs.news.url + '?last_id=' + configs.news.last_id + '&date=' + configs.news.date,
-      wait: true,
+      url: configs.news.url + '?last_id=' + configs.news.last_id,
       callback: function (result) {
-        //if(typeof result == 'string'){
-        //  result = eval("(" + result + ")");
-        //}
         configs.news.last_id = result.lastId;
         if (flag) {
           //滚动分页
@@ -97,9 +93,6 @@ function chatPages() {
       url: configs.chat.url + '?last_id=' + configs.chat.last_id,
       wait: true,
       callback: function (result) {
-        //if(typeof result == 'string') {
-        //  result = eval("(" + result + ")");
-        //}
         configs.chat.last_id = result.lastId;
         //滚动分页
         $(list).append(result.html);
@@ -109,17 +102,20 @@ function chatPages() {
 }
 
 //轮播
-$('#live-carousel').carousel({interval: false});
+if($('#live-carousel').length > 0){
+  $('#live-carousel').carousel({interval: false});
 //touch事件
-var myElement = document.getElementById('live-carousel');
+  var myElement = document.getElementById('live-carousel');
 
-var hammertime = new Hammer(myElement);
-hammertime.on('panleft', function (ev) {
-  $(myElement).carousel('next');            //将轮播转到下一帧。
-});
-hammertime.on('panright', function (ev) {
-  $(myElement).carousel('prev');            //将轮播转到上一帧。
-});
+  var hammertime = new Hammer(myElement);
+  hammertime.on('panleft', function (ev) {
+    $(myElement).carousel('next');            //将轮播转到下一帧。
+  });
+  hammertime.on('panright', function (ev) {
+    $(myElement).carousel('prev');            //将轮播转到上一帧。
+  });
+}
+
 
 //图片点击全屏显示
 var initPhotoSwipeFromDOM = function (gallerySelector) {
@@ -341,11 +337,11 @@ function loadData(data) {
 
 }
 
-function playerVideo(){
+/*function playerVideo(){
   $(document).on('click', '.video-player', function () {
     $('.video-player').show();
     $('.px-video-container').remove();
-    //var img_src = $(this).children('img').attr('src');
+    $('.q-player').remove();
 
     var vod_url = $(this).data('url');
     var id =  'v_' + $(this).data('id');
@@ -382,7 +378,7 @@ function playerVideo(){
       $('#' + id).find('video')[0].play();
     }
     else{
-      player = '<div id="' +
+      player = '<div class="q-player" id="' +
         id +
         '"></div>';
       $(this).parents('.js-media').append(player);
@@ -393,12 +389,12 @@ function playerVideo(){
         "width": 272,
         "height": 153
       };
-      /*调用播放器进行播放*/
+      /!*调用播放器进行播放*!/
       new qcVideo.Player(id, option);
     }
 
   });
-}
+}*/
 
 function insertLive(data) {
   var msg = data.news.newMessage;
@@ -433,20 +429,29 @@ function insertLive(data) {
         });
       }
       if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-        live_data += '<a href="javascript:;" class="video-player" data-type="' +
-          msg[i].vod.type +
-          '" data-url="'
-            + msg[i].vod.url
-            + '" data-id="'
-            + msg[i].id
-            + '">'
-            + '<img src="'
-            + msg[i].vod.cover
-            + '"/>'
-            + '<img class="video-player-btn" src="'
-            + configs.video_player
-            + '"/>'
-            + '</a>';
+        live_data += '<video src="' +
+          msg[i].vod.url +
+          '"' +
+        'poster="' +
+          msg[i].vod.cover +
+          '"' +
+        'controls="controls" preload="metadata"' +
+        'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
+
+        //live_data += '<a href="javascript:;" class="video-player" data-type="' +
+        //  msg[i].vod.type +
+        //  '" data-url="'
+        //    + msg[i].vod.url
+        //    + '" data-id="'
+        //    + msg[i].id
+        //    + '">'
+        //    + '<img src="'
+        //    + msg[i].vod.cover
+        //    + '"/>'
+        //    + '<img class="video-player-btn" src="'
+        //    + configs.video_player
+        //    + '"/>'
+        //    + '</a>';
       }
 
       live_data += '</div>'
@@ -484,20 +489,30 @@ function insertTop(data) {
       });
     }
     if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
-      live_top += '<a href="javascript:;" class="video-player" data-type="' +
-        msg.vod.type +
-        '" data-url="'
-        + msg.vod.url
-        + '" data-id="'
-        + msg.id
-        + '">'
-        + '<img src="'
-        + msg.vod.cover
-        + '"/>'
-        + '<img class="video-player-btn" src="'
-        + configs.video_player
-        + '"/>'
-        + '</a>';
+      live_top += '<video src="' +
+        msg.vod.url +
+        '"' +
+        'poster="' +
+        msg.vod.cover +
+        '"' +
+        'controls="controls" preload="metadata"' +
+        'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
+
+
+      //live_top += '<a href="javascript:;" class="video-player" data-type="' +
+      //  msg.vod.type +
+      //  '" data-url="'
+      //  + msg.vod.url
+      //  + '" data-id="'
+      //  + msg.id
+      //  + '">'
+      //  + '<img src="'
+      //  + msg.vod.cover
+      //  + '"/>'
+      //  + '<img class="video-player-btn" src="'
+      //  + configs.video_player
+      //  + '"/>'
+      //  + '</a>';
     }
     live_top += '</div></div>';
     $('.js-stick-msg').html(live_top);
