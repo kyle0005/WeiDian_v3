@@ -1,6 +1,11 @@
 /**
  * Created by Administrator on 2016/3/1 0001.
  */
+function scrollTop() {
+  var top = $('.chat-container').offset().top;
+  $('html, body').animate({scrollTop: top}, 'slow');
+}
+
 //live分页
 function livePages(flag) {
   if (configs.news.last_id > 0) {
@@ -18,6 +23,7 @@ function livePages(flag) {
         else {
           //日期分页
           $(list).html(result.html);
+          initPhotoSwipeFromDOM('.my-gallery');
         }
 
       }
@@ -199,7 +205,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
         return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
       },
-      getDoubleTapZoom: function(isMouseClick, item) {
+      getDoubleTapZoom: function (isMouseClick, item) {
 
         // isMouseClick          - true if mouse, false if double-tap
         // item                  - slide object that is zoomed, usually current
@@ -207,7 +213,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
         //                         e.g. if viewport is 700px and image is 1400px,
         //                              initialZoomLevel will be 0.5
 
-        if(isMouseClick) {
+        if (isMouseClick) {
 
           // is mouse click on image or zoom icon
           // zoom to original
@@ -294,43 +300,61 @@ function loadData(data) {
 
 }
 
-function playerVideo(){
+function playerVideo() {
   $(document).on('click', '.video-player', function () {
     $('.video-player').show();
     $('.px-video-container').remove();
     //var img_src = $(this).children('img').attr('src');
 
     var vod_url = $(this).data('url');
-    var id =  'v_' + $(this).data('id');
+    var id = 'v_' + $(this).data('id');
+    var vod_type = $(this).data('type');
+    var player = '';
     $(this).hide();
+    if(vod_type == 'online'){
+      player = '<div class="px-video-container text-center" id="'
+        + id
+        + '">'
+        + '<div class="px-video-img-captions-container">'
+        + '<div class="px-video-captions hide"></div>'
+        + '<video width="608" height="342" poster="'
+          //+ img_src
+        + '" controls>'
+        + '<source src="'
+        + vod_url
+        + '"/>'
+        + '</video>'
+        + '</div>'
+        + '<div class="px-video-controls"></div>'
+        + '</div>';
 
-    var player = '<div class="px-video-container text-center" id="'
-      + id
-      + '">'
-      + '<div class="px-video-img-captions-container">'
-      + '<div class="px-video-captions hide"></div>'
-      + '<video width="608" height="342" poster="'
-      //+ img_src
-      + '" controls>'
-      + '<source src="'
-      + vod_url
-      + '"/>'
-      + '</video>'
-      + '</div>'
-      + '<div class="px-video-controls"></div>'
-      + '</div>';
+      $(this).parents('.js-media').append(player);
 
-    $(this).parents('.js-media').append(player);
-
-    //加载播放器
-    new InitPxVideo({
-      "videoId": id,
-      "captionsOnDefault": true,
-      "seekInterval": 20,
-      "videoTitle": "video",
-      "debug": true
-    });
-    $('#' + id).find('video')[0].play();
+      //加载播放器
+      new InitPxVideo({
+        "videoId": id,
+        "captionsOnDefault": true,
+        "seekInterval": 20,
+        "videoTitle": "video",
+        "debug": true
+      });
+      $('#' + id).find('video')[0].play();
+    }
+    else{
+      player = '<div id="' +
+        id +
+        '"></div>';
+      $(this).parents('.js-media').append(player);
+      var option = {
+        "auto_play": "1",
+        "file_id": vod_url,
+        "app_id": configs.app_id,
+        "width": 608,
+        "height": 342
+      };
+      /*调用播放器进行播放*/
+      new qcVideo.Player(id, option);
+    }
 
   });
 }
@@ -351,41 +375,43 @@ function insertLive(data) {
         '<div class="pc-live-time">' +
         msg[i].create_time +
         '</div>' +
+        '<div class="js-live-text">' +
+        msg[i].content +
+        '</div>' +
         '<div class="my-gallery js-media">';
 
-        if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
-          $.each(msg[i].imgs, function (i, item) {
-            live_data += '<figure>'
-              + '<a href="'
-              + item
-              + '" data-size="800x800">'
-              + '<img src="'
-              + item
-              + '"/></a>'
-              + '</figure>';
-          });
-        }
-
-        if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-          live_data += '<a href="javascript:;" class="video-player" data-url="'
-            + msg[i].vod.url
-            + '" data-id="'
-            + msg[i].id
-            + '">'
+      if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
+        $.each(msg[i].imgs, function (i, item) {
+          live_data += '<figure>'
+            + '<a href="'
+            + item
+            + '" data-size="800x800">'
             + '<img src="'
-            + msg[i].vod.cover
-            + '"/>'
-            + '<img class="video-player-btn" src="'
-            + configs.video_player
-            + '"/>'
-            + '</a>';
-        }
+            + item
+            + '"/></a>'
+            + '</figure>';
+        });
+      }
 
-      live_data +='</div>' +
-         '<div class="js-live-text">' +
-          msg[i].content +
-          '</div>' +
-          '</li>';
+      if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' && msg[i].vod != '') {
+        live_data += '<a href="javascript:;" class="video-player" data-type="' +
+          msg[i].vod.type +
+          '" data-url="'
+          + msg[i].vod.url
+          + '" data-id="'
+          + msg[i].id
+          + '">'
+          + '<img src="'
+          + msg[i].vod.cover
+          + '"/>'
+          + '<img class="video-player-btn" src="'
+          + configs.video_player
+          + '"/>'
+          + '</a>';
+      }
+
+      live_data += '</div>' +
+        '</li>';
 
       $('.js-live-list').prepend(live_data);
     });
@@ -398,10 +424,13 @@ function insertTop(data) {
   var msg = data.news.stickMessage;
   //live-top
   if (msg != undefined && msg !== '' && msg != null && msg != false) {
+    $('.con-top').show();
     var live_top = '<div class="ptop" id="stick-'
       + msg.id
       + '">'
+      + '<div class="ptop-content">'
       + msg.content
+      + '</div>'
       + '<div class="my-gallery">';
     if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
       $.each(msg.imgs, function (i, item) {
@@ -416,7 +445,9 @@ function insertTop(data) {
       });
     }
     if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
-      live_top += '<a href="javascript:;" class="video-player" data-url="'
+      live_top += '<a href="javascript:;" class="video-player" data-type="' +
+        msg.vod.type +
+        '" data-url="'
         + msg.vod.url
         + '" data-id="'
         + msg.id
@@ -432,6 +463,9 @@ function insertTop(data) {
     live_top += '</div></div>';
     $('.js-stick-msg').html(live_top);
     initPhotoSwipeFromDOM('.my-gallery');
+  }
+  else {
+    $('.con-top').hide();
   }
 }
 
@@ -456,7 +490,7 @@ function insertChat(data) {
         '<span>' +
         msg[i].username +
         '</span>' +
-        '<span class="pull-right color-999">' +
+        '<span class="chat-time color-999">' +
         msg[i].create_time +
         '</span>' +
         '<p class="chat-p color-333">' +
@@ -465,7 +499,7 @@ function insertChat(data) {
         '<a href="javascript:;" class="reply-btn"><i class="icon-comments"></i>&ensp;回复</a>' +
         '</div>';
 
-      if(msg[i].reply != undefined) {
+      if (msg[i].reply != undefined) {
         chats_data += '<div class="chat-reply">' +
           '<div class="reply-i text-center"><i class="color-b08654 icon-mail-reply icon-rotate-180"></i></div>' +
           '<div class="reply-content color-666">' +
@@ -498,19 +532,19 @@ function delData(data) {
   if (delMsg != false) {
     $.each(delMsg, function (i, con) {
       var obj = $('#live-' + delMsg[i].id);
-      if($('#stick-' + delMsg[i].id).length > 0){
+      if ($('#stick-' + delMsg[i].id).length > 0) {
         $('#stick-' + delMsg[i].id).remove();
         $(obj).show();
-      }else{
-          if(data.newsStickId == delMsg[i].id){
-            $(obj).hide();
-          }else{
-            if($(obj).isHidden){
-              $(obj).show();
-            }else{
-              $(obj).remove();
-            }
+      } else {
+        if (data.newsStickId == delMsg[i].id) {
+          $(obj).hide();
+        } else {
+          if ($(obj).isHidden) {
+            $(obj).show();
+          } else {
+            $(obj).remove();
           }
+        }
       }
     });
   }
@@ -520,7 +554,7 @@ function delData(data) {
     var _reId = 0;
     $.each(delChats, function (j, item) {
       _reId = delChats[j].reply_id > 0 ? delChats[j].reply_id : 0;
-        //删除回复内容
+      //删除回复内容
       $('#chat-' + delChats[j].id + '-' + _reId).remove();
 
     });

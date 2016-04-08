@@ -6,6 +6,7 @@ function tabClick(tabObj, chosenClassName) {        //Tab切换选项
   var click_obj = $(tabObj).find('li');
   var tab_obj = $(document).find('.tab-ops');
   $(click_obj).click(function () {
+    $('html, body').animate({scrollTop:0}, 'slow');
     $(click_obj).removeClass(chosenClassName);
     $(this).addClass(chosenClassName);
 
@@ -348,35 +349,53 @@ function playerVideo(){
 
     var vod_url = $(this).data('url');
     var id =  'v_' + $(this).data('id');
+    var vod_type = $(this).data('type');
+    var player = '';
     $(this).hide();
+    if(vod_type == 'online') {
+      player = '<div class="px-video-container text-center" id="'
+        + id
+        + '">'
+        + '<div class="px-video-img-captions-container">'
+        + '<div class="px-video-captions hide"></div>'
+        + '<video width="272" height="153" poster="'
+          //+ img_src
+        + '" controls >'
+        + '<source src="'
+        + vod_url
+        + '"/>'
+        + '</video>'
+        + '</div>'
+        + '<div class="px-video-controls"></div>'
+        + '</div>';
 
-    var player = '<div class="px-video-container text-center" id="'
-      + id
-      + '">'
-      + '<div class="px-video-img-captions-container">'
-      + '<div class="px-video-captions hide"></div>'
-      + '<video width="272" height="153" poster="'
-      //+ img_src
-      + '" controls >'
-      + '<source src="'
-      + vod_url
-      + '"/>'
-      + '</video>'
-      + '</div>'
-      + '<div class="px-video-controls"></div>'
-      + '</div>';
+      $(this).parents('.js-media').append(player);
 
-    $(this).parents('.js-media').append(player);
-
-    //加载播放器
-    new InitPxVideo({
-      "videoId": id,
-      "captionsOnDefault": true,
-      "seekInterval": 20,
-      "videoTitle": "video",
-      "debug": true
-    });
-    $('#' + id).find('video')[0].play();
+      //加载播放器
+      new InitPxVideo({
+        "videoId": id,
+        "captionsOnDefault": true,
+        "seekInterval": 20,
+        "videoTitle": "video",
+        "debug": true
+      });
+      $('#' + id).find('video')[0].play();
+    }
+    else{
+      player = '<div id="' +
+        id +
+        '"></div>';
+      $(this).parents('.js-media').append(player);
+      var option = {
+        "auto_play": "1",
+        "file_id": vod_url,
+        "app_id": configs.app_id,
+        "width": 272,
+        "height": 153
+      };
+      /*调用播放器进行播放*/
+      new qcVideo.Player(id, option);
+    }
 
   });
 }
@@ -414,7 +433,9 @@ function insertLive(data) {
         });
       }
       if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-        live_data += '<a href="javascript:;" class="video-player" data-url="'
+        live_data += '<a href="javascript:;" class="video-player" data-type="' +
+          msg[i].vod.type +
+          '" data-url="'
             + msg[i].vod.url
             + '" data-id="'
             + msg[i].id
@@ -446,7 +467,9 @@ function insertTop(data) {
     var live_top = '<div class="ptop" id="stick-'
       + msg.id
       + '">'
+      +'<div class="ptop-content">'
       + msg.content
+      +'</div>'
       + '<div class="my-gallery">';
     if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
       $.each(msg.imgs, function (i, item) {
@@ -461,7 +484,9 @@ function insertTop(data) {
       });
     }
     if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
-      live_top += '<a href="javascript:;" class="video-player" data-url="'
+      live_top += '<a href="javascript:;" class="video-player" data-type="' +
+        msg.vod.type +
+        '" data-url="'
         + msg.vod.url
         + '" data-id="'
         + msg.id

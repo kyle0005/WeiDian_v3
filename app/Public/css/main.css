@@ -7950,6 +7950,9 @@ i.icon-lotus:before {
   font-size: 14px;
   min-height: 50px;
 }
+.ptop-content{
+  margin-bottom: 22px;
+}
 
 .main-title-con {
   position: relative;
