@@ -888,7 +888,7 @@
       $(document.body).find('.reply-pop-con').remove();
     });
 
-    $('.token-data-li').on("mouseover mouseout",function(event){
+    $(document).on("mouseover mouseout",".token-data-li", function(event){
       if(event.type == "mouseover"){
         $(this).children('.pro-show-pop2').css('height', '160px');
       }else if(event.type == "mouseout"){

@@ -4724,7 +4724,14 @@ span.live-pros-p{
   width: 130px;
 }
 .token-li-title{
+  display: -webkit-box;
   font-size: 14px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: normal;
 }
 .live-new-list{
   height: 100px;
