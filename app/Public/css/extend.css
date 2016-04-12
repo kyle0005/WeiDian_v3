@@ -2606,8 +2606,8 @@ h5.setting-btn{
     display: inherit !important;
 }
 .snsLink {
-    padding: 40px 10px;
-    max-width: 768px;
+    padding: 10px 0;
+    max-width: 320px;
     margin: 0 auto;
 }
 .snsLink ul {
@@ -2635,6 +2635,9 @@ h5.setting-btn{
     margin: 0 auto;
     background-image: url(../img/snsIcon.jpg);
     background-repeat: no-repeat;
+}
+.snsLink-p{
+  margin-top: 5px;
 }
 .snsQQ {
     background-position: -2px -80px;
@@ -2679,7 +2682,6 @@ h5.setting-btn{
 .foontNav {
     text-align: center;
     padding: 20px 0 0 0;
-    border-top: 1px solid #EDEDED;
 }
 .foontNav a {
     display: inline-block;
@@ -2969,8 +2971,7 @@ input[type=radio].hst-radio {
 .app-wrap{
   position: relative;
   width: 100%;
-  height: 560px;
-  margin: 0;
+  margin: 0 0 20px 0;
   background-image: url("../img/appBg_1920x560.png");
   background-repeat: no-repeat;
   background-size: 100% 560px;
@@ -3002,7 +3003,7 @@ input[type=radio].hst-radio {
 .pc-header-log li{
   position: relative;
   float: left;
-  width: 70px;
+  width: 110px;
 }
 .pc-header-log li:nth-child(1)::after{
   content: "";
@@ -3017,7 +3018,7 @@ input[type=radio].hst-radio {
 .pc-header-a{
   display: block;
   margin: 19px 0;
-  width: 60px;
+  width: 100px;
   height: 20px;
   text-align: center;
   color: #333;
@@ -3032,37 +3033,39 @@ a.pc-header-a:hover{
   color: #333;
 }
 .pc-focus{
-  background: url("../img/test.png") no-repeat center;
-  background-size: cover;
-  height: 640px;
   width: 100%;
   overflow: hidden;
 }
 
 @font-face {
   font-family: zz;
-  src: url(../fonts/造字工房悦黑常规体.otf);
+  src:  url(../fonts/zzgf.otf);
+        url('../fonts/zzgf.ttf?#font-spider') format('truetype'),
+        url('../font/zzgf.eot') format('embedded-opentype'),
+        url('../font/zzgf.woff') format('woff'),
+        url('../font/zzgf.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .pc-title{
-  font-family: zz;
   font-size: 36px;
   line-height: 36px;
   margin: 113px 0 7px;
 }
 .pc-vTitle{
-  font-family: zz;
   font-size: 18px;
   line-height: 18px;
   letter-spacing: 1.2px;
   margin-bottom: 30px;
 }
 .pc-contanier .pc-down{
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 18px;
-  vertical-align: text-bottom;
+  margin-left: 15px;
+  width: 70px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  vertical-align: middle;
 }
 a.pc-down:hover{
   border: 1px solid #ff8000;
@@ -3079,10 +3082,9 @@ a.pc-down:hover{
   margin: 0 auto 1px auto;
 }
 .pc-index-title{
-  font-family: zz;
   font-size: 24px;
   line-height: 24px;
-  margin: 100px 0 10px 0;
+  margin: 50px 0 10px 0;
 }
 .pc-index-con{
   font-size: 16px;
@@ -3113,7 +3115,6 @@ a.pc-down:hover{
 }
 .intro-li-title{
   display: inline-block;
-  font-family: zz;
   font-size: 20px;
   padding-bottom: 15px;
   border-bottom: 3px solid #ff8000;
@@ -3137,6 +3138,10 @@ a.pc-down:hover{
   width: 900px;
   margin: 1px auto 0 auto;
 }
+.pc_index_ad{
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
 .pc-advlist li{
   margin: 30px 0;
 }
@@ -3149,6 +3154,23 @@ a.pc-down:hover{
 .pc-bottom{
   background-color: #f8f8f8;
   padding-top: 1px;
+}
+.i-pc-gtop{
+  position: absolute;
+  display: block;
+  bottom: 15px;
+  right: -55px;
+  width: 29px;
+  height: 29px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #ff8000;
+  text-align: center;
+  color: #fff;
+}
+a.i-pc-gtop:link, a.i-pc-gtop:active, a.i-pc-gtop:visited, a.i-pc-gtop:hover{
+  color: #fff;
+  text-decoration: none;
 }
 .pc-bottom hr{
   width: 70px;

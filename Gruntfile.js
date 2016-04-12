@@ -313,6 +313,14 @@ module.exports = function (grunt) {
        dist: {}
     },
 
+    // 字蛛插件：压缩与转码静态页面中的 WebFont
+    'font-spider': {
+      options: {},
+      main: {
+        src: '<%= config.app %>/pc_index.html'
+      }
+    },
+
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
