@@ -48,10 +48,10 @@ input, select, textarea {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-appearance: none;
     border: 0;
-    border-radius: 0
+    border-radius: 0;
 }
 
-textarea:focus {
+input:focus, select:focus,textarea:focus {
     outline: 0
 }
 
