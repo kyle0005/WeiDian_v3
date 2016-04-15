@@ -33,7 +33,7 @@ required:必选项
 		var prov_val=settings.prov;
 		var city_val=settings.city;
 		var dist_val=settings.dist;
-		var select_prehtml=(settings.required) ? "" : "<option value=''>请选择</option>";
+		var select_prehtml=(settings.required) ? "" : "<option value=''>省</option>";
 		var city_json;
 
 		// 赋值市级函数
@@ -58,7 +58,7 @@ required:必选项
 			};
 
 			// 遍历赋值市级下拉列表
-			temp_html=select_prehtml;
+			temp_html=(settings.required) ? "" : "<option value=''>市</option>";
 			$.each(city_json.citylist[prov_id].c,function(i,city){
 				temp_html+="<option value='"+city.n+"'>"+city.n+"</option>";
 			});
@@ -82,12 +82,12 @@ required:必选项
 				}else if(settings.nodata=="hidden"){
 					dist_obj.css("visibility","hidden");
 				};
-				dist_obj.html(select_prehtml).attr("disabled",true);
+				dist_obj.html((settings.required) ? "" : "<option value=''>区</option>").attr("disabled",true);
 				return;
 			};
-			
+
 			// 遍历赋值市级下拉列表
-			temp_html=select_prehtml;
+			temp_html=(settings.required) ? "" : "<option value=''>区</option>";
 			$.each(city_json.citylist[prov_id].c[city_id].a,function(i,dist){
 				temp_html+="<option value='"+dist.s+"'>"+dist.s+"</option>";
 			});

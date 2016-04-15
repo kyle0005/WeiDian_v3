@@ -76,7 +76,9 @@ body {
 .color-b08654 {
   color: #b08654;
 }
-
+.color-7abd54{
+  color: #7abd54;
+}
 .mg5 {
   margin: 5px;
 }
@@ -9491,7 +9493,15 @@ a.re-order-btn {
   width: 32px;
   margin: 24px 14px;
 }
-
+#invest-img .img_up {
+  width: 100px;
+  max-height: 80px;
+  margin: 0 10px 10px 0;
+  border: 1px dashed #ccc;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
 .upload_exp_con {
   display: inline-block;
   margin-left: 15px;
@@ -9514,4 +9524,36 @@ a.invest-btn{
   width: 30%;
   line-height: 40px;
   border-radius: 0;
+}
+.invest-title{
+  margin-top: 25px;
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+.invest-title img{
+  width: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.invest-title-txt{
+  display: inline-block;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.invest-next{
+  text-align: center;
+  background: url('../img/staple.png') no-repeat center top;
+  background-size: 100% auto ;
+  background-color: #fcfbf5;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.invest-form{
+  padding: 30px 90px;
+  border: 1px solid #ccc;
+}
+.order-list-con-title{
+  display: block;
+  width: 100%;
 }

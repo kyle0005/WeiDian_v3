@@ -306,7 +306,8 @@ module.exports = function (grunt) {
                     src: '*.js',
                     dest: '<%= config.dist %>/js'
                 }
-            ]
+            ],
+
         }
     },
     concat: {

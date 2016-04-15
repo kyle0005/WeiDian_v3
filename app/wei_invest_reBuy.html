@@ -95,13 +95,14 @@
     </fieldset>
   </form>
 </section>
-<section class="buy-foot bt clearfix">
+<div style="height: 41px"></div>
+<footer class="buy-foot bt clearfix">
   <div class="pull-left clearfix invest-t">
     <span class="ml10 pull-left">购买数量：<span class="color-theme2">200</span>套</span>
     <span class="mr10 pull-right">金额：<span class="color-theme2">￥12986.00</span></span>
   </div>
   <a href="#" class="wei-btn wei-bg-sRed pull-right invest-btn">提交</a>
-</section>
+</footer>
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
 <script src="Public/js/plupload.full.min.js"></script>
@@ -110,10 +111,7 @@
 <script>
   $(function () {
     $("#province").citySelect({
-      prov: "上海",
-      city: "上海",
-      dist: "静安区",
-      required: false
+      required:false
     });
 
     var url = "upload.php";
