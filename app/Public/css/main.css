@@ -8288,7 +8288,6 @@ textarea:focus {
 
 .live-token-list .order-list-con {
   margin-left: 120px;
-  padding-top: 10px;
   padding-bottom: 15px;
   border-bottom: 1px solid #e3c49d;
 }
@@ -9553,7 +9552,82 @@ a.invest-btn{
   padding: 30px 90px;
   border: 1px solid #ccc;
 }
-.order-list-con-title{
+.invest-img{
+  float: left;
+  width: 32%;
+}
+.invest-list-con{
+  float: left;
+  width: 66%;
+  margin-left: 2%;
+  border-bottom: 1px solid #e3c49d;
+}
+a.chk-d{
+  position: absolute;
+  right: 0;
+  bottom: 13px;
+  height: 20px;
+  line-height: 20px;
+  width: 70px;
+}
+.invest-list-num{
+  line-height: 16px;
+  margin-bottom: 5px;
+}
+.invest-list-num span{
+  display: inline-block;
+}
+.invest-de-left{
+  position: relative;
+  width: 20%;
+  float: left;
+}
+.invest-de-left:after{
+  content: '';
   display: block;
-  width: 100%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  left: 73%;
+  top: 3px;
+  z-index: 2;
+}
+.invest-de-mouth{
+  display: inline-block;
+  font-size: 20px;
+}
+.invest-de-right{
+  position: relative;
+  width: 80%;
+  float: left;
+  padding-bottom: 7%;
+}
+.invest-de-right:before{
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: #e6e6e6;
+  position: absolute;
+  left: -4%;
+  top: 3px;
+  z-index: 1;
+}
+.invest-de-order{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.invest-de-num{
+  margin: 0 auto;
+  width: 21px;
+  height: 21px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  color: #ff8000;
+  border: 2px solid #ff8000;
 }

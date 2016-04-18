@@ -4848,8 +4848,8 @@ span.live-pros-p{
 }
 input.invest-inp{
   margin-bottom: 0;
-  height: 34px;
-  line-height: 34px;
+  height: 32px;
+  line-height: 32px;
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 0;
@@ -4878,8 +4878,8 @@ a.invest-btn{
 select.invest-sel{
   margin-bottom: 0;
   width: 212px;
-  height: 34px;
-  line-height: 34px;
+  height: 32px;
+  line-height: 32px;
   padding-top: 0;
   padding-bottom: 0;
   border: 1px solid #ccc;
@@ -4891,6 +4891,12 @@ select.invest-sel{
 .invest-vTitle{
   font-size: 18px;
 }
+.invest-vCon{
+  display: inline-block;
+  vertical-align: top;
+  width: 230px;
+}
+
 .invest-cal{
   display: inline-block;
   margin-top: 30px;
@@ -4919,7 +4925,7 @@ select.invest-sel{
   min-height: 64px;
 }
 .invest-phone{
-  margin-left: 55px;
+  margin-left: 15px;
 }
 .left-line select.invest-sel{
   margin-right: 10px;
@@ -4967,7 +4973,7 @@ select.invest-sel{
   padding-top: 50px;
   padding-bottom: 90px;
   border: 1px solid #ccc;
-  font-size: 30px;
+  font-size: 20px;
 }
 .success-title{
   margin-left: 89px;
@@ -4981,14 +4987,13 @@ select.invest-sel{
 .success-vTitle{
   margin-top: 30px;
   padding-bottom: 50px;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 24px;
 }
 .success-detail{
-  margin-left: 290px;
-  margin-right: 290px;
-  margin-bottom: 50px;
-  font-size: 24px;
+  display: inline-block;
+  margin: 0 auto 50px;
+  font-size: 16px;
   line-height: 24px;
 }
 .success-detail-t{
