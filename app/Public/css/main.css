@@ -9559,13 +9559,14 @@ a.invest-btn{
 .invest-list-con{
   float: left;
   width: 66%;
+  padding: 2% 0 5% 0;
   margin-left: 2%;
   border-bottom: 1px solid #e3c49d;
 }
 a.chk-d{
   position: absolute;
   right: 0;
-  bottom: 13px;
+  bottom: 10%;
   height: 20px;
   line-height: 20px;
   width: 70px;
@@ -9612,7 +9613,7 @@ a.chk-d{
   height: 100%;
   background: #e6e6e6;
   position: absolute;
-  left: -4%;
+  left: -4.5%;
   top: 3px;
   z-index: 1;
 }
