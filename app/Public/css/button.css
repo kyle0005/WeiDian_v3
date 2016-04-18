@@ -13,7 +13,9 @@
 a.unfillet-btn{
   border-radius: 0;
 }
-
+a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
+  text-decoration: none;
+}
 /* 按钮容器 */
 .wei-btn-container-2 {
   float: left;
@@ -177,3 +179,14 @@ a.unfillet-btn{
   border: 1px solid #999;
 }
 
+.wei-bg-e6e6e6 {
+  color: #000;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+}
+
+.wei-bg-e6e6e6:link, .wei-bg-e6e6e6:visited, .wei-bg-e6e6e6:hover, .wei-bg-e6e6e6:active {
+  color: #000;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+}
