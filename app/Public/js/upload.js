@@ -8,7 +8,9 @@
                 'extensions': '',
                 'number': 0,
                 'singleRepeat':false,
-                'text':false
+                'text':false,
+                'text_name':'',
+                'text_placeholder':''
             },
             this.options = $.extend({}, this.defaults, opt)
     }
@@ -21,6 +23,8 @@
             var number = this.options.number;
             var singleRepeat = this.options.singleRepeat;
             var text = this.options.text;
+            var text_name = this.options.text_name;
+            var text_placeholder = this.options.text_placeholder;
 
             var _extensions = extensions || "jpg,jpeg,gif,png";
             var Uploader = new plupload.Uploader({
@@ -74,7 +78,11 @@
                                 _str = _str + '<a class="del_img" href="javascript:;">删除</a>';
                             }
                             if(text){
-                              _str += '<input type="text" class="wei-up-inp" placeholder="祈福人姓名"/>'
+                              _str += '<input type="text" name="' +
+                                text_name +
+                                '" class="wei-up-inp" placeholder="' +
+                                text_placeholder +
+                                '"/>';
                             }
                             _str = _str + '</span>';
                             $('#' + c_id).siblings('.img_ul').append(_str);

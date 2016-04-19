@@ -3779,6 +3779,7 @@ input.reg-redBorder {
 }
 
 .order-list-con {
+  position: relative;
   display: block;
   margin-left: 70px;
   padding-bottom: 5px;
@@ -7140,6 +7141,7 @@ input[type=checkbox].mui-switch.mui-switch-anim:checked:before {
   height: 40px;
   width: 100%;
   background-color: #ffffff;
+  z-index: 20;
 }
 
 .buy-ani {
@@ -8286,12 +8288,13 @@ textarea:focus {
 
 .live-token-con {
   min-height: 37px;
+  line-height: 16px;
 }
 
 .live-token-list .order-list-con {
   margin-left: 120px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #e3c49d;
+  /*border-bottom: 1px solid #e3c49d;*/
 }
 
 .loading-more {
@@ -9459,42 +9462,60 @@ img.video-player-btn {
 
 /*代售投资*/
 .invest-container .left-label{
-  width: 22.2%;
+  width: 24%;
   height: 40px;
   padding: 0;
   line-height: 40px;
 }
 .invest-container .form-horizontal .controls input{
-  width: 77.8%;
+  width: 76%;
   height: 40px;
   line-height: 40px;
   padding: 0;
 }
 a.re-order-btn {
   position: absolute;
+  bottom: 15px;
   right: 0;
-  bottom: 20px;
   height: 20px;
   line-height: 20px;
   width: 80px;
 }
-
+.invest-li-bot{
+  display: block;
+  height: 22px;
+  line-height: 22px;
+}
+.order-list-con-title{
+  display: inline-block;
+  width: 100%;
+}
+.invest-pri{
+  display: inline-block;
+}
 .invest-container .bb {
   border-bottom: 1px solid #f2f2f2;
 }
 .invest-container .form-horizontal .controls input.invest-valCode{
   width: 50%;
 }
+a.valCode-btn{
+  display: block;
+  width: 23%;
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+}
 a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:hover{
   color: #ff8000;
 }
 .invest-container select.prov, .invest-container select.city, .invest-container select.dist {
-  width: 77.8%;
+  width: 76%;
   height: 40px;
   padding-left: 0;
   padding-right: 0;
   font-size: 12px;
-  background: url('../img/arr_down.png') no-repeat right center;
+  background: url('../img/arr_down2.png') no-repeat right center;
   background-size: auto 8px;
 }
 .invest-container .form-horizontal .control-group{
@@ -9519,7 +9540,8 @@ a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:h
 }
 #invest-img .img_up {
   width: 100px;
-  max-height: 80px;
+  max-height: inherit;
+  height: inherit;
   margin: 0 10px 10px 0;
   border: 1px dashed #ccc;
   position: relative;
@@ -9545,8 +9567,10 @@ a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:h
   width: 69%;
 }
 a.invest-btn{
+  position: absolute;
+  bottom: 0;
   width: 30%;
-  line-height: 40px;
+  line-height: 39px;
   border-radius: 0;
 }
 .invest-title{

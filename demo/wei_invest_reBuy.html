@@ -27,34 +27,34 @@
   </div>
 </header>
 <section class="invest-container setting-container">
-  <div class="lh30 text-center pb10 bb fs14">
+  <div class="lh30 text-center pb10 bb">
     盛世玄奘开光文牒-明心见性
   </div>
   <form class="form-horizontal underline-con">
     <fieldset>
       <div class="control-group">
         <div class="controls">
-          <span class="left-label"><span class="text-error">*</span>客户姓名：</span>
+          <span class="left-label">客户姓名</span>
           <input type="text" name="name" value="aaaaaa" maxlength="30" placeholder="请填写用户名">
         </div>
       </div>
       <div class="control-group">
         <div class="controls">
-          <span class="left-label"><span class="text-error">*</span>手机号码：</span>
+          <span class="left-label">手机号码</span>
           <input type="text" name="phone" value="1383838438" maxlength="30" placeholder="请输入您的手机号码">
         </div>
       </div>
       <div class="control-group">
-        <div class="controls clearfix">
-          <span class="left-label">&emsp;<span class="text-error">*</span>验证码：</span>
+        <div class="controls">
+          <span class="left-label">验证码</span>
           <input type="text" class="invest-valCode" name="phone" value="1383838438" maxlength="30" placeholder="请输入您的手机号码">
-          <a href="javascript:;" class="valCode-btn color-theme2 pull-right">获取验证码</a>
+          <a href="javascript:;" class="valCode-btn color-theme2">获取验证码</a>
         </div>
       </div>
       <div id="province">
         <div class="control-group">
           <div class="controls">
-            <span class="left-label"><span class="text-error">*</span>客户地址：</span>
+            <span class="left-label">客户地址</span>
             <select id="J_province" name="province" class="prov">
               <option value="">省</option>
             </select>
@@ -83,25 +83,20 @@
           </div>
         </div>
       </div>
-      <div class="control-group">
-        <div class="controls">
-          <span class="left-label"><span class="text-error">*</span>手机号码：</span>
-          <input type="text" name="phone" value="1383838438" maxlength="30" placeholder="请输入您的手机号码">
-        </div>
-      </div>
-      <div id="invest-img" class="controls mt10">
+      <div id="invest-img" class="controls">
         <div class="mb10">
           请上传本人照片<br><span class="fs12">注:原件大小不能大于2M</span>
         </div>
         <div class="upload-container clearfix wei-upload">
-            <span id="invest-upload" class="img_add pull-left mb10">
+            <span class="img_ul clearfix">
+            </span>
+            <span id="invest-upload" class="img_add pull-left">
                 <img src="Public/img/upload_btn.png"/>
             </span>
-            <span class="upload_exp_con mb10 pull-left clearfix">
+            <span class="upload_exp_con pull-left clearfix">
               <img src="Public/img/upload_exp.png" class="pull-left mr10">
               <span class="upload_exp_demo pull-left">范本示例</span>
             </span>
-            <span class="img_ul clearfix"></span>
         </div>
       </div>
     </fieldset>
@@ -121,7 +116,6 @@
 <script src="Public/js/upload.js"></script>
 <script src="Public/js/jquery.cityselect.js"></script>
 <script>
-  var golddiy_image_path = "";
   $(function () {
     $("#province").citySelect({
       required:false
