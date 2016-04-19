@@ -7,7 +7,8 @@
                 'c_url': '',
                 'extensions': '',
                 'number': 0,
-                'singleRepeat':false
+                'singleRepeat':false,
+                'text':false
             },
             this.options = $.extend({}, this.defaults, opt)
     }
@@ -19,6 +20,7 @@
             var extensions = this.options.extensions;
             var number = this.options.number;
             var singleRepeat = this.options.singleRepeat;
+            var text = this.options.text;
 
             var _extensions = extensions || "jpg,jpeg,gif,png";
             var Uploader = new plupload.Uploader({
@@ -66,10 +68,13 @@
                             }
                             var input_name = input_id + (max_len != 1 && !singleRepeat ? '[]': '');
                             var _str = '<span class="img_up">';
-                            _str = _str + '<img src="' + golddiy_image_path + info.response + '" width="100">';
+                            _str = _str + '<img src="' + golddiy_image_path + info.response + '">';
                             _str = _str + '<input type="hidden" name="' + input_name + '" value="' + info.response + '">';
                             if (singleRepeat != true) {
                                 _str = _str + '<a class="del_img" href="javascript:;">删除</a>';
+                            }
+                            if(text){
+                              _str += '<input type="text" class="wei-up-inp" placeholder="祈福人姓名"/>'
                             }
                             _str = _str + '</span>';
                             $('#' + c_id).siblings('.img_ul').append(_str);

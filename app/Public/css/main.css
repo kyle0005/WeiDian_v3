@@ -4873,7 +4873,9 @@ span.img_ul {
   cursor: pointer;
   z-index: 1;
 }
-
+.img_up img{
+  width: 100px;
+}
 .upload-container span {
   display: inline-block;
 }
@@ -9456,6 +9458,18 @@ img.video-player-btn {
 /*h5 player end*/
 
 /*代售投资*/
+.invest-container .left-label{
+  width: 22.2%;
+  height: 40px;
+  padding: 0;
+  line-height: 40px;
+}
+.invest-container .form-horizontal .controls input{
+  width: 77.8%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+}
 a.re-order-btn {
   position: absolute;
   right: 0;
@@ -9468,17 +9482,28 @@ a.re-order-btn {
 .invest-container .bb {
   border-bottom: 1px solid #f2f2f2;
 }
-
+.invest-container .form-horizontal .controls input.invest-valCode{
+  width: 50%;
+}
+a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:hover{
+  color: #ff8000;
+}
 .invest-container select.prov, .invest-container select.city, .invest-container select.dist {
-  width: 70%;
+  width: 77.8%;
+  height: 40px;
   padding-left: 0;
   padding-right: 0;
-  line-height: initial;
   font-size: 12px;
   background: url('../img/arr_down.png') no-repeat right center;
   background-size: auto 8px;
 }
-
+.invest-container .form-horizontal .control-group{
+  margin-bottom: 0;
+}
+.invest-container .form-horizontal .controls{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
 #invest-img .img_add {
   position: relative;
   top: 0;
@@ -9631,4 +9656,41 @@ a.chk-d{
   border-radius: 50%;
   color: #ff8000;
   border: 2px solid #ff8000;
+}
+input.wei-up-inp{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  width: calc(100% - 14px);
+}
+#invest-img-v .img_add {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 80px;
+  border: 1px solid #d4d4d4;
+}
+
+#invest-img-v .img_add img {
+  width: 32px;
+  margin: 24px 14px;
+}
+#invest-img-v .img_ul{
+  width: 100%;
+}
+#invest-img-v .img_up {
+  /*width: 140px;*/
+  width: calc(50% - 10px);
+  max-height: 110px;
+  height: 110px;
+  margin: 0 10px 10px 0;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+#invest-img-v .img_up img{
+  width: 100%;
 }
