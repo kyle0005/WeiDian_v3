@@ -7931,6 +7931,9 @@ i.icon-lotus:before {
 
 .live-tab {
   background-color: #f5f3ea;
+  width: 100%;
+  z-index: 100;
+  opacity: 0.96;
 }
 
 .live-tab ul li {
@@ -8071,7 +8074,7 @@ a.live-date:active {
 
 .check-new {
   position: fixed;
-  top: 220px;
+  top: 28px;
   width: 100%;
   z-index: 11;
 }
@@ -8083,19 +8086,19 @@ a.live-date:active {
   z-index: 11;
 }
 
-@media screen and (min-width: 320px) and (max-width: 360px) {
+/*@media screen and (min-width: 320px) and (max-width: 360px) {*/
   /* iphone5 */
-  .check-new {
-    top: 198px;
-  }
+  /*.check-new {*/
+    /*top: 28px;*/
+  /*}*/
 
-  .check-new2 {
-    top: 154px;
-  }
-}
+  /*.check-new2 {*/
+    /*top: 154px;*/
+  /*}*/
+/*}*/
 
-@media screen and (min-width: 360px) and (max-width: 375px) {
-  /* s6 */
+/*@media screen and (min-width: 360px) and (max-width: 375px) {
+  /!* s6 *!/
   .check-new {
     top: 212px;
   }
@@ -8106,7 +8109,7 @@ a.live-date:active {
 }
 
 @media screen and (min-width: 375px) and (max-width: 414px) {
-  /* iphone6 */
+  /!* iphone6 *!/
   .check-new {
     top: 216px;
   }
@@ -8117,7 +8120,7 @@ a.live-date:active {
 }
 
 @media screen and (min-width: 414px) and (max-width: 500px) {
-  /* iphone6 plus*/
+  /!* iphone6 plus*!/
   .check-new {
     top: 230px;
   }
@@ -8125,7 +8128,7 @@ a.live-date:active {
   .check-new2 {
     top: 186px;
   }
-}
+}*/
 
 .check-new-l {
   display: block;
@@ -8287,7 +8290,7 @@ textarea:focus {
 }
 
 .live-token-con {
-  min-height: 37px;
+  min-height: 32px;
   line-height: 16px;
 }
 
@@ -9467,11 +9470,17 @@ img.video-player-btn {
   padding: 0;
   line-height: 40px;
 }
+.right-label{
+  display: inline-block;
+  line-height: 14px;
+  width: 76%;
+  padding: 14px 0;
+}
 .invest-container .form-horizontal .controls input{
   width: 76%;
-  height: 40px;
-  line-height: 40px;
-  padding: 0;
+  height: 12px;
+  line-height: 12px;
+  padding: 14px 0;
 }
 a.re-order-btn {
   position: absolute;
@@ -9539,14 +9548,18 @@ a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:h
   margin: 24px 14px;
 }
 #invest-img .img_up {
-  width: 100px;
+  width: auto;
   max-height: inherit;
-  height: inherit;
-  margin: 0 10px 10px 0;
+  height: 80px;
+  margin: 0;
   border: 1px dashed #ccc;
   position: relative;
   cursor: pointer;
   z-index: 1;
+}
+#invest-img .img_up img{
+  width: auto;
+  height: 100%;
 }
 .upload_exp_con {
   display: inline-block;
@@ -9564,7 +9577,7 @@ a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:h
   margin-top: 16px;
 }
 .invest-t{
-  width: 69%;
+  width: 70%;
 }
 a.invest-btn{
   position: absolute;
@@ -9573,14 +9586,15 @@ a.invest-btn{
   line-height: 39px;
   border-radius: 0;
 }
+.succ-con{
+  background-color: #fff;
+}
 .invest-title{
-  margin-top: 25px;
-  margin-bottom: 5px;
   line-height: 18px;
 }
 .invest-title img{
-  width: 18px;
-  line-height: 18px;
+  width: 24px;
+  line-height: 24px;
   vertical-align: middle;
   margin-right: 10px;
 }
@@ -9591,10 +9605,6 @@ a.invest-btn{
 }
 .invest-next{
   text-align: center;
-  background: url('../img/staple.png') no-repeat center top;
-  background-size: 100% auto ;
-  background-color: #fcfbf5;
-  padding-top: 40px;
   padding-bottom: 40px;
 }
 .invest-form{

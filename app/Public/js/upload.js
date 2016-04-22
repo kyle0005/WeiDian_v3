@@ -91,7 +91,7 @@
                             this.refresh();
 
                             up = new uploads();
-                            up.binddel(c_id, number);
+                            up.binddel(c_id, number, this);
 
                         } else {
                             alert('上传失败，请重试');
@@ -112,7 +112,7 @@
             obj.init();
             this.binddel(this.options.c_id, this.options.number);
         },
-        binddel:function(c_id, number) {
+        binddel:function(c_id, number, _this) {
             /* 删除 */
             var _img_len = $('#c_id').parent('.upload-container').find('.img_up').length;
             $('.del_img').on('click', function () {
@@ -121,6 +121,7 @@
                     obj.show();
                 }
                 $(this).parent().remove();
+              _this.refresh();
             });
             $('.img_up').hover(function () {
                 $(this).find('.del_img').show();
