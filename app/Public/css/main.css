@@ -118,7 +118,6 @@ body {
 .mt30 {
   margin-top: 30px;
 }
-
 .mb5 {
   margin-bottom: 5px;
 }
@@ -414,7 +413,13 @@ body {
 .lh60 {
   line-height: 60px;
 }
-
+.overTextH3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .overTextH {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -8009,6 +8014,13 @@ a.live-date:active {
   color: #ff8000;
 }
 
+.tab-container:before{
+  content: '';
+  display: block;
+  height: 42px;
+  width: 100%;
+}
+
 #live-carousel .carousel-inner a {
   position: relative;
   display: inline-block;
@@ -8290,14 +8302,14 @@ textarea:focus {
 }
 
 .live-token-con {
-  min-height: 32px;
+  min-height: 47px;
   line-height: 16px;
 }
 
 .live-token-list .order-list-con {
   margin-left: 120px;
   padding-bottom: 15px;
-  /*border-bottom: 1px solid #e3c49d;*/
+  border-bottom: 1px solid #e3c49d;
 }
 
 .loading-more {
@@ -9496,8 +9508,11 @@ a.re-order-btn {
   line-height: 22px;
 }
 .order-list-con-title{
-  display: inline-block;
+  display: block;
   width: 100%;
+  line-height: 14px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 .invest-pri{
   display: inline-block;

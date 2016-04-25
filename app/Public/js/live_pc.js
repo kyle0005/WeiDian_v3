@@ -318,9 +318,7 @@ function playerVideo() {
         + '">'
         + '<div class="px-video-img-captions-container">'
         + '<div class="px-video-captions hide"></div>'
-        + '<video width="608" height="342" poster="'
-          //+ img_src
-        + '" controls>'
+        + '<video controls="controls">'
         + '<source src="'
         + vod_url
         + '"/>'
@@ -395,7 +393,16 @@ function insertLive(data) {
       }
 
       if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' && msg[i].vod != '') {
-        live_data += '<a href="javascript:;" class="video-player" data-type="' +
+        live_data += '<video src="' +
+          msg[i].vod.url +
+          '"' +
+          'poster="' +
+          msg[i].vod.cover +
+          '"' +
+          'controls="controls" preload="metadata"' +
+          'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
+
+       /* live_data += '<a href="javascript:;" class="video-player" data-type="' +
           msg[i].vod.type +
           '" data-url="'
           + msg[i].vod.url
@@ -408,11 +415,12 @@ function insertLive(data) {
           + '<img class="video-player-btn" src="'
           + configs.video_player
           + '"/>'
-          + '</a>';
+          + '</a>';*/
       }
 
-      live_data += '</div>' +
-        '</li>';
+      live_data += '</div>'
+        + '</div>'
+        + '</li>';
 
       $('.js-live-list').prepend(live_data);
     });
@@ -446,7 +454,16 @@ function insertTop(data) {
       });
     }
     if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
-      live_top += '<a href="javascript:;" class="video-player" data-type="' +
+      live_top += '<video src="' +
+        msg.vod.url +
+        '"' +
+        'poster="' +
+        msg.vod.cover +
+        '"' +
+        'controls="controls" preload="metadata"' +
+        'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
+
+      /*live_top += '<a href="javascript:;" class="video-player" data-type="' +
         msg.vod.type +
         '" data-url="'
         + msg.vod.url
@@ -459,7 +476,7 @@ function insertTop(data) {
         + '<img class="video-player-btn" src="'
         + configs.video_player
         + '"/>'
-        + '</a>';
+        + '</a>';*/
     }
     live_top += '</div></div>';
     $('.js-stick-msg').html(live_top);

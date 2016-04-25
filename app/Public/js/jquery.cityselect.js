@@ -18,7 +18,7 @@ required:必选项
 
 		// 默认值
 		settings=$.extend({
-			url:"/Public/js/city.min.js",
+			url:"./city.min.js",
 			prov:null,
 			city:null,
 			dist:null,
@@ -53,7 +53,8 @@ required:必选项
 					city_obj.css("visibility","hidden");
 					dist_obj.css("visibility","hidden");
 				};
-				city_obj.html(select_prehtml).attr("disabled",true);
+        temp_html=(settings.required) ? "" : "<option value=''>市</option>";
+				city_obj.html(temp_html).attr("disabled",true);
 				return;
 			};
 

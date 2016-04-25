@@ -2,11 +2,22 @@
  * Created by Administrator on 2016/3/1 0001.
  */
 //tab切换
-function tabClick(tabObj, chosenClassName) {        //Tab切换选项
+function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
   var click_obj = $(tabObj).find('li');
   var tab_obj = $(document).find('.tab-ops');
+
+  var top = 0;
   $(click_obj).click(function () {
-    $('html, body').animate({scrollTop:0}, 'slow');
+    top = 0;
+    top += til;
+
+    if(('.nav-wrap').length > 0){
+      top += 44;
+    }
+    if( $(document).scrollTop() >= top){
+      $('html, body').animate({scrollTop: top}, 'slow');
+    }
+
     $(click_obj).removeClass(chosenClassName);
     $(this).addClass(chosenClassName);
 
@@ -17,8 +28,25 @@ function tabClick(tabObj, chosenClassName) {        //Tab切换选项
     configs.tab ? configs.tab = false : configs.tab = true;
   });
 
+  $(document).scroll(function () {
+    console.log(til)
+    var t = 0;
+    t += til;
+    if(('.nav-wrap').length > 0){
+      t += 44;
+    }
+    if( $(document).scrollTop() < t){
+      $('.js-tab-container').removeClass('tab-container');
+    }else{
+      $('.js-tab-container').addClass('tab-container');
+    }
+  });
+
 }
-tabClick($('.js-live-tab'), 'live-cur');
+window.onload=function(){
+  var til = $('.main-title-con').height();
+  tabClick($('.js-live-tab'), 'live-cur', til);
+};
 
 //加减日期天数
 $('.js-up-date').click(function () {
