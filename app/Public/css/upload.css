@@ -1,3 +1,31 @@
+.img_add_a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: -25px;
+  width: 6px;
+  height: 50px;
+  background-color: #eaeaf1;
+}
+
+.img_add_b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -3px;
+  width: 50px;
+  height: 6px;
+  background-color: #eaeaf1;
+}
+
+
+
+
+
+
+
 /**/
 span.img_ul {
   margin: 0;
@@ -47,23 +75,7 @@ span.img_ul {
   line-height: 20px;
 }
 
-.img_add_a {
-  width: 6px;
-  height: 50px;
-  top: 25px;
-  left: 47px;
-  position: absolute;
-  background-color: #eaeaf1;
-}
 
-.img_add_b {
-  width: 50px;
-  height: 6px;
-  top: 47px;
-  left: 25px;
-  position: absolute;
-  background-color: #eaeaf1;
-}
 /**/
 /*common*/
 .setting-container .img_add {
