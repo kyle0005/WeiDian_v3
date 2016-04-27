@@ -86,7 +86,7 @@
                             }
                             _str = _str + '</span>';
                             $('#' + c_id).siblings('.img_ul').append(_str);
-                            $('.del_img').hide();
+                            //$('.del_img').hide();
 
                             this.refresh();
 
@@ -123,11 +123,12 @@
                 $(this).parent().remove();
               _this.refresh();
             });
-            $('.img_up').hover(function () {
-                $(this).find('.del_img').show();
-            },function(){
-                $(this).find('.del_img').hide();
-            });
+              $(this).find('.del_img').show();
+          /*$('.img_up').hover(function () {
+            $(this).find('.del_img').show();
+          },function(){
+            $(this).find('.del_img').hide();
+          });*/
 
             if (_img_len > 0) {
                 if (_img_len >= number) {

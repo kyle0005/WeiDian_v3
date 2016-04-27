@@ -4853,74 +4853,6 @@ input[type="text"].buy-num-inp {
   border-radius: 0;
 }
 
-/* upload */
-span.img_ul {
-  margin: 0;
-  padding: 0;
-  line-height: 100px;
-}
-
-.img_add {
-  width: 100px;
-  height: 100px;
-  margin: 0px 10px 10px 0;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: -1;
-}
-
-.img_up {
-  width: 100px;
-  max-height: 100px;
-  margin: 0px 10px 10px 0;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-}
-.img_up img{
-  width: 100px;
-}
-.upload-container span {
-  display: inline-block;
-}
-
-.img_ul span {
-  list-style: none;
-  float: left;
-  /*margin: 5px 5px 15px 5px;*/
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
-.del_img {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.img_add_a {
-  width: 6px;
-  height: 50px;
-  top: 25px;
-  left: 47px;
-  position: absolute;
-  background-color: #eaeaf1;
-}
-
-.img_add_b {
-  width: 50px;
-  height: 6px;
-  top: 47px;
-  left: 25px;
-  position: absolute;
-  background-color: #eaeaf1;
-}
-
 .refound-title {
   font-weight: bold;
   font-size: 14px;
@@ -5315,171 +5247,6 @@ span.img_ul {
   float: right;
 }
 
-.setting-container .img_add {
-  width: 100%;
-  /*height: 100%;*/
-  min-height: 60px;
-  max-height: 90px;
-  overflow: hidden;
-  /*background-color: #eee;*/
-  z-index: -1;
-  border: none;
-  position: absolute;
-  top: -20px;
-  left: 0;
-}
-
-.setting-container .img_ul .clickText {
-  position: absolute;
-  color: #bfbebe;
-  /*line-height: 50px;*/
-  padding-left: 5px;
-  width: 120px;
-  text-align: center;
-  right: 10px;
-}
-
-.setting-container #form_banner_img .img_ul .clickText {
-  position: absolute;
-  color: #bfbebe;
-  /*line-height: 18.75px;*/
-  padding-left: 5px;
-  width: 120px;
-  text-align: center;
-}
-
-.setting-container .img_ul span {
-  width: 50px;
-  height: 50px;
-}
-
-.setting-container #form_banner_img .img_ul span {
-  width: 80px;
-  height: 30px;
-}
-
-.setting-container #form_banner_img .img_add {
-  height: 30px;
-  z-index: -1;
-  border: none;
-}
-
-.setting-container #form_banner_img .img_ul span {
-  width: 80px;
-  height: 30px;
-}
-
-.setting-container .img_up {
-  width: 50px;
-  max-height: 50px;
-  border: none;
-  z-index: 1;
-}
-
-.setting-container span.img_ul {
-  line-height: normal;
-  margin: 0;
-  text-align: right;
-  min-height: 50px;
-}
-
-.setting-container #form_banner_img span.img_ul {
-  line-height: normal;
-  margin: 0;
-  text-align: right;
-  min-height: 30px;
-}
-
-.setting-container .img_add {
-  margin: 0;
-  z-index: -1;
-}
-
-.setting-container .img_up {
-  margin: 0;
-  z-index: 1;
-}
-
-/* upload */
-span.img_ul {
-  margin: 0;
-  padding: 0;
-  /*line-height: 100px;*/
-  line-height: 80px;
-}
-
-.img_add {
-  width: 100px;
-  height: 100px;
-  /*margin:  0px 10px 10px 0;*/
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: -1;
-}
-
-.img_up {
-  width: 100px;
-  max-height: 100px;
-  margin: 0px 10px 10px 0;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.upload-container span {
-  display: inline-block;
-}
-
-.img_ul span {
-  list-style: none;
-  float: left;
-  /*margin: 5px 5px 15px 5px;*/
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
-.del_img {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 20px;
-  line-height: 20px;
-}
-
-/*.img_add_a {*/
-/*width: 6px;*/
-/*height: 50px;*/
-/*top: 15px;*/
-/*left: 37px;*/
-/*position: absolute;*/
-/*background-color: #eaeaf1;*/
-/*}*/
-/*.img_add_b {*/
-/*width: 50px;*/
-/*height: 6px;*/
-/*top: 37px;*/
-/*left: 15px;*/
-/*position: absolute;*/
-/*background-color: #eaeaf1;*/
-/*}*/
-
-.wei-upload .img_add {
-  width: 80px;
-  height: 80px;
-}
-
-.wei-upload .img_up {
-  width: 80px;
-  max-height: 80px;
-}
-
-.wei-upload .img_ul span {
-  width: 80px;
-  height: 80px;
-}
 
 .mobile-model .modal-body {
   padding-top: 0;
@@ -6639,6 +6406,10 @@ li.user-HCode {
   background-size: 25px;
 }
 
+li.user-invest{
+  background: url("../img/investment.png") no-repeat left center;
+  background-size: 25px;
+}
 .user-order-list li.user-list-item a {
   padding-left: 37.5px;
 }
@@ -9107,8 +8878,6 @@ a.pswp__share--download:hover {
 
 /*自定义*/
 .my-gallery {
-  width: 100%;
-  float: left;
   margin-top: 5px;
 }
 
@@ -9549,36 +9318,9 @@ a.valCode-btn:link, a.valCode-btn:active, a.valCode-btn:visited, a.valCode-btn:h
   margin-bottom: 0;
   padding-bottom: 0;
 }
-#invest-img .img_add {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 80px;
-  border: 1px solid #d4d4d4;
-}
 
-#invest-img .img_add img {
-  width: 32px;
-  margin: 24px 14px;
-}
-#invest-img .img_up {
-  width: auto;
-  max-height: inherit;
-  height: 80px;
-  margin: 0;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-}
-#invest-img .img_up img{
-  width: auto;
-  height: 100%;
-}
 .upload_exp_con {
   display: inline-block;
-  margin-left: 15px;
 }
 
 .upload_exp_con img {
@@ -9709,37 +9451,18 @@ a.chk-d{
 input.wei-up-inp{
   position: absolute;
   bottom: 0;
-  left: 0;
   margin-bottom: 0;
   width: calc(100% - 14px);
 }
-#invest-img-v .img_add {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 80px;
-  border: 1px solid #d4d4d4;
+.invest-up-list li{
+  float: left;
+  width: calc(50% - 20px);
+  margin: 10px 20px 10px 0;
+}
+.invest-up-list li:nth-child(2n){
+  margin: 10px 0 10px 20px;
+}
+.invest-txt{
+  height: 40px;
 }
 
-#invest-img-v .img_add img {
-  width: 32px;
-  margin: 24px 14px;
-}
-#invest-img-v .img_ul{
-  width: 100%;
-}
-#invest-img-v .img_up {
-  /*width: 140px;*/
-  width: calc(50% - 10px);
-  max-height: 110px;
-  height: 110px;
-  margin: 0 10px 10px 0;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-}
-#invest-img-v .img_up img{
-  width: 100%;
-}

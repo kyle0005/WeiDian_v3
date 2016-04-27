@@ -11,7 +11,7 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
     top = 0;
     top += til;
 
-    if(('.nav-wrap').length > 0){
+    if($('.nav-wrap').length >= 1){
       top += 44;
     }
     if( $(document).scrollTop() >= top){
@@ -28,19 +28,18 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
     configs.tab ? configs.tab = false : configs.tab = true;
   });
 
-  $(document).scroll(function () {
-    console.log(til)
+  /*$(document).scroll(function () {
     var t = 0;
     t += til;
     if(('.nav-wrap').length > 0){
-      t += 44;
+      t += 43;
     }
     if( $(document).scrollTop() < t){
       $('.js-tab-container').removeClass('tab-container');
     }else{
       $('.js-tab-container').addClass('tab-container');
     }
-  });
+  });*/
 
 }
 window.onload=function(){
@@ -441,10 +440,10 @@ function insertLive(data) {
         + '<div class="live-content">'
         + '<div class="js-live-text">'
         + msg[i].content
-        + '</div>'
-        + '<div class="my-gallery js-media">';
+        + '</div>';
 
       if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
+        live_data += '<div class="my-gallery js-media">';
         $.each(msg[i].imgs, function (i, item) {
           live_data += '<figure>'
             + '<a href="'
@@ -455,6 +454,7 @@ function insertLive(data) {
             + '"/></a>'
             + '</figure>';
         });
+        live_data += '</div>';
       }
       if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
         live_data += '<video src="' +
@@ -483,7 +483,6 @@ function insertLive(data) {
       }
 
       live_data += '</div>'
-        + '</div>'
         + '</li>';
 
       $('.js-live-list').prepend(live_data);
@@ -502,9 +501,10 @@ function insertTop(data) {
       + '">'
       +'<div class="ptop-content">'
       + msg.content
-      +'</div>'
-      + '<div class="my-gallery">';
+      +'</div>';
+
     if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
+      live_top += '<div class="my-gallery">';
       $.each(msg.imgs, function (i, item) {
         live_top += '<figure>'
           + '<a href="'
@@ -515,6 +515,7 @@ function insertTop(data) {
           + '"/></a>'
           + '</figure>';
       });
+      live_top += '</div>';
     }
     if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
       live_top += '<video src="' +
@@ -542,7 +543,7 @@ function insertTop(data) {
       //  + '"/>'
       //  + '</a>';
     }
-    live_top += '</div></div>';
+    live_top += '</div>';
     $('.js-stick-msg').html(live_top);
     initPhotoSwipeFromDOM('.my-gallery');
   }

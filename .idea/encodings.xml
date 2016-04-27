@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/base.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/px-video.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Public/css/upload.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/$iscroll.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/event.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/gmu.js" charset="UTF-8" />
@@ -14,6 +15,7 @@
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/widget.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live_pc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Public/js/stick.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/lottery/css/mui.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/shake/reel.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/data.php" charset="UTF-8" />

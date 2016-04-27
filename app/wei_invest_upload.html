@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="Public/css/main.css">
   <link rel="stylesheet" href="Public/css/font-awesome.min.css">
   <link rel="stylesheet" href="Public/css/button.css">
+  <link href="Public/css/upload.css" rel="stylesheet">
 </head>
 <body>
 <header class="nav-wrap">
@@ -27,19 +28,38 @@
 </header>
 <section class="wei-container10">
     <div id="invest-img-v" class="controls">
-      <div class="mb10">
-        请上传本人照片<br><span class="fs12">注:原件大小不能大于2M</span>
-      </div>
-      <div class="upload-container clearfix wei-upload">
-          <span id="invest-upload-v" class="img_add pull-left">
-              <img src="Public/img/upload_btn.png"/>
-          </span>
-          <span class="upload_exp_con clearfix mb10">
+      <div class="clearfix">
+        <div class="pull-left invest-txt pt20 pb20">
+          请上传本人照片<br><span class="fs12">注:原件大小不能大于2M</span>
+        </div>
+        <div class="pull-right">
+          <span class="upload_exp_con clearfix">
             <img src="Public/img/upload_exp.png" class="pull-left mr10">
             <span class="upload_exp_demo pull-left">范本示例</span>
           </span>
-          <span class="img_ul clearfix"></span>
+        </div>
       </div>
+      <ul class="invest-up-list clearfix">
+        <li>
+          <div class="upload-container pb20">
+            <span id="invest-upload-v1" class="img_add">
+                <img src="Public/img/upload_btn.png"/>
+            </span>
+            <span class="img_ul"></span>
+            <input type="text" class="wei-up-inp" placeholder="名号或祈福文"/>
+          </div>
+        </li>
+        <li>
+          <div class="upload-container pb20">
+            <span id="invest-upload-v2" class="img_add">
+                <img src="Public/img/upload_btn.png"/>
+            </span>
+            <span class="img_ul"></span>
+            <input type="text" class="wei-up-inp" placeholder="名号或祈福文"/>
+          </div>
+        </li>
+      </ul>
+
     </div>
 </section>
 <script src="Public/js/jquery-1.8.3.js"></script>
@@ -51,14 +71,13 @@
   var golddiy_image_path = "";
   $(function () {
     var url = "upload.php";
-    $('#invest-upload-v').uploads({
-      'c_id': 'invest-upload-v',
+    $('#invest-upload-v1').uploads({
+      'c_id': 'invest-upload-v1',
       'input_id': 'hidden_logo_img',
       'c_url': url,
       'extensions': '',
-      'number': 0,
-      'singleRepeat': false,
-      'text': true
+      'number': 1,
+      'singleRepeat': false
     });
   });
 </script>
