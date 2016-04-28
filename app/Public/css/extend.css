@@ -5023,7 +5023,7 @@ select.invest-sel{
   position: absolute;
   bottom: 20px;
   width: 1000px;
-  height: 22px;
+  height: 45px;
   margin-left: -500px;
   left: 50%;
 }
@@ -5031,12 +5031,14 @@ select.invest-sel{
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 22px;
-  line-height: 22px;
+  height: 45px;
+  line-height: 45px;
+  width: 221px;
+  font-size: 24px;
   background-color: #000;
   color: #fff;
   opacity: 0.5;
   border-radius: 10px;
   padding: 0 20px;
-  text-align: right;
+  text-align: center;
 }

@@ -517,7 +517,7 @@ function insertTop(data) {
       });
       live_top += '</div>';
     }
-    if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
+    else if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
       live_top += '<video src="' +
         msg.vod.url +
         '"' +
@@ -543,10 +543,66 @@ function insertTop(data) {
       //  + '"/>'
       //  + '</a>';
     }
+    else if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
+      live_top += '<div style="width:100%; height:1px; margin: 0 auto;">' +
+        '<div id="id_video_container"></div>' +
+        '</div>';
+
+    }
     live_top += '</div>';
     $('.js-stick-msg').html(live_top);
     initPhotoSwipeFromDOM('.my-gallery');
+
+    if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
+      vodLive(msg.live_url);
+    }
+
   }
+}
+
+function vodLive(live_url){
+  //live
+  var PLAY_INFO = (function(){
+    var ps = (window.location.href.split('?')[1] || '').split('&')
+      , opt = {
+        "channel_id": live_url,
+        "app_id": configs.app_id,
+        "width": 0,
+        "height": 0,
+        "https":0
+      }
+      , i1 = 0 , i2 = ps.length, i3, i4
+      ;
+    for (; i1 < i2; i1++) {
+      i3 = ps[i1];
+      i4 = i3.split('=');
+      if(i4[0] == '$app_id' || i4[0] == 'app_id'){
+        opt.app_id = i4[1];
+      } else if(i4[0] == '$channel_id' || i4[0] == 'channel_id'){
+        opt.channel_id = i4[1];
+      } else if(i4[0] == '$sw' || i4[0] == 'sw'){
+        opt.width = i4[1];
+      } else if(i4[0] == '$sh' || i4[0] == 'sh'){
+        opt.height = i4[1];
+      } else if(i4[0] == 'cache_time'){
+        opt.cache_time = i4[1];
+      } else if(i4[0] == 'https'){
+        opt.https = i4[1];
+      }
+    }
+
+    return opt;
+  })();
+  (function () {
+    new qcVideo.Player("id_video_container", {
+      "channel_id": PLAY_INFO['channel_id'],
+      "app_id": PLAY_INFO['app_id'],
+      "width": PLAY_INFO['width'],
+      "height": PLAY_INFO['height'],
+      "https": PLAY_INFO['https']
+    });
+
+  })();
 }
 
 function insertChat(data) {
