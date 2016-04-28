@@ -447,7 +447,7 @@ select.select {
 
 /*upload*/
 .upload-container{
-  /*position: relative;*/
+  position: relative;
 }
 .upload-container span {
   display: inline-block;
@@ -480,6 +480,7 @@ select.select {
   line-height: 20px;
 }
 .img_add {
+  position: relative;
   width: 100px;
   height: 100px;
   margin: 0 10px 10px 0;
