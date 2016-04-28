@@ -13,7 +13,6 @@
     <link href="Public/css/font-awesome.css" rel="stylesheet">
     <link href="Public/css/main.css" rel="stylesheet">
     <link href="Public/css/button.css" rel="stylesheet">
-    <link href="Public/css/upload.css" rel="stylesheet">
     <title>注册</title>
 </head>
 <body>
@@ -96,7 +95,7 @@
         </div>
 </div>
 <!--蒙层-->
-<div class="pop-mask">
+<div class="pop-mask hide">
     <div class="sel-container text-center">
         <a href="javascript:;" class="pop-fork">
             <img src="Public/img/x3.png" width="18px"/>
@@ -126,10 +125,10 @@
 <script src="Public/js/upload.js"></script>
 <script>
     $(function() {
-        $(".pop-mask").height($("html").height());
+       /* $(".pop-mask").height($("html").height());
         var top = ($(window).height() - $(".pop-ul").height())/2;
         $(".pop-ul").css("margin-top",top);
-        $(".pop-fork").css("top",top+8);
+        $(".pop-fork").css("top",top+8);*/
         $(".pop-fork").click(function(){
             setTimeout(function(){
                 $('.pop-mask').hide();

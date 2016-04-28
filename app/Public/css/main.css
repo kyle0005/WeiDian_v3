@@ -445,6 +445,218 @@ select.select {
 
 /* common-end */
 
+/*upload*/
+.upload-container{
+  /*position: relative;*/
+}
+.upload-container span {
+  display: inline-block;
+}
+.img_add_a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: -25px;
+  width: 6px;
+  height: 50px;
+  background-color: #eaeaf1;
+}
+.img_add_b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -3px;
+  width: 50px;
+  height: 6px;
+  background-color: #eaeaf1;
+}
+.del_img {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  line-height: 20px;
+}
+.img_add {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 10px 0;
+  border: 1px dashed #ccc;
+  text-align: center;
+  z-index: 1;
+}
+.setting-container .img_add {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
+  max-height: 90px;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+}
+.wei-upload .img_add {
+  width: 80px;
+  height: 80px;
+}
+#invest-img .img_add {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 80px;
+  border: 1px solid #d4d4d4;
+}
+#invest-img-v .img_add {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  margin: 0;
+  border: 1px solid #d4d4d4;
+}
+span.img_ul {
+  margin: 0;
+  padding: 0;
+  line-height: 100px;
+}
+.setting-container span.img_ul {
+  line-height: normal;
+  margin: 0;
+  text-align: right;
+  min-height: 50px;
+}
+span.img_ul {
+  margin: 0;
+  padding: 0;
+  line-height: 80px;
+}
+#invest-img-v .img_ul{
+  width: 100%;
+  text-align: center;
+  border: 1px solid #fff;
+  line-height: normal;
+}
+.img_up {
+  width: 100px;
+  max-height: 100px;
+  margin: 0 10px 10px 0;
+  border: 1px dashed #ccc;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.setting-container .img_up {
+  width: 50px;
+  max-height: 50px;
+  border: none;
+  z-index: 1;
+}
+.setting-container .img_up {
+  margin: 0;
+  z-index: 1;
+}
+.img_up {
+  width: 100px;
+  max-height: 100px;
+  margin: 0px 10px 10px 0;
+  border: 1px dashed #ccc;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+.wei-upload .img_up {
+  width: 80px;
+  max-height: 80px;
+}
+#invest-img .img_up {
+  width: auto;
+  max-height: inherit;
+  height: 80px;
+  margin: 0;
+  border: 1px dashed #ccc;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+#invest-img-v .img_up {
+  width: auto;
+  height: 160px;
+  margin: 0 auto;
+  float: none;
+  padding-bottom: 15px;
+  border: none;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-height: inherit;
+}
+.img_up img{
+  width: 100px;
+}
+.img_ul span {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.setting-container .img_ul .clickText {
+  position: absolute;
+  color: #bfbebe;
+  padding-left: 5px;
+  width: 120px;
+  text-align: center;
+  right: 10px;
+}
+.setting-container .img_ul span {
+  width: 50px;
+  height: 50px;
+}
+.img_ul span {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.wei-upload .img_ul span {
+  width: 80px;
+  height: 80px;
+}
+#invest-img .img_add img {
+  width: 32px;
+  margin: 24px 14px;
+}
+#invest-img .img_up img{
+  width: auto;
+  height: 100%;
+}
+#invest-img-v .img_add img {
+  width: 80px;
+  margin: 30% 0;
+}
+#invest-img-v .img_up img{
+  height: 160px;
+  width: auto;
+  margin: 0 auto;
+}
+
+input[type=file].upload-inp{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .01;
+  cursor: pointer;
+}
+/*upload-end*/
+
 /* 新顶部栏 */
 .wei-header {
   height: 20px;
@@ -9463,6 +9675,11 @@ input.wei-up-inp{
   margin: 10px 0 10px 20px;
 }
 .invest-txt{
-  height: 40px;
+  width: 50%;
+  height: 80px;
+  display:table;
 }
-
+.invest-txt-inner{
+  display:table-cell;
+  vertical-align: middle;
+}

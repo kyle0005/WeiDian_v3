@@ -13,7 +13,6 @@
     <link href="Public/css/font-awesome.css" rel="stylesheet">
     <link href="Public/css/button.css" rel="stylesheet">
     <link href="Public/css/main.css" rel="stylesheet">
-  <link href="Public/css/upload.css" rel="stylesheet">
 </head>
 <body>
 <header class="nav-wrap">
@@ -39,14 +38,16 @@
             <span class="left-label">用户头像：</span>
             <div id="form_logo_img" class="js-fix controls">
               <div class="upload-container">
-                            <span class="img_ul">
-                                <span class="img_up">
-                                    <img src="Public/img/54cedc566ab6a.jpg@1e_200w_200h_1c_0i_1o_90Q_1x.jpg" width="100">
-                                    <input type="hidden" name="logo_img" value="/Uploads/images/2015-02-02/54cedc566ab6a.jpg">
-                                </span>                                <span class="clickText">点击上传<br>建议长宽比为1:1</span>
-                            </span>
+                <span class="img_ul">
+                  <span class="img_up">
+                      <img src="Public/img/54cedc566ab6a.jpg@1e_200w_200h_1c_0i_1o_90Q_1x.jpg" width="100">
+                      <input type="hidden" name="logo_img" value="/Uploads/images/2015-02-02/54cedc566ab6a.jpg">
+                  </span>
+                  <span class="clickText">点击上传<br>建议长宽比为1:1</span>
+                </span>
                 <span id="logo-add" class="img_add"></span>
               </div>
+
             </div>
           </div>
         </fieldset>
@@ -91,14 +92,16 @@
 <script>
 $(function () {
   var url = "upload.php";
-  $('#logo-add').uploads({
-    'c_id':'logo-add',
-    'input_id':'hidden_logo_img',
-    'c_url':url,
-    'extensions':'',
-    'number': 0,
-    'singleRepeat':true
-  });
+//  $('#logo-add').uploads({
+//    'c_id':'logo-add',
+//    'input_id':'hidden_logo_img',
+//    'c_url':url,
+//    'extensions':'',
+//    'number': 0,
+//    'singleRepeat':true
+//  });
+
+
 })
 </script>
 </body>

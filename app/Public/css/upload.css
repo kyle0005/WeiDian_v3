@@ -1,3 +1,9 @@
+.upload-container{
+  position: relative;
+}
+.upload-container span {
+  display: inline-block;
+}
 .img_add_a {
   position: absolute;
   top: 50%;
@@ -8,7 +14,6 @@
   height: 50px;
   background-color: #eaeaf1;
 }
-
 .img_add_b {
   position: absolute;
   top: 50%;
@@ -19,30 +24,78 @@
   height: 6px;
   background-color: #eaeaf1;
 }
+.del_img {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  line-height: 20px;
+}
 
-
-
-
-
-
-
-/**/
+/*test img_add*/
+.img_add {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 10px 0;
+  border: 1px dashed #ccc;
+  text-align: center;
+}
+.setting-container .img_add {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
+  max-height: 90px;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+}
+.wei-upload .img_add {
+  width: 80px;
+  height: 80px;
+}
+#invest-img .img_add {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 80px;
+  border: 1px solid #d4d4d4;
+}
+#invest-img-v .img_add {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 1px solid #d4d4d4;
+}
+/*test img_add*/
+/*test img_ul*/
 span.img_ul {
   margin: 0;
   padding: 0;
   line-height: 100px;
 }
-
-.img_add {
-  width: 100px;
-  height: 100px;
-  margin: 0 10px 10px 0;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: -1;
+.setting-container span.img_ul {
+  line-height: normal;
+  margin: 0;
+  text-align: right;
+  min-height: 50px;
 }
-
+span.img_ul {
+  margin: 0;
+  padding: 0;
+  line-height: 80px;
+}
+#invest-img-v .img_ul{
+  width: 100%;
+}
+/*test img_ul*/
+/*test img_up*/
 .img_up {
   width: 100px;
   max-height: 100px;
@@ -52,128 +105,16 @@ span.img_ul {
   cursor: pointer;
   z-index: 1;
 }
-.img_up img{
-  width: 100px;
-}
-.upload-container span {
-  display: inline-block;
-}
-
-.img_ul span {
-  list-style: none;
-  float: left;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
-.del_img {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 20px;
-  line-height: 20px;
-}
-
-
-/**/
-/*common*/
-.setting-container .img_add {
-  width: 100%;
-  min-height: 60px;
-  max-height: 90px;
-  overflow: hidden;
-  z-index: -1;
-  border: none;
-  position: absolute;
-  top: -20px;
-  left: 0;
-}
-
-.setting-container .img_ul .clickText {
-  position: absolute;
-  color: #bfbebe;
-  padding-left: 5px;
-  width: 120px;
-  text-align: center;
-  right: 10px;
-}
-
-.setting-container #form_banner_img .img_ul .clickText {
-  position: absolute;
-  color: #bfbebe;
-  padding-left: 5px;
-  width: 120px;
-  text-align: center;
-}
-
-.setting-container .img_ul span {
-  width: 50px;
-  height: 50px;
-}
-
-.setting-container #form_banner_img .img_ul span {
-  width: 80px;
-  height: 30px;
-}
-
-.setting-container #form_banner_img .img_add {
-  height: 30px;
-  z-index: -1;
-  border: none;
-}
-
-.setting-container #form_banner_img .img_ul span {
-  width: 80px;
-  height: 30px;
-}
-
 .setting-container .img_up {
   width: 50px;
   max-height: 50px;
   border: none;
   z-index: 1;
 }
-
-.setting-container span.img_ul {
-  line-height: normal;
-  margin: 0;
-  text-align: right;
-  min-height: 50px;
-}
-
-.setting-container #form_banner_img span.img_ul {
-  line-height: normal;
-  margin: 0;
-  text-align: right;
-  min-height: 30px;
-}
-
-.setting-container .img_add {
-  margin: 0;
-  z-index: -1;
-}
-
 .setting-container .img_up {
   margin: 0;
   z-index: 1;
 }
-
-span.img_ul {
-  margin: 0;
-  padding: 0;
-  line-height: 80px;
-}
-
-.img_add {
-  width: 100px;
-  height: 100px;
-  border: 1px dashed #ccc;
-  position: relative;
-  cursor: pointer;
-  z-index: -1;
-}
-
 .img_up {
   width: 100px;
   max-height: 100px;
@@ -183,56 +124,9 @@ span.img_ul {
   cursor: pointer;
   z-index: 1;
 }
-.upload-container{
-  position: relative;
-}
-.upload-container span {
-  display: inline-block;
-}
-
-.img_ul span {
-  list-style: none;
-  float: left;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-}
-
-.del_img {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  height: 20px;
-  line-height: 20px;
-}
-.wei-upload .img_add {
-  width: 80px;
-  height: 80px;
-}
-
 .wei-upload .img_up {
   width: 80px;
   max-height: 80px;
-}
-
-.wei-upload .img_ul span {
-  width: 80px;
-  height: 80px;
-}
-/*common*/
-/*wei_invest_reBuy.html*/
-#invest-img .img_add {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 80px;
-  border: 1px solid #d4d4d4;
-}
-
-#invest-img .img_add img {
-  width: 32px;
-  margin: 24px 14px;
 }
 #invest-img .img_up {
   width: auto;
@@ -244,30 +138,6 @@ span.img_ul {
   cursor: pointer;
   z-index: 1;
 }
-#invest-img .img_up img{
-  width: auto;
-  height: 100%;
-}
-/*wei_invest_reBuy.html*/
-/*wei_invest_upload.html*/
-#invest-img-v .img_add {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  border: 1px solid #d4d4d4;
-  text-align: center;
-}
-
-#invest-img-v .img_add img {
-  width: 80px;
-  margin: 30% 0;
-}
-#invest-img-v .img_ul{
-  width: 100%;
-}
 #invest-img-v .img_up {
   width: calc(50% - 10px);
   height: 110px;
@@ -277,6 +147,58 @@ span.img_ul {
   cursor: pointer;
   z-index: 1;
   text-align: center;
+}
+/*test img_up*/
+
+/*common*/
+.img_up img{
+  width: 100px;
+}
+.img_ul span {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.setting-container .img_ul .clickText {
+  position: absolute;
+  color: #bfbebe;
+  padding-left: 5px;
+  width: 120px;
+  text-align: center;
+  right: 10px;
+}
+.setting-container .img_ul span {
+  width: 50px;
+  height: 50px;
+}
+.img_ul span {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.wei-upload .img_ul span {
+  width: 80px;
+  height: 80px;
+}
+/*common*/
+/*wei_invest_reBuy.html*/
+#invest-img .img_add img {
+  width: 32px;
+  margin: 24px 14px;
+}
+#invest-img .img_up img{
+  width: auto;
+  height: 100%;
+}
+/*wei_invest_reBuy.html*/
+/*wei_invest_upload.html*/
+#invest-img-v .img_add img {
+  width: 80px;
+  margin: 30% 0;
 }
 #invest-img-v .img_up img{
   height: 110px;

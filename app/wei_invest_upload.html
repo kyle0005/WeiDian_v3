@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="Public/css/main.css">
   <link rel="stylesheet" href="Public/css/font-awesome.min.css">
   <link rel="stylesheet" href="Public/css/button.css">
-  <link href="Public/css/upload.css" rel="stylesheet">
 </head>
 <body>
 <header class="nav-wrap">
@@ -29,8 +28,10 @@
 <section class="wei-container10">
     <div id="invest-img-v" class="controls">
       <div class="clearfix">
-        <div class="pull-left invest-txt pt20 pb20">
-          请上传本人照片<br><span class="fs12">注:原件大小不能大于2M</span>
+        <div class="pull-left invest-txt">
+          <div class="invest-txt-inner">
+            注：名号或祈福文（可不填）,本人照片原件不能大于2MB(可不传)
+          </div>
         </div>
         <div class="pull-right">
           <span class="upload_exp_con clearfix">
@@ -44,6 +45,7 @@
           <div class="upload-container pb20">
             <span id="invest-upload-v1" class="img_add">
                 <img src="Public/img/upload_btn.png"/>
+                <input type="file" class="upload-inp" accept="image/*" />
             </span>
             <span class="img_ul"></span>
             <input type="text" class="wei-up-inp" placeholder="名号或祈福文"/>
@@ -70,15 +72,27 @@
 <script>
   var golddiy_image_path = "";
   $(function () {
-    var url = "upload.php";
-    $('#invest-upload-v1').uploads({
-      'c_id': 'invest-upload-v1',
-      'input_id': 'hidden_logo_img',
-      'c_url': url,
-      'extensions': '',
-      'number': 1,
-      'singleRepeat': false
+//    var url = "upload.php";
+//    $('#invest-upload-v1').uploads({
+//      'c_id': 'invest-upload-v1',
+//      'input_id': 'hidden_logo_img',
+//      'c_url': url,
+//      'extensions': '',
+//      'number': 1,
+//      'singleRepeat': false
+//    });
+
+    $('#invest-upload-v1').click(function () {
+      $(this).children('.upload-inp').click();
+
     });
+
+    $('#invest-upload-v1').children('.upload-inp').change(function () {
+      console.log('aaa')
+    });
+
+
+
   });
 </script>
 </body>
