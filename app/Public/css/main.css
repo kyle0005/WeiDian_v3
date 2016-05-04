@@ -8159,7 +8159,8 @@ a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:ac
 .live-date {
   position: absolute;
   width: calc(100% - 20px);
-  background-color: #ececec;
+  background-color: #CFB18E;
+  color: #fff;
   opacity: 0.9;
   padding: 0 10px;
   height: 20px;

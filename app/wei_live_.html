@@ -346,7 +346,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-02"
           },
           {
             "id": "3",
@@ -360,7 +362,9 @@
             "vod_id": 'myvid',  //不为0且存在，有内容
             "live_url": "Public/video/demo3.mp4",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-03"
           },
           {
             "id": "4",
@@ -370,7 +374,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-04"
           },
           {
             "id": "5",
@@ -380,7 +386,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-05"
           },
           {
             "id": "6",
@@ -390,7 +398,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-06"
           },
           {
             "id": "7",
@@ -400,7 +410,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-07"
           },
           {
             "id": "8",
@@ -410,7 +422,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 0,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-08"
           },
           {
             "id": "9",
@@ -420,7 +434,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 0,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-08"
           },
           {
             "id": "10",
@@ -430,7 +446,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-08"
           }
         ],
         "stickMessage": {
@@ -445,10 +463,10 @@
         },
         "delMessage": [
           {
-            "id": "4"
+            "id": "1"
           },
           {
-            "id": "7"
+            "id": "2"
           }
         ]
       },
@@ -561,7 +579,7 @@
       "lastChatId": 1
     };
 
-
+    //监听是否有新的数据插入或者有数据被删除
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
     var target = document.querySelector('.js-live-list');
     var observer = new MutationObserver(function(mutations) {
@@ -647,12 +665,9 @@
       }
 
 
-      //判断滚动位置
-      console.log("doc:"+$(document).scrollTop());
-      console.log("li:"+$('.live-li').scrollTop())
     });
 
-
+    changeDate();
 
   });
 

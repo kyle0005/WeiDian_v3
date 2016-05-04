@@ -25,7 +25,13 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
     $(tab_obj).addClass('hide');
     $(tab_obj).eq(ind).removeClass('hide');
 
-    configs.tab ? configs.tab = false : configs.tab = true;
+    ind == 0 ? configs.tab = true : configs.tab = false;
+
+    if(!configs.tab){
+      $('.live-date').hide();
+    }else{
+      $('.live-date').show();
+    }
   });
 
   /*$(document).scroll(function () {
@@ -455,7 +461,8 @@ function insertLive(data) {
         + msg[i].id
         + '" data-iscurrent="' +
         msg[i].is_current +
-        (msg[i].is_current == 1?' data-currentdate="' + msg[i].current_date + '"':'') +
+        '" data-currentdate="' +
+        msg[i].current_date +
         '">'
         + '<div class="js-live-time live-time">'
         + msg[i].create_time
@@ -514,6 +521,7 @@ function insertLive(data) {
       $('.js-live-list').prepend(live_data);
       initPhotoSwipeFromDOM('.my-gallery');
     });
+
     $("img.lazy").lazyload({
       appear: function () {
         //图片加载时
@@ -533,6 +541,31 @@ function insertLive(data) {
       }, 0);
     });
   }
+}
+
+function changeDate(){
+  $(document).scroll(function () {
+    var _vartop = $('.js-live-list').offset().top;
+    var _varscroll = parseInt($(document).scrollTop());
+    if(_varscroll > _vartop){
+      var _dateTop = parseFloat($('.live-date').offset().top);
+      var _tops = [];
+      $.each($('.live-li'), function (i, item) {
+        var dat = parseFloat($(this).offset().top - _dateTop);
+        _tops[i] = Math.abs(dat);
+      });
+      var _index = _tops.indexOf(Math.min.apply(null, _tops));
+      var _li = document.getElementsByClassName('live-li')[_index];
+      if($(_li).data('iscurrent') == 1 && $(_li).data('currentdate') != $('.live-date').html()){
+        $('.live-date').html($(_li).data('currentdate'));
+        if($(_li).prev() != undefined){
+          $(_li).prev().data('iscurrent', '1');
+        }
+      }
+
+    }
+
+  });
 }
 
 function insertTop(data) {
