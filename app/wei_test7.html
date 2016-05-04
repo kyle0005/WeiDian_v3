@@ -16,18 +16,40 @@
   <link href="Public/css/main.css" rel="stylesheet">
 </head>
 <body>
-<div style="display:flex;justify-content:center;align-items:flex-end;">
-  <ol class="carousel-indicators">
-    <li data-target="#i-myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#i-myCarousel" data-slide-to="1"></li>
-    <li data-target="#i-myCarousel" data-slide-to="1"></li>
-    <li data-target="#i-myCarousel" data-slide-to="1"></li>
-    <li data-target="#i-myCarousel" data-slide-to="1"></li>
-  </ol>
-</div>
+<ol contenteditable oninput="">
+  <li>Press enter</li>
+</ol>
 <script>
-  var num = 2.756.toFixed(2);
-  console.log(parseFloat(num).toFixed(2));
+  var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+  var list = document.querySelector('ol');
+
+  var observer = new MutationObserver(function(mutations) {
+
+      mutations.forEach(function(mutation) {
+
+          if (mutation.type === 'childList') {
+              var list_values = [].slice.call(list.children)
+                .map( function(node) { return node.innerHTML; })
+                .filter( function(s) {
+                  if (s === '<br>') {
+                    return false;
+                  }
+                  else {
+                    return true;
+                  }
+                });
+              console.log(list_values);
+          }
+
+      });
+
+  });
+
+  observer.observe(list, {
+    attributes: true,
+    childList: true,
+    characterData: true
+  });
 </script>
 </body>
 </html>

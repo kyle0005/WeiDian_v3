@@ -94,7 +94,7 @@ function livePages(flag) {
   if (configs.news.last_id > 0) {
     var list = $('.js-live-list');
     JQAjax.get(this, {
-      url: configs.news.url + '?last_id=' + configs.news.last_id,
+      url: configs.news.url + '?last_id=' + configs.news.last_id + '&current_date=' + configs.news.current_date,
       callback: function (result) {
         configs.news.last_id = result.lastId;
         if (flag) {
@@ -104,9 +104,27 @@ function livePages(flag) {
         }
         else {
           //日期分页
+          configs.news.current_date = result.currentDate;
           $(list).html(result.html);
         }
+        $("img.lazy").lazyload({
+          appear: function () {
+            //图片加载时
+            $(this).addClass('lazy-container');
+          },
+          load: function () {
+            //图片加载后
+            $(this).removeClass('lazy-container');
+          },
+          event:'scroll',
+          placeholder: "Public/img/loading_bg.png"
+        });
 
+        $(window).bind("load", function() {
+          var timeout = setTimeout(function() {
+            $("img.lazy").trigger("scroll");         //触发scroll事件
+          }, 0);
+        });
       }
     });
   }
@@ -168,10 +186,12 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
       linkEl = figureEl.children[0]; // <a> element
 
-      size = linkEl.getAttribute('data-size').split('x');
-      console.log(linkEl.getAttribute('data-size'));
-      size[0] = linkEl.childNodes[0].naturalWidth;
-      size[1] = linkEl.childNodes[0].naturalHeight;
+      //size = linkEl.getAttribute('data-size').split('x');
+      //size[0] = linkEl.childNodes[0].naturalWidth;
+      //size[1] = linkEl.childNodes[0].naturalHeight;
+
+      var img_size = linkEl.getAttribute('href').split('?size=');
+      size = img_size[1].split('x');
 
       // create slide object
       item = {
@@ -362,6 +382,8 @@ function loadData(data) {
   //chat
   insertChat(data);
 
+
+
 }
 
 /*function playerVideo(){
@@ -431,7 +453,10 @@ function insertLive(data) {
     $.each(msg, function (i, item) {
       live_data = '<li class="live-li clearfix" id="live-'
         + msg[i].id
-        + '">'
+        + '" data-iscurrent="' +
+        msg[i].is_current +
+        (msg[i].is_current == 1?' data-currentdate="' + msg[i].current_date + '"':'') +
+        '">'
         + '<div class="js-live-time live-time">'
         + msg[i].create_time
         + '<img src="' + configs.img_url
@@ -445,13 +470,14 @@ function insertLive(data) {
       if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
         live_data += '<div class="my-gallery js-media">';
         $.each(msg[i].imgs, function (i, item) {
+          var path = item.split('?size=');
           live_data += '<figure>'
             + '<a href="'
             + item
             + '" data-size="800x800">'
-            + '<img src="'
-            + item
-            + '"/></a>'
+            + '<img class="lazy" data-original="' +
+            path[0] + '@153h' +
+            '"/></a>'
             + '</figure>';
         });
         live_data += '</div>';
@@ -488,7 +514,24 @@ function insertLive(data) {
       $('.js-live-list').prepend(live_data);
       initPhotoSwipeFromDOM('.my-gallery');
     });
+    $("img.lazy").lazyload({
+      appear: function () {
+        //图片加载时
+        $(this).addClass('lazy-container');
+      },
+      load: function () {
+        //图片加载后
+        $(this).removeClass('lazy-container');
+      },
+      event:'scroll',
+      placeholder: "Public/img/loading_bg.png"
+    });
 
+    $(window).bind("load", function() {
+      var timeout = setTimeout(function() {
+        $("img.lazy").trigger("scroll");         //触发scroll事件
+      }, 0);
+    });
   }
 }
 
@@ -506,12 +549,13 @@ function insertTop(data) {
     if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
       live_top += '<div class="my-gallery">';
       $.each(msg.imgs, function (i, item) {
+        var path = item.split('?size=');
         live_top += '<figure>'
           + '<a href="'
           + item
           + '" data-size="800x800">'
           + '<img src="'
-          + item
+          + path[0] + '@153h'
           + '"/></a>'
           + '</figure>';
       });
@@ -544,7 +588,7 @@ function insertTop(data) {
       //  + '</a>';
     }
     else if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
-      live_top += '<div style="width:100%; height:1px; margin: 0 auto;">' +
+      live_top += '<div style="width:100%; margin: 0 auto;">' +
         '<div id="id_video_container"></div>' +
         '</div>';
 
@@ -595,11 +639,11 @@ function vodLive(live_url){
   })();
   (function () {
     new qcVideo.Player("id_video_container", {
-      "channel_id": PLAY_INFO['channel_id'],
-      "app_id": PLAY_INFO['app_id'],
-      "width": PLAY_INFO['width'],
-      "height": PLAY_INFO['height'],
-      "https": PLAY_INFO['https']
+      "channel_id": live_url,
+      "app_id": configs.app_id,
+      "width": 272,
+      "height": 153,
+      "https": 0
     });
 
   })();

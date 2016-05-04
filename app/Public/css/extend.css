@@ -132,7 +132,7 @@ ul li{
 /* 按钮结束 */
 .overTextH {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -4313,10 +4313,16 @@ a.change-pro:link, a.change-pro:visited, a.change-pro:hover, a.change-pro:active
 .news-list-a{
   display: block;
   font-size: 14px;
-  margin-bottom: 20px;
 }
 a.news-list-a:hover{
   color: #b08654;
+}
+.news-list-b{
+  display: block;
+  margin-bottom: 20px;
+}
+a.news-list-b:hover{
+  color: #333;
 }
 
 .top-new-title{
@@ -4345,10 +4351,10 @@ a.news-list-a:hover{
   background-size: 100%;
 }
 .top-new-text{
-  display: inline-block;
   float: right;
   width: 160px;
   margin-top: 5px;
+  font-size: 12px;
 }
 
 .chat-img {
@@ -4703,6 +4709,9 @@ span.live-pros-p{
   color: #ff8000;
   margin-right: 5px;
 }
+.live-pros-delPri{
+  color: #999;
+}
 .live-pros-by-phone{
   display: inline-block;
   float: right;
@@ -4740,6 +4749,9 @@ span.live-pros-p{
   background-color: #fdfdfb;
   padding: 10px;
   margin-bottom: 15px;
+}
+a.token-li-a:link, a.token-li-a:visited, a.token-li-a:hover, a.token-li-a:active{
+  color: inherit;
 }
 .token-li-a img{
   float: left;
@@ -4909,6 +4921,12 @@ select.invest-sel{
   line-height: 18px;
 }
 .invest-mark{
+  font-size: 24px;
+  color: #999;
+  margin: 0 5px;
+  margin-top: -2px;
+}
+.invest-mark2{
   font-size: 24px;
   color: #999;
   margin: 0 5px;

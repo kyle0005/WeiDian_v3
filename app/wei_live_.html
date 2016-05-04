@@ -56,8 +56,9 @@
         有新消息，点击查看
       </a>
     </div>
+    <div class="live-date">2016-03-25</div>
   </div>
-  <div class="live-date hide">2016-03-25</div>
+
 </section>
 <section class="js-tab-container">
   <div class="tab-ops">
@@ -102,31 +103,31 @@
       </div>
     </div>
     <ul class="js-live-list wei-container10">
-      <!--<li class="live-li clearfix" id="live-7">-->
-        <!--<div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>-->
-        <!--<div class="live-content">-->
-          <!--<div class="js-live-text">id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为-->
-            <!--44 亿美金。-->
-          <!--</div>-->
-          <!--<div class="my-gallery js-media">-->
-            <!--<a href="javascript:;" class="video-player" data-url="Public/video/demo3.mp4" data-id="myvid">-->
-              <!--<img src="Public/video/poster_PayPal_Austin2.jpg"/>-->
-            <!--</a>-->
-            <!--<div class="px-video-container text-center" id="myvid">-->
-              <!--<div class="px-video-img-captions-container">-->
-                <!--<div class="px-video-captions hide"></div>-->
-                <!--<video width="272" height="153" poster="Public/video/poster_PayPal_Austin2.jpg" controls>-->
-                  <!--<source src="Public/video/demo3.mp4" type="video/mp4" />-->
-                  <!--<source src="Public/video/demo3.ogg" type="video/ogg" />-->
-                  <!--<source src="Public/video/demo3.webm" type="video/webm" />-->
-                <!--</video>-->
-              <!--</div>-->
-              <!--<div class="px-video-controls"></div>-->
-            <!--</div>-->
+      <!--<li class="live-li clearfix" id="live-7" data-iscurrent=1 data-currentdate="2016-01-01">  1:日期变； 0：日期不变
+        <div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>
+        <div class="live-content">
+          <div class="js-live-text">id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为
+            44 亿美金。
+          </div>
+          <div class="my-gallery js-media">
+            <a href="javascript:;" class="video-player" data-url="Public/video/demo3.mp4" data-id="myvid">
+              <img src="Public/video/poster_PayPal_Austin2.jpg"/>
+            </a>
+            <div class="px-video-container text-center" id="myvid">
+              <div class="px-video-img-captions-container">
+                <div class="px-video-captions hide"></div>
+                <video width="272" height="153" poster="Public/video/poster_PayPal_Austin2.jpg" controls>
+                  <source src="Public/video/demo3.mp4" type="video/mp4" />
+                  <source src="Public/video/demo3.ogg" type="video/ogg" />
+                  <source src="Public/video/demo3.webm" type="video/webm" />
+                </video>
+              </div>
+              <div class="px-video-controls"></div>
+            </div>
 
-          <!--</div>-->
-        <!--</div>-->
-      <!--</li>-->
+          </div>
+        </div>
+      </li>-->
     </ul>
   </div>
   <div class="tab-ops hide">
@@ -296,6 +297,7 @@
 <script src="Public/js/photoswipe-ui-default.js"></script>
 <script src="Public/js/jinniu.mobile.js"></script>
 <script src="Public/js/strings.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
 <script src="Public/js/px-video.js"></script>
 <script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js"></script>
 <script src="Public/js/stick.js"></script>
@@ -321,18 +323,20 @@
       "news": {
         "newMessage": [
           {
-            "id": "3",
-            "content": "id==3阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],   //不为0且存在，有内容
+            "id": "1",
+            "content": "id==1阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
+            "imgs": ['http://img.golddiy.com/Uploads/images/2016-04-28/5721e598ee8f4.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": "0",  //不为0且存在，有内容
             "live_url": "",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:20"
+            "create_time": "09:20",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-01"
           },
           {
-            "id": "4",
-            "content": "id==4用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
+            "id": "2",
+            "content": "id==2用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": 0,   //不为0且存在，有内容
             "vod": {
               url: 'Public/video/demo3.mp4',    //视频地址
@@ -345,8 +349,8 @@
             "create_time": "09:30"
           },
           {
-            "id": "5",
-            "content": "id==5用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
+            "id": "3",
+            "content": "id==3用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
             "imgs": 0,   //不为0且存在，有内容
             "vod": {
               url: '14651978969257355611',    //视频地址
@@ -359,9 +363,29 @@
             "create_time": "09:30"
           },
           {
+            "id": "4",
+            "content": "id==4用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
+            "imgs": ['http://img.golddiy.com/Uploads/images/2016-04-08/57078f761ae24.jpg?size=400x580'],   //不为0且存在，有内容
+            "vod": "",
+            "vod_id": '0',  //不为0且存在，有内容
+            "live_url": "0",    //不为0且存在，有内容
+            "username": null,
+            "create_time": "09:30"
+          },
+          {
+            "id": "5",
+            "content": "id==5sssssssssssssssssssssssssssss",
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
+            "vod": "",
+            "vod_id": '0',  //不为0且存在，有内容
+            "live_url": "0",    //不为0且存在，有内容
+            "username": null,
+            "create_time": "09:30"
+          },
+          {
             "id": "6",
-            "content": "id==6用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "imgs": ['Public/img/ppp2.png'],   //不为0且存在，有内容
+            "content": "id==6sssssssssssssssssssssssssssss",
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -371,7 +395,37 @@
           {
             "id": "7",
             "content": "id==7sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp3.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
+            "vod": "",
+            "vod_id": '0',  //不为0且存在，有内容
+            "live_url": "0",    //不为0且存在，有内容
+            "username": null,
+            "create_time": "09:30"
+          },
+          {
+            "id": "8",
+            "content": "id==8sssssssssssssssssssssssssssss",
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
+            "vod": "",
+            "vod_id": '0',  //不为0且存在，有内容
+            "live_url": "0",    //不为0且存在，有内容
+            "username": null,
+            "create_time": "09:30"
+          },
+          {
+            "id": "9",
+            "content": "id==9sssssssssssssssssssssssssssss",
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
+            "vod": "",
+            "vod_id": '0',  //不为0且存在，有内容
+            "live_url": "0",    //不为0且存在，有内容
+            "username": null,
+            "create_time": "09:30"
+          },
+          {
+            "id": "10",
+            "content": "id==10sssssssssssssssssssssssssssss",
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -382,10 +436,10 @@
         "stickMessage": {
           "id": "5",
           "content": "置顶消息当然，这种写法也可以省略列名。",
-          "imgs": 0,
+          "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],
           "vod": "",
           "vod_id": "0",
-          "live_url": "16093104850682363958",
+          "live_url": "",
           "username": null,
           "create_time": "09:20"
         },
@@ -507,6 +561,27 @@
       "lastChatId": 1
     };
 
+
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    var target = document.querySelector('.js-live-list');
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' && mutation.addedNodes != undefined && mutation.addedNodes.length != 0 && mutation.addedNodes[0].nodeType == 1) {
+//          alert(mutation.addedNodes[0].querySelector('.js-live-text').innerText)
+          var _node = mutation.addedNodes[0];
+
+        }
+        if (mutation.type === 'childList' && mutation.removedNodes != undefined && mutation.removedNodes.length != 0 && mutation.removedNodes[0].nodeType == 1) {
+//          alert(mutation.removedNodes[0].querySelector('.js-live-text').innerText)
+        }
+      });
+    });
+    var config = { attributes: false, childList: true, characterData: false };
+    observer.observe(target, config);
+//  observer.disconnect();
+
+
+
     initPhotoSwipeFromDOM('.my-gallery');
 
     loadData(data);
@@ -571,10 +646,15 @@
 //        $('.live-date').fadeOut();
       }
 
+
+      //判断滚动位置
+      console.log("doc:"+$(document).scrollTop());
+      console.log("li:"+$('.live-li').scrollTop())
     });
 
-  });
 
+
+  });
 
 
   jQuery(function($) {

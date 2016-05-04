@@ -8157,7 +8157,7 @@ a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:ac
 }
 
 .live-date {
-  position: fixed;
+  position: absolute;
   width: calc(100% - 20px);
   background-color: #ececec;
   opacity: 0.9;

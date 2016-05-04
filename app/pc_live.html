@@ -153,29 +153,29 @@
         <ul>
           <li>
             <a href="javascript:;" class="news-list-a">
-              <span class="top-new-title">明勇法师：经典不是迷信 是佛陀讲述的道理</span>
-              <span>
+              <span class="top-new-title overText">明勇法师：经典不是迷信经典不是迷信经典不是迷信经典不是迷信经典不是迷信 是佛陀讲述的道理</span>
+            </a>
+            <a href="javascript:;" class="news-list-b">
                 <span class="top-new-pic">
                   <img src="Public/img/top_news1.png"/>
                   <span class="top_news_mark">头条新闻</span>
                 </span>
                 <span class="top-new-text overTextH">
-                  明勇法师亲近净慧老和尚近二十年，多年来钻研经典，阐扬正信，于石家庄真际林讲经说法。
+                  明勇法师亲近净慧老和尚近二十年，多年来钻研经典多年来钻研经典多年来钻研经典多年来钻研经典多年来钻研经典多年来钻研经典，阐扬正信，于石家庄真际林讲经说法。
                 </span>
-              </span>
             </a>
           </li>
           <li>
             <a href="javascript:;" class="news-list-a">
               <span class="top-new-title">慈成加参仁波切：发无量心 行大乘愿</span>
-              <span>
-                <span class="top-new-pic">
-                  <img src="Public/img/top_news2.png"/>
-                  <span class="top_news_mark">聚焦新闻</span>
-                </span>
-                <span class="top-new-text overTextH">
-                  慈成加参仁波切得到阿秋法王等大德传授窍诀，并发愿一辈子为成就众生的解脱利益而活着,将大圆满...
-                </span>
+            </a>
+            <a href="javascript:;" class="news-list-b">
+              <span class="top-new-pic">
+                <img src="Public/img/top_news2.png"/>
+                <span class="top_news_mark">聚焦新闻</span>
+              </span>
+              <span class="top-new-text overTextH">
+                慈成加参仁波切得到阿秋法王等大德传授窍诀，并发愿一辈子为成就众生的解脱利益而活着,将大圆满...
               </span>
             </a>
           </li>
@@ -523,6 +523,7 @@
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
 <script src="Public/js/jquery-ui.min.js"></script>
+<script src="Public/js/jquery.lazyload.min.js"></script>
 <script src="Public/js/jinniu.js"></script>
 <script src="Public/js/photoswipe.js"></script>
 <script src="Public/js/photoswipe-ui-default.js"></script>
@@ -534,7 +535,8 @@
     news: {
       url: "http://127.0.0.1:8000/data.php?action=news",
       last_id: 1,
-      date: "2016-03-23"
+      date: "2016-03-23",
+      current_date: '2016-05-03'
     },
     chat: {
       url: "http://127.0.0.1:8000/data.php?action=chat",
@@ -544,6 +546,7 @@
     img_url: "Public/img/lotus_30x26.png",
     video_player: "Public/img/video_player.png",
     app_id: '1251951972'
+
   };
   var goods_json = [{
     "id": "9",
@@ -595,7 +598,7 @@
           {
             "id": "3",
             "content": "id==3阿里巴巴和蚂蚁金服合资 60 亿人民币成立口碑，用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['http://img.golddiy.com/Uploads/images/2016-04-28/5721e598ee8f4.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": "0",  //不为0且存在，有内容
             "live_url": "",    //不为0且存在，有内容
@@ -633,7 +636,7 @@
           {
             "id": "6",
             "content": "id==6用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为 44 亿美金。",
-            "imgs": ['Public/img/ppp2.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -643,7 +646,7 @@
           {
             "id": "7",
             "content": "id==7sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp2.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -653,7 +656,7 @@
           {
             "id": "8",
             "content": "id==8sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png', 'Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -663,7 +666,7 @@
           {
             "id": "9",
             "content": "id==9sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -673,7 +676,7 @@
           {
             "id": "10",
             "content": "id==10sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -683,7 +686,7 @@
           {
             "id": "11",
             "content": "id==11sssssssssssssssssssssssssssss",
-            "imgs": ['Public/img/ppp2.png', 'Public/img/ppp1.png'],   //不为0且存在，有内容
+            "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488'],   //不为0且存在，有内容
             "vod": "",
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
@@ -694,10 +697,10 @@
         "stickMessage": {
           "id": "3",
           "content": "id==3置顶消息当然，。",
-          "imgs": 0,
+          "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],
           "vod": "",
           "vod_id": "0",
-          "live_url": "16093104850682363958",
+          "live_url": "0",
           "username": null,
           "create_time": "09:20"
         },
@@ -826,7 +829,6 @@
       nDivHight = $(this).height();
       nScrollHight = $(this)[0].scrollHeight;
       nScrollTop = $(this)[0].scrollTop;
-      console.log(nScrollTop + '+' + nDivHight + "+" + nScrollHight)
       if (nScrollTop + nDivHight >= nScrollHight) {
         configs.tab == true ? livePages(true) : chatPages();
       }
