@@ -102,7 +102,7 @@
         <a class="carousel-control right" href="#live-carousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="live-date navbar-wrapper mb20">2016-03-25</div>
+    <div class="live-date">2016-03-25</div>
     <ul class="js-live-list wei-container10">
       <!--<li class="live-li clearfix" id="live-7" data-iscurrent=1 data-currentdate="2016-01-01">  1:日期变； 0：日期不变
         <div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>
@@ -301,7 +301,7 @@
 <script src="Public/js/jquery.lazyload.min.js"></script>
 <script src="Public/js/px-video.js"></script>
 <script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js"></script>
-<script src="Public/js/stick.js"></script>
+<script src="Public/js/stickMulti.js"></script>
 <script type="text/javascript">
   var configs = {
     news: {
@@ -670,12 +670,9 @@
 
     changeDate();
 
-  });
-
-
-  jQuery(function($) {
-    $(document).ready( function() {
-      $('.navbar-wrapper').stickUp();
+    $('.js-live-tab').stickUp();
+    $('.live-date').stickUp({
+      topMargin: 42
     });
   });
 

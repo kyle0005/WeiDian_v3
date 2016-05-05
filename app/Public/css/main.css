@@ -8070,16 +8070,16 @@ a.live-date:active {
 
 .check-new {
   position: fixed;
-  top: 28px;
+  top: 62px;
   width: 100%;
-  z-index: 11;
+  z-index: 110;
 }
 
 .check-new2 {
   position: fixed;
   top: 176px;
   width: 100%;
-  z-index: 11;
+  z-index: 110;
 }
 
 /*@media screen and (min-width: 320px) and (max-width: 360px) {*/
@@ -8157,7 +8157,6 @@ a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:ac
 }
 
 .live-date {
-  position: absolute;
   width: calc(100% - 20px);
   background-color: #CFB18E;
   color: #fff;
