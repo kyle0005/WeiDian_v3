@@ -8157,13 +8157,14 @@ a.check-new-m:link, a.check-new-m:visited, a.check-new-m:hover, a.check-new-m:ac
 }
 
 .live-date {
-  width: calc(100% - 20px);
-  background-color: #CFB18E;
-  color: #fff;
+  width: 100%;
+  background-color: #f4eed2;
+  color: #b08654;
+  border-top: 1px solid #e5daa4;
   opacity: 0.9;
-  padding: 0 10px;
-  height: 20px;
-  line-height: 20px;
+  height: 18px;
+  line-height: 18px;
+  text-indent: 10px;
 }
 
 .live-li {

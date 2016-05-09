@@ -102,8 +102,8 @@
         <a class="carousel-control right" href="#live-carousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
-    <div class="live-date">2016-03-25</div>
-    <ul class="js-live-list wei-container10">
+    <div class="live-date-container"></div>
+    <ul class="js-live-list ml10 mr10 mt5">
       <!--<li class="live-li clearfix" id="live-7" data-iscurrent=1 data-currentdate="2016-01-01">  1:日期变； 0：日期不变
         <div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>
         <div class="live-content">
@@ -301,13 +301,14 @@
 <script src="Public/js/jquery.lazyload.min.js"></script>
 <script src="Public/js/px-video.js"></script>
 <script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js"></script>
-<script src="Public/js/stickMulti.js"></script>
+
 <script type="text/javascript">
   var configs = {
     news: {
       url: "http://127.0.0.1:8000/data.php?action=news",
       last_id: 1,
-      date: "2016-03-23"
+      date: "2016-03-23",
+      current_date: "2016-01-01"
     },
     chat: {
       url: "http://127.0.0.1:8000/data.php?action=chat",
@@ -316,7 +317,8 @@
     tab: true,    //true:live, false:chat
     img_url: "Public/img/lotus.png",
     video_player: "Public/img/video_player.png",
-    app_id: '1251951972'
+    app_id: '1251951972',
+    base_path :'Public/'
 
   };
   $(function () {
@@ -453,10 +455,14 @@
           }
         ],
         "stickMessage": {
-          "id": "5",
+          "id": "3",
           "content": "置顶消息当然，这种写法也可以省略列名。",
-          "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],
-          "vod": "",
+          "imgs": 0,
+          "vod": {
+            url: '14651978969257355611',    //视频地址
+            cover: 'http://p.qpic.cn/videoyun/0/200006282_e1fd96f8fd3d11e5b46593dd5cf957c6_1/640',   //图片地址
+            type: 'qcloud'    //q播放
+          },
           "vod_id": "0",
           "live_url": "",
           "username": null,
@@ -668,12 +674,6 @@
 
     });
 
-    changeDate();
-
-    $('.js-live-tab').stickUp();
-    $('.live-date').stickUp({
-      topMargin: 42
-    });
   });
 
 </script>

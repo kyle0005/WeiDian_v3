@@ -282,7 +282,10 @@ module.exports = function (grunt) {
            ],
            '<%= config.dist %>/css/px-video.css': [
              '<%= config.app %>/Public/css/px-video.css'
-           ]
+           ],
+           '<%= config.dist %>/css/print.css': [
+             '<%= config.app %>/Public/css/print.css'
+           ],
 
          }
        }

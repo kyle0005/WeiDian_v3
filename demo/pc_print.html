@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" type="text/css" href="Public/css/button.css">
+  <link rel="stylesheet" href="Public/Jcrop-master/css/jquery.Jcrop.css" type="text/css" />
+  <link rel="stylesheet" href="Public/css/print.css" type="text/css"/>
+  <title>print</title>
+</head>
+<body>
+<section class="pc-print-container">
+  <section class="pc-print" id="pc_print">
+    <div class="user-photo-container text-center">
+      25X35mm<br>1寸照片
+      <div id="preview-pane">
+        <div class="preview-container">
+          <img src="http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg" class="jcrop-preview show-img" alt="Preview" />
+        </div>
+      </div>
+    </div>
+    <div class="user-name-container">
+      啦啦啦啦啦
+    </div>
+  </section>
+  <form action="?" id="img_form" method="post">
+    <input type="hidden" id="x" name="x">
+    <input type="hidden" id="y" name="y">
+    <input type="hidden" id="w" name="w">
+    <input type="hidden" id="h" name="h">
+  </form>
+  <div class="pri-btn">
+    <a href="javascript:;" class="js-cut wei-btn wei-bg-sRed">裁剪</a>
+    <a href="javascript:;" class="js-print wei-btn wei-bg-white">打印</a>
+  </div>
+</section>
+<script src="Public/Jcrop-master/js/jquery.min.js"></script>
+<script src="Public/Jcrop-master/js/jquery.Jcrop.js"></script>
+<script src="Public/js/jquery.jqprint-0.3.js"></script>
+<script>
+jQuery(function($) {
+  var jcrop_api,
+    boundx,
+    boundy,
+    $preview = $('#preview-pane'),
+    $pcnt = $('#preview-pane .preview-container'),
+    $pimg = $('#preview-pane .preview-container img'),
+    img_src = 'http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg';
+
+    xsize = $pcnt.width(),
+    ysize = $pcnt.height();
+
+  $('.js-cut').click(function () {
+    var pop = '<div class="cut-pop">'+
+      '<img src="" id="cut_img" class="cut-img"/>'+
+      '<div class="cut-btn">'+
+      '<a href="javascript:;" class="pop-ok wei-btn wei-bg-sRed">确认</a>'+
+      '<a href="javascript:;" class="pop-cancel wei-btn wei-bg-white">取消</a>'+
+      '</div>'+
+      '</div>';
+    if(!($('.cut-pop').length >= 1)){
+      $(document.body).append(pop);
+    }
+
+   $('.cut-img').attr('src', img_src);
+
+    $('#cut_img').Jcrop({
+      boxWidth: 460,
+      onChange: updatePreview,
+      onSelect: updatePreview,
+      onRelease: release_c,
+      aspectRatio: 65 / 91
+    }, function () {
+      var bounds = this.getBounds();
+      boundx = bounds[0];
+      boundy = bounds[1];
+      jcrop_api = this;
+//      $preview.appendTo(jcrop_api.ui.holder);
+    });
+
+  });
+
+  function updatePreview(c) {
+    $('#x').val(c.x);
+    $('#y').val(c.y);
+    $('#w').val(c.w);
+    $('#h').val(c.h);
+    console.log(c.x + "--" + c.y + "--" + c.w + "--" + c.h);
+    if (parseInt(c.w) > 0) {
+      var rx = xsize / c.w;
+      var ry = ysize / c.h;
+
+//      $('.show-img').attr('src', 'http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg@' +
+//        parseInt($('#x').val()) +
+//        '-' +
+//        parseInt($('#y').val()) +
+//        '-' +
+//        parseInt($('#w').val()) +
+//        '-' +
+//        parseInt($('#h').val()) +
+//        'a');
+
+      $pimg.css({
+        width: Math.round(rx * boundx) + 'px',
+        height: Math.round(ry * boundy) + 'px',
+        marginLeft: '-' + Math.round(rx * c.x) + 'px',
+        marginTop: '-' + Math.round(ry * c.y) + 'px'
+      });
+
+
+    }
+  }
+
+  function release_c(){
+    this.setSelect([0,0,0,0]);
+    this.destroy();
+  }
+
+  $(document).on('click', '.js-print', function () {
+    $("#pc_print").jqprint({
+      debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+      importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+      printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+      operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+    });
+  });
+
+  $(document).on('click', '.pop-ok', function(){
+    if($('.cut-pop').length >= 1){
+      $('.cut-pop').remove();
+//      $('.show-img').attr('src', 'http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg@' +
+//        parseInt($('#x').val()) +
+//        '-' +
+//        parseInt($('#y').val()) +
+//        '-' +
+//        parseInt($('#w').val()) +
+//        '-' +
+//        parseInt($('#h').val()) +
+//        'a');
+
+    }
+  });
+  $(document).on('click', '.pop-cancel', function(){
+    if($('.cut-pop').length >= 1){
+//      jcrop_api.release();
+      $('.cut-pop').remove();
+    }
+  });
+
+});
+</script>
+</body>
+</html>

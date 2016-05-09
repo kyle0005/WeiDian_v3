@@ -5,60 +5,88 @@
 function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
   var click_obj = $(tabObj).find('li');
   var tab_obj = $(document).find('.tab-ops');
-
   var top = 0;
   $(click_obj).click(function () {
     top = 0;
     top += til;
-
     if($('.nav-wrap').length >= 1){
       top += 44;
     }
+
     if( $(document).scrollTop() >= top){
-      $('html, body').animate({scrollTop: top}, 'slow');
+      //$('html, body').animate({scrollTop: top}, 'slow');
+      window.scrollTo(0, top);
     }
+
+    $.getScript(configs.base_path+'js/stick.multi.js',function(){
+      $('.live-date-container').empty();
+      initHtml();
+      $('.live-date').stickUp({
+        topMargin: 42
+      });
+    });
 
     $(click_obj).removeClass(chosenClassName);
     $(this).addClass(chosenClassName);
-
     var ind = $(this).index();
     $(tab_obj).addClass('hide');
     $(tab_obj).eq(ind).removeClass('hide');
-
     ind == 0 ? configs.tab = true : configs.tab = false;
-
-    if(!configs.tab){
-      $('.live-date').hide();
-    }else{
-      $('.live-date').show();
-    }
   });
-
-  /*$(document).scroll(function () {
-    var t = 0;
-    t += til;
-    if(('.nav-wrap').length > 0){
-      t += 43;
-    }
-    if( $(document).scrollTop() < t){
-      $('.js-tab-container').removeClass('tab-container');
-    }else{
-      $('.js-tab-container').addClass('tab-container');
-    }
-  });*/
-
 }
+
 window.onload=function(){
+  $.getScript(configs.base_path+'js/stick.multi.js',function(){
+    initHtml();
+    $('.js-live-tab').stickUp();
+    $('.live-date').stickUp({
+      topMargin: 42
+    });
+  });
   var til = $('.main-title-con').height();
   tabClick($('.js-live-tab'), 'live-cur', til);
+
 };
+function initHtml(){
+  var str = '<div class="live-date" data-currentdate="' +
+    configs.news.current_date +
+    '">' +
+    configs.news.current_date +
+    '</div>';
+  $('.live-date-container').append(str);
+  changeDate();
+}
+//滚动news改变时间
+function changeDate(){
+  $(document).scroll(function () {
+    var _vartop = $('.js-live-list').offset().top;
+    var _varscroll = parseInt($(document).scrollTop());
+    if(_varscroll > _vartop){
+      var _dateTop = parseFloat($('.live-date').offset().top);
+      var _tops = [];
+      $.each($('.live-li:visible'), function (i, item) {
+        var dat = parseFloat($(this).offset().top + $(this).height()/2 - (_dateTop + $('.live-date').height()/2));
+        _tops[i] = Math.abs(dat);
+      });
+      var _index = _tops.indexOf(Math.min.apply(null, _tops));
+      var lis = $('.live-li:visible');
+      var _li = lis[_index];
+      if($(_li).data('iscurrent') == 1 && $(_li).data('currentdate') != $('.live-date').html()){
+        $('.live-date').html($(_li).data('currentdate'));
+        if($(_li).prev() != undefined){
+          $(_li).prev().data('iscurrent', '1');
+        }
+      }
+    }
+  });
+}
 
 //加减日期天数
 $('.js-up-date').click(function () {
   var dateTxt = $('.js-live-date').html();
   var date = addDate(dateTxt, 1);    //天数加一
   if (!date) {
-    console.log('false');
+    //console.log('false');
   } else {
     $('.js-live-date').html(date);
     configs.news.date = date;
@@ -543,30 +571,7 @@ function insertLive(data) {
   }
 }
 
-function changeDate(){
-  $(document).scroll(function () {
-    var _vartop = $('.js-live-list').offset().top;
-    var _varscroll = parseInt($(document).scrollTop());
-    if(_varscroll > _vartop){
-      var _dateTop = parseFloat($('.live-date').offset().top);
-      var _tops = [];
-      $.each($('.live-li'), function (i, item) {
-        var dat = parseFloat($(this).offset().top - _dateTop);
-        _tops[i] = Math.abs(dat);
-      });
-      var _index = _tops.indexOf(Math.min.apply(null, _tops));
-      var _li = document.getElementsByClassName('live-li')[_index];
-      if($(_li).data('iscurrent') == 1 && $(_li).data('currentdate') != $('.live-date').html()){
-        $('.live-date').html($(_li).data('currentdate'));
-        if($(_li).prev() != undefined){
-          $(_li).prev().data('iscurrent', '1');
-        }
-      }
 
-    }
-
-  });
-}
 
 function insertTop(data) {
   var msg = data.news.stickMessage;
@@ -674,8 +679,8 @@ function vodLive(live_url){
     new qcVideo.Player("id_video_container", {
       "channel_id": live_url,
       "app_id": configs.app_id,
-      "width": 272,
-      "height": 153,
+      "width": 414,
+      "height": 244,
       "https": 0
     });
 
