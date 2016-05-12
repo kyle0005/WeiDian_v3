@@ -3,10 +3,6 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/../Webapp_demo/Gruntfile.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Public/Jcrop-WIP-2.x/demos/basic.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Public/Jcrop-WIP-2.x/demos/index.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Public/Jcrop-WIP-2.x/demos/panel.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/Public/Jcrop-WIP-2.x/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/base.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/print.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/css/px-video.css" charset="UTF-8" />
@@ -18,6 +14,7 @@
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/refresh.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/refresh.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/iscroll/widget.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Public/js/jquery.lazyload.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live_pc.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/plupload.full.min.js" charset="UTF-8" />
@@ -37,8 +34,6 @@
     <file url="file://$PROJECT_DIR$/app/pc_live_newsList.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/pc_live_reply.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/pc_print.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/pc_print2.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/pc_print3.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/photoSwipeTest.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/shake.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/wei_live_sendMsg.html" charset="UTF-8" />

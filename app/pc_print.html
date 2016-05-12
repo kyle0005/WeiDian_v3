@@ -7,14 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_min.css">
-  <link rel="stylesheet" type="text/css" href="Public/css/bootstrap_responsive_min.css">
-  <link rel="stylesheet" type="text/css" href="Public/css/base.css">
-  <link rel="stylesheet" type="text/css" href="Public/css/jqui/jquery-ui.min.css">
-  <link rel="stylesheet" type="text/css" href="Public/css/extend.css">
   <link rel="stylesheet" type="text/css" href="Public/css/button.css">
-  <link rel="stylesheet" href="Public/css/font-awesome.css">
-  <link rel="stylesheet" href="Public/css/px-video.css">
   <link rel="stylesheet" href="Public/Jcrop-master/css/jquery.Jcrop.css" type="text/css" />
   <link rel="stylesheet" href="Public/css/print.css" type="text/css"/>
   <title>print</title>
@@ -26,7 +19,7 @@
       25X35mm<br>1寸照片
       <div id="preview-pane">
         <div class="preview-container">
-          <img src="Public/img/anniversary.png" class="jcrop-preview show-img" alt="Preview" />
+          <img src="http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg" class="jcrop-preview show-img" alt="Preview" />
         </div>
       </div>
     </div>
@@ -53,9 +46,11 @@ jQuery(function($) {
   var jcrop_api,
     boundx,
     boundy,
+    data_c,
     $preview = $('#preview-pane'),
     $pcnt = $('#preview-pane .preview-container'),
     $pimg = $('#preview-pane .preview-container img'),
+    img_src = 'http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg';
 
     xsize = $pcnt.width(),
     ysize = $pcnt.height();
@@ -72,13 +67,13 @@ jQuery(function($) {
       $(document.body).append(pop);
     }
 
-    var img_src = $('.show-img').attr('src');
    $('.cut-img').attr('src', img_src);
 
     $('#cut_img').Jcrop({
       boxWidth: 460,
       onChange: updatePreview,
       onSelect: updatePreview,
+      onDblClick: dClick,
       onRelease: release_c,
       aspectRatio: 65 / 91
     }, function () {
@@ -91,27 +86,34 @@ jQuery(function($) {
 
   });
 
-  function updatePreview(c) {
-    $('#x').val(c.x);
-    $('#y').val(c.y);
-    $('#w').val(c.w);
-    $('#h').val(c.h);
-   /* if (parseInt(c.w) > 0) {
-      var rx = xsize / c.w;
-      var ry = ysize / c.h;
+  function dClick(){
+    if($('.cut-pop').length >= 1){
+      $('.cut-pop').remove();
+      if (parseInt(data_c.w) > 0) {
+        var rx = xsize / data_c.w;
+        var ry = ysize / data_c.h;
 
-      $pimg.css({
-        width: Math.round(rx * boundx) + 'px',
-        height: Math.round(ry * boundy) + 'px',
-        marginLeft: '-' + Math.round(rx * c.x) + 'px',
-        marginTop: '-' + Math.round(ry * c.y) + 'px'
-      });
-    }*/
+        $pimg.css({
+          width: Math.round(rx * boundx) + 'px',
+          height: Math.round(ry * boundy) + 'px',
+          marginLeft: '-' + Math.round(rx * data_c.x) + 'px',
+          marginTop: '-' + Math.round(ry * data_c.y) + 'px'
+        });
+      }
+
+    }
+  }
+
+  function updatePreview(c) {
+    data_c = c;
+    console.log(c.x + "--" + c.y + "--" + c.w + "--" + c.h);
+
   }
 
   function release_c(){
-    this.setSelect([0,0,0,0]);
-    this.destroy();
+    jcrop_api.setOptions({
+      allowSelect: true
+    });
   }
 
   $(document).on('click', '.js-print', function () {
@@ -126,24 +128,25 @@ jQuery(function($) {
   $(document).on('click', '.pop-ok', function(){
     if($('.cut-pop').length >= 1){
       $('.cut-pop').remove();
-      $.ajax({
-        cache: true,
-        type: "POST",
-        url:'',
-        data:$('#img_form').serialize(),
-        async: false,
-        error: function(request) {
-          alert("Connection error");
-        },
-        success: function(data) {
-          $('.show-img').attr('src', data);
-        }
-      });
+      if (parseInt(data_c.w) > 0) {
+        var rx = xsize / data_c.w;
+        var ry = ysize / data_c.h;
+
+        $pimg.css({
+          width: Math.round(rx * boundx) + 'px',
+          height: Math.round(ry * boundy) + 'px',
+          marginLeft: '-' + Math.round(rx * data_c.x) + 'px',
+          marginTop: '-' + Math.round(ry * data_c.y) + 'px'
+        });
+      }
+
     }
   });
   $(document).on('click', '.pop-cancel', function(){
     if($('.cut-pop').length >= 1){
-//      jcrop_api.release();
+      jcrop_api.release();
+      jcrop_api.destroy();
+      $('.cut-img').attr('src', img_src);
       $('.cut-pop').remove();
     }
   });

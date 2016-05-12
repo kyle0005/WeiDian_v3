@@ -36,13 +36,13 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
 }
 
 window.onload=function(){
-  $.getScript(configs.base_path+'js/stick.multi.js',function(){
+  //$.getScript(configs.base_path+'js/stick.multi.js',function(){
     initHtml();
     $('.js-live-tab').stickUp();
     $('.live-date').stickUp({
       topMargin: 42
     });
-  });
+  //});
   var til = $('.main-title-con').height();
   tabClick($('.js-live-tab'), 'live-cur', til);
 
@@ -154,9 +154,14 @@ function livePages(flag) {
           placeholder: "Public/img/loading_bg.png"
         });
 
+        $("video.lazy").lazyload({
+          event:'scroll'
+        });
+
         $(window).bind("load", function() {
           var timeout = setTimeout(function() {
             $("img.lazy").trigger("scroll");         //触发scroll事件
+            $("video.lazy").trigger("scroll");
           }, 0);
         });
       }
@@ -518,10 +523,10 @@ function insertLive(data) {
         live_data += '</div>';
       }
       if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-        live_data += '<video src="' +
+        live_data += '<video class="lazy" data-original="' +
           msg[i].vod.url +
           '"' +
-        'poster="' +
+        'data-poster="' +
           msg[i].vod.cover +
           '"' +
         'controls="controls" preload="metadata"' +
@@ -563,9 +568,14 @@ function insertLive(data) {
       placeholder: "Public/img/loading_bg.png"
     });
 
+    $("video.lazy").lazyload({
+      event:'scroll'
+    });
+
     $(window).bind("load", function() {
       var timeout = setTimeout(function() {
         $("img.lazy").trigger("scroll");         //触发scroll事件
+        $("video.lazy").trigger("scroll");
       }, 0);
     });
   }

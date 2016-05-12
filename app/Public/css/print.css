@@ -53,25 +53,25 @@ a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
 }
 .pc-print-container{
   position: relative;
-  width: 125.1mm;
+  width: 122mm;
   margin: 0 auto;
 }
 .pc-print{
   position: relative;
-  width: 125.1mm;
-  height: 180.1mm;
+  width: 122mm;
+  height: 173mm;
   margin: 0 auto;
   background: url("../img/bless.png") no-repeat center;
-  background-size: auto 100%;
+  background-size: 122mm 173mm;
   font-size: 24px;
 }
 .user-photo-container{
   position: absolute;
   width: 25mm;
   height: 35mm;
-  left: 41.37mm;
-  bottom: 108.60mm;
-  border: 0.1mm solid #585858;
+  left: 40mm;
+  top: 35mm;
+  /* bottom: 108.60mm; */
   overflow: hidden;
 }
 .user-name-container{
@@ -82,8 +82,9 @@ a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
   line-height: 5mm;
   font-size: 2mm;
   font-family: LiSu ,SimSun,FangSong ,KaiTi, SimHei,PMingLiU;
-  left: 72.06mm;
-  bottom: 100.31mm;
+  left: 70mm;
+  /* bottom: 100.31mm; */
+  top:35mm;
   word-wrap: break-word;
   word-break: normal;
   text-align: center;
@@ -108,7 +109,7 @@ a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
   position: absolute;
   width: 460px;
   min-height: 460px;
-  top: 50%;
+  top: 30%;
   left: 50%;
   margin-left: -250px;
   margin-top: -250px;
@@ -139,4 +140,35 @@ a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
 }
 .cut-btn a.wei-btn:last-child{
   margin-left: 4%;
+}
+
+/* 样式将只应用于打印 */
+@media print {
+  .user-photo-container{
+    position: absolute;
+    width: 70.85px;
+    height: 99.19px;
+    left: 113.36px;
+    bottom: 307.7724px;
+    overflow: hidden;
+  }
+  .user-name-container{
+    position: absolute;
+    width: 5mm;
+    height: 45mm;
+    padding: 0 2mm 0 2mm;
+    line-height: 5mm;
+    font-size: 2mm;
+    font-family: LiSu ,SimSun,FangSong ,KaiTi, SimHei,PMingLiU;
+    bottom: 307.7724px;
+    left:204.21804px;
+    word-wrap: break-word;
+    word-break: normal;
+    text-align: center;
+  }
+
+}
+
+@page {
+    size: 5in 7in;;
 }
