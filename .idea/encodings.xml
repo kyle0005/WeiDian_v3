@@ -17,6 +17,7 @@
     <file url="file://$PROJECT_DIR$/app/Public/js/jquery.lazyload.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/live_pc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/Public/js/live_video_lazyload.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/plupload.full.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/stick.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/Public/js/stick.multi.js" charset="UTF-8" />
@@ -42,5 +43,6 @@
     <file url="file://$PROJECT_DIR$/dist/js/live.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../WeiDian_v4/gulpfile.babel.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../WeiDian_v4/webpack.config.js" charset="UTF-8" />
   </component>
 </project>

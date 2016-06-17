@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>直播</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="tele。phone=no">
+</head>
+<body>
+<div>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+     data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+    style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+  <video src="" class="lazy" data-original="http://200006282.vod.myqcloud.com/200006282_48fb4f32167d11e697add7d1c60ca413.f20.mp4"
+         data-poster="http://p.qpic.cn/videoyun/0/200006282_48fb4f32167d11e697add7d1c60ca413_5/640" controls="controls" preload="metadata"
+         style="width: 300px;height: 300px;"></video>
+</div>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/jquery.lazyload.js"></script>
+<script>
+  $(function () {
+    $("video.lazy").lazyload({
+      event:'scroll'
+    });
+    $(window).bind("load", function() {
+      setTimeout(function() {
+        $("video.lazy").trigger("scroll");
+      }, 0);
+    });
+  });
+</script>
+</body>
+</html>

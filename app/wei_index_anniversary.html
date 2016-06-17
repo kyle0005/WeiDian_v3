@@ -15,7 +15,7 @@
     <link href="Public/css/button.css" rel="stylesheet">
     <link href="Public/css/main.css" rel="stylesheet">
 </head>
-<body class="anni-theme">
+<body class="">
 <header class="wei-head color-666 clearfix">
   <div class="pull-left">
     <a href="#">
@@ -375,7 +375,7 @@
 
       //top_news
       $.fn.FontScroll = function(options){
-        var d = {time: 3000,s: 'fontColor',num: 1}
+        var d = {time: 3000,s: 'fontColor',num: 1};
         var o = $.extend(d,options);
 
         this.children('ul').addClass('line');
@@ -420,7 +420,7 @@
           _p.removeClass(_s);
           _p.eq(num).addClass(_s);
         }
-      }
+      };
 
       $('#top_news').FontScroll({time: 2000,num: 1});
     });

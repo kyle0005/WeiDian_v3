@@ -104,7 +104,6 @@ jQuery(
             'margin-top': stickyHeight + stickyMarginB + currentMarginT + 'px'
           }, 10);
           $('.stuckMenu').css("position","fixed");
-          $('.js-tab-container').addClass('tab-container');
           $('.isStuck').css({
             top: '0px'
           }, 10, function(){
@@ -118,7 +117,6 @@ jQuery(
             'margin-top': currentMarginT + 'px'
           }, 10);
           $('.stuckMenu').css("position","relative");
-          $('.js-tab-container').removeClass('tab-container');
         };
 
       });

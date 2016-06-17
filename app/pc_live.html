@@ -33,31 +33,32 @@
     <div class="main-join-num">1234214241人参与</div>
   </div>
 </section>
-<section class="pc-contanier">
+<section class="pc-contanier clearfix">
+  <div class="live-d-page navbar-wrapper">
+    <ul>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a act">2016-01-01</a>
+      </li>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a">2016-01-02</a>
+      </li>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a">2016-01-03</a>
+      </li>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a">2016-01-04</a>
+      </li>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a">2016-01-05</a>
+      </li>
+      <li class="live-d-items">
+        <a href="javascript:;" class="live-date-a">2016-01-06</a>
+      </li>
+    </ul>
+  </div>
   <div class="main-con clearfix">
     <div class="live-container">
-      <div class="live-d-page">
-        <ul>
-          <li>
-            <a href="javascript:;" class="live-date-a act">2016-04-06</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="live-date-a">2016-04-07</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="live-date-a">2016-04-08</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="live-date-a">2016-04-09</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="live-date-a">2016-04-10</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="live-date-a">2016-04-11</a>
-          </li>
-        </ul>
-      </div>
+
       <div class="con-title">
         <img src="Public/img/lotus_pc.png"/><span class="con-title-txt">图文直播</span>
       </div>
@@ -529,6 +530,7 @@
 <script src="Public/js/photoswipe-ui-default.js"></script>
 <script src="Public/js/strings.js"></script>
 <script src="Public/js/px-video.js"></script>
+<script src="Public/js/stick.js"></script>
 <script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js"></script>
 <script type="text/javascript">
   var configs = {
@@ -603,7 +605,9 @@
             "vod_id": "0",  //不为0且存在，有内容
             "live_url": "",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:20"
+            "create_time": "09:20",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-01"
           },
           {
             "id": "4",
@@ -617,7 +621,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-02"
           },
           {
             "id": "5",
@@ -631,7 +637,9 @@
             "vod_id": 'myvid',  //不为0且存在，有内容
             "live_url": "Public/video/demo3.mp4",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-03"
           },
           {
             "id": "6",
@@ -641,7 +649,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-04"
           },
           {
             "id": "7",
@@ -651,7 +661,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-05"
           },
           {
             "id": "8",
@@ -661,7 +673,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-06"
           },
           {
             "id": "9",
@@ -671,7 +685,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-07"
           },
           {
             "id": "10",
@@ -681,7 +697,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-08"
           },
           {
             "id": "11",
@@ -691,7 +709,9 @@
             "vod_id": '0',  //不为0且存在，有内容
             "live_url": "0",    //不为0且存在，有内容
             "username": null,
-            "create_time": "09:30"
+            "create_time": "09:30",
+            "is_current": 1,   //1:日期变； 0：日期不变
+            "current_date": "2016-01-09"
           }
         ],
         "stickMessage": {
@@ -907,6 +927,9 @@
         livePages(false);
       }
     });
+
+
+
   });
 
   $('.pc-gtop').click(function () {
@@ -937,6 +960,11 @@
     }
   });
 
+  jQuery(function($) {
+    $(document).ready( function() {
+        $('.navbar-wrapper').stickUp();
+    });
+  });
 
 </script>
 <script src="Public/js/live_pc.js"></script>

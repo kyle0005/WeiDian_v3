@@ -4117,9 +4117,10 @@ a.pswp__share--download:hover {
   width: 680px;
 }
 .live-d-page{
-  position: absolute;
-  left: -114px;
-  top: 74px;
+  float: left;
+  margin-left: -114px;
+  margin-top: 74px;
+  width: 99px;
 }
 .live-d-page a{
   position: relative;
