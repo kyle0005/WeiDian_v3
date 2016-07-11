@@ -26,7 +26,8 @@
   document.body.appendChild(renderer.domElement);     //domElement：画布，所有的渲染都是画在domElement上的，所以这里的appendChild表示将这个domElement挂接在body下面
   var geometry = new THREE.CubeGeometry(1,1,1);
   var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-  var cube = new THREE.Mesh(geometry, material); scene.add(cube);
+  var cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
   camera.position.z = 5;
 
   function render() {
