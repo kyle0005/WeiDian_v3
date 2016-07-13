@@ -8285,6 +8285,9 @@ textarea:focus {
 .live-token-list .order-pro-img img {
   border: 3px solid #b08654;
 }
+.live-token-list .order-pro-img img.wei-clifford{
+  border: 3px solid #f1c373;
+}
 
 .live-token-con {
   min-height: 47px;

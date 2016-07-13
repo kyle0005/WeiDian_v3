@@ -6,8 +6,6 @@ var del = require('del');
 var wiredep = require('wiredep').stream;
 var open = require('open');
 
-var webpack = require('webpack');
-
 var $ = gulpLoadPlugins();               //Automatically load any gulp plugins in your package.json
 var reload = browserSync.reload;
 
