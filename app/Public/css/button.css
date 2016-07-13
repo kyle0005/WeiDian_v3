@@ -190,3 +190,14 @@ a.wei-btn:link, a.wei-btn:visited, a.wei-btn:hover, a.wei-btn:active{
   background-color: #e6e6e6;
   border: 1px solid #e6e6e6;
 }
+
+.wei-bg-c85e00 {
+  color: #c85e00;
+  border: 1px solid #c85e00;
+}
+
+.wei-bg-c85e00:link, .wei-bg-c85e00:visited, .wei-bg-c85e00:hover, .wei-bg-c85e00:active {
+  color: #c85e00;
+  border: 1px solid #c85e00;
+}
+
