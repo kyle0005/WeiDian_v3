@@ -9692,3 +9692,17 @@ input.wei-up-inp{
   display:table-cell;
   vertical-align: middle;
 }
+
+.clifford-a{
+  display: inline-block;
+}
+.cli-lotus{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  padding-bottom: 100%;
+  background: url("../img/qifu_bot_bg.png") no-repeat center bottom;
+  background-size: 100% auto;
+}
