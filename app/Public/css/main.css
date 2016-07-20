@@ -9706,3 +9706,36 @@ input.wei-up-inp{
   background: url("../img/qifu_bot_bg.png") no-repeat center bottom;
   background-size: 100% auto;
 }
+.crowd-info-con{
+  background: url("../img/crowdfunding_a.png") no-repeat left top;
+  background-size: auto 14px;
+}
+.crowd-info{
+  line-height: initial;
+  padding: 15px 12px;
+  background: url("../img/crowdfunding_b.png") no-repeat right bottom;
+  background-size: auto 14px;
+
+}
+.crowd-det li{
+  position: relative;
+  float: left;
+  width: 49%;
+  height: 38px;
+  padding: 15px 0;
+  text-align: center;
+}
+.crowd-det li:first-child::after{
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 1px;
+  height: 24px;
+  background-color: #cccccc;
+  z-index: 2;
+}
+.crowdB-cal{
+  width: 16px;
+  vertical-align: sub;
+}
