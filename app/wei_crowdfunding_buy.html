@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>众筹下单</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no">
+    <link href="Public/css/bootstrap.css" rel="stylesheet">
+    <link href="Public/css/base.css" rel="stylesheet">
+    <link href="Public/css/jqui_mobile/jquery-ui.css" rel="stylesheet">
+    <link href="Public/css/font-awesome.css" rel="stylesheet">
+    <link href="Public/css/button.css" rel="stylesheet">
+    <link href="Public/css/main.css" rel="stylesheet">
+</head>
+<body>
+<header class="nav-wrap" id="top">
+  <div class="nav">
+    <a href="javascript:history.go(-1);" class="nav-back">
+      <i class="icon-2x icon-angle-left"></i>
+    </a>
+    <div class="nav-title">
+      众筹下单
+    </div>
+  </div>
+</header>
+<section class="wei-iContainer">
+    <fieldset>
+      <div class="clearfix ml10 mr10 mt10 mb20">
+        <div class="crow-left">支持金额</div>
+        <div class="crow-right">
+          <ul class="crow-choose-pri clearfix">
+            <li class="js-crow-chs crow-chosen">￥1</li>
+            <li class="js-crow-chs">￥10</li>
+            <li class="js-crow-chs">￥20</li>
+            <li class="js-crow-chs">￥50</li>
+            <li class="js-crow-chs">￥100</li>
+            <li class="js-crow-chs">￥200</li>
+          </ul>
+          <input type="text" name=""  placeholder="手动输入其他金额"/>
+        </div>
+      </div>
+      <div class="clearfix ml10 mr10 mt10 mb20">
+        <div class="crow-left">众筹寄语</div>
+        <div class="crow-right">
+          <textarea placeholder="写下您的捐赠寄语，给我们加油鼓气吧！
+（限30个字）..." class="crow-text"></textarea>
+        </div>
+      </div>
+    </fieldset>
+</section>
+<section class="">
+  <fieldset>
+    <div class="clearfix ml10 mr10 mt10 mb20">
+      <span class="crow-left">收货地址</span>
+      <div class="crow-right">
+        <span class="crow-addr">王冲 1383838383<br>上海市静安区王航渡路676弄</span>
+        <div class="crow-btn-con">
+          <a href="#" class="wei-btn wei-bg-white">修改地址</a>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</section>
+<section>
+  <div class="text-center">
+    实付：<span class="color-theme2 fs20"><span class="fs12">￥</span>200</span>
+  </div>
+  <div class="crow-sub">
+    <a href="#" class="wei-btn wei-bg-sRed">提交订单</a>
+  </div>
+  <label for="crow-check" class="fs12 text-center">
+    <input type="checkbox" id="crow-check" class="crow-check"/>我已阅读并同意《支持者协议》
+  </label>
+</section>
+<script src="Public/js/jquery-1.8.3.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/tools.js"></script>
+<script>
+  $(function () {
+    $('.js-crow-chs').click(function () {
+      $('.js-crow-chs').removeClass('crow-chosen');
+      $(this).addClass('crow-chosen');
+    });
+
+    $('.crow-check').click(function () {
+      var isChecked = $(this).is(":checked");
+      $(this).attr("checked", isChecked);
+    });
+  })
+</script>
+</body>
+</html>
