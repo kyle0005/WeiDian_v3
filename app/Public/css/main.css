@@ -27,6 +27,9 @@ body {
 .color-c85e00 {
   color: #c85e00
 }
+.color-dfd9d3{
+  color: #dfd9d3;
+}
 
 .color-ccc {
   color: #ccc
@@ -7983,7 +7986,7 @@ textarea:focus {
 }
 
 .live-token-list .order-pro-img img.wei-clifford {
-  border: 3px solid #f1c373
+  border: 3px solid #dfd9d3
 }
 
 .live-token-con {
@@ -9291,7 +9294,7 @@ input.wei-up-inp {
   z-index: -1;
   width: 100%;
   padding-bottom: 100%;
-  background: url(../img/qifu_bot_bg.png) no-repeat center bottom;
+  background: url(../img/qifu_bot_bg_2.png) no-repeat center bottom;
   background-size: 100% auto
 }
 
