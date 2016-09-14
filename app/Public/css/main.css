@@ -9332,6 +9332,54 @@ input.wei-up-inp {
   background-size: 100% auto
 }
 
+
+.wei-downloadApp {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.wei-downloadApp a.down-fork {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  float: left;
+  width: 10.9375%;
+}
+.wei-downloadApp a.down-fork img {
+  width: 100%;
+}
+.wei-downloadApp img {
+  width: 100%;
+}
+.wei-downloadApp .down-now {
+  position: absolute;
+  width: 21.40625%;
+  right: 3.125%;
+  top: 50%;
+  margin-top: -13px;
+}
+a.qifu-share{
+  display: block;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  background-color: #dfd5c7;
+  color: #8c5501;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 4px;
+}
+a.qifu-share img{
+  width: auto;
+  height: 14px;
+  margin-right: 5px;
+  margin-top: -1px;
+}
+
+
+
 .rowd-con {
   background: url("../img/rowd_lt.png") no-repeat top left;
   background-size: auto 14px
