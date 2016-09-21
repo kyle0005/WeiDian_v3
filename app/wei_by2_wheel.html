@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>demo</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    html, body{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button,
+    input, textarea, th, td {
+      margin: 0;
+      padding: 0
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 100%
+    }
+
+    ul, ol, li {
+      list-style: none
+    }
+
+    em, i {
+      font-style: normal
+    }
+
+    strong, b {
+      font-weight: normal
+    }
+
+    img {
+      border: 0
+    }
+
+    input, img {
+      vertical-align: middle
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    a:hover{
+      text-decoration: none;
+    }
+    .clearfix:after {
+      display: block;
+      content: '';
+      clear: both;
+      visibility: hidden
+    }
+
+
+    .wheel-container{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: url("Public/img/rolling/wheel_bg.png") no-repeat center top;
+      background-size: 100% auto;
+    }
+    .machine{
+      padding: 48% 0;
+      margin: 0 auto;
+      width:78%;
+    }
+    .machine li{
+      position: relative;
+      background-color: #ffdf3e;
+      margin: 1px;
+    }
+    .machine li img{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+    }
+    .machine li::after{
+      background-color:#ffc027;
+      content: "";
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      position: absolute;
+    }
+    .machine li.dark{
+      background-color: #ffc027;
+    }
+    .machine li.dark::after{
+      background-color:#ff8d27;
+      content: "";
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      position: absolute;
+    }
+
+    .top-row{
+      width: 100%;
+    }
+    .top-row li{
+      float: left;
+      width: calc(25% - 2px);
+      padding-bottom: calc(25% - 2px);
+    }
+
+    .middle-row{
+      width: 100%;
+    }
+    .middle-row-left{
+      float: left;
+      width: calc(25% - 2px);
+    }
+    .middle-row-right{
+      float: left;
+      width: calc(25% - 2px);
+    }
+    .middle-row-left li, .middle-row-right li{
+      width: 100%;
+      padding-bottom: 100%;
+    }
+    .machine-control-cell{
+      float: left;
+      width: calc(50% + 2px);
+      text-align: center;
+    }
+    .machine-control img{
+      width: 71.5%;
+      margin-top: 13%;
+    }
+
+    .bottom-row{
+      width: 100%;
+    }
+    .bottom-row li{
+      float: left;
+      width: calc(25% - 2px);
+      padding-bottom: calc(25% - 2px);
+    }
+
+  </style>
+</head>
+<body>
+<div class="wheel-container">
+  <div class="machine">
+    <ul class="top-row clearfix">
+      <li class="prize-cell" data-id="1" >
+        <img src="Public/img/rolling/pkg.png">
+      </li>
+      <li class="prize-cell dark" data-id="2" >
+        <img src="Public/img/rolling/smile.png">
+      </li>
+      <li class="prize-cell" data-id="3" >
+        <img src="Public/img/rolling/pkg.png">
+      </li>
+      <li class="prize-cell dark" data-id="4" >
+        <img src="Public/img/rolling/pkg.png">
+      </li>
+    </ul>
+    <div class="middle-row clearfix">
+      <ul class="middle-row-left">
+        <li class="prize-cell" data-id="12" >
+          <img src="Public/img/rolling/smile.png">
+        </li>
+        <li class="prize-cell" data-id="11" >
+          <img src="Public/img/rolling/pkg.png">
+        </li>
+      </ul>
+      <div class="machine-control-cell">
+        <div class="machine-control" onclick="ClickMe(event)">
+          <img src="Public/img/rolling/btn.png">
+        </div>
+      </div>
+      <ul class="middle-row-right">
+        <li class="prize-cell" data-id="5" >
+          <img src="Public/img/rolling/smile.png">
+        </li>
+        <li class="prize-cell" data-id="6" >
+          <img src="Public/img/rolling/pkg.png">
+        </li>
+      </ul>
+    </div>
+    <ul class="bottom-row">
+      <li class="prize-cell" data-id="10">
+        <img src="Public/img/rolling/smile.png">
+      </li>
+      <li class="prize-cell" data-id="9" >
+        <img src="Public/img/rolling/pkg.png">
+      </li>
+      <li class="prize-cell" data-id="8" >
+        <img src="Public/img/rolling/smile.png">
+      </li>
+      <li class="prize-cell" data-id="7" >
+        <img src="Public/img/rolling/pkg.png">
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript" src="Public/js/jslottery.js"></script>
+<script type="text/javascript">
+  var jslottery = new Jslottery({
+    scroll_dom:'prize-cell',
+    scroll_dom_css_value:'#ffff7e',
+    scroll_dom_attr:'data-id',
+    scroll_dom_css:'background-color',
+    start_position:Math.floor(Math.random()*12+1),
+    callback:function(data){}
+  });
+
+  function ClickMe(){
+    jslottery.options.stop_position=Math.floor(Math.random()*12+1);
+    jslottery.options.speed=Math.floor(Math.random()*200+300);
+    jslottery.options.speed_up_position=Math.floor(Math.random()*6+1);
+    jslottery.options.speed_down_position=Math.floor(Math.random()*6+1);
+    jslottery.options.speedUp=Math.floor(Math.random()*30+20);
+    jslottery.options.speedDown=Math.floor(Math.random()*100+600);
+    jslottery.options.total_circle=Math.floor(Math.random()*5+2);
+    jslottery.start();
+  }
+</script>
+</body>
+</html>
