@@ -135,6 +135,7 @@
         popContainer.className += ' hide';
       };
 
+
     },
 
 		speedUp:function(){

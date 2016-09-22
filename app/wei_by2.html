@@ -15,7 +15,6 @@
     <link href="Public/css/button.css" rel="stylesheet">
 </head>
 <body>
-<form method="post" action="">
   <section class="wei-iContainer">
     <div class="order-list pl10 pr10">
       <ul class="mt10">
@@ -46,48 +45,55 @@
       </ul>
     </div>
   </section>
-  <section class="">
-    <div class="ml10 mr10">
-      <div class="clearfix bb lh40">
-        <div class="pull-left">
-          姓名
+  <section class="invest-container setting-container">
+    <form class="form-horizontal underline-con">
+      <fieldset>
+        <div class="control-group">
+          <div class="controls">
+            <span class="left-label">姓名：</span>
+            <input type="text" name="name" value="aaaaaa" maxlength="30" placeholder="请填写用户名">
+          </div>
         </div>
-        <div class="pull-right">
-          sadadadkjasljaskldj
+        <div class="control-group">
+          <div class="controls">
+            <span class="left-label">手机：</span>
+            <input type="text" name="phone" value="1383838438" maxlength="30" placeholder="请输入您的手机号码">
+          </div>
         </div>
-      </div>
-      <div class="clearfix bb lh40">
-        <div class="pull-left">
-          手机
+        <div id="province">
+          <div class="control-group">
+            <div class="controls">
+              <span class="left-label">地址：</span>
+              <select id="J_province" name="province" class="prov">
+                <option value="">省</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <span class="left-label"></span>
+              <select id="J_city" name="city" class="city" disabled="disabled">
+                <option value="">市</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <span class="left-label"></span>
+              <select id="J_region" name="region" class="dist" disabled="disabled">
+                <option value="">区</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <span class="left-label"></span>
+              <input type="text" name="address" value="" maxlength="30" placeholder="请输入详细地址：街道、楼牌号">
+            </div>
+          </div>
         </div>
-        <div class="pull-right">
-          1111111111
-        </div>
-      </div>
-      <div class="clearfix bb lh40">
-        <div class="pull-left">
-          地址
-        </div>
-        <div class="pull-right">
-          sadadadkjasljaskldj
-        </div>
-      </div>
-      <div class="clearfix bb lh40">
-        <div class="pull-left">
-          配送方式
-        </div>
-        <div class="pull-right">
-          <select class="chooseExpress fs12 lh30" style="width: 100%;">
-            <option value="" data-value="22.00" selected="selected">包邮</option>
-          </select>
-        </div>
-      </div>
-      <div class="clearfix lh40">
-        <textarea placeholder="告诉卖家您的要求吧...（限150个字）"
-                  class="mt5 mb5 lh30" style="background-color: #f5f5f5;text-indent: 6px;width: 100%;height: 60px;"></textarea>
-      </div>
-    </div>
-
+      </fieldset>
+    </form>
   </section>
   <input type="hidden" id="inv" value=""/>
   <div style="height: 40px;"></div>
@@ -95,13 +101,14 @@
     合计:<span class="color-theme2 mr10">￥<span class="js-buy-listRmb"></span></span>
     <a href="#" class="wei-btn wei-bg-sRed pull-right" style="width: 33.3%;line-height: 40px; border-radius: 0;">确认订单</a>
   </section>
-</form>
 <script src="Public/js/jquery-1.8.3.js"></script>
 <script src="Public/js/bootstrap.js"></script>
 <script src="Public/js/BigDecimal-all-last.min.js"></script>
 <script src="Public/js/tools.js"></script>
 <script src="Public/js/jquery.cookie.js"></script>
 <script src="Public/js/jinniu.mobile.js"></script>
+<script src="Public/js/bootstrap.js"></script>
+<script src="Public/js/jquery.cityselect.js"></script>
 <script>
   $(function () {
 
@@ -155,252 +162,6 @@
       }
     }
 
-    //开具发票
-    $('.js-buy-invoice').change(function () {
-      if($(this).attr('checked')){
-        //开
-        isOpen = true;
-        isAddOrUpdate = true;
-      }else{
-        //关
-        isOpen = false;
-        isAddOrUpdate = false;
-      }
-      invoice_add();
-    });
-
-    //开关控制
-    function switchCtrl(flag){
-      if(flag){
-        //开
-        $('.js-buy-invoice').attr('checked', true);
-        $('.js-buy-ani2').height('40px');
-        $('#b-txt').hide();
-      }else{
-        //关
-        $('.js-buy-invoice').attr('checked', false);
-        $('.js-buy-ani2').height('0');
-        $('#b-txt').show();
-      }
-
-    }
-
-
-    //添加发票
-    function invoice_add(){
-      $.cookie('tabData', null, { expires: -1, path:"/", domain:"shop.golddiy.com"});
-      if(isOpen){
-        //开
-        if(isTabNor){
-          if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
-            $('.js-title').html(data['t1'].title);
-            $('.js-con').html(data['t1'].con);
-          }
-
-        }else{
-          if(data['t2'].com_name != null && data['t2'].com_name != undefined && data['t2'].com_name != ''){
-            $('.js-title').html(data['t2'].com_name);
-            $('.js-con').html(data['t2'].con);
-          }
-
-        }
-
-        $('input[name="title"]').val('');
-        $('input[name="ho-con"]').each(function(){
-          $(this).attr("checked",false);
-        });
-
-        $('input[name="com_name"]').val('');
-        $('input[name="com_code"]').val('');
-        $('input[name="com_address"]').val('');
-        $('input[name="com_phone"]').val('');
-        $('input[name="com_bank"]').val('');
-        $('input[name="com_bankAccount"]').val('');
-        $('input[name="ho-con2"]').each(function(){
-          $(this).attr("checked",false);
-        });
-
-        switchCtrl(true);
-
-        //滑出蒙层，开具发票
-        $('#popUpWrap').removeClass('none');
-        $('.pop-up').height(400);
-      }else{
-        //关
-        switchCtrl(false);
-
-        data['t1'].title = null;
-        data['t1'].con = null;
-        data['t2'].com_name = null;
-        data['t2'].com_code = null;
-        data['t2'].com_address = null;
-        data['t2'].com_phone = null;
-        data['t2'].com_bank = null;
-        data['t2'].com_bankAccount = null;
-        data['t2'].con = null;
-      }
-    }
-
-    //发票修改按钮
-    $('.js-update').click(function () {
-      isAddOrUpdate = false;
-      if(isTabNor){
-        //若为普通发票
-        $('input[name="title"]').val(data['t1'].title);
-        $('input[name="ho-con"]').each(function(){
-          if($(this).data('v') == data['t1'].con){
-            $(this).attr("checked",true);
-          }
-        });
-
-        $('.order-cur').removeClass('order-cur');
-        $('.js-tab ul li:first').addClass('order-cur');
-        $('.js-tab').siblings('div').addClass('hide');
-        $('.js-tab').siblings('div').eq(0).removeClass('hide');
-      }else{
-        //若为增值税发票
-        $('input[name="com_name"]').val(data['t2'].com_name);
-        $('input[name="com_code"]').val(data['t2'].com_code);
-        $('input[name="com_address"]').val(data['t2'].com_address);
-        $('input[name="com_phone"]').val(data['t2'].com_phone);
-        $('input[name="com_bank"]').val(data['t2'].com_bank);
-        $('input[name="com_bankAccount"]').val(data['t2'].com_bankAccount);
-        $('input[name="ho-con2"]').each(function(){
-          if($(this).data('v') == data['t2'].con){
-            $(this).attr("checked",true);
-          }
-        });
-
-        $('.order-cur').removeClass('order-cur');
-        $('.js-tab ul li:last').addClass('order-cur');
-        $('.js-tab').siblings('div').addClass('hide');
-        $('.js-tab').siblings('div').eq(1).removeClass('hide');
-      }
-      //滑出蒙层，开具发票
-      $('#popUpWrap').removeClass('none');
-      $('.pop-up').height(400);
-
-
-    });
-
-    $('.js-mask, .js-x').click(function(){
-      if(isAddOrUpdate){
-        //若为新增是滑窗
-        switchCtrl(false);
-        isOpen = false;
-
-        $('.pop-up').height('0');
-        setTimeout(function(){
-          $('#popUpWrap').addClass('none');
-        },600);
-
-        //清空表单
-        if(isAddOrUpdate){
-          //普通发票
-          //获取表单元素的值
-          data['t1'].title = $('input[name="title"]').val();
-          data['t1'].con = $('input[name="ho-con"]:checked').data('v');
-        }else{
-          //增值税发票
-          data['t2'].com_name = $('input[name="com_name"]').val();
-          data['t2'].com_code = $('input[name="com_code"]').val();
-          data['t2'].com_address = $('input[name="com_address"]').val();
-          data['t2'].com_phone = $('input[name="com_phone"]').val();
-          data['t2'].com_bank = $('input[name="com_bank"]').val();
-          data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
-          data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
-        }
-
-      }else{
-        //若为修改时滑窗
-        $('.pop-up').height('0');
-        setTimeout(function(){
-          $('#popUpWrap').addClass('none');
-        },600);
-      }
-    });
-
-    //发票滑出框保存按钮
-    $('.js-save').click(function () {
-      if(isTabNor){
-        //普通发票
-        //获取表单元素的值
-        data['t1'].title = $('input[name="title"]').val();
-        data['t1'].con = $('input[name="ho-con"]:checked').data('v');
-        if (!data['t1'].title) {
-          JQbox.alert("请输入发票抬头");
-          return false;
-        }
-        if (!data['t1'].con) {
-          JQbox.alert("请选择发票内容");
-          return false;
-        }
-
-        if(data['t1'].title != null && data['t1'].title != undefined && data['t1'].title != ''){
-          $('#inv').val(JSON.stringify(data['t1']));
-          $('.js-title').html(data['t1'].title);
-          $('.js-con').html(data['t1'].con);
-        }
-      }else{
-        //增值税发票
-        data['t2'].com_name = $('input[name="com_name"]').val();
-        data['t2'].com_code = $('input[name="com_code"]').val();
-        data['t2'].com_address = $('input[name="com_address"]').val();
-        data['t2'].com_phone = $('input[name="com_phone"]').val();
-        data['t2'].com_bank = $('input[name="com_bank"]').val();
-        data['t2'].com_bankAccount = $('input[name="com_bankAccount"]').val();
-        data['t2'].con = $('input[name="ho-con2"]:checked').data('v');
-
-        if (!data['t2'].com_name) {
-          JQbox.alert("请输入单位名称");
-          return false;
-        }
-        if (!data['t2'].com_code) {
-          JQbox.alert("请输入纳税人识别码");
-          return false;
-        }
-        if (!data['t2'].com_address) {
-          JQbox.alert("请输入注册地址");
-          return false;
-        }
-        if (!data['t2'].com_phone) {
-          JQbox.alert("请输入注册电话");
-          return false;
-        }
-        if (!data['t2'].com_bank) {
-          JQbox.alert("请输入开户银行");
-          return false;
-        }
-        if (!data['t2'].com_bankAccount) {
-          JQbox.alert("请输入银行账户");
-          return false;
-        }
-
-        if (!data['t2'].con) {
-          JQbox.alert("请选择发票内容");
-          return false;
-        }
-
-        if(data['t2'].com_name != null && data['t2'].com_name != undefined && data['t2'].com_name != ''){
-          $('#inv').val(JSON.stringify(data['t2']));
-          $('.js-title').html(data['t2'].com_name);
-          $('.js-con').html(data['t2'].con);
-        }
-      }
-
-      isExist = true;
-      var jsonStr = JSON.stringify(data);
-      $.cookie('tabData', jsonStr, { expires: 7,path:"/",domain:"shop.golddiy.com"});
-
-      switchCtrl(true);
-      isOpen = true;
-
-      $('.pop-up').height('0');
-      setTimeout(function(){
-        $('#popUpWrap').addClass('none');
-      },600);
-
-    });
 
     //tab切换
     var click_obj  = $('.js-tab').find('li');

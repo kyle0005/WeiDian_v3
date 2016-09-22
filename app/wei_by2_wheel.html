@@ -185,7 +185,7 @@
       margin-left: 5px;
       margin-top: -5px;
     }
-    .pop-container{
+    .draw-container, .pop-container{
       position: absolute;
       top:50%;
       margin-top: -10%;
@@ -280,6 +280,100 @@
       color: #ffc73d;
     }
 
+    .pop-up-wrap {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+      z-index: 997;
+      overflow: hidden;
+    }
+    .pop-up {
+      position: fixed;
+      bottom: 0;
+      z-index: 999;
+      background-color: #fff;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      -webkit-transition: height 0.6s;
+      -moz-transition: height 0.6s;
+      -o-transition: height 0.6s;
+      transition: height 0.6s;
+    }
+    .pop-up-mask {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 996;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .order-sec{
+      padding-top: 10px;
+    }
+    .order-title{
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      font-size: 12px;
+      color: #333;
+    }
+    .order-list{
+      padding: 0 10px;
+    }
+    .list-content {
+      position: relative;
+      display: block;
+    }
+    .order-pro-img {
+      float: left;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+    .order-pro-img img{
+      width: 100%;
+    }
+    .order-list-con {
+      position: relative;
+      display: block;
+      margin-left: 70px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #f5f5f5;
+      color: #999;
+      font-size: 12px;
+    }
+    .order-list-title {
+      float: left;
+      width: 70%;
+    }
+    .order-list-price {
+      float: right;
+      text-align: right;
+      width: 30%;
+      height: 50px;
+    }
+    .overTextH {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .order-total {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 70px;
+      padding: 0 10px;
+      font-size: 12px;
+      color: #333;
+    }
 
   </style>
 </head>
@@ -387,6 +481,47 @@
         <a href="javascript:;" class="ok" id="ok">免费领取</a>
       </div>
   </div>
+  <div class="draw-container hide" id="draw-container">
+    <div class="pop-txt" id="pop-draw">
+      恭喜抽中&nbsp;100元&nbsp;店铺优惠券!
+    </div>
+    <div class="pop-btn">
+      <a href="javascript:;" class="ok" id="know">知道了</a>
+    </div>
+  </div>
+</div>
+<div id="popUpWrap" class="pop-up-wrap hide">
+  <div class="pop-up">
+    <div class="pop-height">
+      <section class="order-sec">
+        <div class="order-title pl10 pr10">
+          订单号：1609211248328630
+        </div>
+        <div class="order-list pl10 pr10">
+          <a href="javascript:;" class="list-content clearfix">
+              <span class="order-pro-img">
+                  <img src="http://img.golddiy.com/Uploads/images/2016-09-07/57cfee294588d.png@1e_80w_80h_1c_0i_1o_90Q_1x.png">
+              </span>
+            <span class="order-list-con clearfix">
+                  <span class="order-list-title">
+                      <span class="overTextH">广福寺释迦牟尼佛纪念章</span>
+                      <span class="color-999">
+                                                    </span>
+                  </span>
+                  <span class="order-list-price mt10 text-right">
+                      ¥0.1<br><span class="color-999">x1</span>
+                  </span>
+              </span>
+          </a>
+        </div>
+        <div class="order-total pl10 pr10">
+          收貨地址：上海市靜安區xxxx號上海市靜安區xxxx號上海市靜安區xxxx號上海市靜安區xxxx號上海市靜安區xxxx號
+        </div>
+      </section>
+    </div>
+  </div>
+  <!--蒙层-->
+  <div class="js-mask pop-up-mask"></div>
 </div>
 <script type="text/javascript" src="Public/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="Public/js/jslottery.js"></script>
@@ -450,6 +585,7 @@
     s_id: '6',
     name: '恭喜你获得100元优惠券'
   };
+  var isDraw = true;
   $(function () {
     /*var pop = function () {
       var mask = document.getElementById('pop-mask');
@@ -487,6 +623,19 @@
     };
 //    loadData();
 
+
+    $('.js-view-prize').click(function(){
+      $('#popUpWrap').removeClass('hide');
+      $('.pop-up').height(180);
+    }) ;
+    $('.js-mask, .js-x').click(function(){
+      $('.pop-up').height('0');
+      setTimeout(function(){
+        $('#popUpWrap').addClass('hide');
+      },600);
+
+    }) ;
+
     var jslottery = new Jslottery({
       scroll_dom:'prize-cell',
       scroll_dom_css_value:'#ffff7e',
@@ -505,14 +654,36 @@
     btn.onclick = function () {
       /* 登陆判断 */
 
+      /* 判定是否已經參與過 */
+      if(isDraw){
+        var mask = document.getElementById('pop-mask');
+        var drawContainer = document.getElementById('draw-container');
+        var know_btn =document.getElementById('know');
+        var popTxt = document.getElementById('pop-draw');
+        popTxt.innerHTML = '亲，您已抽过奖啦～';
+        var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)');
+        mask.className = mask.className.replace(reg, '');
+        drawContainer.className = drawContainer.className.replace(reg, '');
+        know_btn.onclick = function () {
+          mask.className += ' hide';
+          drawContainer.className += ' hide';
+        };
+
+        return false;
+      }
+
       if(jslottery.options.flag) {
         jslottery.options.flag = false;
         ClickMe();
       }
+
+
+
     };
     function ClickMe(){
       jslottery.options.stop_position=parseInt(prize.s_id);
       jslottery.options.txt = prize.name;
+      jslottery.options.isDraw = isDraw;
     jslottery.options.speed=50;
 //    jslottery.options.speed_up_position=Math.floor(Math.random()*6+1);
 //    jslottery.options.speed_down_position=Math.floor(Math.random()*6+1);
