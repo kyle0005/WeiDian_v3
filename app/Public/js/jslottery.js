@@ -7,7 +7,7 @@
 			scroll_dom:null,
 			start_position:null,
 			stop_position:null,
-			speed:50,
+			speed:null,
 			speedUp:Math.floor(Math.random()*30+20),
 			speedDown:Math.floor(Math.random()*100+600),
 			speed_up_position:Math.floor(Math.random()*6+1),
@@ -122,10 +122,10 @@
       var ok_btn =document.getElementById('ok');
       var cancel_btn =document.getElementById('cancel');
       var popTxt = document.getElementById('pop-txt');
-      popTxt.innerHTML = global.options.stop_position;
+      popTxt.innerHTML = global.options.txt;
       var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)');
-      mask.className = mask.className.replace(reg, ' ');
-      popContainer.className = popContainer.className.replace(reg, ' ');
+      mask.className = mask.className.replace(reg, '');
+      popContainer.className = popContainer.className.replace(reg, '');
       ok_btn.onclick = function () {
         mask.className += ' hide';
         popContainer.className += ' hide';

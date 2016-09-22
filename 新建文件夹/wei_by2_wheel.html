@@ -218,15 +218,14 @@
       border: 1px solid red;
       border-radius: 4px;
       text-align: center;
-      margin-right: 10px;
     }
     .ok{
       display: inline-block;
-      width: 60%;
+      width: 30%;
       line-height: 30px;
-      color: #fff;
-      background-color: red;
-      border: 1px solid red;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #333;
       border-radius: 4px;
       text-align: center;
     }
@@ -340,7 +339,7 @@
       </ul>
     </div>
     <div class="info-area">
-      <div class="view-prize"><a href="javascript:;" class="js-view-prize">查看奖品</a></div>
+      <div class="view-prize"><a href="https://h5.koudaitong.com/v2/showcase/usercenter?kdt_id=38629" class="js-view-prize">查看奖品</a></div>
       <ul class="activity-info">
         <li>1.活动有效时间：
           <div class="activity-info-content">2016.09.18 17:41:40 至 2016.09.30 23:59:00</div>
@@ -383,8 +382,8 @@
         恭喜抽中&nbsp;100元&nbsp;店铺优惠券!
       </div>
       <div class="pop-btn">
-        <!--<a href="javascript:;" class="cancel" id="cancel">取消</a>-->
-        <a href="javascript:;" class="ok" id="ok">免费领取</a>
+        <a href="javascript:;" class="cancel" id="cancel">取消</a>
+        <a href="javascript:;" class="ok" id="ok">确认</a>
       </div>
   </div>
 </div>
@@ -496,10 +495,6 @@
       callback:function(data){}
     });
 
-/*    $(document).on('click', '#pop-mask', function () {
-      $(this).addClass('hide');
-    });*/
-
     var btn = document.getElementById('machine-control');
     jslottery.options.flag = true;
     btn.onclick = function () {
@@ -513,7 +508,7 @@
     function ClickMe(){
       jslottery.options.stop_position=parseInt(prize.s_id);
       jslottery.options.txt = prize.name;
-    jslottery.options.speed=50;
+//    jslottery.options.speed=50;
 //    jslottery.options.speed_up_position=Math.floor(Math.random()*6+1);
 //    jslottery.options.speed_down_position=Math.floor(Math.random()*6+1);
 //    jslottery.options.speedUp=Math.floor(Math.random()*30+20);
@@ -522,6 +517,8 @@
       jslottery.start();
     }
   });
+
+
 
 </script>
 </body>
