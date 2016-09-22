@@ -79,9 +79,11 @@
     }
     .machine li img{
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 50%;
+      left: 50%;
+      margin-left: -26%;
+      top: 20%;
+      width: 52%;
+
     }
     .machine li::after{
       background-color:#ffc027;
@@ -147,68 +149,259 @@
       width: calc(25% - 2px);
       padding-bottom: calc(25% - 2px);
     }
+    .pop-mask{
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: rgba(0,0,0,.5);
+      overflow: hidden;
+    }
+    .share-container{
+      position: relative;
+      font-weight: bold;
+      color: #fff;
+      width: 66.67%;
+      margin: 25% auto;
+    }
+    .share-container div{
+      line-height: 28px;
+    }
+    .share-img{
+      position: absolute;
+      right: -30px;
+      top: -50px;
+      width: 40%;
+    }
+    .more-img{
+      width: 16px;
+      margin-left: 5px;
+      margin-top: -4px;
+    }
+    .friends-img{
+      width: 16px;
+      margin-left: 5px;
+      margin-top: -5px;
+    }
+    .pop-container{
+      position: absolute;
+      top:50%;
+      margin-top: -10%;
+      left: 50%;
+      margin-left: -40%;
+      height: 20%;
+      width: 80%;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .pop-txt{
+      width: 90%;
+      height: 40%;
+      padding: 5%;
+      overflow: hidden;
+      text-align: center;
+      color: red;
 
+    }
+    .pop-btn{
+      width: 100%;
+      text-align: center;
+    }
+    .cancel{
+      display: inline-block;
+      width: 30%;
+      line-height: 30px;
+      color: #fff;
+      background-color: red;
+      border: 1px solid red;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .ok{
+      display: inline-block;
+      width: 30%;
+      line-height: 30px;
+      color: #333;
+      background-color: #fff;
+      border: 1px solid #333;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .show{
+      display: block;
+    }
+    .hide{
+      display: none;
+    }
+    .by2-con{
+      width: 100%;
+      height: 100%;
+      background: url("Public/img/rolling/bg.png") repeat top left;
+    }
   </style>
 </head>
 <body>
-<div class="wheel-container">
-  <div class="machine">
-    <ul class="top-row clearfix">
-      <li class="prize-cell" data-id="1" >
-        <img src="Public/img/rolling/pkg.png">
-      </li>
-      <li class="prize-cell dark" data-id="2" >
-        <img src="Public/img/rolling/smile.png">
-      </li>
-      <li class="prize-cell" data-id="3" >
-        <img src="Public/img/rolling/pkg.png">
-      </li>
-      <li class="prize-cell dark" data-id="4" >
-        <img src="Public/img/rolling/pkg.png">
-      </li>
-    </ul>
-    <div class="middle-row clearfix">
-      <ul class="middle-row-left">
-        <li class="prize-cell" data-id="12" >
+<div class="by2-con">
+  <div class="wheel-container">
+    <div class="machine">
+      <ul class="top-row clearfix">
+        <li class="prize-cell" data-id="1" >
+          <img src="Public/img/rolling/pkg.png">
+        </li>
+        <li class="prize-cell dark" data-id="2" >
           <img src="Public/img/rolling/smile.png">
         </li>
-        <li class="prize-cell" data-id="11" >
+        <li class="prize-cell" data-id="3" >
+          <img src="Public/img/rolling/pkg.png">
+        </li>
+        <li class="prize-cell dark" data-id="4" >
           <img src="Public/img/rolling/pkg.png">
         </li>
       </ul>
-      <div class="machine-control-cell">
-        <div class="machine-control" onclick="ClickMe(event)">
-          <img src="Public/img/rolling/btn.png">
+      <div class="middle-row clearfix">
+        <ul class="middle-row-left">
+          <li class="prize-cell" data-id="12" >
+            <img src="Public/img/rolling/smile.png">
+          </li>
+          <li class="prize-cell" data-id="11" >
+            <img src="Public/img/rolling/pkg.png">
+          </li>
+        </ul>
+        <div class="machine-control-cell">
+          <a href="javascript:;" class="machine-control" id="machine-control">
+            <img src="Public/img/rolling/btn.png">
+          </a>
         </div>
+        <ul class="middle-row-right">
+          <li class="prize-cell" data-id="5" >
+            <img src="Public/img/rolling/smile.png">
+          </li>
+          <li class="prize-cell" data-id="6" >
+            <img src="Public/img/rolling/pkg.png">
+          </li>
+        </ul>
       </div>
-      <ul class="middle-row-right">
-        <li class="prize-cell" data-id="5" >
+      <ul class="bottom-row">
+        <li class="prize-cell" data-id="10">
           <img src="Public/img/rolling/smile.png">
         </li>
-        <li class="prize-cell" data-id="6" >
+        <li class="prize-cell" data-id="9" >
+          <img src="Public/img/rolling/pkg.png">
+        </li>
+        <li class="prize-cell" data-id="8" >
+          <img src="Public/img/rolling/smile.png">
+        </li>
+        <li class="prize-cell" data-id="7" >
           <img src="Public/img/rolling/pkg.png">
         </li>
       </ul>
     </div>
-    <ul class="bottom-row">
-      <li class="prize-cell" data-id="10">
-        <img src="Public/img/rolling/smile.png">
-      </li>
-      <li class="prize-cell" data-id="9" >
-        <img src="Public/img/rolling/pkg.png">
-      </li>
-      <li class="prize-cell" data-id="8" >
-        <img src="Public/img/rolling/smile.png">
-      </li>
-      <li class="prize-cell" data-id="7" >
-        <img src="Public/img/rolling/pkg.png">
-      </li>
-    </ul>
   </div>
 </div>
 
+<div class="pop-mask hide" id="pop-mask">
+  <div class="share-container hide" id="share-container">
+    <img src="Public/img/rolling/share.png" class="share-img" />
+    <div>为家人祈福接力</div>
+    <div>1、点击右上角<img src="Public/img/rolling/more.png" class="more-img" /></div>
+    <div>2、选择分享到朋友圈<img src="Public/img/rolling/friends.png" class="friends-img" /></div>
+  </div>
+  <div class="pop-container hide" id="pop-container">
+      <div class="pop-txt" id="pop-txt">
+        恭喜抽中&nbsp;100元&nbsp;店铺优惠券!
+      </div>
+      <div class="pop-btn">
+        <a href="javascript:;" class="cancel" id="cancel">取消</a>
+        <a href="javascript:;" class="ok" id="ok">确认</a>
+      </div>
+  </div>
+</div>
 <script type="text/javascript" src="Public/js/jslottery.js"></script>
 <script type="text/javascript">
+  /*
+   *   img, id
+   *    s_id
+  *
+  * */
+  var products = [
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'1'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'2'
+    },
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'3'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'4'
+    },
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'5'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'6'
+    },
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'7'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'8'
+    },
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'9'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'10'
+    },
+    {
+      img:'Public/img/rolling/pkg.png',
+      id:'11'
+    },
+    {
+      img:'Public/img/rolling/smile.png',
+      id:'12'
+    }
+  ];
+  var prize = {
+    s_id: '',
+    name: ''
+  };
+  var pop = function () {
+    var mask = document.getElementById('pop-mask');
+    var popContainer = document.getElementById('pop-container');
+    var shareContainer = document.getElementById('share-container');
+    var ok_btn =document.getElementById('ok');
+    var cancel_btn =document.getElementById('cancel');
+
+    var popTxt = document.getElementById('pop-txt');
+    popTxt.innerHTML = global.options.stop_position;
+    var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)');
+    mask.className = mask.className.replace(reg, ' ');
+    popContainer.className = popContainer.className.replace(reg, ' ');
+
+    ok_btn.onclick = function () {
+      mask.className += ' hide';
+      popContainer.className += ' hide';
+    };
+    cancel_btn.onclick = function () {
+      mask.className += ' hide';
+      popContainer.className += ' hide';
+    };
+  } ;
+
   var jslottery = new Jslottery({
     scroll_dom:'prize-cell',
     scroll_dom_css_value:'#ffff7e',
@@ -218,16 +411,28 @@
     callback:function(data){}
   });
 
+  var btn = document.getElementById('machine-control');
+  jslottery.options.flag = true;
+  btn.onclick = function () {
+    /* 登陆判断 */
+
+    if(jslottery.options.flag) {
+      jslottery.options.flag = false;
+      ClickMe();
+    }
+  };
   function ClickMe(){
     jslottery.options.stop_position=Math.floor(Math.random()*12+1);
-    jslottery.options.speed=Math.floor(Math.random()*200+300);
-    jslottery.options.speed_up_position=Math.floor(Math.random()*6+1);
-    jslottery.options.speed_down_position=Math.floor(Math.random()*6+1);
-    jslottery.options.speedUp=Math.floor(Math.random()*30+20);
-    jslottery.options.speedDown=Math.floor(Math.random()*100+600);
-    jslottery.options.total_circle=Math.floor(Math.random()*5+2);
+//    jslottery.options.speed=50;
+//    jslottery.options.speed_up_position=Math.floor(Math.random()*6+1);
+//    jslottery.options.speed_down_position=Math.floor(Math.random()*6+1);
+//    jslottery.options.speedUp=Math.floor(Math.random()*30+20);
+//    jslottery.options.speedDown=Math.floor(Math.random()*100+600);
+    jslottery.options.total_circle=Math.floor(Math.random()*5+1);
     jslottery.start();
   }
+
+
 </script>
 </body>
 </html>

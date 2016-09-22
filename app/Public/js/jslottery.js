@@ -1,30 +1,27 @@
-/*
- * @title Jslottery
- * @author Topthinking
- */
  var Jslottery = (function(){
 
 	var global;
-	
+  var flag = true;
 	function Jslottery(opt){
 		var options = {
 			scroll_dom:null,
 			start_position:null,
 			stop_position:null,
-			speed:null,
-			speedUp:null,
-			speedDown:null,
-			speed_up_position:null,
-			speed_down_position:null,
+			speed:50,
+			speedUp:Math.floor(Math.random()*30+20),
+			speedDown:Math.floor(Math.random()*100+600),
+			speed_up_position:Math.floor(Math.random()*6+1),
+			speed_down_position:Math.floor(Math.random()*6+1),
 			total_circle:null,
 			scroll_dom_css_value:null,
 			scroll_dom_attr:null,
 			scroll_dom_css:null,
+      flag: true,
 			callback:function(){}
 		};
 
 		this.options = this.js_extend(options,opt);
-		
+
 		this.fixs = {
 			timeout:false,
 			original_speed:null,
@@ -44,8 +41,8 @@
 			global = this;
 			global.judge_null();
 			global.judge_dom();
-			global.fixs.num = global.options.scroll_dom.length;	
-			global.domstyle();	
+			global.fixs.num = global.options.scroll_dom.length;
+			global.domstyle();
 		},
 
 		js_extend:function(destination,source){
@@ -56,9 +53,9 @@
 
 		judge_null:function(){
 			var self = global.options;
-			if(self.scroll_dom==null || 
-			   self.scroll_dom_attr==null || 
-			   self.scroll_dom_css==null || 
+			if(self.scroll_dom==null ||
+			   self.scroll_dom_attr==null ||
+			   self.scroll_dom_css==null ||
 			   self.scroll_dom_css_value==null){
 			   	global.fixs.error=true;
 				self.callback({'status':'-1','data':'param error'});
@@ -89,7 +86,7 @@
 			}
 		},
 
-		start:function(opt){
+		start:function(){
 			if(global.fixs.error){
 				global.options.callback({'status':'-1','data':'param error'});
 				return false;
@@ -97,23 +94,48 @@
 			if(global.fixs.run)
 				global.options.callback({'status':'0','data':'Jslottery will start running'});
 			global.fixs.run=0;
-			if(global.fixs.timeout){   
+			if(global.fixs.timeout){
 				global.fixs.curC=0;
 				global.fixs.steps=0;
 				global.options.speed = global.fixs.original_speed;
-				global.fixs.timeout = false;			
+				global.fixs.timeout = false;
 				global.stop();
 				clearTimeout(global.start);
 				return false;
 			}
-			global.changeNext();
-			setTimeout(global.start,global.options.speed);
+
+      global.changeNext();
+      setTimeout(global.start,global.options.speed);
+
 		},
 
 		stop:function(){
 			global.options.callback({'status':'1','data':global});
 			global.fixs.run=1;
+      global.options.flag = true;
+      global.pop();
 		},
+    pop:function () {
+		  var mask = document.getElementById('pop-mask');
+      var popContainer = document.getElementById('pop-container');
+      var shareContainer = document.getElementById('share-container');
+      var ok_btn =document.getElementById('ok');
+      var cancel_btn =document.getElementById('cancel');
+      var popTxt = document.getElementById('pop-txt');
+      popTxt.innerHTML = global.options.stop_position;
+      var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)');
+      mask.className = mask.className.replace(reg, ' ');
+      popContainer.className = popContainer.className.replace(reg, ' ');
+      ok_btn.onclick = function () {
+        mask.className += ' hide';
+        popContainer.className += ' hide';
+      };
+      cancel_btn.onclick = function () {
+        mask.className += ' hide';
+        popContainer.className += ' hide';
+      };
+
+    },
 
 		speedUp:function(){
 			if(global.fixs.steps==global.options.speed_up_position)
@@ -136,15 +158,15 @@
 
 			var self = global.options;
 			global.fixs.steps++;
-			
+
 			if(global.options.start_position==global.fixs.num+1){
 				global.options.start_position=1;
 				global.fixs.curC++;
 			}
 
-			global.speedUp();
+			/*global.speedUp();
 
-			global.speedDown();
+			global.speedDown();*/
 
 			if(global.options.start_position==self.stop_position && global.fixs.curC==self.total_circle+1){
 				global.fixs.timeout = true;
@@ -165,7 +187,7 @@
 
 					original_json[self.scroll_dom_css] = self.start_position==1 ? fix.dom_style[fix.num] : fix.dom_style[self.start_position-1];
 					self.scroll_dom[i].style.cssText=self.scroll_dom_css+":"+scroll_json[self.scroll_dom_css];
-					
+
 					for(var j=0;j<fix.num;j++){
 						if(self.start_position==1)
 						{
