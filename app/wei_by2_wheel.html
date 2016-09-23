@@ -156,7 +156,7 @@
       width: 100%;
       height: 100%;
       z-index: 10;
-      background: rgba(0,0,0,.5);
+      background: rgba(0,0,0,.85);
       overflow: hidden;
     }
     .share-container{
@@ -328,12 +328,13 @@
     .list-content {
       position: relative;
       display: block;
+      border-bottom: 1px solid #f5f5f5;
     }
     .order-pro-img {
       float: left;
       display: inline-block;
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       vertical-align: top;
       margin-right: 10px;
     }
@@ -345,7 +346,7 @@
       display: block;
       margin-left: 70px;
       padding-bottom: 5px;
-      border-bottom: 1px solid #f5f5f5;
+      /*border-bottom: 1px solid #f5f5f5;*/
       color: #999;
       font-size: 12px;
     }
@@ -353,10 +354,15 @@
       float: left;
       width: 70%;
     }
+    .order-list-t{
+      color: #333;
+      margin-bottom: 5px;
+    }
     .order-list-price {
-      float: right;
+      float: left;
+      display: inline-block;
       text-align: right;
-      width: 30%;
+      width: 20%;
       height: 50px;
     }
     .overTextH {
@@ -366,10 +372,17 @@
       text-overflow: ellipsis;
       overflow: hidden;
     }
+    .overTextH3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden
+    }
     .order-total {
       margin-top: 10px;
       margin-bottom: 10px;
-      margin-left: 70px;
+      margin-left: 10px;
       padding: 0 10px;
       font-size: 12px;
       color: #333;
@@ -465,8 +478,8 @@
 
 </div>
 
-<div class="pop-mask hide" id="pop-mask">
-  <div class="share-container hide" id="share-container">
+<div class="pop-mask " id="pop-mask">
+  <div class="share-container " id="share-container">
     <img src="Public/img/rolling/share.png" class="share-img" />
     <div>为家人祈福接力</div>
     <div>1、点击右上角<img src="Public/img/rolling/more.png" class="more-img" /></div>
@@ -504,9 +517,8 @@
               </span>
             <span class="order-list-con clearfix">
                   <span class="order-list-title">
-                      <span class="overTextH">广福寺释迦牟尼佛纪念章</span>
-                      <span class="color-999">
-                                                    </span>
+                      <span class="order-list-t overTextH">广福寺释迦牟尼佛纪念章</span>
+                      <span class="overTextH3 color-999">广福寺释迦牟尼佛纪念章广福寺释迦牟尼佛纪念章广福寺释迦寺释迦牟尼佛纪念章广福寺释迦寺释迦牟尼佛纪念章广福寺释迦牟尼佛纪念章</span>
                   </span>
                   <span class="order-list-price mt10 text-right">
                       ¥0.1<br><span class="color-999">x1</span>
@@ -587,28 +599,16 @@
   };
   var isDraw = true;
   $(function () {
-    /*var pop = function () {
+    var popShare = function () {
       var mask = document.getElementById('pop-mask');
-      var popContainer = document.getElementById('pop-container');
       var shareContainer = document.getElementById('share-container');
-      var ok_btn =document.getElementById('ok');
-      var cancel_btn =document.getElementById('cancel');
 
-      var popTxt = document.getElementById('pop-txt');
-      popTxt.innerHTML = global.options.stop_position;
       var reg = new RegExp('(\\s|^)' + 'hide' + '(\\s|$)');
       mask.className = mask.className.replace(reg, ' ');
-      popContainer.className = popContainer.className.replace(reg, ' ');
+      shareContainer.className = shareContainer.className.replace(reg, ' ');
 
-      ok_btn.onclick = function () {
-        mask.className += ' hide';
-        popContainer.className += ' hide';
-      };
-      cancel_btn.onclick = function () {
-        mask.className += ' hide';
-        popContainer.className += ' hide';
-      };
-    } ;*/
+    };
+//    popShare();
 
     var loadData = function () {
       var li_items=document.getElementsByClassName("prize-cell");
@@ -626,7 +626,7 @@
 
     $('.js-view-prize').click(function(){
       $('#popUpWrap').removeClass('hide');
-      $('.pop-up').height(180);
+      $('.pop-up').height(200);
     }) ;
     $('.js-mask, .js-x').click(function(){
       $('.pop-up').height('0');
