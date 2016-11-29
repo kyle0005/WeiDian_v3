@@ -30,7 +30,9 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
     $(this).addClass(chosenClassName);
     var ind = $(this).index();
     $(tab_obj).addClass('hide');
-    $(tab_obj).eq(ind).removeClass('hide');
+
+    var _id = $(this).attr('id');
+    $('#' + _id + '_tab').removeClass('hide');
     ind == 0 ? configs.tab = true : configs.tab = false;
   });
 }
@@ -421,68 +423,7 @@ function loadData(data) {
   //chat
   insertChat(data);
 
-
-
 }
-
-/*function playerVideo(){
-  $(document).on('click', '.video-player', function () {
-    $('.video-player').show();
-    $('.px-video-container').remove();
-    $('.q-player').remove();
-
-    var vod_url = $(this).data('url');
-    var id =  'v_' + $(this).data('id');
-    var vod_type = $(this).data('type');
-    var player = '';
-    $(this).hide();
-    if(vod_type == 'online') {
-      player = '<div class="px-video-container text-center" id="'
-        + id
-        + '">'
-        + '<div class="px-video-img-captions-container">'
-        + '<div class="px-video-captions hide"></div>'
-        + '<video width="272" height="153" poster="'
-          //+ img_src
-        + '" controls >'
-        + '<source src="'
-        + vod_url
-        + '"/>'
-        + '</video>'
-        + '</div>'
-        + '<div class="px-video-controls"></div>'
-        + '</div>';
-
-      $(this).parents('.js-media').append(player);
-
-      //加载播放器
-      new InitPxVideo({
-        "videoId": id,
-        "captionsOnDefault": true,
-        "seekInterval": 20,
-        "videoTitle": "video",
-        "debug": true
-      });
-      $('#' + id).find('video')[0].play();
-    }
-    else{
-      player = '<div class="q-player" id="' +
-        id +
-        '"></div>';
-      $(this).parents('.js-media').append(player);
-      var option = {
-        "auto_play": "1",
-        "file_id": vod_url,
-        "app_id": configs.app_id,
-        "width": 272,
-        "height": 153
-      };
-      /!*调用播放器进行播放*!/
-      new qcVideo.Player(id, option);
-    }
-
-  });
-}*/
 
 function insertLive(data) {
   var msg = data.news.newMessage;
@@ -532,20 +473,6 @@ function insertLive(data) {
         'controls="controls" preload="metadata"' +
         'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
 
-        //live_data += '<a href="javascript:;" class="video-player" data-type="' +
-        //  msg[i].vod.type +
-        //  '" data-url="'
-        //    + msg[i].vod.url
-        //    + '" data-id="'
-        //    + msg[i].id
-        //    + '">'
-        //    + '<img src="'
-        //    + msg[i].vod.cover
-        //    + '"/>'
-        //    + '<img class="video-player-btn" src="'
-        //    + configs.video_player
-        //    + '"/>'
-        //    + '</a>';
       }
 
       live_data += '</div>'

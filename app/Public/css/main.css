@@ -7668,11 +7668,20 @@ i.icon-lotus:before {
   z-index: 100;
   opacity: .96
 }
-
+.live-tab ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .live-tab ul li {
+  -moz-box-flex: 1.0; /* Firefox */
+  -webkit-box-flex: 1.0; /* Safari 和 Chrome */
+  box-flex: 1.0;
+  flex-grow: 1;
   float: left;
-  width: 33.33%;
   text-align: center;
+  min-width: calc(100% / 3);
   height: 42px;
   line-height: 42px
 }
