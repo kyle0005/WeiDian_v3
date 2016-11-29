@@ -547,20 +547,7 @@ function insertTop(data) {
         'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
 
 
-      //live_top += '<a href="javascript:;" class="video-player" data-type="' +
-      //  msg.vod.type +
-      //  '" data-url="'
-      //  + msg.vod.url
-      //  + '" data-id="'
-      //  + msg.id
-      //  + '">'
-      //  + '<img src="'
-      //  + msg.vod.cover
-      //  + '"/>'
-      //  + '<img class="video-player-btn" src="'
-      //  + configs.video_player
-      //  + '"/>'
-      //  + '</a>';
+
     }
     else if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
       live_top += '<div style="width:100%; margin: 0 auto;">' +
