@@ -31,14 +31,7 @@
   </header>
   <div class="main-img">
     <div class="main-title-con">
-      <div id="top-contanier">
-        <div id="logo-container">
-          <img src="Public/img/liveLogo.png"/>
-        </div>
-        <div id="live-container">
-          <div id="id_video_container"></div>
-        </div>
-      </div>
+      <img src="Public/img/liveLogo.png"/>
       <div class="main-join-line color-b08654">乐山大佛线</div>
       <div class="main-join-num">1234214241人参与</div>
     </div>
@@ -48,23 +41,33 @@
       <li class="live-cur" id="_live">
         <a href="javascript:;"><i class="icon-facetime-video"></i>&ensp;直播</a>
       </li>
-      <li class="hide" id="_chat">
+      <li class="" id="_chat">
         <a href="javascript:;"><i class="icon-comments"></i>&ensp;聊天室</a>
       </li>
       <li class="" id="_lotus">
-        <a href="javascript:;"><i class="icon-lotus"></i>&ensp;相关作品</a>
+        <a href="javascript:;"><i class="icon-lotus"></i>&ensp;信物信物</a>
       </li>
     </ul>
     <div class="check-new hide">
+      <!--<a href="#" class="check-new-l">-->
+      <!--有新消息，点击查看-->
+      <!--</a>-->
       <a href="javascript:;" class="check-new-m">
         有新消息，点击查看
       </a>
     </div>
+
   </div>
+
 </section>
 <section class="js-tab-container">
   <div class="tab-ops" id="_live_tab">
     <div class="js-stick-msg js-media mt10 ml10 mr10 mb5 clearfix"></div>
+    <!--<div class="text-center pb10 bb ml10 mr10">-->
+    <!--<a href="javascript:;" class="js-up-date live-date color-666"><i class="icon-caret-up"></i></a>-->
+    <!--&nbsp;<span class="js-live-date color-666">2016-03-23</span>&nbsp;-->
+    <!--<a href="javascript:;" class="js-down-date live-date color-666"><i class="icon-caret-down"></i></a>-->
+    <!--</div>-->
     <div class="wei-container10">
       <div id="live-carousel" class="carousel slide">
         <!-- 轮播（Carousel）项目 -->
@@ -101,6 +104,31 @@
     </div>
     <div class="live-date-container"></div>
     <ul class="js-live-list ml10 mr10 mt5">
+      <!--<li class="live-li clearfix" id="live-7" data-iscurrent=1 data-currentdate="2016-01-01">  1:日期变； 0：日期不变
+        <div class="js-live-time live-time">09:30<img src="Public/img/lotus.png"></div>
+        <div class="live-content">
+          <div class="js-live-text">id==7用以切入 O2O 市场。两月后，又宣布出资 283 亿入股苏宁，占股约 20%，以此链接物流业务和传统企业。阿里宣布将收购优酷土豆剩余股份，后者收购估值约为
+            44 亿美金。
+          </div>
+          <div class="my-gallery js-media">
+            <a href="javascript:;" class="video-player" data-url="Public/video/demo3.mp4" data-id="myvid">
+              <img src="Public/video/poster_PayPal_Austin2.jpg"/>
+            </a>
+            <div class="px-video-container text-center" id="myvid">
+              <div class="px-video-img-captions-container">
+                <div class="px-video-captions hide"></div>
+                <video width="272" height="153" poster="Public/video/poster_PayPal_Austin2.jpg" controls>
+                  <source src="Public/video/demo3.mp4" type="video/mp4" />
+                  <source src="Public/video/demo3.ogg" type="video/ogg" />
+                  <source src="Public/video/demo3.webm" type="video/webm" />
+                </video>
+              </div>
+              <div class="px-video-controls"></div>
+            </div>
+
+          </div>
+        </div>
+      </li>-->
     </ul>
   </div>
   <div class="tab-ops hide" id="_chat_tab">
@@ -273,6 +301,7 @@
 <script src="Public/js/px-video.js"></script>
 <script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js"></script>
 <script src="Public/js/stick.multi.js"></script>
+
 <script type="text/javascript">
   var configs = {
     news: {
@@ -285,7 +314,6 @@
       url: "http://127.0.0.1:8000/data.php?action=chat",
       last_id: 1
     },
-    live_url: 'http://play.video.qcloud.com/live.html?app_id=1251951972&channel_id=16093104850682363958&sw=950&sh=593',
     tab: true,    //true:live, false:chat
     img_url: "Public/img/lotus.png",
     video_player: "Public/img/video_player.png",
@@ -427,10 +455,14 @@
           }
         ],
         "stickMessage": {
-          "id": "5",
+          "id": "3",
           "content": "置顶消息当然，这种写法也可以省略列名。",
-          "imgs": ['Public/img/ppp2.png?size=800x488', 'Public/img/ppp1.png?size=800x488', 'Public/img/ppp3.png?size=800x488'],
-          "vod": '',
+          "imgs": 0,
+          "vod": {
+            url: '14651978969257355611',    //视频地址
+            cover: 'http://p.qpic.cn/videoyun/0/200006282_e1fd96f8fd3d11e5b46593dd5cf957c6_1/640',   //图片地址
+            type: 'qcloud'    //q播放
+          },
           "vod_id": "0",
           "live_url": "",
           "username": null,
@@ -554,9 +586,31 @@
       "lastChatId": 1
     };
 
+    //监听是否有新的数据插入或者有数据被删除
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    var target = document.querySelector('.js-live-list');
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' && mutation.addedNodes != undefined && mutation.addedNodes.length != 0 && mutation.addedNodes[0].nodeType == 1) {
+//          alert(mutation.addedNodes[0].querySelector('.js-live-text').innerText)
+          var _node = mutation.addedNodes[0];
+
+        }
+        if (mutation.type === 'childList' && mutation.removedNodes != undefined && mutation.removedNodes.length != 0 && mutation.removedNodes[0].nodeType == 1) {
+//          alert(mutation.removedNodes[0].querySelector('.js-live-text').innerText)
+        }
+      });
+    });
+    var config = { attributes: false, childList: true, characterData: false };
+    observer.observe(target, config);
+//  observer.disconnect();
+
+
+
     initPhotoSwipeFromDOM('.my-gallery');
 
     loadData(data);
+
 
     //滚动到底部自动加载数据
     $(window).scroll(function () {
@@ -617,17 +671,14 @@
 //        $('.live-date').fadeOut();
       }
 
+
     });
 
+
+
   });
+
 </script>
 <script src="Public/js/live.js"></script>
-<script>
-  $(function () {
-    if(configs.live_url != undefined && configs.live_url != '' && configs.live_url != null ){
-      vodLive(configs.live_url);
-    }
-  });
-</script>
 </body>
 </html>

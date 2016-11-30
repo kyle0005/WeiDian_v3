@@ -567,6 +567,7 @@ function insertTop(data) {
 }
 
 function vodLive(live_url){
+  var wid = $(document).width();
   //live
   var PLAY_INFO = (function(){
     var ps = (window.location.href.split('?')[1] || '').split('&')
@@ -603,7 +604,7 @@ function vodLive(live_url){
     new qcVideo.Player("id_video_container", {
       "channel_id": live_url,
       "app_id": configs.app_id,
-      "width": 414,
+      "width": wid,
       "height": 244,
       "https": 0
     });

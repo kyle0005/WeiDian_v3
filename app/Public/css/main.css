@@ -7720,6 +7720,10 @@ i.icon-lotus:before {
   text-align: center;
   color: #fff
 }
+.main-title-con #live-container{
+  width:100%;
+  margin: 0 auto;
+}
 
 .main-title {
   margin-top: 9.1176%
