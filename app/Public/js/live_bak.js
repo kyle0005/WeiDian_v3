@@ -1,5 +1,6 @@
 /**
  * Created by Administrator on 2016/3/1 0001.
+ * live上个版本备份
  */
 //tab切换
 function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
