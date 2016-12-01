@@ -1,6 +1,104 @@
 /**
  * Created by Administrator on 2016/3/1 0001.
  */
+!(function ($, Hammer) {
+  initPhotoSwipeFromDOM('.my-gallery');
+  //滚动到底部自动加载数据
+  $(window).scroll(function () {
+    if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+      configs.tab == true ? livePages(true) : chatPages();
+    }
+
+    if(configs.live_url != undefined && configs.live_url != '' && configs.live_url != null ){
+      vodLive(configs.live_url);
+    }
+
+    /* 滚动news改变时间 */
+    var _vartop = $('.js-live-list').offset().top;
+    var _varscroll = parseInt($(document).scrollTop());
+    if(_varscroll > _vartop){
+      var _dateTop = parseFloat($('.live-date').offset().top);
+      var _tops = [];
+      $.each($('.live-li:visible'), function (i, item) {
+        var dat = parseFloat($(this).offset().top + $(this).height()/2 - (_dateTop + $('.live-date').height()/2));
+        _tops[i] = Math.abs(dat);
+      });
+      var _index = _tops.indexOf(Math.min.apply(null, _tops));
+      var lis = $('.live-li:visible');
+      var _li = lis[_index];
+      if($(_li).data('iscurrent') == 1 && $(_li).data('currentdate') != $('.live-date').html()){
+        $('.live-date').html($(_li).data('currentdate'));
+        if($(_li).prev() != undefined){
+          $(_li).prev().data('iscurrent', '1');
+        }
+      }
+    }
+
+  });
+
+  //轮播
+  if($('#live-carousel').length > 0){
+    $('#live-carousel').carousel({interval: false});
+//touch事件
+    var myElement = document.getElementById('live-carousel');
+
+    var hammertime = new Hammer(myElement);
+    hammertime.on('panleft', function (ev) {
+      $(myElement).carousel('next');            //将轮播转到下一帧。
+    });
+    hammertime.on('panright', function (ev) {
+      $(myElement).carousel('prev');            //将轮播转到上一帧。
+    });
+  }
+
+  /* 聊天室回复弹窗提示 */
+  $(document).on('click', '.new-chat', function () {
+    JQbox.confirm({
+      title: "提示",
+      content: "确认回复？",
+      buttons: {
+        "确定": function () {
+          $("#dialog").dialog("close");
+          surecall.call(this);
+
+          $('#popUpWrap').removeClass('none');
+          $('.pop-up').height(130);
+          $('.new-chat').data('id');
+
+          $(document).scrollTop(0);
+        },
+        "取消": function () {
+          $(this).dialog("close");
+          cancelcall.call(this);
+        }
+      }
+    });
+  });
+  $('.new-chat').click(function () {
+    $('#popUpWrap').removeClass('none');
+    $('.pop-up').height(130);
+    $(this).data('id');
+  });
+  //点击蒙层处或者叉滑出
+  $('.js-mask, .js-x, .js-cac, .js-sen').click(function () {
+    $('.pop-up').height('0');
+    setTimeout(function () {
+      $('#popUpWrap').addClass('none');
+    }, 600);
+
+  });
+
+  initHtml();
+  _lazyLoad();
+  $('.js-live-tab').stickUp();
+  $('.live-date').stickUp({
+    topMargin: 42
+  });
+  var til = $('.main-title-con').height();
+  tabClick($('.js-live-tab'), 'live-cur', til);
+
+})(jQuery, Hammer);
+
 //tab切换
 function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
   var click_obj = $(tabObj).find('li');
@@ -36,19 +134,6 @@ function tabClick(tabObj, chosenClassName, til) {        //Tab切换选项
     ind == 0 ? configs.tab = true : configs.tab = false;
   });
 }
-
-window.onload=function(){
-  //$.getScript(configs.base_path+'js/stick.multi.js',function(){
-    initHtml();
-    $('.js-live-tab').stickUp();
-    $('.live-date').stickUp({
-      topMargin: 42
-    });
-  //});
-  var til = $('.main-title-con').height();
-  tabClick($('.js-live-tab'), 'live-cur', til);
-
-};
 function initHtml(){
   var str = '<div class="live-date" data-currentdate="' +
     configs.news.current_date +
@@ -56,75 +141,7 @@ function initHtml(){
     configs.news.current_date +
     '</div>';
   $('.live-date-container').append(str);
-  changeDate();
 }
-//滚动news改变时间
-function changeDate(){
-  $(document).scroll(function () {
-    var _vartop = $('.js-live-list').offset().top;
-    var _varscroll = parseInt($(document).scrollTop());
-    if(_varscroll > _vartop){
-      var _dateTop = parseFloat($('.live-date').offset().top);
-      var _tops = [];
-      $.each($('.live-li:visible'), function (i, item) {
-        var dat = parseFloat($(this).offset().top + $(this).height()/2 - (_dateTop + $('.live-date').height()/2));
-        _tops[i] = Math.abs(dat);
-      });
-      var _index = _tops.indexOf(Math.min.apply(null, _tops));
-      var lis = $('.live-li:visible');
-      var _li = lis[_index];
-      if($(_li).data('iscurrent') == 1 && $(_li).data('currentdate') != $('.live-date').html()){
-        $('.live-date').html($(_li).data('currentdate'));
-        if($(_li).prev() != undefined){
-          $(_li).prev().data('iscurrent', '1');
-        }
-      }
-    }
-  });
-}
-
-//加减日期天数
-$('.js-up-date').click(function () {
-  var dateTxt = $('.js-live-date').html();
-  var date = addDate(dateTxt, 1);    //天数加一
-  if (!date) {
-    //console.log('false');
-  } else {
-    $('.js-live-date').html(date);
-    configs.news.date = date;
-    livePages(false);
-  }
-
-});
-$('.js-down-date').click(function () {
-  var dateTxt = $('.js-live-date').html();
-  var date = addDate(dateTxt, -1);    //天数减一
-  $('.js-live-date').html(date);
-  configs.news.date = date;
-  livePages(false);
-});
-function addDate(date, days) {
-  var today = new Date();
-  var d = new Date(date);
-  if (days > 0) {
-    //加
-    if (today.getTime() - d.getTime() < 24 * 60 * 60 * 1000) {
-      return false;
-    }
-  }
-  d.setDate(d.getDate() + days);
-  var month = d.getMonth() + 1;
-  var day = d.getDate();
-  if (month < 10) {
-    month = "0" + month;
-  }
-  if (day < 10) {
-    day = "0" + day;
-  }
-  var v = d.getFullYear() + "-" + month + "-" + day;
-  return v;
-}
-
 //live分页
 function livePages(flag) {
   if (configs.news.last_id > 0) {
@@ -143,33 +160,10 @@ function livePages(flag) {
           configs.news.current_date = result.currentDate;
           $(list).html(result.html);
         }
-        $("img.lazy").lazyload({
-          appear: function () {
-            //图片加载时
-            $(this).addClass('lazy-container');
-          },
-          load: function () {
-            //图片加载后
-            $(this).removeClass('lazy-container');
-          },
-          event:'scroll',
-          placeholder: "Public/img/loading_bg.png"
-        });
-
-        $("video.lazy").lazyload({
-          event:'scroll'
-        });
-
-        $(window).bind("load", function() {
-          var timeout = setTimeout(function() {
-            $("img.lazy").trigger("scroll");         //触发scroll事件
-            $("video.lazy").trigger("scroll");
-          }, 0);
-        });
+        _lazyLoad();
       }
     });
   }
-
 }
 //chat分页
 function chatPages() {
@@ -186,25 +180,7 @@ function chatPages() {
     });
   }
 }
-
-//轮播
-if($('#live-carousel').length > 0){
-  $('#live-carousel').carousel({interval: false});
-//touch事件
-  var myElement = document.getElementById('live-carousel');
-
-  var hammertime = new Hammer(myElement);
-  hammertime.on('panleft', function (ev) {
-    $(myElement).carousel('next');            //将轮播转到下一帧。
-  });
-  hammertime.on('panright', function (ev) {
-    $(myElement).carousel('prev');            //将轮播转到上一帧。
-  });
-}
-
-
-//图片点击全屏显示
-var initPhotoSwipeFromDOM = function (gallerySelector) {
+function initPhotoSwipeFromDOM (gallerySelector) {
   // parse slide data (url, title, size ...) from DOM elements
   // (children of gallerySelector)
   var parseThumbnailElements = function (el) {
@@ -410,78 +386,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
     openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
   }
 };
-// execute above function
-
-//直播数据加载
-function loadData(data) {
-  //live
-  insertLive(data);
-  //del
-  delData(data);
-  //live_top
-  insertTop(data);
-  //chat
-  insertChat(data);
-
-}
-
-function insertLive(data) {
-  var msg = data.news.newMessage;
-  //live
-  if (msg != undefined && msg !== '' && msg != null) {
-    var live_data = '';
-    $.each(msg, function (i, item) {
-      live_data = '<li class="live-li clearfix" id="live-'
-        + msg[i].id
-        + '" data-iscurrent="' +
-        msg[i].is_current +
-        '" data-currentdate="' +
-        msg[i].current_date +
-        '">'
-        + '<div class="js-live-time live-time">'
-        + msg[i].create_time
-        + '<img src="' + configs.img_url
-        + '">'
-        + '</div>'
-        + '<div class="live-content">'
-        + '<div class="js-live-text">'
-        + msg[i].content
-        + '</div>';
-
-      if (msg[i].imgs != undefined && msg[i].imgs != 0 && msg[i].imgs != '0') {
-        live_data += '<div class="my-gallery js-media">';
-        $.each(msg[i].imgs, function (i, item) {
-          var path = item.split('?size=');
-          live_data += '<figure>'
-            + '<a href="'
-            + item
-            + '" data-size="800x800">'
-            + '<img class="lazy" data-original="' +
-            path[0] + '@153h' +
-            '"/></a>'
-            + '</figure>';
-        });
-        live_data += '</div>';
-      }
-      if (msg[i].vod !== null && msg[i].vod != undefined && msg[i].vod != '0' &&  msg[i].vod != '') {
-        live_data += '<video class="lazy" data-original="' +
-          msg[i].vod.url +
-          '"' +
-        'data-poster="' +
-          msg[i].vod.cover +
-          '"' +
-        'controls="controls" preload="metadata"' +
-        'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
-
-      }
-
-      live_data += '</div>'
-        + '</li>';
-
-      $('.js-live-list').prepend(live_data);
-      initPhotoSwipeFromDOM('.my-gallery');
-    });
-
+function _lazyLoad() {
     $("img.lazy").lazyload({
       appear: function () {
         //图片加载时
@@ -505,64 +410,7 @@ function insertLive(data) {
         $("video.lazy").trigger("scroll");
       }, 0);
     });
-  }
 }
-function insertTop(data) {
-  var msg = data.news.stickMessage;
-  //live-top
-  if (msg != undefined && msg !== '' && msg != null && msg != false) {
-    var live_top = '<div class="ptop" id="stick-'
-      + msg.id
-      + '">'
-      +'<div class="ptop-content">'
-      + msg.content
-      +'</div>';
-
-    if (msg.imgs != undefined && msg.imgs != 0 && msg.imgs != '0') {
-      live_top += '<div class="my-gallery">';
-      $.each(msg.imgs, function (i, item) {
-        var path = item.split('?size=');
-        live_top += '<figure>'
-          + '<a href="'
-          + item
-          + '" data-size="800x800">'
-          + '<img src="'
-          + path[0] + '@153h'
-          + '"/></a>'
-          + '</figure>';
-      });
-      live_top += '</div>';
-    }
-    else if (msg.vod != null && msg.vod != undefined && msg.vod != '0' && msg.vod != '') {
-      live_top += '<video src="' +
-        msg.vod.url +
-        '"' +
-        'poster="' +
-        msg.vod.cover +
-        '"' +
-        'controls="controls" preload="metadata"' +
-        'style="width:100%;max-width:30rem;max-height:30rem;"></video>';
-
-
-
-    }
-    else if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
-      live_top += '<div style="width:100%; margin: 0 auto;">' +
-        '<div id="id_video_container"></div>' +
-        '</div>';
-
-    }
-    live_top += '</div>';
-    $('.js-stick-msg').html(live_top);
-    initPhotoSwipeFromDOM('.my-gallery');
-
-    if(msg.live_url != null && msg.live_url != undefined && msg.live_url != '0' && msg.live_url != ''){
-      vodLive(msg.live_url);
-    }
-
-  }
-}
-
 function vodLive(live_url){
   var wid = $(document).width();
   //live
@@ -607,97 +455,4 @@ function vodLive(live_url){
     });
 
   })();
-}
-
-function insertChat(data) {
-  var msg = data.chats.newMessage;
-  var chats_data = '';
-  //chat
-  if (msg != undefined && msg !== '' && msg != null && msg != false) {
-    $.each(msg, function (i, item) {
-        //回复数据
-        chats_data += '<li class="is-reply relative mt10 mr10 ml10 bb" onclick="javascript:;" id="chat-'
-          + msg[i].id + '-' + (msg[i].reply_id > 0 ? msg[i].reply_id : 0)
-          + '" data-id="'
-          + msg[i].id
-          + '">'
-          + '<div class="clearfix">'
-          + '<div class="chat-img">'
-          + '<a href="javascript:;"><img src="'
-          + msg[i].avatar
-          + '"/></a>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<span>'
-          + msg[i].username
-          + '</span><span class="pull-right">'
-          + msg[i].create_time
-          + '</span>'
-          + '<p class="mt5 mb10 color-333">'
-          + msg[i].content
-          + '</p>'
-          + '</div>'
-          + '</div>';
-      if(msg[i].reply != undefined){
-        chats_data += '<div class="chat-reply">'
-          + '<div class="chat-img text-center">'
-          + '<i class="color-b08654 icon-mail-reply icon-rotate-180"></i>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<div class="chat-img">'
-          + '<a href="javascript:;"><img src="'
-          + msg[i].reply.avatar
-          + '"/></a>'
-          + '</div>'
-          + '<div class="chat-content color-999 clearfix">'
-          + '<span>'
-          + msg[i].reply.username
-          + '</span>'
-          + '<p class="mt5 mb10 color-333 mr10">'
-          + msg[i].reply.content
-          + '</p>'
-          + '</div>'
-          + '</div>'
-          + '</div>';
-      }
-      chats_data += '</li>';
-    });
-    $('.js-chat-list').prepend(chats_data);
-  }
-
-}
-
-function delData(data) {
-  var delMsg = data.news.delMessage;
-  if (delMsg != false) {
-    $.each(delMsg, function (i, con) {
-      var obj = $('#live-' + delMsg[i].id);
-      if($('#stick-' + delMsg[i].id).length > 0){
-        $('#stick-' + delMsg[i].id).remove();
-        $(obj).show();
-      }else{
-          if(data.newsStickId == delMsg[i].id){
-            $(obj).hide();
-          }else{
-            if($(obj).isHidden){
-              $(obj).show();
-            }else{
-              $(obj).remove();
-            }
-          }
-      }
-    });
-  }
-
-  var delChats = data.chats.delMessage;
-  if (delChats != false) {
-    var _reId = 0;
-    $.each(delChats, function (j, item) {
-      _reId = delChats[j].reply_id > 0 ? delChats[j].reply_id : 0;
-        //删除回复内容
-      $('#chat-' + delChats[j].id + '-' + _reId).remove();
-
-    });
-  }
-
 }

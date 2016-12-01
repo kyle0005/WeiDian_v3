@@ -7706,6 +7706,11 @@ i.icon-lotus:before {
   font-size: 14px;
   min-height: 50px
 }
+.ptop video{
+  width:100%;
+  max-width:30rem;
+  max-height:30rem;
+}
 
 .ptop-content {
   margin-bottom: 5px;
