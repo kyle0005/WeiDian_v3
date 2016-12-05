@@ -7713,8 +7713,17 @@ i.icon-lotus:before {
 }
 
 .ptop-content {
+  position: relative;
   margin-bottom: 5px;
   min-height: 50px
+}
+.top-link {
+  line-height: 14px;
+  color: #5f679e;
+}
+.top-link img{
+  height: 14px;
+  margin-right: 2px;
 }
 
 .main-title-con {
@@ -8008,7 +8017,7 @@ textarea:focus {
 }
 
 .live-token-con {
-  min-height: 47px;
+  /*min-height: 47px;*/
   line-height: 16px
 }
 
@@ -8040,6 +8049,22 @@ input.sub-chat-inp {
 
 .chat-a span {
   display: block
+}
+a.opt-btn{
+  position: absolute;
+  bottom: 15px;
+  width: 20%;
+  color: #b08654;
+  border: 1px solid #b08654;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 24px;
+}
+a.opt-rent{
+  right: calc(20% + 10px);
+}
+a.opt-buy{
+  right: 0;
 }
 
 .pswp {
