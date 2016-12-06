@@ -51,34 +51,7 @@
     });
   }
 
-  /* 聊天室回复弹窗提示 */
-  $(document).on('click', '.new-chat', function () {
-    JQbox.confirm({
-      title: "提示",
-      content: "确认回复？",
-      buttons: {
-        "确定": function () {
-          $("#dialog").dialog("close");
-          surecall.call(this);
 
-          $('#popUpWrap').removeClass('none');
-          $('.pop-up').height(130);
-          $('.new-chat').data('id');
-
-          $(document).scrollTop(0);
-        },
-        "取消": function () {
-          $(this).dialog("close");
-          cancelcall.call(this);
-        }
-      }
-    });
-  });
-  $('.new-chat').click(function () {
-    $('#popUpWrap').removeClass('none');
-    $('.pop-up').height(130);
-    $(this).data('id');
-  });
   //点击蒙层处或者叉滑出
   $('.js-mask, .js-x, .js-cac, .js-sen').click(function () {
     $('.pop-up').height('0');
