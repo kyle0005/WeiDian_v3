@@ -13,7 +13,7 @@
     <link href="Public/css/main.css" rel="stylesheet">
     <link href="Public/css/font-awesome.css" rel="stylesheet">
     <link href="Public/css/button.css" rel="stylesheet">
-  <!-- 加积分和余额开关按钮，先积分后余额 -->
+  <!-- 加积分开关按钮和显示余额已被扣文本，先减积分后余额 -->
 </head>
 <body>
 <header class="nav-wrap">
@@ -74,6 +74,16 @@
   </section>
   <section class="wei-iContainer">
     <div class="ml10 mr10">
+      <div class="clearfix bb lh40">
+        <div class="pull-left">
+          积分
+        </div>
+        <div class="pull-right clearfix">
+          <span class="switch-cont">
+            <input class="switch" type="checkbox" unchecked>
+          </span>
+        </div>
+      </div>
       <div class="clearfix bb lh40">
         <div class="pull-left">
           订单优惠

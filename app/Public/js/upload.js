@@ -48,8 +48,23 @@
 
                     },
                     FileUploaded: function (up, file, info) {
+                      /*
+                      *   {
+                      *   "jsonrpc":"2.0",
+                      *   "error":{"code":102,"message":"\u4e0a\u4f20\u6587\u4ef6\u5927\u5c0f\u4e0d\u7b26\uff01"},
+                      *   "id":"id"
+                      *   }
+                      *
+                      * */
+
                         if (info.response) {
-                            //单个文件可重复上传
+                          if (info.response.indexOf("error") != 0)
+                          {
+                            var j_data = JSON.parse(info.response);
+                            JQbox.alert(j_data.error.message);
+                            return false;
+                          }
+                          //单个文件可重复上传
                             if(singleRepeat){
                                 $.each(up.files, function (i, file) {
                                     $('#'+c_id).parent('.upload-container').find('.img_up').remove();
