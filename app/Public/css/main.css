@@ -7787,6 +7787,21 @@ i.icon-lotus:before {
   text-align: center;
   color: #fff
 }
+
+a.live-btn{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+img.play-btn{
+  position: absolute;
+  top: 50%;
+  margin-top: -10%;
+  left: 50%;
+  margin-left: -10%;
+  width: 20%;
+}
+
 .main-title-con #live-container{
   width:100%;
   margin: 0 auto;

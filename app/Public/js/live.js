@@ -3,14 +3,34 @@
  */
 !(function ($, Hammer) {
   initPhotoSwipeFromDOM('.my-gallery');
-  //滚动到底部自动加载数据
+
+  var logo_contanier = $('#logo-container');
+  if(configs.live_url != undefined && configs.live_url != '' && configs.live_url != null ){
+    //如果有直播
+    var live_html = '<a href="javascript:;" class="live-btn">' +
+      '<img src="' +
+      configs.play_btn +
+      '" class="play-btn">' +
+      '<img src="' +
+      configs.banner_img +
+      '"/>' +
+      '</a>';
+    $(logo_contanier).append(live_html);
+    $(document).on('click', '.live-btn', function () {
+      $(logo_contanier).empty();
+      vodLive(configs.live_url);
+    });
+  }else {
+    //没有直播
+    var nolive = '<img src="' +
+      configs.banner_img +
+      '"/>';
+    $(logo_contanier).append(nolive);
+  }
+
   $(window).scroll(function () {
     if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
       configs.tab == true ? livePages(true) : chatPages();
-    }
-
-    if(configs.live_url != undefined && configs.live_url != '' && configs.live_url != null ){
-      vodLive(configs.live_url);
     }
 
     /* 滚动news改变时间 */

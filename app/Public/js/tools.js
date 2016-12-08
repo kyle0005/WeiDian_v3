@@ -198,5 +198,5 @@ var buyNow = new Object({
     prices = prices <= 0 ? 0 : prices;
     return (parseFloat(prices).toFixed(2)).toString();
   }
-})
+});
 
