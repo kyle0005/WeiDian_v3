@@ -58,7 +58,7 @@
                       * */
 
                         if (info.response) {
-                          if (info.response.indexOf("error") != 0)
+                          if (info.response.indexOf("error") != -1)
                           {
                             var j_data = JSON.parse(info.response);
                             JQbox.alert(j_data.error.message);

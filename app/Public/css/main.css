@@ -7773,6 +7773,9 @@ i.icon-lotus:before {
 .top-link {
   line-height: 14px;
   color: #5f679e;
+  padding-left: 14px;
+  background: url("../img/link2.png") no-repeat left center;
+  background-size: 12px auto;
 }
 .top-link img{
   height: 14px;
@@ -7796,10 +7799,10 @@ a.live-btn{
 img.play-btn{
   position: absolute;
   top: 50%;
-  margin-top: -10%;
+  margin-top: -8%;
   left: 50%;
-  margin-left: -10%;
-  width: 20%;
+  margin-left: -8%;
+  width: 16%;
 }
 
 .main-title-con #live-container{
