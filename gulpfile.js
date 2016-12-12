@@ -13,14 +13,6 @@ gulp.task('styles', function () {
   return gulp.src('app/Public/css/*.css')
     .pipe($.plumber())                      //plumber():Prevent pipe breaking caused by errors from gulp plugins
     .pipe($.sourcemaps.init())
-    .pipe(
-    $.sass.sync({
-      outputStyle: 'expanded',
-      precision: 10,                //@type: Number  @default: 3  当输出十进制数字时，使用多少位的精度
-      includePaths: ['.']           /* includePaths是一个由字符串组成的数组,表示路径,来表明任何@imported所引入的文件在哪。
-       如果你使用了data选项,且包含@import,建议你使用这个选项,否则libsass可能找不到依赖文件。 */
-    }).on('error', $.sass.logError)
-  )
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/Public/styles'))

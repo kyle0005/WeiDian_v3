@@ -63,7 +63,21 @@ module.exports = function (grunt) {
         ]
       }
     },
-
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : [
+            '<%= config.app %>/Public/css/*.css',
+            '<%= config.app %>/*.html'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: './app'
+        }
+      },
+      proxy: "localhost:9000"
+    },
     // The actual grunt server settings
     connect: {
       options: {
@@ -375,6 +389,9 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
+
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
@@ -386,7 +403,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'wiredep',
+      // 'wiredep',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',

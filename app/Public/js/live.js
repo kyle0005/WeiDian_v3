@@ -2,7 +2,6 @@
  * Created by Administrator on 2016/3/1 0001.
  */
 !(function ($, Hammer) {
-  initPhotoSwipeFromDOM('.my-gallery');
 
   var logo_contanier = $('#logo-container');
   if(configs.live_url != undefined && configs.live_url != '' && configs.live_url != null ){
@@ -89,6 +88,9 @@
   });
   var til = $('.main-title-con').height();
   tabClick($('.js-live-tab'), 'live-cur', til);
+
+  window.location.hash = '';
+  initPhotoSwipeFromDOM('.my-gallery');
 
 })(jQuery, Hammer);
 
@@ -328,7 +330,8 @@ function initPhotoSwipeFromDOM (gallerySelector) {
         return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
       },
       // Tap on sliding area should close gallery
-      tapToClose: true
+      tapToClose: true,
+      history: false
 
     };
 
