@@ -6,17 +6,87 @@ html, body{
   position: relative;
   width: 100%;
   height: 100%;
+  background-color: #000;
+  color: #fcfcfc;
 }
-.show-page{
+.p1-content{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.p1-content1{
+  top: 10%;
+}
+.p1-content1 img{
+  width: 18.472%;
+}
+.p1-content2{
+  bottom: 1%;
+  opacity: .2;
+}
+.p1-content2 img{
+  width: 59.722%;
+}
+.p1-text{
+  position: absolute;
+  top:10%;
+  right: 6.8%;
+  width: 30px;
+}
+.p1-text-en{
+  float: right;
   width: 50%;
-  height: 50%;
-  background-color: #00a300;
-
-  transition: transform 0.4s linear;
-  transform-origin: center top 0px;
-  transform: translateY(0px);
-
-  transition: none;
-  transform-origin: center top 0px;
-  transform: scale(1);
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg); 	/* IE 9 */
+  -moz-transform:rotate(90deg); 	/* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+  -o-transform:rotate(90deg); 	/* Opera */
 }
+.p1-text-cn{
+  float: left;
+  width: 50%;
+  line-height: 15px;
+  text-align: right;
+}
+
+.p2-content{
+  position: absolute;
+  width: 100%;
+}
+.p2-content1{
+  top: 10%;
+  right: -100%;
+  text-align: right;
+}
+.p2-content1 img{
+  width: 15.2777%;
+}
+.p2-content2{
+  left: -100%;
+  bottom: 0;
+  text-align: center;
+}
+.p2-content2 img{
+  width: 59.722%;
+}
+.p2-text{
+  margin: -10% auto 0;
+  writing-mode:vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+}
+.part-det{
+  margin-left: 3%;
+}
+.p2-text p{
+  line-height: 20px;
+  letter-spacing: 0.1em;
+}
+.t-code{
+  text-combine-upright: all;
+  -ms-text-combine: horizontal;
+  -webkit-text-combine: horizontal;
+  text-combine: horizontal;
+}
+

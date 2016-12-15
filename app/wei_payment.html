@@ -34,8 +34,23 @@
     </p>
     <p class="pb20" style="text-align: left;height: 40px;margin-left: 23%;">
         订单号：<span>1939488327124312</span><br>
-      应付金额：<span class="color-theme2">￥3064.00</span>
+      应付金额：<span id="account" class="color-theme2">￥3064.00</span>
     </p>
+</section>
+<section class="pl10 pr10">
+  <div class="clearfix bb lh40">
+    已使用余额抵扣<span id="balance" class="pay-balance" data-v="100">￥100</span>
+  </div>
+  <div class="clearfix bb lh40">
+    <div class="pull-left">
+      <span class="point-detail">积分抵扣</span>
+    </div>
+    <div class="pull-right clearfix">
+          <span class="switch-cont">
+            <input class="switch" type="checkbox"  name="user_point" value="800.00"  unchecked id="user_point">
+          </span>
+    </div>
+  </div>
 </section>
 <section class="pay-module">
     <div class="pay-m-title">选择支付方式：</div>
@@ -85,6 +100,20 @@
 <script src="Public/js/jinniu.mobile.js"></script>
 <script>
     $(function () {
+      var account = 3064.00;
+      var point_rate = 1.0;   /* 转化率 */
+      var _dis = 0, _point = parseFloat($('#user_point').val());
+      _dis = parseFloat(_point * point_rate);
+      $('#user_point').change(function () {
+        if($(this).attr('checked')){
+          $('.point-detail').html('已使用积分' + _point);
+        }else{
+          _dis = 0;
+          $('.point-detail').html('可用积分' + _point);
+        }
+        $('#account').html('￥' + parseFloat(account - _dis));
+      });
+
        $('.js-chs-a').click(function () {
          $('.js-bank-info').addClass('hide');
 

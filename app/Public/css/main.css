@@ -4108,7 +4108,9 @@ input.reg-redBorder {
   width: 100%;
   padding-left: 0
 }
-
+.pay-balance{
+  float: right;
+}
 .pay-m-title {
   height: 45px;
   line-height: 45px;
