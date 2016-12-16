@@ -6,20 +6,11 @@ $(function () {
     afterLoad: function(anchorLink, index){
       //section 1
       if(index == 1){
-        $('#section0').find('.p1-content2').delay(50).animate({
-          bottom: '10%',
-          opacity: '1'
-        }, 1200, 'easeOutExpo');
+        $('#p1-container').show();
       }
       //section 2
       if(index == 2){
-        $('#section1').find('.p2-content1').delay(50).animate({
-          right: '10.8333%'
-        }, 1200, 'easeOutExpo');
-
-        $('#section1').find('.p2-content2').delay(50).animate({
-          left: '-50%'
-        }, 1200, 'easeOutExpo');
+        $('#p2-container').show();
 
       }
       //section 3
@@ -44,14 +35,13 @@ $(function () {
 
     },
     onLeave :function(index, nextIndex, direction){
-//section 1
+    //section 1
       if(index == 1){
-        $('#section0').find('.p1-content2').removeAttr('style');
+        $('#p1-container').hide();
       }
       //section 2
       if(index == 2){
-        $('#section1').find('.p2-content1').removeAttr('style');
-        $('#section1').find('.p2-content2').removeAttr('style');
+        $('#p2-container').hide();
 
       }
       //section 3

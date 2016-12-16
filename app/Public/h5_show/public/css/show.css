@@ -900,7 +900,29 @@
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn
 }
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3,.3,.3);
+    transform: scale3d(.3,.3,.3)
+  }
 
+  50% {
+    opacity: 1
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3,.3,.3);
+    transform: scale3d(.3,.3,.3)
+  }
+
+  50% {
+    opacity: 1
+  }
+}
 @-webkit-keyframes zoomOut {
   0% {
     opacity: 1
@@ -2466,11 +2488,11 @@
   }
 }
 /* 动画效果结束 */
+
 html, body{
   width: 100%;
   height: 100%;
 }
-
 .show-container{
   position: relative;
   width: 100%;
@@ -2478,30 +2500,37 @@ html, body{
   background-color: #000;
   color: #fcfcfc;
 }
-.p1-content{
+#p1-container{
+  display: none;
+}
+.p1-content1{
   position: absolute;
+  top: 10%;
   left: 0;
   width: 100%;
   text-align: center;
 }
-.p1-content1{
-  top: 10%;
-}
-.p1-content1 img{
+.p1-effect-txt{
   width: 18.472%;
+  animation: zoomIn 1s ease 0s 1 both;
 }
 .p1-content2{
-  bottom: 1%;
-  opacity: .2;
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
-.p1-content2 img{
+.p1-effect-img{
   width: 59.722%;
+  animation: fadeInUp 1s ease 0s 1 both;
 }
 .p1-text{
   position: absolute;
   top:10%;
   right: 6.8%;
   width: 30px;
+  animation: flipInY 2s ease 0s 1 both;
 }
 .p1-text-en{
   float: right;
@@ -2518,32 +2547,37 @@ html, body{
   line-height: 15px;
   text-align: right;
 }
-
-.p2-content{
-  position: absolute;
-  width: 100%;
+#p2-container{
+  display: none;
 }
 .p2-content1{
+  position: absolute;
+  width: 100%;
   top: 10%;
-  right: -100%;
+  right: 10.8333%;
   text-align: right;
 }
-.p2-content1 img{
+.p2-effect-txt{
   width: 15.2777%;
+  animation: fadeInRight 1s ease 0s 1 both;
 }
 .p2-content2{
-  left: -100%;
-  bottom: 0;
+  position: absolute;
+  width: 100%;
+  left: -50%;
+  bottom: -4%;
   text-align: center;
 }
-.p2-content2 img{
+.p2-effect-img{
   width: 59.722%;
+  animation: fadeInLeft 1s ease 0s 1 both;
 }
 .p2-text{
   margin: -10% auto 0;
   writing-mode:vertical-rl;
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: rl-tb;
+  animation: zoomIn 2s ease 0s 1 both;
 }
 .part-det{
   margin-left: 3%;
@@ -2558,4 +2592,57 @@ html, body{
   -webkit-text-combine: horizontal;
   text-combine: horizontal;
 }
+.p3-content1 img, .p3-content3 img, .p3-content4 img, .p3-content6 img{
+  width: 100%;
+}
+.p3-content1{
+  position: absolute;
+  top: 15.7%;
+  left: 7.83%;
+  width: 40.138%;
+}
+.p3-content2{
+  position: absolute;
+  top:17%;
+  left: 52%;
+  width: 30px;
+  line-height: 13px;
+}
+.p3-master{
+  display: block;
+  float: right;
+  width: 50%;
+}
+.p3-det{
+  display: block;
+  float: left;
+  width: 50%;
+}
+.p3-content3{
+  position: absolute;
+  width: 15.2777%;
+  top: 10%;
+  right: 10.8333%;
+}
 
+.p3-content4{
+  position: absolute;
+  top: 50%;
+  margin-top: -12.91665%;
+  left: 50%;
+  margin-left: -12.91665%;
+  width: 25.8333%;
+}
+.p3-content5{
+  position: absolute;
+  bottom: 10%;
+  left: 38.888%;
+  width: 15px;
+  line-height: 13px;
+}
+.p3-content6{
+  position: absolute;
+  bottom: 10%;
+  right: 10.8333%;
+  width: 40.1388%;
+}
