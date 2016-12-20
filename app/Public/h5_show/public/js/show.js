@@ -5188,18 +5188,15 @@
   };
 });
 ;$(function () {
+
   $('#fullpage').fullpage({
     css3: true,
     afterLoad: function(anchorLink, index){
-      // $('#p'+ index + '-container').show();
       //section 1
       if(index == 1){
-        // $('#p1-container').show();
       }
       //section 2
       if(index == 2){
-        // $('#p2-container').show();
-
       }
       //section 3
       if(index == 3){
@@ -5224,40 +5221,68 @@
         $('#p' + nextIndex + '-container').show();
       }, 150);
 
-    /*//section 1
+    //section 1
       if(index == 1){
-        $('#p1-container').delay(1000).hide();
       }
       //section 2
       if(index == 2){
-        $('#p2-container').delay(1000).hide();
       }
       //section 3
       if(index == 3){
-        console.log("3");
       }
 
       //section 4
       if(index == 4){
-        console.log("4");
       }
 
       //section 5
       if(index == 5){
-        console.log("5");
       }
 
       //section 6
       if(index == 6){
-        console.log("6");
-      }*/
+      }
     },
     afterRender: function () {
       $('#p1-container').show();
-    },
-    afterResize: function(){},
-    afterResponsive: function(isResponsive){},
-    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
-    onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
+    }
   });
+
+  var _pop_txt = '<div class="js-pop pop-container">' +
+    '<section class="pop-title">' +
+    '<span>我的租赁申请</span>' +
+    '</section>' +
+    '<section class="pop-content">' +
+    '<form action="">' +
+    '<div>' +
+    '<input type="text" class="" placeholder="申请人姓名">' +
+    '</div>' +
+    '<div>' +
+    '<input type="text" class="" placeholder="联系方式">' +
+    '</div>' +
+    '<div>' +
+    '<textarea class="" placeholder="备注"></textarea>' +
+    '</div>' +
+    '<div>' +
+    '<a href="javascript:;" class="js-sub pop-sub">提交申请</a>' +
+    '</div>' +
+    '</form>' +
+    '</section>' +
+    '<section class="pop-fork">' +
+    '<a href="javascript:;" class="js-fork fork"></a>' +
+    '</section>' +
+    '</div>';
+  var _pop = $('.js-pop');
+  $(document).on('click', '.js-rent', function () {
+    if(_pop.length > 0){
+      $(_pop).remove();
+    }
+    $(document.body).append(_pop_txt);
+
+
+  });
+  $(document).on('click', '.js-fork', function () {
+    $(this).parents('.js-pop').remove();
+  });
+
 });

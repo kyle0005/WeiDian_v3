@@ -2455,8 +2455,8 @@
 }
 
 .off {
-  background-image: url(http://as.eqxiu.com/h5_view/css/../images/normalmusic.svg);
-  background-size: contain
+  background-image: url(../img/music.png);
+  background-size: contain;
 }
 
 .rotate {
@@ -2508,7 +2508,65 @@ html, body{
   background-color: #000;
   color: #fcfcfc;
 }
-#p1-container, #p2-container{
+.ani-zoomIn{
+  -webkit-animation: zoomIn 2s ease 0s 1 both;
+  -moz-animation: zoomIn 2s ease 0s 1 both;
+  -o-animation: zoomIn 2s ease 0s 1 both;
+  animation: zoomIn 2s ease 0s 1 both;
+}
+.ani-fadeInUp{
+  -webkit-animation: fadeInUp 2s ease 0s 1 both;
+  -moz-animation: fadeInUp 2s ease 0s 1 both;
+  -o-animation: fadeInUp 2s ease 0s 1 both;
+  animation: fadeInUp 2s ease 0s 1 both;
+}
+.ani-flipInY{
+  -webkit-animation: flipInY 2s ease 0s 1 both;
+  -moz-animation: flipInY 2s ease 0s 1 both;
+  -o-animation: flipInY 2s ease 0s 1 both;
+  animation: flipInY 2s ease 0s 1 both;
+}
+.ani-fadeInRight{
+  -webkit-animation: fadeInRight 2s ease 0s 1 both;
+  -moz-animation: fadeInRight 2s ease 0s 1 both;
+  -o-animation: fadeInRight 2s ease 0s 1 both;
+  animation: fadeInRight 2s ease 0s 1 both;
+}
+.ani-fadeInLeft{
+  -webkit-animation: fadeInLeft 2s ease 0s 1 both;
+  -moz-animation: fadeInLeft 2s ease 0s 1 both;
+  -o-animation: fadeInLeft 2s ease 0s 1 both;
+  animation: fadeInLeft 2s ease 0s 1 both;
+}
+.ani-zoomIn{
+  -webkit-animation: zoomIn 2s ease 0s 1 both;
+  -moz-animation: zoomIn 2s ease 0s 1 both;
+  -o-animation: zoomIn 2s ease 0s 1 both;
+  animation: zoomIn 2s ease 0s 1 both;
+}
+.ani-puffIn {
+  -webkit-animation: puffIn 2s ease 0s 1 both;
+  -moz-animation: puffIn 2s ease 0s 1 both;
+  -o-animation: puffIn 2s ease 0s 1 both;
+  animation: puffIn 2s ease 1s 1 both;
+}
+.tips-container{
+  position: absolute;
+  left: 50%;
+  margin-left: -3.05%;
+  bottom: 10px;
+  z-index: 150;
+  width: 6.1%;
+}
+.tips-up{
+  position: relative;
+  width: 100%;
+  top: 50%;
+  -webkit-animation: start 1.5s infinite ease-in-out;
+  -moz-animation: start 1.5s infinite ease-in-out;
+  animation: start 1.5s infinite ease-in-out;
+}
+#p1-container, #p2-container, #p3-container, #p4-container, #p5-container{
   display: none;
 }
 .p1-content1{
@@ -2520,7 +2578,6 @@ html, body{
 }
 .p1-effect-txt{
   width: 18.472%;
-  animation: zoomIn 2s ease 0s 1 both;
 }
 .p1-content2{
   position: absolute;
@@ -2531,14 +2588,12 @@ html, body{
 }
 .p1-effect-img{
   width: 59.722%;
-  animation: fadeInUp 2s ease 0s 1 both;
 }
 .p1-text{
   position: absolute;
   top:10%;
   right: 6.8%;
   width: 30px;
-  animation: flipInY 2s ease 0s 1 both;
 }
 .p1-text-en{
   float: right;
@@ -2564,7 +2619,6 @@ html, body{
 }
 .p2-effect-txt{
   width: 100%;
-  animation: fadeInRight 2s ease 0s 1 both;
 }
 .p2-content2{
   position: absolute;
@@ -2575,14 +2629,12 @@ html, body{
 }
 .p2-effect-img{
   width: 100%;
-  animation: fadeInLeft 2s ease 0s 1 both;
 }
 .p2-text{
   margin: -10% auto 0;
   writing-mode:vertical-rl;
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: rl-tb;
-  animation: zoomIn 2s ease 0s 1 both;
 }
 .part-det{
   margin-left: 3%;
@@ -2820,4 +2872,91 @@ html, body{
   padding: 1.666% 7%;
   margin-top: 5%;
   margin-left: 1%;
+}
+.pop-container{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.85);
+  text-align: center;
+  -webkit-animation: zoomIn .2s ease 0s 1 both;
+  -moz-animation: zoomIn .2s ease 0s 1 both;
+  -o-animation: zoomIn .2s ease 0s 1 both;
+  animation: zoomIn .2s ease 0s 1 both;
+}
+.pop-container input, .pop-container textarea{
+  border-radius: 4px;
+  width: 51.95%;
+  padding: 1.8% 2.9% ;
+  margin-bottom: 2.777%;
+}
+.pop-sub{
+  display: block;
+  margin: 4.167% auto 0;
+  border-radius: 4px;
+  width: 51.95%;
+  padding: 1.8% 2.9% ;
+  background-color: #905641;
+  color: #fff;
+}
+.pop-title{
+  position: absolute;
+  top: 17%;
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
+.pop-title span{
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #fff;
+}
+.pop-content{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pop-fork{
+  position: absolute;
+  width: 100%;
+  bottom: 17%;
+}
+.pop-fork a.fork{
+  display: block;
+  width: 6.111%;
+  padding-bottom: 6.111%;
+  margin: 0 auto;
+  line-height: 12px;
+  background: url("../img/pop_fork.png") no-repeat center center;
+  background-size: auto 100%;
+}
+.pop-fork a.fork img{
+  width: 100%;
+}
+
+.p-voice {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+  width: 6.875%;
+  display: block;
+}
+.voice_img {
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+  background: url(../img/music.png) no-repeat center center;
+  background-size: 100% auto;
+}
+.play{
+  -webkit-animation: rotating 1.2s linear infinite;
+  -moz-animation: rotating 1.2s linear infinite;
+  -o-animation: rotating 1.2s linear infinite;
+  animation: rotating 1.2s linear infinite;
 }
