@@ -5188,104 +5188,56 @@
   };
 });
 ;$(function () {
-
-  $('#fullpage').fullpage({
-    css3: true,
-    afterLoad: function(anchorLink, index){
-      //section 1
-      if(index == 1){
-      }
-      //section 2
-      if(index == 2){
-      }
-      //section 3
-      if(index == 3){
-      }
-
-      //section 4
-      if(index == 4){
-      }
-
-      //section 5
-      if(index == 5){
-      }
-
-      //section 6
-      if(index == 6){
-      }
+  /* 初始化页面 */
+  var pageInit = {
+    loadHtml: function () {
 
     },
-    onLeave :function(index, nextIndex, direction){
-      $('#p' + index + '-container').hide();
-      var t = setTimeout(function () {
-        $('#p' + nextIndex + '-container').show();
-      }, 150);
-
-    //section 1
-      if(index == 1){
-      }
-      //section 2
-      if(index == 2){
-      }
-      //section 3
-      if(index == 3){
-      }
-
-      //section 4
-      if(index == 4){
-      }
-
-      //section 5
-      if(index == 5){
-      }
-
-      //section 6
-      if(index == 6){
-      }
+    loadAudio: function () {
+      var _audio = '<a href="javascript:;" class="p-voice" id="control">' +
+        '<audio id="audio" autoplay preload loop="loop">浏览器不支持html5的audio标签</audio>' +
+        '<span class="voice_img"></span>' +
+        '</a>';
+      $(document.body).append(_audio);
+      audioPlayer.loadVoice(config.music_url);
     },
-    afterRender: function () {
-      $('#p1-container').show();
+    loadPop: function () {
+      var _pop_txt = '<div class="js-pop pop-container">' +
+        '<section class="pop-title">' +
+        '<span>我的租赁申请</span>' +
+        '</section>' +
+        '<section class="pop-content">' +
+        '<form action="">' +
+        '<div>' +
+        '<input type="text" class="" placeholder="申请人姓名">' +
+        '</div>' +
+        '<div>' +
+        '<input type="text" class="" placeholder="联系方式">' +
+        '</div>' +
+        '<div>' +
+        '<textarea class="" placeholder="备注"></textarea>' +
+        '</div>' +
+        '<div>' +
+        '<a href="javascript:;" class="js-sub pop-sub">提交申请</a>' +
+        '</div>' +
+        '</form>' +
+        '</section>' +
+        '<section class="pop-fork">' +
+        '<a href="javascript:;" class="js-fork fork"></a>' +
+        '</section>' +
+        '</div>';
+      var _pop = $('.js-pop');
+      $(document).on('click', '.js-rent', function () {
+        if(_pop.length > 0){
+          $(_pop).remove();
+        }
+        $(document.body).append(_pop_txt);
+      });
+      $(document).on('click', '.js-fork', function () {
+        $(this).parents('.js-pop').remove();
+      });
     }
-  });
-
-  /* 弹窗 */
-  var _pop_txt = '<div class="js-pop pop-container">' +
-    '<section class="pop-title">' +
-    '<span>我的租赁申请</span>' +
-    '</section>' +
-    '<section class="pop-content">' +
-    '<form action="">' +
-    '<div>' +
-    '<input type="text" class="" placeholder="申请人姓名">' +
-    '</div>' +
-    '<div>' +
-    '<input type="text" class="" placeholder="联系方式">' +
-    '</div>' +
-    '<div>' +
-    '<textarea class="" placeholder="备注"></textarea>' +
-    '</div>' +
-    '<div>' +
-    '<a href="javascript:;" class="js-sub pop-sub">提交申请</a>' +
-    '</div>' +
-    '</form>' +
-    '</section>' +
-    '<section class="pop-fork">' +
-    '<a href="javascript:;" class="js-fork fork"></a>' +
-    '</section>' +
-    '</div>';
-  var _pop = $('.js-pop');
-  $(document).on('click', '.js-rent', function () {
-    if(_pop.length > 0){
-      $(_pop).remove();
-    }
-    $(document.body).append(_pop_txt);
-
-
-  });
-  $(document).on('click', '.js-fork', function () {
-    $(this).parents('.js-pop').remove();
-  });
-
+  };
   /* 音频 */
   var audioPlayer = {
     loadVoice: function (url) {
@@ -5375,7 +5327,69 @@
 
     }
   };
-  audioPlayer.loadVoice(config.music_url);
 
+  pageInit.loadHtml();
+  pageInit.loadAudio();
+  pageInit.loadPop();
+
+    /* 滑动翻屏 */
+  $('#fullpage').fullpage({
+    css3: true,
+    afterLoad: function(anchorLink, index){
+      //section 1
+      if(index == 1){
+      }
+      //section 2
+      if(index == 2){
+      }
+      //section 3
+      if(index == 3){
+      }
+
+      //section 4
+      if(index == 4){
+      }
+
+      //section 5
+      if(index == 5){
+      }
+
+      //section 6
+      if(index == 6){
+      }
+
+    },
+    onLeave :function(index, nextIndex, direction){
+      $('#p' + index + '-container').hide();
+      var t = setTimeout(function () {
+        $('#p' + nextIndex + '-container').show();
+      }, 150);
+
+    //section 1
+      if(index == 1){
+      }
+      //section 2
+      if(index == 2){
+      }
+      //section 3
+      if(index == 3){
+      }
+
+      //section 4
+      if(index == 4){
+      }
+
+      //section 5
+      if(index == 5){
+      }
+
+      //section 6
+      if(index == 6){
+      }
+    },
+    afterRender: function () {
+      $('#p1-container').show();
+    }
+  });
 
 });
