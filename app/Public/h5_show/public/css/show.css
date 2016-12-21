@@ -2559,8 +2559,12 @@ html, body{
   width: 6.1%;
 }
 .tips-up{
+  display: block;
   position: relative;
   width: 100%;
+  padding-bottom: 154.5454%;
+  background: url("../img/up.png") no-repeat center center;
+  background-size: auto 100%;
   top: 50%;
   -webkit-animation: start 1.5s infinite ease-in-out;
   -moz-animation: start 1.5s infinite ease-in-out;
@@ -2847,9 +2851,13 @@ html, body{
   width: 100%;
   text-align: center;
 }
-.p6-content2 img{
-  margin-bottom: 2%;
+.p6-tel{
+  display: block;
+  margin: 0 auto 2%;
   width: 6.111%;
+  padding-bottom: 6.111%;
+  background: url("../img/p6_tel.png") no-repeat center center;
+  background-size: auto 100%;
 }
 .p6-buy{
   display: inline-block;

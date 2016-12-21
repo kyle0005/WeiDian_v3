@@ -23,11 +23,11 @@
           <img src="public/img/p1_pro.png" class="p1-effect-img ani-fadeInUp">
         </div>
         <div class="p1-text clearfix ani-flipInY">
-          <span class="p1-text-en">JU&nbsp;BAO&nbsp;PENG</span>
-          <span class="p1-text-cn">作者<br>:<br>戴嘉林</span>
+          <span class="p1-text-en author-name-en">JU&nbsp;BAO&nbsp;PENG</span>
+          <span class="p1-text-cn">作者<br>:<br><span class="author-name">戴嘉林</span></span>
         </div>
         <div class="tips-container">
-          <img src="public/img/up.png" class="tips-up">
+          <span class="tips-up"></span>
         </div>
       </div>
     </div>
@@ -41,20 +41,22 @@
         </div>
         <div class="p2-text ani-zoomIn">
           <div class="part-det">
-            <p>【作&emsp;&emsp;者】&ensp;戴嘉林</p>
-            <p>【工&emsp;&emsp;艺】&ensp;景泰蓝</p>
-            <p>【规&emsp;&emsp;格】&ensp;高<span class="t-code">27</span><span class="t-code">cm</span></p>
+            <p>【作&emsp;&emsp;者】&ensp;<span class="author">戴嘉林</span></p>
+            <p>【工&emsp;&emsp;艺】&ensp;<span class="tech">景泰蓝</span></p>
+            <p>【规&emsp;&emsp;格】&ensp;高<span class="t-code specification">27</span><span class="t-code specification_unit">cm</span></p>
           </div>
           <div class="">
             <p>【产品介绍】</p>
-            <p>传说中财富之源，“传家聚宝盆”“顶盖由<span class="t-code">18</span>个金元宝堆起</p>
-            <p>一座“金山银山”，<span class="t-code">4</span>只红鲤鱼召集四面八方的才气，中间</p>
-            <p>有貔貅稳坐中军帐，招财进宝。两侧由两条手工錾刻金鱼吐</p>
-            <p>着玛瑙珠，形象生动，寓意着财源滚滚而来，源源不断。</p>
+            <div class="introduce">
+              <p>传说中财富之源，“传家聚宝盆”“顶盖由<span class="t-code">18</span>个金元宝堆起</p>
+              <p>一座“金山银山”，<span class="t-code">4</span>只红鲤鱼召集四面八方的才气，中间</p>
+              <p>有貔貅稳坐中军帐，招财进宝。两侧由两条手工錾刻金鱼吐</p>
+              <p>着玛瑙珠，形象生动，寓意着财源滚滚而来，源源不断。</p>
+            </div>
           </div>
         </div>
         <div class="tips-container">
-          <img src="public/img/up.png" class="tips-up">
+          <span class="tips-up"></span>
         </div>
       </div>
     </div>
@@ -78,7 +80,7 @@
           <img src="public/img/p3_pro3.png">
         </div>
         <div class="tips-container">
-          <img src="public/img/up.png" class="tips-up">
+          <span class="tips-up"></span>
         </div>
       </div>
     </div>
@@ -101,7 +103,7 @@
           <img src="public/img/p4_master.png" class="p4-master ani-puffIn">
         </div>
         <div class="tips-container">
-          <img src="public/img/up.png" class="tips-up">
+          <span class="tips-up"></span>
         </div>
       </div>
     </div>
@@ -121,7 +123,7 @@
           <img src="public/img/p1_pro.png" class="p5-pro ani-fadeInLeft">
         </div>
         <div class="tips-container">
-          <img src="public/img/up.png" class="tips-up">
+          <span class="tips-up"></span>
         </div>
       </div>
     </div>
@@ -132,7 +134,7 @@
           <div>扫一扫，”码”上了解详情</div>
         </div>
         <div class="p6-content2">
-          <img src="public/img/p6_tel.png">
+          <span class="p6-tel"></span>
           <div>400-119-2011</div>
           <div>
             <a href="javascript:;" class="p6-buy">在线购买</a>
@@ -181,13 +183,52 @@
   };
   var data = [
     {
-
+      page: 0,
+      text: 'public/img/p1_txt.png',
+      pro: 'public/img/p1_pro.png',
+      author_en: 'JU&nbsp;BAO&nbsp;PENG',
+      author: '戴嘉林'
     },
     {
-
+      page: 1,
+      text: 'public/img/p2_txt.png',
+      pro: 'public/img/p1_pro.png',
+      author: '戴嘉林',
+      tech: '景泰蓝',
+      specification: '27',
+      specification_unit: 'cm',
+      introduce: '<p>传说中财富之源，“传家聚宝盆”“顶盖由<span class="t-code">18</span>个金元宝堆起</p><p>一座“金山银山”，<span class="t-code">4</span>只红鲤鱼召集四面八方的才气，中间</p><p>有貔貅稳坐中军帐，招财进宝。两侧由两条手工錾刻金鱼吐</p><p>着玛瑙珠，形象生动，寓意着财源滚滚而来，源源不断。</p>'
     },
     {
-
+      page: 2,
+      text: 'public/img/p2_txt.png',
+      pro1: 'public/img/p3_pro1.png',
+      pro2: 'public/img/p3_pro2.png',
+      pro3: 'public/img/p3_pro3.png',
+      content1: '珍品之作',
+      content2: '戴嘉林大师',
+      content3: '中国景泰蓝色彩第一人',
+      specification_unit: 'cm'
+    },
+    {
+      page: 3,
+      link: '大师工作室',
+      linkTo: '',
+      introduce: '中国工艺美术大师,北京市特级工艺美术大师,高级工艺美术师兼中国知识产权文化大使,非物质文化遗产景泰蓝制作技艺代表性传承人,中国工艺美术学会金属艺术专业委员会常务理事',
+      text: 'public/img/p4_txt.png',
+      master_photo: 'public/img/p4_master.png'
+    },
+    {
+      page: 4,
+      pro: 'public/img/p1_pro.png',
+      text: 'public/img/p5_txt.png',
+      introduce: '璀璨明珠,北京工艺品四大名旦,独特民族风,古朴典雅,精美华贵'
+    },
+    {
+      page: 5,
+      qrcode: 'public/img/p6_qrcode.png',
+      text: '扫一扫，”码”上了解详情',
+      tel: '400-119-2011'
     }
   ];
 </script>

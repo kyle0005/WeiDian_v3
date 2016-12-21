@@ -5285,16 +5285,16 @@
       var audio = document.getElementById('audio');
       audio.addEventListener('loadstart', function() {
         console.log('loadstart');
-        alert('loadstart');
+        // alert('loadstart');
       }, false);
       audio.addEventListener('loadeddata',
         function() {
           console.log('loadeddata');
-          alert('loadeddata');
+          // alert('loadeddata');
         }, false);
       audio.addEventListener('loadedmetadata', function() {
         console.log('loadedmetadata');
-        alert('loadedmetadata');
+        // alert('loadedmetadata');
       }, false);
       audio.addEventListener('canplay', function() {
         console.log('canplay');
@@ -5303,18 +5303,18 @@
       audio.addEventListener('error',
         function() {
           console.log('error');
-          alert('error');
+          // alert('error');
         }, false);
       audio.addEventListener('pause',
         function() {
           console.log('pause');
-          alert('pause');
+          // alert('pause');
           $('#control').addClass('pause').removeClass('play');
         }, false);
       audio.addEventListener('play',
         function() {
           console.log('play');
-          alert('play');
+          // alert('play');
           $('#control').addClass('play').removeClass('pause');
         }, false);
 
