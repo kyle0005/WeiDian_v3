@@ -5390,18 +5390,14 @@
             '</div>'
     };
   }
-
   /* 初始化页面 */
   var pageInit = {
     loadHtml: function () {
       var show_container = $('#show_container');
       var page = '<div id="fullpage"></div>';
       show_container.html(page);
-
       var _page = $('#fullpage');
       $(_page).append(sections.sec0 + sections.sec1 + sections.sec2 + sections.sec3 + sections.sec4 + sections.sec5);
-
-
     },
     loadAudio: function () {
       var _audio = '<a href="javascript:;" class="p-voice" id="control">' +
@@ -5417,7 +5413,9 @@
         '<span>我的租赁申请</span>' +
         '</section>' +
         '<section class="pop-content">' +
-        '<form action="">' +
+        '<form action="' +
+        configs.form_action +
+        '" id="post-form">' +
         '<div>' +
         '<input type="text" class="" placeholder="申请人姓名">' +
         '</div>' +
@@ -5537,11 +5535,9 @@
 
     }
   };
-
   pageInit.loadHtml();
   pageInit.loadAudio();
   pageInit.loadPop();
-
     /* 滑动翻屏 */
   $('#fullpage').fullpage({
     css3: true,
@@ -5601,5 +5597,4 @@
       $('#p1-container').show();
     }
   });
-
 });

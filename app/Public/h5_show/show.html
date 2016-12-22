@@ -179,7 +179,8 @@
 <script src="../js/jinniu.mobile.js"></script>
 <script>
   var config = {
-    music_url: 'public/file/music.mp3'
+    music_url: 'public/file/music.mp3',
+    form_action: ''
   };
   var data = [
     {
@@ -232,5 +233,23 @@
   ];
 </script>
 <script src="public/js/show.js"></script>
+<script>
+  $(function () {
+    var oPostForm = $('#post-form');
+    $(document).on('click', '.js-sub', function () {
+      $.post(
+        oPostForm.attr('action'),
+        oPostForm.serialize(),
+        function (res) {
+
+        },
+        'json'
+      )
+
+
+    });
+
+  });
+</script>
 </body>
 </html>
