@@ -5188,9 +5188,219 @@
   };
 });
 ;$(function () {
+  if(data){
+    var sections = {
+      sec0: '<div class="section" id="section0">' +
+            '<div id="p1-container">' +
+            '<div class="p1-content1">' +
+            '<img src="' +
+            data[0].text +
+            '" class="p1-effect-txt ani-zoomIn">' +
+            '</div>' +
+            '<div class="p1-content2">' +
+            '<img src="' +
+            data[0].pro +
+            '" class="p1-effect-img ani-fadeInUp">' +
+            '</div>' +
+            '<div class="p1-text clearfix ani-flipInY">' +
+            '<span class="p1-text-en author-name-en">' +
+            data[0].author_en +
+            '</span>' +
+            '<span class="p1-text-cn">作者<br>:<br><span class="author-name">' +
+            data[0].author +
+            '</span></span>' +
+            '</div>' +
+            '<div class="tips-container">' +
+            '<span class="tips-up"></span>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+      sec1: '<div class="section" id="section1">' +
+            '<div id="p2-container">' +
+            '<div class="p2-content1">' +
+            '<img src="' +
+            data[1].text +
+            '" class="p2-effect-txt ani-fadeInRight">' +
+            '</div>' +
+            '<div class="p2-content2">' +
+            '<img src="' +
+            data[1].pro +
+            '" class="p2-effect-img ani-fadeInLeft">' +
+            '</div>' +
+            '<div class="p2-text ani-zoomIn">' +
+            '<div class="part-det">' +
+            '<p>【作&emsp;&emsp;者】&ensp;<span class="author">' +
+            data[1].author +
+            '</span></p>' +
+            '<p>【工&emsp;&emsp;艺】&ensp;<span class="tech">' +
+            data[1].tech +
+            '</span></p>' +
+            '<p>【规&emsp;&emsp;格】&ensp;高<span class="t-code specification">' +
+            data[1].specification +
+            '</span><span class="t-code specification_unit">' +
+            data[1].specification_unit +
+            '</span></p>' +
+            '</div>' +
+            '<div class="">' +
+            '<p>【产品介绍】</p>' +
+            '<div class="introduce">' +
+            data[1].introduce +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="tips-container">' +
+            '<span class="tips-up"></span>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+      sec2: '<div class="section" id="section2">' +
+            '<div id="p3-container">' +
+            '<div class="p3-content1 ani-fadeInLeft">' +
+            '<img src="' +
+            data[2].pro1 +
+            '">' +
+            '</div>' +
+            '<div class="p3-content2 ani-fadeInLeft clearfix">' +
+            '<span class="p3-det">' +
+            data[2].content1 +
+            '</span>' +
+            '<span class="p3-master">' +
+            data[2].content2 +
+            '</span>' +
+            '</div>' +
+            '<div class="p3-content3">' +
+            '<img src="' +
+            data[2].text +
+            '" class="ani-fadeInRight">' +
+            '</div>' +
+            '<div class="p3-content4">' +
+            '<img src="' +
+            data[2].pro2 +
+            '" class="ani-zoomIn">' +
+            '</div>' +
+            '<div class="p3-content5 ani-fadeInUp">' +
+            data[2].content3 +
+            '</div>' +
+            '<div class="p3-content6 ani-fadeInUp">' +
+            '<img src="' +
+            data[2].pro3 +
+            '">' +
+            '</div>' +
+            '<div class="tips-container">' +
+            '<span class="tips-up"></span>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+      sec3: '<div class="section" id="section3">' +
+            '<div id="p4-container">' +
+            '<div class="p4-content1 ani-zoomIn">' +
+            '<a href="' +
+            data[3].linkTo +
+            '" class="master-link clearfix">' +
+            data[3].link +
+            '<br><span class="mark-code">》</span></a>' +
+            '</div>' +
+            '<div class="p4-content2 ani-zoomIn clearfix">' +
+            '<p>' +
+            data[3].introduce[0] +
+            '</p>' +
+            '<p>' +
+            data[3].introduce[1] +
+            '</p>' +
+            '<p>' +
+            data[3].introduce[2] +
+            '</p>' +
+            '<p>' +
+            data[3].introduce[3] +
+            '</p>' +
+            '<p>' +
+            data[3].introduce[4] +
+            '</p>' +
+            '</div>' +
+            '<div class="p4-content3">' +
+            '<img src="' +
+            data[3].text +
+            '" class="p4-txt ani-fadeInRight">' +
+            '</div>' +
+            '<div class="p4-content4">' +
+            '<img src="' +
+            data[3].master_photo +
+            '" class="p4-master ani-puffIn">' +
+            '</div>' +
+            '<div class="tips-container">' +
+            '<span class="tips-up"></span>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+      sec4: '<div class="section" id="section4">' +
+            '<div id="p5-container">' +
+            '<div class="p5-content1">' +
+            '<img src="' +
+            data[4].text +
+            '" class="p5-txt ani-fadeInRight">' +
+            '</div>' +
+            '<div class="p5-content2 clearfix">' +
+            '<p class="t1 font-small border-middle">' +
+            data[4].introduce[0] +
+            '</p>' +
+            '<p class="t2 font-middle border-middle">' +
+            data[4].introduce[1] +
+            '</p>' +
+            '<p class="t3 font-small border-dark">' +
+            data[4].introduce[2] +
+            '</p>' +
+            '<p class="t4 font-large border-light">' +
+            data[4].introduce[3] +
+            '</p>' +
+            '<p class="t5 font-middle border-middle">' +
+            data[4].introduce[4] +
+            '</p>' +
+            '</div>' +
+            '<div class="p5-content3">' +
+            '<img src="' +
+            data[4].pro +
+            '" class="p5-pro ani-fadeInLeft">' +
+            '</div>' +
+            '<div class="tips-container">' +
+            '<span class="tips-up"></span>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+      sec5: '<div class="section" id="section5">' +
+            '<div id="p6-container">' +
+            '<div class="p6-content1">' +
+            '<img src="' +
+            data[5].qrcode +
+            '">' +
+            '<div>' +
+            data[5].text +
+            '</div>' +
+            '</div>' +
+            '<div class="p6-content2">' +
+            '<span class="p6-tel"></span>' +
+            '<div>' +
+            data[5].tel +
+            '</div>' +
+            '<div>' +
+            '<a href="javascript:;" class="p6-buy">在线购买</a>' +
+            '<a href="javascript:;" class="js-rent p6-rent">我要租赁</a>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>'
+    };
+  }
+
   /* 初始化页面 */
   var pageInit = {
     loadHtml: function () {
+      var show_container = $('#show_container');
+      var page = '<div id="fullpage"></div>';
+      show_container.html(page);
+
+      var _page = $('#fullpage');
+      $(_page).append(sections.sec0 + sections.sec1 + sections.sec2 + sections.sec3 + sections.sec4 + sections.sec5);
+
 
     },
     loadAudio: function () {
