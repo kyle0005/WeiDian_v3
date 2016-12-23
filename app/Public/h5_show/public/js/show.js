@@ -5229,20 +5229,20 @@
             '</div>' +
             '<div class="p2-text ani-zoomIn">' +
             '<div class="part-det">' +
-            '<p>【作&emsp;&emsp;者】&ensp;<span class="author">' +
+            '<p><span class="s-mark">【</span>作&emsp;&emsp;者<span class="s-mark">】</span>&ensp;<span class="author">' +
             data[1].author +
             '</span></p>' +
-            '<p>【工&emsp;&emsp;艺】&ensp;<span class="tech">' +
+            '<p><span class="s-mark">【</span>工&emsp;&emsp;艺<span class="s-mark">】</span>&ensp;<span class="tech">' +
             data[1].tech +
             '</span></p>' +
-            '<p>【规&emsp;&emsp;格】&ensp;高<span class="t-code specification">' +
+            '<p><span class="s-mark">【</span>规&emsp;&emsp;格<span class="s-mark">】</span>&ensp;高<span class="t-code specification">' +
             data[1].specification +
             '</span><span class="t-code specification_unit">' +
             data[1].specification_unit +
             '</span></p>' +
             '</div>' +
             '<div class="">' +
-            '<p>【产品介绍】</p>' +
+            '<p><span class="s-mark">【</span>产品介绍<span class="s-mark">】</span></p>' +
             '<div class="introduce">' +
             data[1].introduce +
             '</div>' +
@@ -5414,7 +5414,7 @@
         '</section>' +
         '<section class="pop-content">' +
         '<form action="' +
-        configs.form_action +
+        config.form_action +
         '" id="post-form">' +
         '<div>' +
         '<input type="text" class="" placeholder="申请人姓名">' +

@@ -2496,6 +2496,12 @@
   }
 }
 /* 动画效果结束 */
+@font-face {
+  font-family: cs;
+  /*src: url('../font/造字工房尚雅常规体.otf');*/
+  /*src: url('../font/文鼎CS大宋.TTF');*/
+  src: url('../font/汉仪粗宋简.TTF');
+}
 
 html, body{
   width: 100%;
@@ -2507,6 +2513,7 @@ html, body{
   height: 100%;
   background-color: #000;
   color: #fcfcfc;
+  font-family: cs;
 }
 .ani-zoomIn{
   -webkit-animation: zoomIn 2s ease 0s 1 both;
@@ -2639,6 +2646,19 @@ html, body{
   writing-mode:vertical-rl;
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: rl-tb;
+}
+.s-mark{
+  font: initial;
+  writing-mode: initial;
+  -webkit-writing-mode: initial;
+  -ms-writing-mode: initial;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  text-align: left;
+  vertical-align: middle;
 }
 .part-det{
   margin-left: 3%;
@@ -2784,6 +2804,7 @@ html, body{
   text-align: center;
   padding: 8% 5%;
   border-radius: 4px;
+  line-height: initial;
 }
 .font-large{
   font-size: 20px;
@@ -2813,11 +2834,11 @@ html, body{
 }
 .t3{
   left: 40%;
-  top: 90%;
+  top: 85%;
 }
 .t4{
   left: 55%;
-  top: 25%;
+  top: 22%;
 }
 .t5{
   left: 76%;

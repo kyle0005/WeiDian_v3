@@ -5,6 +5,7 @@ var browserSync = require('browser-sync');
 var del = require('del');
 var wiredep = require('wiredep').stream;
 var open = require('open');
+var fontSpider = require( 'gulp-font-spider' );
 
 var $ = gulpLoadPlugins();               //Automatically load any gulp plugins in your package.json
 var reload = browserSync.reload;
@@ -173,4 +174,9 @@ gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
 
 gulp.task('default', ['clean', 'styles', 'scripts', 'fonts'], function () {
   console.log('default');
+});
+
+gulp.task('fontspider', function() {
+  return gulp.src('./index.html')
+    .pipe(fontSpider());
 });
