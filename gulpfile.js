@@ -176,6 +176,7 @@ gulp.task('default', ['clean', 'styles', 'scripts', 'fonts'], function () {
   console.log('default');
 });
 
+
 gulp.task('fontspider', function() {
   return gulp.src('app/Public/h5_show/show.html')
     .pipe(fontSpider({

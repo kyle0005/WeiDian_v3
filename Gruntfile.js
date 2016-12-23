@@ -286,6 +286,9 @@ module.exports = function (grunt) {
            '<%= config.dist %>/css/main.css': [
              '<%= config.app %>/Public/css/main.css'
            ],
+           '<%= config.dist %>/css/show.css': [
+             '<%= config.app %>/Public/h5_show/public/css/show.css'
+           ],
            '<%= config.dist %>/css/extend.css': [
              '<%= config.app %>/Public/css/extend.css'
            ],
