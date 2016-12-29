@@ -5339,7 +5339,7 @@
             data[4].text +
             '" class="p5-txt ani-fadeInRight">' +
             '</div>' +
-            '<div class="p5-content2 clearfix">' +
+            '<div class="p5-content2 ani-zoomIn clearfix">' +
             '<p class="t1 font-small border-middle">' +
             data[4].introduce[0] +
             '</p>' +

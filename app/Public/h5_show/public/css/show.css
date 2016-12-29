@@ -2498,7 +2498,7 @@
 /* 动画效果结束 */
 @font-face {
   font-family: cs;
-  src: url('../font/汉仪粗宋简.TTF');
+  src: url('../font/sj.TTF');
 }
 
 /*@font-face {
@@ -2523,7 +2523,7 @@ html, body{
   height: 100%;
   background-color: #000;
   color: #fcfcfc;
-  font-family: cs;
+  font-family: "Helvetica Neue",Helvetica,"Microsoft YaHei",'微软雅黑',arial,sans-serif;
 }
 .ani-zoomIn{
   -webkit-animation: zoomIn 2s ease 0s 1 both;
