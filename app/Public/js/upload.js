@@ -30,13 +30,14 @@
             var Uploader = new plupload.Uploader({
                 runtimes: 'html5,flash,silverlight',
                 browse_button: c_id,
-                max_file_size: '2mb',
+                max_file_size: '6mb',
                 url: c_url,
                 flash_swf_url: 'resource/js/Moxie.swf',
                 silverlight_xap_url: 'resource/js/Moxie.xap',
                 filters: [
                     { title: "图片（" + _extensions + "）", extensions: _extensions },
-                    { title : "video files", extensions : "flv,mp4,avi,ts" }
+                    { title : "视频", extensions : "flv,mp4,avi,ts" },
+                    { title : "音频", extensions : "mp3" }
                 ],
                 init: {
                     FilesAdded: function (up, files) {
@@ -73,6 +74,10 @@
                                     }
                                     up.removeFile(file);
                                 });
+                            }
+
+                            if(file){
+
                             }
 
                             var max_len = number;

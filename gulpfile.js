@@ -6,6 +6,7 @@ var del = require('del');
 var wiredep = require('wiredep').stream;
 var open = require('open');
 var fontSpider = require( 'gulp-font-spider' );
+var nodemon = require('gulp-nodemon');
 
 var $ = gulpLoadPlugins();               //Automatically load any gulp plugins in your package.json
 var reload = browserSync.reload;
@@ -116,6 +117,26 @@ gulp.task('serve', ['styles', 'fonts'], function () {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
+gulp.task('node_start', function () {
+  nodemon({
+    script: 'app/Public/node_upload/index.js'
+    , ext: 'js html'
+    , env: { 'NODE_ENV': 'development' }
+  })
+    .on('start', function() {
+      browserSync({
+        notify: false,
+        port: 9000,
+        server: {
+          baseDir: ['.tmp', 'app'],
+          routes: {
+            '/bower_components': 'bower_components'
+          }
+        }
+      });
+  });
+
+});
 
 /*// 代理
 gulp.task('browser-sync', function() {
