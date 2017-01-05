@@ -66,7 +66,6 @@ function file_upload(request, response, postData ) {
       response.end('received files:\n\n '+util.inspect(files));*/
     });
 
-
   var targetDir = path.join(__dirname, '/temp');
   // 检查目标目录，不存在则创建
   fs.access(targetDir, function(err){
