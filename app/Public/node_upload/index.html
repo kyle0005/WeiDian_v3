@@ -8,11 +8,99 @@
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
   <meta name="format-detection" content="telephone=no">
+  <style>
+    span.img_ul{
+      margin: 0;
+      padding: 0;
+      line-height: 100px;
+    }
+    .img_add {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 25px;
+      border: 1px dashed #ccc;
+      position: relative;
+      cursor: pointer;
+      /*z-index: 1;*/
+    }
+    .img_up{
+      width: 100px;
+      max-height: 100px;
+      margin-bottom: 25px;
+      border: 1px dashed #ccc;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .upload-container span{
+      display: inline-block;
+    }
+    .img_ul span {
+      list-style: none;
+      float: left;
+      /*margin: 5px 5px 15px 5px;*/
+      height: 100px;
+      overflow: hidden;
+    }
+    span.img_add{
+      display: inline-block;
+      /*margin: 5px 5px 15px 6px;*/
+    }
+    .del_img{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      height: 20px;
+      line-height: 20px;
+    }
+    .img_add_a {
+      width: 6px;
+      height: 50px;
+      top: 25px;
+      left: 47px;
+      position: absolute;
+      background-color: #eaeaf1;
+    }
+    .img_add_b {
+      width: 50px;
+      height: 6px;
+      top: 47px;
+      left: 25px;
+      position: absolute;
+      background-color: #eaeaf1;
+    }
+  </style>
 </head>
 <body>
-<form action="http://localhost:5656/upload" method=post enctype="multipart/form-data" accept-charset="utf-8">
+<form action="/file_upload" method="post" enctype="multipart/form-data">
   <input type="file" id="data" name="data" />
   <input type="submit" value="上传" id="sub"/>
 </form>
+<div class="upload-container">
+  <span class="img_ul clearfix"></span>
+  <span id="img_add" class="img_add">
+      <em class="img_add_a">&nbsp;</em>
+      <em class="img_add_b">&nbsp;</em>
+  </span>
+</div>
+<script type="text/javascript" src="../../Public/js/jquery-1.8.3.js"></script>
+<script src="../../Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../../Public/js/jinniu.js"></script>
+<script src="../../Public/js/plupload.full.min.js"></script>
+<script src="../../Public/js/i18n/zh_CN.js"></script>
+<script>
+  var golddiy_image_path = '';
+</script>
+<script src="../../Public/js/upload.js"></script>
+<script>
+  $(function () {
+/*    $('#img_add').uploads({
+      'c_id': 'img_add',
+      'input_id': 'imagepath',
+      'c_url': "http://localhost:5656/upload",
+      'number': 6
+    });*/
+  });
+</script>
 </body>
 </html>

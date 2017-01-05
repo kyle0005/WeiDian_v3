@@ -92,9 +92,10 @@ gulp.task('extras', function () {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'fonts'], function () {
+gulp.task('serve', ['styles', 'fonts', 'node_start'], function () {
   browserSync({
     notify: false,
+    // proxy: 'http://localhost:8080',
     port: 9000,
     server: {
       baseDir: ['.tmp', 'app'],
@@ -122,8 +123,8 @@ gulp.task('node_start', function () {
     script: 'app/Public/node_upload/index.js'
     , ext: 'js html'
     , env: { 'NODE_ENV': 'development' }
-  })
-    .on('start', function() {
+  });
+/*    .on('start', function() {
       browserSync({
         notify: false,
         port: 9000,
@@ -134,7 +135,7 @@ gulp.task('node_start', function () {
           }
         }
       });
-  });
+  });*/
 
 });
 

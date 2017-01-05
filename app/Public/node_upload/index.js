@@ -8,6 +8,8 @@ var requestHandlers=require("./requestHandlers");
 var handle = {};
 handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
-handle["/upload"] = requestHandlers.upload;
+handle["/file_upload"] = requestHandlers.file_upload;
+handle["/show"] = requestHandlers.show;
+handle["/static_res"] = requestHandlers.static_res;
 
 server.start(router.route,handle);
