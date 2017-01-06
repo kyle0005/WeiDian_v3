@@ -221,13 +221,20 @@
                       <label class="control-label">宝贝图集：</label>
                       <div class="controls">
                         <div class="upload-container">
-                                            <span class="img_ul clearfix">
-                                                                                            </span>
-                                        <span id="img_add" class="img_add">
-                                            <em class="img_add_a">&nbsp;</em>
-                                            <em class="img_add_b">&nbsp;</em>
-                                        </span>
-                      </div>
+                            <span class="img_ul clearfix">
+                                  <span class="img_up">
+                                    <span class="js-audio-con upload-aud play">
+                                      <audio src="Public/video/demo3.mp4" id="audio">您的浏览器不支持 audio 标签。</audio>
+                                    </span>
+                                    <input type="hidden" name="" value="">
+                                    <a class="del_img" href="javascript:;">删除</a>
+                                  </span>
+                            </span>
+                            <span id="img_add" class="img_add">
+                                <em class="img_add_a">&nbsp;</em>
+                                <em class="img_add_b">&nbsp;</em>
+                            </span>
+                        </div>
                         <p class="help-desc">建议尺寸：800 x 800 像素，第一张将会作为默认显示图片</p>
                       </div>
                     </div>
@@ -405,6 +412,19 @@
       'input_id': 'imagepath',
       'c_url': "http://test.shop.golddiy.com/admin/upload/image",
       'number': 6
+    });
+
+    $(document).on('click', '.js-audio-con', function () {
+      var audio_con = $('.js-audio-con');
+      var audio = document.getElementById('audio');
+      audio.load();
+      if($('.play').length > 0){
+        audio.play();
+        $(audio_con).removeClass('play').addClass('pause');
+      }else {
+        audio.pause();
+        $(audio_con).removeClass('pause').addClass('play');
+      }
     });
   });
 </script>

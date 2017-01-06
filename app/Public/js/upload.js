@@ -76,9 +76,7 @@
                                 });
                             }
 
-                            if(file){
 
-                            }
 
                             var max_len = number;
                             if (max_len > 0) {
@@ -90,12 +88,29 @@
                                     return false;
                                 }
                             }
+
+                          var _ins = info.response.split('.');
+                          if(_ins[1] == 'mp3'){
+                            //上传mp3音频文件
+                            var input_name_m = input_id + (max_len != 1 && !singleRepeat ? '[]': '');
+                            var _mp3str = '<span class="img_up">';
+                            _mp3str = _mp3str + '<span class="js-audio-con upload-aud play">';
+                            _mp3str = _mp3str + '<audio src="' + golddiy_image_path + info.response + '" id="audio">您的浏览器不支持 audio 标签。</audio></span>';
+                            _mp3str = _mp3str + '<input type="hidden" name="' + input_name_m + '" value="' + info.response + '">';
+                            if (singleRepeat != true) {
+                              _mp3str = _mp3str + '<a class="del_img" href="javascript:;">删除</a>';
+                            }
+                            _mp3str = _mp3str + '</span>';
+                            $('#' + c_id).siblings('.img_ul').append(_mp3str);
+                          }
+                          else {
+                            //普通文件
                             var input_name = input_id + (max_len != 1 && !singleRepeat ? '[]': '');
                             var _str = '<span class="img_up">';
                             _str = _str + '<img src="' + golddiy_image_path + info.response + '">';
                             _str = _str + '<input type="hidden" name="' + input_name + '" value="' + info.response + '">';
                             if (singleRepeat != true) {
-                                _str = _str + '<a class="del_img" href="javascript:;">删除</a>';
+                              _str = _str + '<a class="del_img" href="javascript:;">删除</a>';
                             }
                             if(text){
                               _str += '<input type="text" name="' +
@@ -107,6 +122,8 @@
                             _str = _str + '</span>';
                             $('#' + c_id).siblings('.img_ul').append(_str);
                             //$('.del_img').hide();
+                          }
+
 
                             this.refresh();
 

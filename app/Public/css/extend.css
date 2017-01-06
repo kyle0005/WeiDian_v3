@@ -5061,3 +5061,22 @@ select.invest-sel{
   padding: 0 20px;
   text-align: center;
 }
+
+span.upload-aud{
+  display: block;
+  margin: 25%;
+  width: 50%;
+  height: 50%;
+}
+.upload-aud > audio{
+  width: 100%;
+  height: 100%;
+}
+.upload-aud.play{
+  background: url("../img/audio_play.png") no-repeat center center;
+  background-size: 100% auto;
+}
+.upload-aud.pause{
+  background: url("../img/audio_pause.png") no-repeat center center;
+  background-size: 100% auto;
+}
