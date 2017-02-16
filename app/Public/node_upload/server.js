@@ -22,7 +22,6 @@ function start(route,handle) {
       route(handle, pathname, request, response, postData);
     });
 
-
   }
 
   http.createServer(onRequest).listen(8080,'127.0.0.1');
