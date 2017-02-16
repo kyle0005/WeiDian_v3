@@ -11,5 +11,6 @@ handle["/start"] = requestHandlers.start;
 handle["/file_upload"] = requestHandlers.file_upload;
 handle["/show"] = requestHandlers.show;
 handle["/static_res"] = requestHandlers.static_res;
+handle["/favicon_ico"] = requestHandlers.favicon_ico;
 
 server.start(router.route,handle);

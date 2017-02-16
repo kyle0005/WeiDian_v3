@@ -107,7 +107,7 @@ function file_upload(request, response, postData ) {
 
 function show(request, response) {
   console.log("Request handler 'show' was called.");
-  fs.readFile("u_fs/1.jpg", "binary", function(error, file) {
+  fs.readFile("app/Public/node_upload/u_fs/1.jpg", "binary", function(error, file) {
     if(error) {
       response.writeHead(500, {"Content-Type": "text/plain"});
       response.write(error + "\n");
@@ -120,6 +120,10 @@ function show(request, response) {
   });
 }
 
+function favicon_ico(request, response) {
+
+}
+
 function static_res(request, response, pathname) {
   /*    if (path.extname(pathname)=="") {
    pathname+="/";
@@ -129,7 +133,7 @@ function static_res(request, response, pathname) {
    }*/
   //访问静态资源
   var realPath = "app" + pathname;
-  fs.access(realPath,function(err){
+  /*fs.access(realPath,function(err){
     console.log('url: ' + pathname);
     if(!err){
       console.log('aaaaaaaaa');
@@ -162,6 +166,40 @@ function static_res(request, response, pathname) {
       });
     }
 
+  });*/
+
+  fs.readFile(realPath, function(err, data){
+    console.log('url: ' + pathname);
+    console.log('__dirname:' + __dirname);
+    if (!err) {
+      switch(path.extname(pathname)){
+        case ".html":
+          response.writeHead(200, {"Content-Type": "text/html"});
+          break;
+        case ".js":
+          response.writeHead(200, {"Content-Type": "text/javascript"});
+          break;
+        case ".css":
+          response.writeHead(200, {"Content-Type": "text/css"});
+          break;
+        case ".gif":
+          response.writeHead(200, {"Content-Type": "image/gif"});
+          break;
+        case ".jpg":
+          response.writeHead(200, {"Content-Type": "image/jpeg"});
+          break;
+        case ".ico":
+          response.writeHead(200, {"Content-Type": "image/ico"});
+          break;
+        case ".png":
+          response.writeHead(200, {"Content-Type": "image/png"});
+          break;
+      }
+    }
+    else {
+      throw err;
+    }
+    response.end(data);
   });
 }
 
@@ -169,3 +207,4 @@ exports.start = start;
 exports.file_upload = file_upload;
 exports.show = show;
 exports.static_res = static_res;
+exports.favicon_ico = favicon_ico;

@@ -11,7 +11,6 @@ function route(handle,pathname,request,response,postData){
 
   else if(path.extname(pathname) != ''){
     //访问静态资源
-
     handle["/static_res"](request, response, pathname);
   }
   else{
