@@ -33,7 +33,7 @@ function file_upload(request, response, postData ) {
   console.log("Request handler 'upload' was called.");
   var form = new formidable.IncomingForm();
   form.uploadDir = "/temp";
-  // form.encoding = 'utf-8';
+  form.encoding = 'utf-8';
   form.maxFieldsSize = 5 * 1024 * 1024;  //上传文件大小限制为最大5M
   form.keepExtensions = true;        //使用文件的原扩展名
 
@@ -132,45 +132,12 @@ function static_res(request, response, pathname) {
    pathname+="index.html";
    }*/
   //访问静态资源
-  var realPath = "app" + pathname;
-  /*fs.access(realPath,function(err){
-    console.log('url: ' + pathname);
-    if(!err){
-      console.log('aaaaaaaaa');
-      switch(path.extname(pathname)){
-        case ".html":
-          response.writeHead(200, {"Content-Type": "text/html"});
-          break;
-        case ".js":
-          response.writeHead(200, {"Content-Type": "text/javascript"});
-          break;
-        case ".css":
-          response.writeHead(200, {"Content-Type": "text/css"});
-          break;
-        case ".gif":
-          response.writeHead(200, {"Content-Type": "image/gif"});
-          break;
-        case ".jpg":
-          response.writeHead(200, {"Content-Type": "image/jpeg"});
-          break;
-        case ".ico":
-          response.writeHead(200, {"Content-Type": "image/ico"});
-          break;
-        case ".png":
-          response.writeHead(200, {"Content-Type": "image/png"});
-          break;
-      }
-
-      fs.readFile(realPath,function (err,data){
-        response.end(data);
-      });
-    }
-
-  });*/
-
+  var realPath = __dirname + pathname;
   fs.readFile(realPath, function(err, data){
     console.log('url: ' + pathname);
     console.log('__dirname:' + __dirname);
+    console.log('process.cwd():' + process.cwd());
+    console.log('__filename:' + __filename);
     if (!err) {
       switch(path.extname(pathname)){
         case ".html":
