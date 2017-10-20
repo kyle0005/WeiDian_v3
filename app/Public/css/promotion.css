@@ -1,0 +1,83 @@
+.pro-container{
+  margin: 10px;
+}
+.goods-list{
+  font-size: 12px;
+}
+.form-horizontal {
+  margin-bottom: 30px;
+  width: auto;
+}
+.ui-box {
+  margin-bottom: 15px;
+}
+.accordion .accordion-group {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.form-horizontal .control-group {
+  margin-bottom: 10px;
+}
+.form-horizontal .control-label {
+  width: 120px;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: left;
+}
+.accordion .accordion-group .accordion-heading .accordion-toggle {
+  background: #f6f6f6;
+  color: #f8a31f;
+}
+.form-horizontal .controls {
+  margin-left: 130px;
+  word-break: break-all;
+}
+.form-horizontal .control-label {
+  text-align: left;
+  width: 140px;
+}
+.input-prepend .add-on:first-child, .input-prepend .btn:first-child, .input-append .add-on:last-child, .input-append .btn:last-child, .input-append .btn-group:last-child > .dropdown-toggle, .input-prepend.input-append .add-on:last-child, .input-prepend.input-append .btn:last-child, .input-prepend.input-append .add-on:first-child, .input-prepend.input-append .btn:first-child, .btn-group > .btn:first-child, .btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.orange-btn {
+  border: 1px solid #f8a31f;
+  display: inline-block;
+  color: #fff !important;
+  background: #f8a31f;
+  text-shadow: none;
+  border-radius: 0;
+  margin-right: 7px;
+  font-size: 12px;
+  box-shadow: none;
+  padding: 5px 9px;
+  filter: none;
+}
+.choose-select{
+  width: 100%; margin-bottom: 0;border-radius: 0
+}
+
+.ui-table.ui-table-list {
+  border: none;
+}
+.ui-table {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 0;
+  border: 1px solid #ddd;
+}
+.ui-table th, .ui-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+  box-sizing: border-box;
+  line-height: 30px;
+}
+.ui-table th {
+  background: #f8f8f8;
+}

@@ -14,17 +14,31 @@
 <body>
 <section class="pc-print-container">
   <section class="pc-print" id="pc_print">
+    <img src="Public/img/qrcode.png" class="qrcode">
     <div class="user-photo-container text-center">
-      25X35mm<br>1寸照片
+      裁剪图片
       <div id="preview-pane">
         <div class="preview-container">
           <img src="http://img.golddiy.com/Uploads/images/2016-04-25/571dc1fd443cd.jpg" class="jcrop-preview show-img" alt="Preview" />
         </div>
       </div>
     </div>
-    <div class="user-name-container">
-      啦啦啦啦啦
+    <div class="code">2947111988</div>
+    <div class="title">名壶在手  永世守候</div>
+    <div class="name">
+      品名：<div class="item"></div>
     </div>
+    <div class="author">
+      作者：<div class="item"></div>
+    </div>
+    <div class="pug">
+      泥料：<div class="item"></div>
+    </div>
+    <div class="capacity">
+      容量：<div class="item"></div>
+    </div>
+    <div class="sign">作者签章：</div>
+    <div class="comp">督制单位：</div>
   </section>
   <form action="?" id="img_form" method="post">
     <input type="hidden" id="x" name="x">
@@ -74,7 +88,7 @@ jQuery(function($) {
       onSelect: updatePreview,
       onDblClick: dClick,
       onRelease: release_c,
-      aspectRatio: 65 / 91
+      aspectRatio: 61 / 36
     }, function () {
       var bounds = this.getBounds();
       boundx = bounds[0];

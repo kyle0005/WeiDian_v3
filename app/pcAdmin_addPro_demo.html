@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>微店</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Apple devices fullscreen -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" type="text/css" href="Public/css/bootstrap-3.3.5.css">
+</head>
+<body>
+<div class="control-group">
+  <label class="control-label">宝贝规格：</label>
+  <div class="text-right">
+    <input id="add-extend" type="button" class="btn btn-primary" value="添加规格">
+  </div>
+</div>
+<div class="control-group">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>名称</th>
+      <th>编号</th>
+      <th>条码</th>
+      <th>市场价</th>
+      <th>销售价</th>
+      <th>代理价</th>
+      <th>库存</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="extend-row">
+    </tbody>
+    <tbody id="extend-template" class="hide">
+    <tr>
+      <td>
+        <input name="ext_name[]" type="text" class="span2" value="" placeholder="请输入宝贝规格名称">
+      </td>
+      <td><input name="ext_number[]" class="input-small" type="text" value="" placeholder="请输入规格编码"></td>
+      <td><input name="ext_barcode[]" class="input-small" type="text" value="" placeholder="请输入规格条码"></td>
+      <td>
+        <div class="input-prepend input-append">
+          <span class="add-on">¥</span>
+          <input name="ext_market_price[]" class="input-small" type="number" value="" placeholder="请输入市场价">
+        </div>
+      </td>
+      <td>
+        <div class="input-prepend input-append">
+          <span class="add-on">¥</span>
+          <input name="ext_price[]" class="input-small" type="number" value="" placeholder="请输入销售价">
+        </div>
+      </td>
+      <td>
+        <div class="input-prepend input-append">
+          <span class="add-on">¥</span>
+          <input name="ext_agency_price[]" class="input-small" type="number" value="" placeholder="请输入代理价">
+        </div>
+      </td>
+      <td>
+        <input name="ext_stock_count[]" class="input-small" type="number" value="" placeholder="请输入库存">
+      </td>
+      <td>
+        <a href="javascript:;" class="is-remove btn btn-warning" style="display:inline-block; margin-top: -10px;">删除</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript" src="Public/js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="Public/js/bootstrap-3.3.5.js"></script>
+<script>
+  $(function () {
+    /** 添加行 */
+    $('#add-extend').click(function() {
+      $('#extend-row').append($('#extend-template').html());
+      $('.is-remove').on('click', function () {
+        $(this).parent().parent().remove();
+      });
+    });
+    /** 删除行 */
+    $('.is-remove').on('click', function () {
+      $(this).parent().parent().remove();
+    });
+  });
+</script>
+
+</body>
+</html>
