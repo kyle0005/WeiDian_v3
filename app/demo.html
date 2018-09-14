@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="Public/css/admin.print.css" type="text/css"/>
+  <title>print</title>
+</head>
+<body>
+<div >
+  <div id="tq_print">
+    <ul class="list-container">
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/cpic.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/contact.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+    </ul>
+    <ul class="list-container">
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/cpic.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/contact.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+      <li class="items">
+        <img src="Public/img/saturation.png" class="it-img">
+      </li>
+    </ul>
+  </div>
+  <div class="list-btn-container">
+    <a href="javascript:;" class="js-print list-pri-btn">打印</a>
+  </div>
+
+</div>
+<script src="Public/Jcrop-master/js/jquery.min.js"></script>
+<script src="Public/js/jquery.jqprint-0.3.js"></script>
+<script>
+  jQuery(function($) {
+    $(document).on('click', '.js-print', function () {
+      $("#tq_print").jqprint({
+        debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+        importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+        printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+        operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+      });
+    });
+  });
+</script>
+</body>
+</html>

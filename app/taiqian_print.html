@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="Public/css/admin.taiqian.css" type="text/css"/>
+  <title>print</title>
+</head>
+<body>
+<section class="tq-print-container">
+  <section class="tq-print" id="tq_print">
+    <img src="Public/img/logo_top.png" class="logo">
+    <div class="mid">
+      <img src="Public/img/logo_hui.png" class="mid-logo">
+    </div>
+    <img src="Public/img/d_bg2.png" class="d_bg">
+    <img src="https://cdn.fangcun.com/upload/images/2018-05-18/a77915da8b7346acb1205e6bed96384f.jpg" class="d_photo">
+    <div class="title overText">沈建宏-供春王子</div>
+    <div class="intro overTextH4">沈建宏，1973年生于宜兴，拥有二十多年的紫砂创作经验，中国陶瓷艺术大师陈国良亲传弟子，2015年首届“景舟杯”铜奖得主，1996年师从任卫国在紫砂一厂学习雕塑、茶壶创作，经过多年刻苦钻研，成为新生实力派陶艺家，所制作品以花器为主，尤擅供春，被称为“供春王子”。</div>
+    <div class="pro-img">
+      <img src="https://cdn.fangcun.com/upload/images/2018-05-26/698d835589794c62a143a0485fd9e83e.jpg!350" class="pro">
+    </div>
+    <div class="pro-intro">
+      <div class="pro-line overText">品名：韵方</div>
+      <div class="pro-line overText">容量：330CC</div>
+      <div class="pro-line overText">泥料：原矿紫泥</div>
+      <img src="Public/img/print_qrcode.png" id="proQrcode" class="pro-qrcode"/>
+    </div>
+  </section>
+  <div class="pri-btn">
+    <input type="text" class="shop-code" id="shopCode" placeholder="请输入店铺ID"/>
+    <a href="javascript:;" class="js-ok wei-bg-black">确认</a>
+    <a href="javascript:;" class="js-print wei-bg-white">打印</a>
+  </div>
+</section>
+<script src="Public/Jcrop-master/js/jquery.min.js"></script>
+<script src="Public/js/jquery.jqprint-0.3.js"></script>
+<script>
+jQuery(function($) {
+    var pid = 0, qr_url = 'https://sapi.k780.com/?app=qr.get&level=L&size=6&data=';
+  $(document).on('click', '.js-print', function () {
+    $("#tq_print").jqprint({
+      debug: false, //如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+      importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+      printContainer: true, //表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+      operaSupport: false//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true
+    });
+  });
+  $(document).on('click', '.js-ok', function () {
+    var shopCode = $('#shopCode').val();
+    if(shopCode){
+      var _url = qr_url + encodeURIComponent('https://m.fangcun.com/products/' + pid + '?sid=' + shopCode);
+      $.post(_url, function(data){
+        if(data){
+          data = JSON.parse(data);
+          if(parseInt(data.code) == 200){
+            $('#proQrcode').attr("src", data.data);
+          }
+          if(data.message){
+            alert(data);
+          }
+          if(data.url){
+            location.href = data.url;
+          }
+
+        }
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

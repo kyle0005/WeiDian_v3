@@ -1,0 +1,193 @@
+.overTextH4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}
+/* 文本文字超过三行以省略号显示 */
+.overTextH3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
+
+/* 文本文字超过两行以省略号显示 */
+.overTextH2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+
+/* 文本文字一行内超过容器以省略号显示 */
+.overText {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tq-print-container{
+  position: relative;
+  width: 386.12mm;
+  margin: 0 auto;
+  page-break-after: avoid;
+}
+.tq-print{
+  position: relative;
+  width: 386.12mm;
+  height: 276mm;
+  color: #333;
+  font-size: 24px;
+  font-family: "微软雅黑", "Microsoft YaHei", "Hiragino Sans GB", Helvetica, Arial, sans-serif;
+  background-color: white;
+  border: 0.5mm solid #666;
+}
+.tq-print .logo{
+  position: absolute;
+  top: 10.9mm;
+  left: 50%;
+  transform: translateX(-46.5%);
+  width: 78.3mm;
+}
+.tq-print .mid{
+  position: absolute;
+  top: 37.7mm;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 226mm;
+  border-left: 0.7mm dashed #efefef;
+}
+.tq-print .mid-logo{
+  position: absolute;
+  top: 85.4mm;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 33.5mm;
+  width: 33.5mm;
+}
+.tq-print .d_bg{
+  position: absolute;
+  top: 43mm;
+  left: 42.3mm;
+  width: 120mm;
+}
+.tq-print .d_photo{
+  position: absolute;
+  top: 66.3mm;
+  left: 58.6mm;
+  width: 110.4mm;
+  height: 92.8mm;
+  border-radius: 100%;
+}
+.tq-print .title{
+  position: absolute;
+  bottom: 89.3mm;
+  left: 32.5mm;
+  width: 153.8mm;
+  text-align: center;
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: bold;
+}
+.tq-print .intro{
+  position: absolute;
+  bottom: 19mm;
+  left: 32.5mm;
+  width: 145.4mm;
+  padding: 4mm 4.2mm;
+  text-align: left;
+  background-color: #f5f5f5;
+  line-height: 48px;
+  font-size: 28px;
+}
+.tq-print .pro-img{
+  position: absolute;
+  top: 58.6mm;
+  right: 49mm;
+  padding: 5.6mm;
+  border: 0.7mm solid #f8f8f8;
+}
+.tq-print .pro-img .pro{
+  width: 100.5mm;
+}
+.tq-print .pro-intro{
+  position: absolute;
+  right: 27.1mm;
+  bottom: 25.7mm;
+  width: 139.7mm;
+  height: 50.1mm;
+  padding: 6.4mm 6.4mm 6.4mm 0;
+  font-weight: bold;
+}
+.tq-print .pro-line{
+  font-size: 32px;
+  line-height: 42px;
+  margin: 0;
+}
+.tq-print .pro-line:nth-child(2n){
+  margin: 8mm 0;
+}
+.pro-qrcode{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 62.8mm;
+  height: 62.8mm;
+}
+.pri-btn{
+  width: 100%;
+  margin: 2% 0;
+  text-align: center;
+}
+.pri-btn .shop-code{
+  border: 1px solid #333;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: bottom;
+  padding: 0 .5%;
+  outline:none;
+}
+.pri-btn .wei-bg-black{
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #333;
+  color: #fff;
+  background-color: #333;
+  height: 32px;
+  line-height: 32px;
+  font-size:15px;
+  margin: 0 auto;
+  border-radius: 0;
+  text-decoration: none;
+}
+.pri-btn .wei-bg-white{
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #333;
+  color: #333;
+  background-color: #fff;
+  height: 32px;
+  line-height: 32px;
+  font-size: 15px;
+  margin: 0 auto;
+  border-radius: 0;
+  text-decoration: none;
+}
+/* 样式将只应用于打印 */
+@media print {
+  .tq-print .intro{
+    background-color: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+@page {
+    size: 5in 5in;
+}
